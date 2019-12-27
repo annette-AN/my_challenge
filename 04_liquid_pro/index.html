@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- og tag, icon & favicon -->
+<link rel="stylesheet" href="resources/css/reset.css">
+<link rel="stylesheet" href="resources/css/common.css">
+<link rel="stylesheet" href="resources/css/test.css">
+<title>elements</title>
+</head>
+<body>
+<!-- white_Theme01 -->
+<!-- white_Theme10 -->
+<div class="white_Theme01">
+    <div class="num" style="background-image: url(resources/images/ico_arr_sortUp.png);">73</div>
+    <!-- [D] image 
+        /ico_arr_sortUp.png -> 코멘트 상승
+        /ico_arr_sortDown.png -> 코멘트 하락
+        /ico_arr_sortFreezing.png -> 코멘트 변함없음
+    -->
+    <div class="dl_box">
+        <em>recent comments</em>
+        <span><em>74</em> new updates</span>
+    </div>
+</div>
+
+<div class="white_Theme01 midium">
+    <div class="gauge_box">
+        <div class="gauge_bar" style="transform: rotate(60deg);">
+        <!-- [D] gauge_bar -> rotate로 게이지이동 -->
+        </div>
+        <em class="total"><span>7</span></em>
+
+        <div class="status">
+            <div>5</div>
+            <span>DONE</span>
+        </div>
+    </div>
+
+    <div class="dl_box">
+        <em>recomended changes</em>
+        <span><em>5</em> new updates</span>
+    </div>
+</div>
+
+<!-- white_Theme03 -->
+<ul class="white_Theme03">
+    <li>
+        <a href="#none"><img src="resources/images/theme03_ico01.png" alt="theme03_ico01"></a>
+    </li>
+    <li>
+        <a href="#none"><img src="resources/images/theme03_ico02.png" alt="theme03_ico02"></a>
+    </li>
+    <li>
+        <a href="#none"><img src="resources/images/theme03_ico03.png" alt="theme03_ico03"></a>
+    </li>
+    <li>
+        <a href="#none"><img src="resources/images/theme03_ico04.png" alt="theme03_ico04"></a>
+    </li>
+</ul>
+
+<!-- white_Theme04 -->
+<div class="white_Theme04">
+    <span>Workflow</span>
+    <div class="switch">
+    <!-- [D] 
+        class="active" -> 스위치 on 
+        class 없음 -> 스위치 off
+    -->
+        <span class="hide">스위치</span>
+        <div class="track"></div>
+        <div class="track_thumb"></div>
+    </div>
+</div>
+
+<!-- white_Theme05 -->
+<!-- white_Theme09 -->
+<div class="white_Theme05">
+    <img src="resources/images/ico_folderOpen.png" alt="파일 다운로드">
+    <div class="slider">
+        <div class="progress_bar" style="width: 30%">
+        <!-- [D] 다운로드 진행정도 표현 -> style width -->
+            <span class="hide">다운로드 진행된 정도</span>
+        </div>
+    </div>
+    <div class="sync">
+        <img src="resources/images/ico_sync_alt.png" alt="동기화중">
+    </div>
+</div>
+
+<div class="white_Theme05 midium only_icon">
+    <img src="resources/images/ico_dropBox.png" alt="박스모양 아이콘">
+    <div class="sync midium">
+        <img src="resources/images/theme05_ico01.png" alt="가방">
+    </div>
+</div>
+
+<div class="white_Theme05 midium">
+    <img src="resources/images/ico_user.png" alt="사람모양 아이콘">
+    <div class="sync midium">
+        <img src="resources/images/theme05_ico01.png" alt="가방">
+    </div>
+    <span class="text_st01">175</span>
+</div>
+
+<div class="menu_item">
+    <div class="white_Theme05 only_icon">
+        <img src="resources/images/ico_dropBox.png" alt="박스모양 아이콘">
+        <div class="sync midium">
+            <img src="resources/images/theme05_ico01.png" alt="가방">
+        </div>
+    </div>
+    
+    <dl class="dl_basic">
+        <dt>Dropbox</dt>
+        <dd><span>7634</span> FILES</dd>
+    </dl>
+</div>
+
+<div class="menu_item">
+    <div class="white_Theme05">
+        <img src="resources/images/ico_user.png" alt="사람모양 아이콘">
+        <div class="sync midium">
+            <img src="resources/images/theme05_ico01.png" alt="가방">
+        </div>
+        <span class="text_st01">175</span>
+    </div>
+
+    <dl class="dl_basic">
+        <dt>Users</dt>
+        <dd><span>7</span> NEW MEMBERS</dd>
+    </dl>
+</div>
+
+<div class="menu_item">
+    <div class="white_Theme05 small">
+        <img src="resources/images/ico_folderOpenM.png" alt="폴더 아이콘">
+        <div class="sync small">
+            <em>999+</em>
+        </div>
+        <span class="text_st01">357</span>
+    </div>
+
+    <dl class="dl_basic">
+        <dt>Projects</dt>
+        <dd><span>5</span> UPDATES</dd>
+    </dl>
+</div>
+
+<div class="menu_item">
+    <div class="white_Theme05 small">
+        <img src="resources/images/ico_speechBubble.png" alt="말풍선 아이콘">
+        <span class="text_st01">47</span>
+    </div>
+
+    <dl class="dl_basic">
+        <dt>Messages</dt>
+        <dd>
+            <span class="active_remindCc">15</span> UNREAD
+            <!-- [D] class="active_remindCc" -> 파란 알림 동그라미 표시 -->
+        </dd>
+    </dl>
+</div>
+
+<div class="menu_item">
+    <div class="white_Theme05 small">
+        <img src="resources/images/ico_dashboard.png" alt="대쉬보드 아이콘">
+        <span class="text_st01">14</span>
+    </div>
+
+    <dl class="dl_basic">
+        <dt>Dashboard</dt>
+        <dd><span>735</span> UPDATES</dd>
+    </dl>
+</div>
+
+<div class="menu_item">
+    <div class="white_Theme05 midium color_ver">
+        <img src="resources/images/ico_download.png" alt="다운로드 중">
+        <div class="slider color_ver">
+            <div class="progress_bar" style="width: 40%">
+            <!-- [D] 다운로드 진행정도 표현 -> style width -->
+                <span class="hide">다운로드 진행된 정도</span>
+            </div>
+        </div>
+    </div>
+
+    <dl class="dl_basic color_ver">
+        <dt>Dashboard</dt>
+        <dd><span>735</span> UPDATES</dd>
+    </dl>
+</div>
+
+<div class="menu_item">
+    <div class="white_Theme05 small">
+        <img src="resources/images/ico_files.png" alt="다운로드 중">
+        <span class="text_st01">15</span>
+    </div>
+
+    <dl class="dl_basic">
+        <dt>Resources</dt>
+        <dd><span>7</span> UPLOADS</dd>
+    </dl>
+</div>
+
+<div class="sync circle">
+    <img src="resources/images/theme05_ico01.png" alt="동기화중">
+</div>
+
+<div class="sync square">
+    <img src="resources/images/theme05_ico01.png" alt="동기화중">
+</div>
+
+<div class="sync square small">
+    <img src="resources/images/ico_check_wh.png" alt="동기화중">
+</div>
+
+<div class="sync midium">
+    <em>4444+</em>
+</div>
+
+<div class="sync xssmall">
+    <em>4</em>
+</div>
+
+<!-- white_Theme13 -->
+<a href="#none" class="ico_plus">
+    <span class="hide">더보기 버튼</span>
+</a>
+
+<a href="#none" class="ico_plus midium">
+    <span class="hide">더보기 버튼</span>
+</a>
+
+<a href="#none" class="ico_plus small gr">
+    <span class="hide">더보기 버튼</span>
+</a>
+
+
+<!-- white_Theme06 -->
+<!-- white_Theme14 -->
+<div class="white_Theme06">
+    <div class="img_box">
+        <img src="resources/images/ico_doc.png" alt="doc타입 문서">
+    </div>
+    <dl class="dl_basic f_upl_date">
+        <dt>Strategy.pdf</dt>
+        <dd class="bold">LAST EDITED: <em>JUN 28, 2015</em></dd>
+    </dl>
+</div>
+
+<div class="white_Theme06 bd_dash">
+    <div class="img_box">
+        <img src="resources/images/ico_doc.png" alt="doc타입 문서">
+    </div>
+    <dl class="dl_basic">
+        <dt>Strategy.pdf</dt>
+        <dd>LAST EDITED: <span>JUN 28, 2015</span></dd>
+    </dl>
+</div>
+
+<div class="white_Theme06"> 
+    <div class="img_box">
+        <img src="resources/images/ico_folder.png" alt="폴더">
+    </div>
+    <dl class="dl_basic">
+        <dt>Shared</dt>
+        <dd><span class="file_num">76</span> FILES</dd>
+    </dl>
+</div>
+
+<div class="white_Theme06 midium color_ver dd_cont">
+    <div class="img_box">
+        <img src="resources/images/ico_docM.png" alt="doc타입 문서">
+    </div>
+    <dl class="dl_basic">
+        <dt>RPG Contract</dt>
+        <dd>
+            Nullam id dolor id nibh 
+            ultricies vehicula ut id elit. 
+            Nullam id dolor id nibh 
+            ultricies vehicula ut id elit.
+        </dd>
+    </dl>
+    <div class="menu">
+        <a href="#">
+            <img src="resources/images/ico_menu_wh.png" alt="메뉴 더보기">
+        </a>
+    </div>
+</div>
+
+<div class="white_Theme06 midium dd_cont">
+    <div class="img_box">
+        <img src="resources/images/ico_docM_bl.png" alt="doc타입 문서">
+    </div>
+    <dl class="dl_basic">
+        <dt>RPG Contract</dt>
+        <dd>
+            Nullam id dolor id nibh 
+            ultricies vehicula ut id elit. 
+        </dd>
+    </dl>
+    <div class="menu">
+        <a href="#">
+            <img src="resources/images/ico_menu_gr.png" alt="메뉴 더보기">
+        </a>
+    </div>
+</div>
+
+
+
+
+<!-- white_Theme07 -->
+<ul class="drive_storage_box">
+    <li class="drive_box">
+        <div class="content_box">
+            <img src="resources/images/ico_box.png" alt="box로 바로가기">
+        </div>
+    </li>
+    <li class="drive_googleDrive">
+        <div class="content_box">
+            <img src="resources/images/ico_googleDrive.png" alt="구글드라이브로 바로가기">
+            <div class="sync square small">
+                <img src="resources/images/ico_check_wh.png" alt="동기화중">
+            </div>
+        </div>
+    </li>
+    <li class="drive_dropbox">
+        <div class="content_box">
+            <img src="resources/images/ico_dropBox_gr.png" alt="dropbox로 바로가기">
+        </div>
+    </li>
+    <li class="drive_icloud">
+        <div class="content_box">
+            <img src="resources/images/ico_icloud.png" alt="아이클라우드로 바로가기">
+            <div class="sync square small">
+                <img src="resources/images/ico_check_wh.png" alt="동기화중">
+            </div>
+        </div>
+    </li>
+</ul>
+
+<!-- white_Theme08 -->
+<div class="white_Theme08">
+    <div class="srch">
+        <a href="#">
+            <img src="resources/images/ico_srch.png" alt="검색하기">
+        </a>
+    </div>
+    <div class="upload">
+        <a href="#">
+            <img src="resources/images/ico_upload.png" alt="업로드하기">
+        </a>
+    </div>
+    <div class="mail">
+        <a href="#">
+            <img src="resources/images/ico_mail.png" alt="메일 바로가기">
+            <div class="sync xssmall">
+                <em>4</em>
+            </div>
+        </a>
+    </div>
+    <div class="menu">
+        <a href="#">
+            <img src="resources/images/ico_menu.png" alt="메뉴 더보기">
+        </a>
+    </div>
+</div>
+
+<!-- 17 -->
+<dl class="dl_info mobile">
+    <dt class="dt">My documents</dt>
+    <dd class="dd"><em>6578</em> documents</dd>
+</dl>
+
+<div class="dl_info_inUse mobile">
+    <div class="dl_info">
+        <span class="dt">Lipuid Pro</span>
+        <div class="dd">
+            <em>Unlimited Documents</em>
+            <em>Unlimited Boards</em>
+        </div>
+    </div>
+    <em class="price">&#36;19</em>
+</div>
+
+<div class="upgrade_now">
+    <a href="#" class="bg_on">upgrade now</a>
+    <a href="#">read more</a>
+</div>
+
+<div class="upgrade_now mobile">
+    <a href="#" class="bg_on">upgrade now</a>
+    <a href="#">read more</a>
+</div>
+
+<div class="logo">
+    <img src="resources/images/logo.png" alt="로고">
+</div>
+
+</body>
+</html>
