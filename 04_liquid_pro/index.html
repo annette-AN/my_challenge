@@ -14,15 +14,15 @@
 <!-- white_Theme01 -->
 <!-- white_Theme10 -->
 <div class="white_Theme01">
-    <div class="num" style="background-image: url(resources/images/ico_arr_sortUp.png);">73</div>
+    <div class="text_gauge side01" style="background-image: url(resources/images/ico_arr_sortUp.png);">73</div>
     <!-- [D] image 
         /ico_arr_sortUp.png -> 코멘트 상승
         /ico_arr_sortDown.png -> 코멘트 하락
         /ico_arr_sortFreezing.png -> 코멘트 변함없음
     -->
     <div class="dl_box">
-        <em>recent comments</em>
-        <span><em>74</em> new updates</span>
+        <em class="dt">recent comments</em>
+        <span class="dd"><em>74</em> new updates</span>
     </div>
 </div>
 
@@ -40,8 +40,8 @@
     </div>
 
     <div class="dl_box">
-        <em>recomended changes</em>
-        <span><em>5</em> new updates</span>
+        <em class="dt">recomended changes</em>
+        <span class="dd"><em>5</em> new updates</span>
     </div>
 </div>
 
@@ -234,6 +234,19 @@
     <span class="hide">더보기 버튼</span>
 </a>
 
+<a href="#none" class="ico_plus small">
+    <span class="hide">더보기 버튼</span>
+</a>
+
+<a href="#none" class="ico_plus small light">
+    <span class="hide">더보기 버튼</span>
+</a>
+
+<a href="#none" class="ico_plus small light ico_active">
+    <span class="hide">더보기 버튼</span>
+</a>
+
+
 <a href="#none" class="ico_plus small gr">
     <span class="hide">더보기 버튼</span>
 </a>
@@ -271,7 +284,7 @@
     </dl>
 </div>
 
-<div class="white_Theme06 midium color_ver dd_cont">
+<div class="white_Theme06 midium color_ver">
     <div class="img_box">
         <img src="resources/images/ico_docM.png" alt="doc타입 문서">
     </div>
@@ -291,7 +304,7 @@
     </div>
 </div>
 
-<div class="white_Theme06 midium dd_cont">
+<div class="white_Theme06 midium">
     <div class="img_box">
         <img src="resources/images/ico_docM_bl.png" alt="doc타입 문서">
     </div>
@@ -315,30 +328,30 @@
 <!-- white_Theme07 -->
 <ul class="drive_storage_box">
     <li class="drive_box">
-        <div class="content_box">
+        <a href="#none" class="content_box">
             <img src="resources/images/ico_box.png" alt="box로 바로가기">
-        </div>
+        </a>
     </li>
     <li class="drive_googleDrive">
-        <div class="content_box">
+        <a href="#none" class="content_box">
             <img src="resources/images/ico_googleDrive.png" alt="구글드라이브로 바로가기">
             <div class="sync square small">
                 <img src="resources/images/ico_check_wh.png" alt="동기화중">
             </div>
-        </div>
+        </a>
     </li>
     <li class="drive_dropbox">
-        <div class="content_box">
+        <a href="#none" class="content_box">
             <img src="resources/images/ico_dropBox_gr.png" alt="dropbox로 바로가기">
-        </div>
+        </a>
     </li>
     <li class="drive_icloud">
-        <div class="content_box">
+        <a href="#none" class="content_box">
             <img src="resources/images/ico_icloud.png" alt="아이클라우드로 바로가기">
             <div class="sync square small">
                 <img src="resources/images/ico_check_wh.png" alt="동기화중">
             </div>
-        </div>
+        </a>
     </li>
 </ul>
 
@@ -370,10 +383,10 @@
 </div>
 
 <!-- 17 -->
-<dl class="dl_info mobile">
-    <dt class="dt">My documents</dt>
-    <dd class="dd"><em>6578</em> documents</dd>
-</dl>
+<a href="#none" class="dl_info mobile">
+    <span class="dt">My documents</span>
+    <span class="dd"><em>6578</em> documents</span>
+</a>
 
 <div class="dl_info_inUse mobile">
     <div class="dl_info">
@@ -399,6 +412,49 @@
 <div class="logo">
     <img src="resources/images/logo.png" alt="로고">
 </div>
+
+    <!-- 19 -->
+    <div class="white_Theme01 data_gragh da_mobile">
+        <div class="bar_gragh">
+            <div class="bar">
+                <div class="progress_bar" style="height: 80%;">
+                    <div><em class="dot"></em></div>
+                </div>
+            </div>
+            <div class="bar active">
+                <!-- [D] class="active" -> .progress_bar & .dot 컬러 활성화 -->
+                <div class="progress_bar" style="height: 100%;">
+                    <!-- [D] style="height:" -> 0% ~ 100% -->
+                    <div><em class="dot"></em></div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="progress_bar" style="height: 60%;">
+                    <div><em class="dot"></em></div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="progress_bar" style="height: 70%;">
+                    <div><em class="dot"></em></div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="progress_bar" style="height: 50%;">
+                    <div><em class="dot"></em></div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="progress_bar" style="height: 20%;">
+                    <div><em class="dot"></em></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dl_box">
+            <em class="dt">data analytics</em>
+            <span class="dd"><em>234</em> new updates</span>
+        </div>
+    </div>
 
 </body>
 </html>
