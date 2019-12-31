@@ -5,7 +5,24 @@ body {
     }
 }
 
+.page {
+    padding: 35px 15px;
+}
+
 //공통
+.btn {
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px;
+    line-height: 0px;
+    text-align: center;
+    vertical-align: middle;
+
+    img {
+        vertical-align: middle;
+    }
+}
+
 .ico_notice {
     position: absolute;
     top: 0%;
@@ -485,31 +502,26 @@ body {
     width: 100%;
 
     li {
-        width: 28px;
+        width: 25%;
         height: 26px;
     }
 
     a {
         display: block;
         height: 100%;
-    }
 }
 
 
 .srch, .upload, .mail, .menu, .refresh, .close {
     display: inline-block;
-    line-height: 0px;
     text-align: center;
+    vertical-align: middle;
 
-    a {
-        display: inline-block;
-        width: 100%;
+    img {
         vertical-align: middle;
-
-        img {
-            vertical-align: middle;
-        }
     }
+}
+
 }
 
 .mail {
@@ -518,8 +530,8 @@ body {
     .sync {
         position: absolute;
         top: 0%;
-        right: 0%;
-        transform: translate(50%, -50%);
+        left: 50%;
+        transform: translate(0%, -50%);
         line-height: 24px;
     }
 }
@@ -1167,8 +1179,10 @@ body {
 
     .menu, .refresh {
         position: absolute;
-        top: calc(50% - 15px);
+        // top: 50%;
         right: 0%;
+        // transform: translate(0%, -50%);
+        bottom: 0px;
     }
 }
 
@@ -1186,8 +1200,8 @@ body {
 
     .menu {
         position: absolute;
-        top: calc(50% - 15px);
         right: 0%;
+        bottom: 0%;
     }
 }
 
@@ -1389,13 +1403,13 @@ body {
 
 .page01 {
     position: relative;
-    padding: 45px 50px 40px;
+    // padding: 45px 50px 40px;
     border-radius: 17px;
     text-align: center;
     background-color: rgba(255,255,255,0.67);
 
     .gauge_box {
-        margin: 50px 0px 0px 0px;
+        margin: 55px 0px 0px 0px;
     }
 
     .dl_box {
@@ -1415,7 +1429,7 @@ body {
     }
 
     .recomended_p {
-        margin: 55px 0px 0px 0px;
+        margin: 55px 50px 5px;
         padding: 35px 0px 0px 0px;
     }
 
@@ -1432,17 +1446,16 @@ body {
 }
 
 .page02 {
-    padding: 40px 0px;
     border-radius: 17px;
     background-color: rgba(254,254,254,0.96);
     text-align: center;
 
     .Theme08 {
-        padding: 0px 55px;
+        padding: 20px 0px 0px 0px;
     }
 
-    .contents {
-        margin: 50px 20px 0px;
+    .cont {
+        margin: 50px 5px 0px;
         border-top: 2px solid rgba(201,209,216,0.29);
         border-bottom: 2px solid rgba(201,209,216,0.29);
         text-align: center;
@@ -1526,13 +1539,9 @@ body {
 
     .article_tlt01, .article_tlt02 {
         padding: 0px 0px 0px 40px;
-
-        .menu {
-            width: 20px;
-        }
     }
 
-    .contents {
+    .cont {
         > li {
             margin: 45px 0px 0px 0px;
 
@@ -1560,7 +1569,7 @@ body {
 
                 .dl_coment {
                     display: inline-block;
-                    width: calc(100% - 25px);
+                    width: calc(100% - 27px);
                     vertical-align: middle;
 
                     .dd {
@@ -1570,7 +1579,6 @@ body {
 
                 .menu {
                     display: inline-block;
-                    width: 20px;
                     vertical-align: middle;
                 }
             }
@@ -1603,18 +1611,18 @@ body {
 .page04 {
     overflow: hidden;
     position: relative;
-    padding: 40px 0px 0px 0px;
+    padding-bottom: 200px;
     border-radius: 17px;
-    background-color: rgba(254,254,254,0.96);
+    background: rgba(254,254,254,0.96) url(../images/bg_gragh.png) no-repeat 0% 100%;
     text-align: center;
 
     .Theme08 {
-        padding: 0px 55px;
+        padding: 5px 0px;
     }
     
     .article_tlt01 {
         margin: 60px 0px 0px 0px;
-        padding: 0px 55px;
+        padding: 0px 40px;
 
         .refresh {
             right: 55px;
@@ -1623,11 +1631,11 @@ body {
     
     .contents_info {
         margin: 70px 0px 0px 0px;
-        padding: 0px 55px;
+        padding: 0px 40px;
     }
 
-    .contents {
-        margin: 50px 20px 0px;
+    .cont {
+        margin: 50px 5px 0px;
         border-top: 2px solid rgba(201,209,216,0.29);
         border-bottom: 2px solid rgba(201,209,216,0.29);
         text-align: center;
@@ -1690,7 +1698,7 @@ body {
     }
 
     .average_montly {
-        margin: 60px 0px 0px 65px;
+        margin: 60px 0px 0px 50px;
         text-align: left;
 
         .text_gauge {
@@ -1734,21 +1742,17 @@ body {
     border-radius: 17px;
 
     .article_tlt02 {
-        padding: 60px 0px 25px 55px;
-        margin: 50px 0px 0px 0px;
+        padding: 35px 0px 25px 40px;
+        // margin: 50px 0px 0px 0px;
 
         .menu {
             top: auto;
             right: 30px;
             bottom: 25px;
-
-            a {
-                padding: 0px 5px;
-            }
         }
     }
 
-    .contents {
+    .cont {
         li {
             position: relative;
 
@@ -1764,12 +1768,12 @@ body {
 
             > a {
                 display: block;
-                padding: 30px 22px;
+                padding: 30px 7px;
             }
         }
 
         .dl_img {
-            background-position: 25px 50%;
+            background-position: 10px 50%;
         }
 
         .img_box {
@@ -1802,14 +1806,7 @@ body {
         .close {
             position: absolute;
             top: calc(50% - 20px);
-            right: 20px;
-
-            a {
-                padding: 15px;
-            }
+            right: 30px;
         }
-    }
-    .img_box {
-
     }
 }
