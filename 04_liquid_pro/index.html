@@ -11,9 +11,14 @@
 <title>elements</title>
 </head>
 <body>
-<!-- white_Theme01 -->
-<!-- white_Theme10 -->
-<div class="white_Theme01">
+<!-- Theme01 -->
+<!-- Theme10 -->
+
+<span class="ico_notice">
+    <img src="resources/images/ico_exclamation_reminder.png" alt="알림">
+</span>
+
+<div class="theme0101">
     <div class="text_gauge side01" style="background-image: url(resources/images/ico_arr_sortUp.png);">73</div>
     <!-- [D] image 
         /ico_arr_sortUp.png -> 코멘트 상승
@@ -24,14 +29,20 @@
         <em class="dt">recent comments</em>
         <span class="dd"><em>74</em> new updates</span>
     </div>
+
+    <span class="ico_notice">
+        <img src="resources/images/ico_exclamation_reminder.png" alt="알림">
+    </span>
 </div>
 
-<div class="white_Theme01 midium">
+<div class="theme0102">
     <div class="gauge_box">
-        <div class="gauge_bar" style="transform: rotate(60deg);">
-        <!-- [D] gauge_bar -> rotate로 게이지이동 -->
+        <div class="gauge">
+            <div class="gauge_bar" style="height: 60%;">
+            <!-- [D] gauge_bar -> height: 0% ~ 100% -->
+            </div>
+            <em class="total"><span>7</span></em>
         </div>
-        <em class="total"><span>7</span></em>
 
         <div class="status">
             <div>5</div>
@@ -39,14 +50,18 @@
         </div>
     </div>
 
-    <div class="dl_box">
+    <div class="dl_box dlM">
         <em class="dt">recomended changes</em>
         <span class="dd"><em>5</em> new updates</span>
     </div>
+
+    <span class="ico_notice">
+        <img src="resources/images/ico_exclamation_reminder.png" alt="알림">
+    </span>
 </div>
 
-<!-- white_Theme03 -->
-<ul class="white_Theme03">
+<!-- Theme03 -->
+<ul class="Theme03">
     <li>
         <a href="#none"><img src="resources/images/theme03_ico01.png" alt="theme03_ico01"></a>
     </li>
@@ -61,28 +76,37 @@
     </li>
 </ul>
 
-<!-- white_Theme04 -->
-<div class="white_Theme04">
+<!-- Theme04 -->
+<div class="Theme04">
     <span>Workflow</span>
+
     <div class="switch">
     <!-- [D] 
         class="active" -> 스위치 on 
         class 없음 -> 스위치 off
     -->
-        <span class="hide">스위치</span>
-        <div class="track"></div>
-        <div class="track_thumb"></div>
+        <input type="checkbox" id="workflow">
+        <label for="workflow">
+            <span class="hide">스위치</span>
+            <div class="track"></div>
+            <div class="track_thumb"></div>
+        </label>
+
     </div>
 </div>
 
-<!-- white_Theme05 -->
-<!-- white_Theme09 -->
-<div class="white_Theme05">
-    <img src="resources/images/ico_folderOpen.png" alt="파일 다운로드">
-    <div class="slider">
-        <div class="progress_bar" style="width: 30%">
-        <!-- [D] 다운로드 진행정도 표현 -> style width -->
-            <span class="hide">다운로드 진행된 정도</span>
+<!-- Theme05 -->
+<!-- Theme09 -->
+<div class="Theme05">
+    <div class="inner_box">
+        <img src="resources/images/ico_folderOpen.png" alt="파일 다운로드">
+        <div class="slider_box">
+            <div class="slider">
+                <div class="progress_bar" style="width: 30%">
+                <!-- [D] 다운로드 진행정도 표현 -> style width -->
+                    <span class="hide">다운로드 진행된 정도</span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="sync">
@@ -90,118 +114,155 @@
     </div>
 </div>
 
-<div class="white_Theme05 midium only_icon">
-    <img src="resources/images/ico_dropBox.png" alt="박스모양 아이콘">
-    <div class="sync midium">
-        <img src="resources/images/theme05_ico01.png" alt="가방">
+<div class="Theme05">
+    <div class="inner_box">
+        <img src="resources/images/ico_folderOpen.png" alt="파일 다운로드">
+        <div class="slider_box">
+            <div class="slider">
+                <div class="progress_bar" style="width: 30%">
+                <!-- [D] 다운로드 진행정도 표현 -> style width -->
+                    <span class="hide">다운로드 진행된 정도</span>
+                </div>
+            </div>
+        </div>
+        <div class="sync">
+            <img src="resources/images/ico_sync_alt.png" alt="동기화중">
+        </div>
     </div>
 </div>
 
-<div class="white_Theme05 midium">
-    <img src="resources/images/ico_user.png" alt="사람모양 아이콘">
-    <div class="sync midium">
-        <img src="resources/images/theme05_ico01.png" alt="가방">
-    </div>
-    <span class="text_st01">175</span>
-</div>
-
-<div class="menu_item">
-    <div class="white_Theme05 only_icon">
+<div class="Theme05 themeM">
+    <div class="inner_box">
         <img src="resources/images/ico_dropBox.png" alt="박스모양 아이콘">
-        <div class="sync midium">
+        <div class="sync syncM">
             <img src="resources/images/theme05_ico01.png" alt="가방">
         </div>
     </div>
-    
-    <dl class="dl_basic">
-        <dt>Dropbox</dt>
-        <dd><span>7634</span> FILES</dd>
-    </dl>
 </div>
 
-<div class="menu_item">
-    <div class="white_Theme05">
+<div class="Theme05 themeM">
+    <div class="inner_box">
         <img src="resources/images/ico_user.png" alt="사람모양 아이콘">
-        <div class="sync midium">
+        <div class="sync syncM">
             <img src="resources/images/theme05_ico01.png" alt="가방">
         </div>
         <span class="text_st01">175</span>
     </div>
-
-    <dl class="dl_basic">
-        <dt>Users</dt>
-        <dd><span>7</span> NEW MEMBERS</dd>
-    </dl>
 </div>
 
-<div class="menu_item">
-    <div class="white_Theme05 small">
-        <img src="resources/images/ico_folderOpenM.png" alt="폴더 아이콘">
-        <div class="sync small">
-            <em>999+</em>
+<div class="theme05_box">
+    <div class="Theme05">
+        <div class="inner_box">
+            <img src="resources/images/ico_dropBox.png" alt="박스모양 아이콘">
+            <div class="sync syncM">
+                <img src="resources/images/theme05_ico01.png" alt="가방">
+            </div>
         </div>
-        <span class="text_st01">357</span>
     </div>
-
+    
     <dl class="dl_basic">
-        <dt>Projects</dt>
-        <dd><span>5</span> UPDATES</dd>
+        <dt class="dt">Dropbox</dt>
+        <dd class="dd"><span>7634</span> FILES</dd>
     </dl>
 </div>
 
-<div class="menu_item">
-    <div class="white_Theme05 small">
-        <img src="resources/images/ico_speechBubble.png" alt="말풍선 아이콘">
-        <span class="text_st01">47</span>
+<div class="theme05_box">
+    <div class="Theme05">
+        <div class="inner_box">
+            <img src="resources/images/ico_user.png" alt="사람모양 아이콘">
+            <div class="sync syncM">
+                <img src="resources/images/theme05_ico01.png" alt="가방">
+            </div>
+            <span class="text_st01">175</span>
+        </div>
     </div>
 
     <dl class="dl_basic">
-        <dt>Messages</dt>
-        <dd>
+        <dt class="dt">Users</dt>
+        <dd class="dd"><span>7</span> NEW MEMBERS</dd>
+    </dl>
+</div>
+
+<div class="theme05_box">
+    <div class="Theme05 themeS">
+        <div class="inner_box">
+            <img src="resources/images/ico_folderOpenM.png" alt="폴더 아이콘">
+            <div class="sync syncS">
+                <em>999+</em>
+            </div>
+            <span class="text_st01">357</span>
+        </div>
+    </div>
+
+    <dl class="dl_basic">
+        <dt class="dt">Projects</dt>
+        <dd class="dd"><span>5</span> UPDATES</dd>
+    </dl>
+</div>
+
+<div class="theme05_box">
+    <div class="Theme05 themeS">
+        <div class="inner_box">
+            <img src="resources/images/ico_speechBubble.png" alt="말풍선 아이콘">
+            <span class="text_st01">47</span>
+        </div>
+    </div>
+
+    <dl class="dl_basic">
+        <dt class="dt">Messages</dt>
+        <dd class="dd">
             <span class="active_remindCc">15</span> UNREAD
             <!-- [D] class="active_remindCc" -> 파란 알림 동그라미 표시 -->
         </dd>
     </dl>
 </div>
 
-<div class="menu_item">
-    <div class="white_Theme05 small">
-        <img src="resources/images/ico_dashboard.png" alt="대쉬보드 아이콘">
-        <span class="text_st01">14</span>
+<div class="theme05_box">
+    <div class="Theme05 themeS">
+        <div class="inner_box">
+            <img src="resources/images/ico_dashboard.png" alt="대쉬보드 아이콘">
+            <span class="text_st01">14</span>
+        </div>
     </div>
 
     <dl class="dl_basic">
-        <dt>Dashboard</dt>
-        <dd><span>735</span> UPDATES</dd>
+        <dt class="dt">Dashboard</dt>
+        <dd class="dd"><span>735</span> UPDATES</dd>
     </dl>
 </div>
 
-<div class="menu_item">
-    <div class="white_Theme05 midium color_ver">
-        <img src="resources/images/ico_download.png" alt="다운로드 중">
-        <div class="slider color_ver">
-            <div class="progress_bar" style="width: 40%">
-            <!-- [D] 다운로드 진행정도 표현 -> style width -->
-                <span class="hide">다운로드 진행된 정도</span>
+<div class="theme05_box">
+    <div class="Theme05 themeM color_ver">
+        <div class="inner_box">
+            <img src="resources/images/ico_download.png" alt="다운로드 중">
+            <div class="slider_box">
+                <div class="slider color_ver">
+                    <div class="progress_bar" style="width: 40%">
+                    <!-- [D] 다운로드 진행정도 표현 -> style width -->
+                        <span class="hide">다운로드 진행된 정도</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <dl class="dl_basic color_ver">
-        <dt>Dashboard</dt>
-        <dd><span>735</span> UPDATES</dd>
+        <dt class="dt">Dashboard</dt>
+        <dd class="dd"><span>735</span> UPDATES</dd>
     </dl>
 </div>
 
-<div class="menu_item">
-    <div class="white_Theme05 small">
-        <img src="resources/images/ico_files.png" alt="다운로드 중">
-        <span class="text_st01">15</span>
+<div class="theme05_box">
+    <div class="Theme05 themeS">
+        <div class="inner_box">
+            <img src="resources/images/ico_files.png" alt="다운로드 중">
+            <span class="text_st01">15</span>
+        </div>
     </div>
 
     <dl class="dl_basic">
-        <dt>Resources</dt>
-        <dd><span>7</span> UPLOADS</dd>
+        <dt class="dt">Resources</dt>
+        <dd class="dd"><span>7</span> UPLOADS</dd>
     </dl>
 </div>
 
@@ -217,82 +278,80 @@
     <img src="resources/images/ico_check_wh.png" alt="동기화중">
 </div>
 
-<div class="sync midium">
+<div class="sync syncM">
     <em>4444+</em>
 </div>
 
-<div class="sync xssmall">
+<div class="sync syncXS">
     <em>4</em>
 </div>
 
-<!-- white_Theme13 -->
+<!-- Theme13 -->
 <a href="#none" class="ico_plus">
     <span class="hide">더보기 버튼</span>
 </a>
 
-<a href="#none" class="ico_plus midium">
+<a href="#none" class="ico_plus icoPlusM">
     <span class="hide">더보기 버튼</span>
 </a>
 
-<a href="#none" class="ico_plus small">
+<a href="#none" class="ico_plus icoPlusS">
     <span class="hide">더보기 버튼</span>
 </a>
 
-<a href="#none" class="ico_plus small light">
+<a href="#none" class="ico_plusLight">
     <span class="hide">더보기 버튼</span>
 </a>
 
-<a href="#none" class="ico_plus small light ico_active">
-    <span class="hide">더보기 버튼</span>
-</a>
-
-
-<a href="#none" class="ico_plus small gr">
+<a href="#none" class="ico_plusLight ico_active">
     <span class="hide">더보기 버튼</span>
 </a>
 
 
-<!-- white_Theme06 -->
-<!-- white_Theme14 -->
-<div class="white_Theme06">
+<a href="#none" class="ico_plus icoPlusS gr">
+    <span class="hide">더보기 버튼</span>
+</a>
+
+
+<!-- Theme06 -->
+<!-- Theme14 -->
+<div class="Theme0601">
     <div class="img_box">
-        <img src="resources/images/ico_doc.png" alt="doc타입 문서">
-    </div>
-    <dl class="dl_basic f_upl_date">
-        <dt>Strategy.pdf</dt>
-        <dd class="bold">LAST EDITED: <em>JUN 28, 2015</em></dd>
-    </dl>
-</div>
-
-<div class="white_Theme06 bd_dash">
-    <div class="img_box">
-        <img src="resources/images/ico_doc.png" alt="doc타입 문서">
+        <img src="resources/images/ico_doc.png" alt="문서">
     </div>
     <dl class="dl_basic">
-        <dt>Strategy.pdf</dt>
-        <dd>LAST EDITED: <span>JUN 28, 2015</span></dd>
+        <dt class="dt">Strategy.pdf</dt>
+        <dd class="dd">LAST EDITED: <em>JUN 28, 2015</em></dd>
     </dl>
 </div>
 
-<div class="white_Theme06"> 
+<div class="Theme0602">
+    <div class="img_box">
+        <img src="resources/images/ico_doc.png" alt="문서">
+    </div>
+    <dl class="dl_basic">
+        <dt class="dt">Strategy.pdf</dt>
+        <dd class="dd">LAST EDITED: <span>JUN 28, 2015</span></dd>
+    </dl>
+</div>
+
+<div class="Theme0601"> 
     <div class="img_box">
         <img src="resources/images/ico_folder.png" alt="폴더">
     </div>
     <dl class="dl_basic">
-        <dt>Shared</dt>
-        <dd><span class="file_num">76</span> FILES</dd>
+        <dt class="dt">Shared</dt>
+        <dd class="dd"><span>76</span> FILES</dd>
     </dl>
 </div>
 
-<div class="white_Theme06 midium color_ver">
+<div class="Theme0603 active">
     <div class="img_box">
-        <img src="resources/images/ico_docM.png" alt="doc타입 문서">
+        <img src="resources/images/ico_docM.png" alt="문서">
     </div>
     <dl class="dl_basic">
         <dt>RPG Contract</dt>
         <dd>
-            Nullam id dolor id nibh 
-            ultricies vehicula ut id elit. 
             Nullam id dolor id nibh 
             ultricies vehicula ut id elit.
         </dd>
@@ -304,9 +363,9 @@
     </div>
 </div>
 
-<div class="white_Theme06 midium">
+<div class="Theme0603">
     <div class="img_box">
-        <img src="resources/images/ico_docM_bl.png" alt="doc타입 문서">
+        <img src="resources/images/ico_docM_bl.png" alt="문서">
     </div>
     <dl class="dl_basic">
         <dt>RPG Contract</dt>
@@ -323,72 +382,86 @@
 </div>
 
 
-
-
-<!-- white_Theme07 -->
+<!-- Theme07 -->
 <ul class="drive_storage_box">
-    <li class="drive_box">
-        <a href="#none" class="content_box">
+    <li class="theme07">
+        <a href="#none" class="content">
             <img src="resources/images/ico_box.png" alt="box로 바로가기">
         </a>
     </li>
-    <li class="drive_googleDrive">
-        <a href="#none" class="content_box">
+    <li class="theme07">
+        <a href="#none" class="content">
             <img src="resources/images/ico_googleDrive.png" alt="구글드라이브로 바로가기">
-            <div class="sync square small">
+            <div class="sync square syncS">
                 <img src="resources/images/ico_check_wh.png" alt="동기화중">
             </div>
         </a>
     </li>
-    <li class="drive_dropbox">
-        <a href="#none" class="content_box">
+    <li class="theme07">
+        <a href="#none" class="content">
             <img src="resources/images/ico_dropBox_gr.png" alt="dropbox로 바로가기">
         </a>
     </li>
-    <li class="drive_icloud">
-        <a href="#none" class="content_box">
+    <li class="theme07">
+        <a href="#none" class="content">
             <img src="resources/images/ico_icloud.png" alt="아이클라우드로 바로가기">
-            <div class="sync square small">
+            <div class="sync square syncS">
                 <img src="resources/images/ico_check_wh.png" alt="동기화중">
             </div>
         </a>
     </li>
 </ul>
 
-<!-- white_Theme08 -->
-<div class="white_Theme08">
-    <div class="srch">
+<!-- Theme08 -->
+<ul class="Theme08">
+    <li class="srch">
         <a href="#none">
             <img src="resources/images/ico_srch.png" alt="검색하기">
         </a>
-    </div>
-    <div class="upload">
+    </li>
+    <li class="upload">
         <a href="#none">
             <img src="resources/images/ico_upload.png" alt="업로드하기">
         </a>
-    </div>
-    <div class="mail">
+    </li>
+    <li class="mail">
         <a href="#none">
             <img src="resources/images/ico_mail.png" alt="메일 바로가기">
-            <div class="sync xssmall">
+            <div class="sync syncXS">
                 <em>4</em>
             </div>
         </a>
-    </div>
-    <div class="menu">
+    </li>
+    <li class="menu">
         <a href="#none">
             <img src="resources/images/ico_menu.png" alt="메뉴 더보기">
         </a>
-    </div>
-</div>
+    </li>
+</ul>
 
 <!-- 17 -->
-<a href="#none" class="dl_info mobile">
+<a href="#none" class="dl_info">
     <span class="dt">My documents</span>
     <span class="dd"><em>6578</em> documents</span>
 </a>
 
-<div class="dl_info_inUse mobile">
+<ul class="theme1701">
+    <li>
+        <a href="#none" class="dl_info">
+            <span class="dt">My documents</span>
+            <span class="dd"><em>6578</em> documents</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="#none" class="dl_info">
+            <span class="dt">My documents</span>
+            <span class="dd"><em>6578</em> documents</span>
+        </a>
+    </li>
+</ul>
+
+<div class="theme1702">
     <div class="dl_info">
         <span class="dt">Lipuid Pro</span>
         <div class="dd">
@@ -404,57 +477,59 @@
     <a href="#none">read more</a>
 </div>
 
-<div class="upgrade_now mobile">
-    <a href="#none" class="bg_on">upgrade now</a>
-    <a href="#none">read more</a>
+<div class="theme1703">
+    <div class="upgrade_now">
+        <a href="#none" class="bg_on">upgrade now</a>
+        <a href="#none">read more</a>
+    </div>
 </div>
 
 <div class="logo">
     <img src="resources/images/logo.png" alt="로고">
 </div>
 
-    <!-- 19 -->
-    <div class="white_Theme01 data_gragh da_mobile">
-        <div class="bar_gragh">
-            <div class="bar">
-                <div class="progress_bar" style="height: 80%;">
-                    <div><em class="dot"></em></div>
-                </div>
-            </div>
-            <div class="bar active">
-                <!-- [D] class="active" -> .progress_bar & .dot 컬러 활성화 -->
-                <div class="progress_bar" style="height: 100%;">
-                    <!-- [D] style="height:" -> 0% ~ 100% -->
-                    <div><em class="dot"></em></div>
-                </div>
-            </div>
-            <div class="bar">
-                <div class="progress_bar" style="height: 60%;">
-                    <div><em class="dot"></em></div>
-                </div>
-            </div>
-            <div class="bar">
-                <div class="progress_bar" style="height: 70%;">
-                    <div><em class="dot"></em></div>
-                </div>
-            </div>
-            <div class="bar">
-                <div class="progress_bar" style="height: 50%;">
-                    <div><em class="dot"></em></div>
-                </div>
-            </div>
-            <div class="bar">
-                <div class="progress_bar" style="height: 20%;">
-                    <div><em class="dot"></em></div>
-                </div>
+<!-- 19 -->
+<div class="Theme19">
+    <div class="bar_gragh">
+        <div class="bar">
+            <div class="progress_bar" style="height: 80%;">
+                <div><em class="dot"></em></div>
             </div>
         </div>
-
-        <div class="dl_box">
-            <em class="dt">data analytics</em>
-            <span class="dd"><em>234</em> new updates</span>
+        <div class="bar active">
+            <!-- [D] class="active" -> .progress_bar & .dot 컬러 활성화 -->
+            <div class="progress_bar" style="height: 100%;">
+                <!-- [D] style="height:" -> 0% ~ 100% -->
+                <div><em class="dot"></em></div>
+            </div>
+        </div>
+        <div class="bar">
+            <div class="progress_bar" style="height: 60%;">
+                <div><em class="dot"></em></div>
+            </div>
+        </div>
+        <div class="bar">
+            <div class="progress_bar" style="height: 70%;">
+                <div><em class="dot"></em></div>
+            </div>
+        </div>
+        <div class="bar">
+            <div class="progress_bar" style="height: 50%;">
+                <div><em class="dot"></em></div>
+            </div>
+        </div>
+        <div class="bar">
+            <div class="progress_bar" style="height: 20%;">
+                <div><em class="dot"></em></div>
+            </div>
         </div>
     </div>
+
+    <div class="dl_box">
+        <em class="dt">data analytics</em>
+        <span class="dd"><em>234</em> new updates</span>
+    </div>
+</div>
 
 </body>
 </html>
