@@ -1,0 +1,20 @@
+.m_ct {position: relative; padding: 35px 40px;}
+.m_ct > .gragh_box {padding: 0px 20px;}
+.dl_box {display: block; line-height: 30px; text-align: center;}
+.dl_box .dt {display: block; text-align: center; font-size: 24px;}
+.dl_box .dd {display: block; text-align: center; font-size: 16px;}
+.dl_box .dd > em {font-size: 16px;}
+.dl_box .file_type {position: absolute; top: 45px; right: 55px; padding: 0px 12px; line-height: 26px; color: #fefefe; font-size: 14px; background-color: rgba(49, 127, 203, 0.9); -webkit-box-shadow: 0px 10px 13px 0px rgba(50, 129, 208, 0.35); box-shadow: 0px 10px 13px 0px rgba(50, 129, 208, 0.35);}
+.cont {margin: 40px 0px 0px 0px; padding: 0px 20px;}
+.text_gauge_box {margin: 0px;}
+.text_gauge_box .text_gauge {color: #2e3039; font-size: 100px;}
+.text_gauge_box p {width: 170px; margin: 25px 0px 0px 0px; line-height: 33px; color: #2e3039; font-size: 27px;}
+.gragh_box {margin: 50px 0px 0px 0px;}
+.gragh_box .gragh_term {padding: 0px 30px 0px 0px;}
+.gragh_box .bar_gragh {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 135px; margin: 10px 0px 0px 0px;}
+.gragh_box .bar_gragh .bar {width: 20px;}
+.gragh_box .bar_gragh .progress_bar em {display: block; margin: 15px 0px 0px 0px; color: #2e3039; font-size: 14px; font-weight: 300; text-transform: capitalize;}
+.gragh_box .bar_gragh .progress_bar span {display: block; color: #c9d1d8; font-size: 11px; font-weight: 300; letter-spacing: 3px;}
+.gragh_box .gragh_indi {margin: 80px 0px 0px 0px;}
+.btn_scrolltop {left: calc(50% - 20px); bottom: -20px;}
+.navi {margin: 35px 0px;}

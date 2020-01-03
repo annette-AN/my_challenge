@@ -1,0 +1,8 @@
+.m_ct {position: relative; text-align: center;}
+.gauge_box {margin: 55px 0px 0px 0px;}
+.dl_box {display: block; margin: 40px 0px 0px 0px; padding: 0px;}
+.dl_box .dt {font-size: 23px;}
+.dl_box .dd {margin: 5px 0px 0px 0px; font-size: 13px; letter-spacing: 1px;}
+.user_box {margin: 55px 50px 5px; padding: 35px 0px 0px 0px;}
+.ico_plus {position: absolute; top: 45px; left: 50px; background-color: #e5eaec;}
+.ico_notice {top: 45px; right: 50px;}

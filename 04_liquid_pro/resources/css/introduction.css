@@ -1,0 +1,15 @@
+.introduction {padding: 15px 0px;}
+.slider_box {width: calc(100% - 60px); margin: 0px 0px 0px 30px;}
+.slider_box .slider {height: calc(100vw + 10px);}
+.slider_box .slider li {height: 100%;}
+.slider_box .slider .file_type {top: 45px; padding: 7px 15px; line-height: 14px; font-size: 14px;}
+.slider_box .slider img {display: none; width: 100%;}
+.slider_box .naviM {display: inline-block; margin: 30px 0px 0px 15px; text-align: left;}
+.slider_box p {margin: 30px 15px 0px 0px; line-height: 17px; color: #434b52; font-size: 17px; font-weight: 900;}
+.slider_box p span {color: #434b52; font-size: 17px; font-weight: 900;}
+.slider_box .ico_plusLight {top: 35px; left: -30px; width: 60px; height: 60px;}
+.slider_box .ico_plusLight:before {width: 20px; height: 4px;}
+.slider_box .ico_plusLight:after {width: 20px; height: 4px;}
+.slider_box .introduction_drive {right: 35px; bottom: 110px;}
+.dl_introduction {display: block; width: calc(100% - 60px); margin: 80px auto 0px;}
+.dl_introduction .dd {margin: 30px 0px 0px 0px;}
