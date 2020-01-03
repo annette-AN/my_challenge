@@ -13,3 +13,5 @@
 .slider_box .introduction_drive {right: 35px; bottom: 110px;}
 .dl_introduction {display: block; width: calc(100% - 60px); margin: 80px auto 0px;}
 .dl_introduction .dd {margin: 30px 0px 0px 0px;}
+
+.article_tlt01 > h2 em {color: #478cd0;}
