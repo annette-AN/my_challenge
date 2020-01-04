@@ -260,8 +260,8 @@ body {width: 100%; background: #ecf0f2; }
 .article li {position: relative; list-style-type: upper-roman; list-style: none; text-align: center;}
 .article li > em {position: absolute; top: -30px; left: 50%; -webkit-transform: translate(-50%, 0%); transform: translate(-50%, 0%); font-size: 17px; font-weight: 900;}
 .article li > img {margin: 25px 0px 0px 0px;}
-.article dl .dt {margin: 30px 0px 0px 0px; text-align: center; color: #2e3039; font-size: 20px; font-weight: 400;}
-.article dl .dd {overflow: auto; height: 520px; margin: 50px 0px 0px 0px; padding: 0px 40px; color: rgba(136, 147, 166, 0.65); font-size: 15px; font-weight: normal; text-align: left; word-break: break-all;}
+.article dl .dt {margin: 30px 0px 0px 0px; text-align: center; color: #2e3039; font-size: 16px; font-weight: 400;}
+.article dl .dd {overflow: auto; height: auto; max-height: 110vw; margin: 30px 0px 0px 0px; padding: 0px 20px; color: rgba(136, 147, 166, 0.65); font-size: 13px; font-weight: normal; text-align: left; word-break: break-all;}
 .article dl .dd p + p {margin: 25px 0px 0px 0px;}
 
 /* content */
@@ -362,3 +362,12 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
 .darkTheme form .input_srch:-ms-input-placeholder {color: #657d95;}
 .darkTheme form .input_srch::-ms-input-placeholder {color: #657d95;}
 .darkTheme form .input_srch::placeholder {color: #657d95;}
+
+@media all and (min-width: 475px) {
+    /* page 공통 */
+    .m_ct {padding: 15px 13px;}
+
+    /* article */
+    .article dl .dt {font-size: 20px;}
+    .article dl .dd {margin: 50px 0px 0px 0px; padding: 0px 40px; font-size: 15px;}
+}

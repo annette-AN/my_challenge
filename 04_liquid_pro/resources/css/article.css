@@ -1,3 +1,4 @@
+.m_ct {position: relative;}
 .top_menu {padding: 0px 8px;}
 .bg_gradation_wh {position: absolute; bottom: 0px; left: 0px; width: 100%;}
 .btn_scrolltop {position: absolute; left: calc(50% - 20px); bottom: -20px;}
