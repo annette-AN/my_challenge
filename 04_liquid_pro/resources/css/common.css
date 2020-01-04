@@ -139,10 +139,10 @@ body {width: 100%; min-width: 320px; background: #ecf0f2; }
 
 .dl_info {display: block; position: relative; text-align: left; color: #657d95;}
 .dl_info:before {content: ''; display: block; position: absolute; top: calc(50% - 6px); right: -6px; border: 6px solid transparent; border-left-color: #2c7dce;}
-.dl_info .dt {display: block; line-height: 30px; font-size: 23px; font-weight: 300;}
+.dl_info .dt {display: block; line-height: 40px; font-size: 34px; font-weight: 300;}
 .dl_info .dt > em {font-size: 18px; font-weight: 300;}
-.dl_info .dd {display: block; line-height: 20px; font-size: 12px; font-weight: 300;}
-.dl_info .dd > em {font-size: 12px; font-weight: 300;}
+.dl_info .dd {display: block; line-height: 27px; font-size: 18px; font-weight: 300;}
+.dl_info .dd > em {font-size: 18px; font-weight: 300;}
 
 .dl_basic {display: inline-block; vertical-align: middle;}
 .dl_basic .dt {line-height: 18px; color: #434b52; font-size: 15px;}
@@ -371,6 +371,11 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
     /* dl */
     .dl_coment {padding: 0px 0px 0px 30px;}
 
+    .dl_info .dt {line-height: 30px; font-size: 23px;}
+    .dl_info .dt > em {font-size: 18px;}
+    .dl_info .dd {line-height: 20px; font-size: 12px;}
+    .dl_info .dd > em {font-size: 12px;}
+
     /* article */
     .article dl .dt {font-size: 16px;}
     .article dl .dd {margin: 30px 0px 0px 0px; padding: 0px 20px; font-size: 13px;}
@@ -392,4 +397,11 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
     /* gragh */
     .bar_gragh {display: block;}
     .dl_box {display: block;}
+
+    /* content */
+    .contents_info > a > span {font-size: 17px;}
+
+    /* gragh, gauge */
+    .text_gauge_box {margin: 40px 0px 0px 40px;}
+    .text_gauge_box .text_gauge {line-height: 60px; font-size: 46px;}
 }
