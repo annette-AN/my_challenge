@@ -29,7 +29,7 @@ abbr,acronym {border:none;}
 hr {display:none;}
 a {text-decoration:none; color:#333; cursor:pointer;}
 a:link,a:visited {text-decoration:none;}
-a:hover,a:active,a:focus {color:#000; text-decoration:none;}
+/* a:hover,a:active,a:focus {color:#000; text-decoration:none;} */
 textarea {overflow:auto; resize: none;} 
 html:first-child select {min-height:20px;} /* opera 9 & below fix */ 
 option {padding-right:6px;} /* firefox fix */
