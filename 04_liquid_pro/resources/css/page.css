@@ -1,4 +1,6 @@
 /* page, page_sub 공통 */
+.m_ct {padding: 50px 30px 50px 25px;}
+
 .article_tlt01, .article_tlt02 {padding: 0px 0px 0px 40px;}
 form {margin: 50px 0px 0px 0px;}
 .cont > li {margin: 45px 0px 0px 0px;}
@@ -20,9 +22,7 @@ form {margin: 50px 0px 0px 0px;}
 .comments .cont > li + li {padding: 45px 0px 0px 0px; border-top: 1px dotted #000;}
 
 /* sub attachments */
-.attachments {padding: 15px 35px;}
-.attachments .article_tlt02 {padding: 35px 0px 25px 40px;}
-.attachments .article_tlt02 .menu {top: auto; right: 30px; bottom: 25px;}
+.attachments .cont {margin: 25px 0px 0px 0px;}
 .attachments .cont li {position: relative; margin: 0px;}
 .attachments .cont li.active .dl_img {background-color: rgba(228, 233, 236, 0.2);}
 .attachments .cont li.active .img_box {background-image: url(../images/ico_docM_bl.png);}
@@ -41,6 +41,20 @@ form {margin: 50px 0px 0px 0px;}
 .darkTheme.attachments .cont li.active .dl_basic .dd {color: #fff;}
 .darkTheme.attachments .cont .img_box {background-image: url(../images/ico_docM_bl.png);}
 
-@media all and (min-width: 475px) {
-    .m_ct {padding: 50px 30px 50px 25px;}
+@media all and (max-width: 475px) {
+    .m_ct {padding: 35px 17px 35px 15px;}
+    form {margin: 30px 0px 0px 0px;}
+    .article_tlt01, .article_tlt02 {padding: 0px 0px 0px 30px;}
+
+    .cont > li {margin: 30px 0px 0px 0px;}
+    .cont > li .content {margin: 30px 0px 0px 30px;}
+    .cont > li .content .dl_box {margin: 30px 0px 0px 0px;}
+
+    .comments .cont > li + li {padding: 30px 0px 0px 0px;}
+    
+    .attachments .cont .close {right: 15px;}
+}
+
+@media all and (max-width: 360px) {
+    .attachments .cont .dl_basic {display: block; margin: 10px 0px 0px 35px;}
 }

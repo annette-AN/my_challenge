@@ -1,4 +1,4 @@
-body {width: 100%; background: #ecf0f2; }
+body {width: 100%; min-width: 320px; background: #ecf0f2; }
 
 /* page 공통 */
 .hide {font-size: 0px; line-height: 0px; text-indent: -9999px;}
@@ -364,9 +364,12 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
 .darkTheme form .input_srch::placeholder {color: #657d95;}
 
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 475px) {
     /* page곧통 */
     .m_ct {padding: 15px 13px;}
+
+    /* dl */
+    .dl_coment {padding: 0px 0px 0px 30px;}
 
     /* article */
     .article dl .dt {font-size: 16px;}
@@ -375,13 +378,18 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
     .article_tlt01 h2 {font-size: 27px;}
     .article_tlt01 h2 span {font-size: 22px;}
     .article_tlt01 h2 span em {font-size: 22px;}
-    .article_tlt02 h2 {font-size: 25px;}
+
+    .article_tlt02 h2 {font-size: 21px;}
     .article_sub_tlt01 > span {font-size: 24px;}
 
     /* form */
-    /* form .input_srch {font-size: 13px;}
+    form .input_srch {font-size: 13px;}
     form .input_srch::-webkit-input-placeholder {font-size: 13px;}
     form .input_srch:-ms-input-placeholder {font-size: 13px;}
     form .input_srch::-ms-input-placeholder {font-size: 13px;}
-    form .input_srch::placeholder {font-size: 13px;} */
+    form .input_srch::placeholder {font-size: 13px;}
+
+    /* gragh */
+    .bar_gragh {display: block;}
+    .dl_box {display: block;}
 }
