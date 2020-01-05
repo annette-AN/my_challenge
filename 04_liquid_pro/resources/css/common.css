@@ -183,7 +183,6 @@ body {width: 100%; min-width: 320px; background: #ecf0f2; }
 .gauge_box.large .status span {color: #86929d; letter-spacing: 1px;}
 
 .bar_gragh {display: inline-block; height: 100px; padding: 0px; vertical-align: middle;}
-.bar_gragh .bar + .bar {margin: 0px 0px 0px 10px;}
 .bar_gragh .bar {display: inline-block; position: relative; width: 13px; height: calc(100% - 12px); border-radius: 13px; text-align: center;}
 .bar_gragh .bar.active .progress_bar {background-color: rgba(44, 125, 206, 0.89);}
 .bar_gragh .bar.active .progress_bar .dot {width: 10px; height: 10px; border-radius: 50%; background-color: rgba(44, 125, 206, 0.89);}
