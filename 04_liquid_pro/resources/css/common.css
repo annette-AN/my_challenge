@@ -323,8 +323,8 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
 .darkTheme .dl_info .dt > em {color: #2c7dce;}
 .darkTheme .dl_info .dd {color: #54617a;}
 
-.darkTheme .dl_box {color: #fff;}
-.darkTheme .dl_box.dlM {color: #fff;}
+.darkTheme .dl_box {color: #fff; box-shadow: none;}
+.darkTheme .dl_box.dlM {color: #fff; box-shadow: none}
 
 .darkTheme .dl_box .file_type {box-shadow: none;}
 .darkTheme .dl_coment .dt {color: #fff; font-weight: 400;}
