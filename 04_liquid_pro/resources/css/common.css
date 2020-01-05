@@ -3,6 +3,7 @@ body {width: 100%; min-width: 320px; background: #ecf0f2;}
 /* page 공통 */
 .hide {font-size: 0px; line-height: 0px; text-indent: -9999px;}
 .m_ct {padding: 20px 18px; border-radius: 20px; background-color: rgba(254, 254, 254, 0.96); -webkit-box-shadow: 0px 24px 59px rgba(51, 59, 69, 0.15); box-shadow: 0px 24px 59px rgba(51, 59, 69, 0.15);}
+.m_ct .pgs_article + .pgs_article {padding: 100px 0px 50px 0px;}
 .darkTheme {background-color: rgba(16,27,49,0.9);}
 
 /* whiteTheme(defualt) */
@@ -12,6 +13,9 @@ body {width: 100%; min-width: 320px; background: #ecf0f2;}
 .file_type {display: inline-block; padding: 0px 10px; line-height: 20px; border-radius: 20px; text-align: center; font-size: 10px; font-weight: 900; text-transform: uppercase;}
 .logo {display: inline-block; padding: 10px 0px;}
 .bg_gragh {background: url(../images/bg_gragh.png) no-repeat 0% 100%;}
+.pgs_article + .pgs_article:before {content: ''; display: block; position: absolute; top: 0px; left: -40px; width: calc(50% - 40px); height: 50px; background-color: #ecf0f2; border-radius: 0px 20px 20px 0px;}
+.pgs_article {position: relative; padding: 0px 0px 50px 0px;}
+.pgs_article + .pgs_article:after {content: ''; display: block; position: absolute; top: 0px; right: -40px; width: calc(50% - 40px); height: 50px; background-color: #ecf0f2; border-radius: 20px 0px 0px 20px;}
 
 /* btn */
 .btn {overflow: hidden; display: inline-block; padding: 10px; line-height: 0px; text-align: center; vertical-align: middle;}
