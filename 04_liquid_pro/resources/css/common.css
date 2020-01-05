@@ -377,8 +377,8 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
 
     .dl_info .dt {line-height: 30px; font-size: 23px;}
     .dl_info .dt > em {font-size: 18px;}
-    .dl_info .dd {line-height: 20px; font-size: 12px;}
-    .dl_info .dd > em {font-size: 12px;}
+    .dl_info .dd {line-height: 25px; font-size: 16px;}
+    .dl_info .dd > em {font-size: 16px;}
 
     /* article */
     .article dl .dt {font-size: 16px;}
