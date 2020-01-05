@@ -14,7 +14,19 @@
 .gragh_box .bar_gragh {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 135px; margin: 10px 0px 0px 0px;}
 .gragh_box .bar_gragh .bar {width: 20px;}
 .gragh_box .bar_gragh .progress_bar em {display: block; margin: 15px 0px 0px 0px; color: #2e3039; font-size: 14px; font-weight: 300; text-transform: capitalize;}
-.gragh_box .bar_gragh .progress_bar span {display: block; color: #c9d1d8; font-size: 11px; font-weight: 300; letter-spacing: 3px;}
+.gragh_box .bar_gragh .progress_bar span {display: block; margin: 15px 0px 0px 0px; color: #c9d1d8; font-size: 11px; font-weight: 300; letter-spacing: 3px;}
 .gragh_box .gragh_indi {margin: 80px 0px 0px 0px;}
 .btn_scrolltop {left: calc(50% - 20px); bottom: -20px;}
 .navi {margin: 35px 0px;}
+
+@media all and (max-width: 475px) {
+    .m_ct {padding: 30px 30px 40px;}
+    .cont {margin: 30px 0px 0px 0px; padding: 0px 10px;}
+    .gragh_box {margin: 35px 0px 0px 0px;}
+    .gragh_box .bar_gragh .bar {width: 15px;}
+    .gragh_box .bar_gragh .progress_bar span {margin: 10px 0px 0px 0px;}
+    .gragh_box .gragh_indi {margin: 60px 0px 0px 0px; font-size: 13px;}
+    .text_gauge_box .text_gauge {font-size: 73px;}
+    .text_gauge_box p {margin: 20px 0px 0px 0px; line-height: 30px; font-size: 22px;}
+    
+}
