@@ -1,4 +1,4 @@
-body {width: 100%; min-width: 320px; background: #ecf0f2; }
+body {width: 100%; min-width: 320px; background: #ecf0f2;}
 
 /* page 공통 */
 .hide {font-size: 0px; line-height: 0px; text-indent: -9999px;}
@@ -378,6 +378,8 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
     .dl_info .dt > em {font-size: 18px;}
     .dl_info .dd {line-height: 25px; font-size: 16px;}
     .dl_info .dd > em {font-size: 16px;}
+
+    .dl_introduction .dt {line-height: 35px; font-size: 28px;}
 
     /* article */
     .article dl .dt {font-size: 18px;}

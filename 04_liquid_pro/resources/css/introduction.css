@@ -20,4 +20,6 @@
     .slider_box .ico_plusLight {top: 20px; left: -20px; width: 40px; height: 40px;}
     .slider_box .ico_plusLight:before {width: 14px; height: 3px;}
     .slider_box .ico_plusLight:after {width: 14px; height: 3px;}
+
+    .dl_introduction {margin: 50px auto 0px;}
 }
