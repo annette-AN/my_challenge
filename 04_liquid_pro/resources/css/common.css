@@ -390,6 +390,12 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
     .article_tlt02 h2 {font-size: 21px;}
     .article_sub_tlt01 > span {font-size: 24px;}
 
+    /* slider */
+    .slider_box .slider li .dl_basic {left: 35px; bottom: 30px;}
+    .slider_box .slider li .dl_basic .dt {line-height: 22px; font-size: 15px;}
+    .slider_box .slider li .dl_basic .dd {width: 160px; line-height: 20px; font-size: 18px;}
+    
+
     /* form */
     form .input_srch {font-size: 13px;}
     form .input_srch::-webkit-input-placeholder {font-size: 13px;}

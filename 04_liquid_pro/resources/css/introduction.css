@@ -15,3 +15,9 @@
 .dl_introduction .dd {margin: 30px 0px 0px 0px;}
 
 .article_tlt01 > h2 em {color: #478cd0;}
+
+@media all and (max-width: 475px) {
+    .slider_box .ico_plusLight {top: 20px; left: -20px; width: 40px; height: 40px;}
+    .slider_box .ico_plusLight:before {width: 14px; height: 3px;}
+    .slider_box .ico_plusLight:after {width: 14px; height: 3px;}
+}
