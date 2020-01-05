@@ -3,6 +3,17 @@
 .dl_box {display: block; margin: 40px 0px 0px 0px; padding: 0px;}
 .dl_box .dt {font-size: 23px;}
 .dl_box .dd {margin: 5px 0px 0px 0px; font-size: 13px; letter-spacing: 1px;}
+.dl_box .ico_plus {position: absolute; top: 55px; left: 50px; background-color: #e5eaec; width: 25px; height: 25px;}
 .user_box {margin: 55px 50px 5px; padding: 35px 0px 0px 0px;}
-.ico_plus {position: absolute; top: 45px; left: 50px; background-color: #e5eaec;}
+.user_box .ico_plus {width: 100%; height: 100%;}
 .ico_notice {top: 45px; right: 50px;}
+
+@media all and (max-width: 475px) {
+    .ico_plus.icoPlusS:before {width: 9px; height: 3px;}
+    .ico_plus.icoPlusS:after {width: 9px; height: 3px;}
+    .ico_plus.icoPlusM:before {width: 9px; height: 3px;}
+    .ico_plus.icoPlusM:after {width: 9px; height: 3px;}
+    .dl_box .ico_plus {top: 45px;}
+    .user_box {margin: 35px 13px 10px; padding: 20px 0px 0px 0px;}
+    .ico_notice {top: 30px; right: 50px;}
+}

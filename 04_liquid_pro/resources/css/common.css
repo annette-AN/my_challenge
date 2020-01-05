@@ -367,6 +367,10 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
 @media all and (max-width: 475px) {
     /* page곧통 */
     .m_ct {padding: 15px 13px;}
+    
+    /* icon, menu, user box */
+    .user_box > li + li {margin: 0px 0px 0px 10px;}
+    .user_box > li {width: 28px; height: 28px;}
 
     /* dl */
     .dl_coment {padding: 0px 0px 0px 30px;}
