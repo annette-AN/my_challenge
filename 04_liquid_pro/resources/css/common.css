@@ -381,8 +381,8 @@ form .input_srch + button[type="submit"] {position: absolute; top: calc(50% - 15
     .dl_info .dd > em {font-size: 16px;}
 
     /* article */
-    .article dl .dt {font-size: 16px;}
-    .article dl .dd {margin: 30px 0px 0px 0px; padding: 0px 20px; font-size: 13px;}
+    .article dl .dt {font-size: 18px;}
+    .article dl .dd {margin: 30px 0px 0px 0px; padding: 0px 20px;}
 
     .article_tlt01 h2 {font-size: 27px;}
     .article_tlt01 h2 span {font-size: 22px;}
