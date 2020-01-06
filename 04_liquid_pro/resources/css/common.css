@@ -268,10 +268,10 @@ body {width: 100%; min-width: 320px; background: #ecf0f2;}
 .article dl .dd p { 
         /* word-break: break-all;
         word-break: break-word;
-        word-wrap: break-word;
+        word-wrap: break-word; */
         overflow-wrap: break-word;
         -webkit-hyphens: auto;
-        -ms-hyphens: auto; */
+        -ms-hyphens: auto;
         hyphens: auto;
 
 }
