@@ -269,6 +269,7 @@ body {width: 100%; min-width: 320px; background: #ecf0f2;}
         /* word-break: break-all;
         word-break: break-word;
         word-wrap: break-word; */
+        word-break: break-all;
         overflow-wrap: break-word;
         -webkit-hyphens: auto;
         -ms-hyphens: auto;
