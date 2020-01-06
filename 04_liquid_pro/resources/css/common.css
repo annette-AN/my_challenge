@@ -122,7 +122,7 @@ body {width: 100%; min-width: 320px; background: #ecf0f2;}
 
 .user_box {border-top: 2px dotted #c3cbd8;}
 .user_box > li + li {margin: 0px 0px 0px 15px;}
-.user_box > li {display: inline-block; overflow: hidden; position: relative; width: 42px; height: 42px; border-radius: 50%; vertical-align: middle;}
+.user_box > li {display: inline-block; overflow: hidden; position: relative; width: 42px; height: 42px; border-radius: 50%; vertical-align: top;}
 .user_box > li > img {position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
 
 .top_menu .menu {display: inline-block;}
