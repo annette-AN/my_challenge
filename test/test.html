@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        button {border: none; background-color: transparent; cursor: pointer; outline: none;}
+
+        .hide {display: none !important;}
+
+        .chatbotText {position: fixed; top: 50px; left: 50px; width: 200px; height: 100px; border-radius: 5px; background-color: wheat;}
+
+        .btn_chat_close {position: absolute; top: -10px; right: 5px; width: 20px; height: 20px; line-height: 11px; border-radius: 50%; text-align: center; font-size: 15px; font-weight: bold; color: rgba(0,0,0,0.5); background-color: #fff; box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.2);}
+    </style>
+</head>
+<body>
+    <div class="chatbotText">
+        <button type="button" class="btn_chat_close">&times;</button>
+    </div>
+
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(window).ready(function(){
+
+            //윈도우 크기에 따라 모바일 스타일을 삽입
+            function handleResizeWindow (){
+                var windowWidth = $(window).outerWidth();
+                if ( windowWidth < 768 ) {
+                    if($('head link[mobile-css]').length) return
+                    $('head title').before('<link mobile-css rel="stylesheet" type="text/css" href="../resources/css/chatbot_test_mobile.css" />');
+                } else {
+                    $('head link[mobile-css]').remove();
+                }
+            }
+            
+            handleResizeWindow()
+            $(window).resize(handleResizeWindow);
+
+            $('.btn_chat_close').on('click', function(){
+                $('.chatbotText').addClass('hide');
+                $('.btn_chat_close').addClass('hide');
+            });
+        })
+    </script>
+</body>
+</html>
