@@ -1,0 +1,115 @@
+https://uipac.com/451  css 네이밍 규칙 참고
+
+--------------------
+가로기준 img
+모바일 768 
+pc 1024
+
+<blockquote cite="원문출처작성"></> 인용구
+q 대화인용구 ""
+address 출처주소느낌인듯
+
+a link/visit/hover/active/focus
+
+--------------
+css
+css2코드+ tab = 함축형 가이드가 나옴
+
+css구조
+선택자 속성 선언 값
+h1 { color : red; }
+
+자식이 부모 밑 가운데 정렬로 표현되게 하고 싶을 때 ex) data-tooltip
+white-space:nowrap;
+display: inline-block;
+position: absolute;
+top: 100%;
+left: 50%;
+transform: translateX(-50%);
+
+반응형 만들 때
+<link rel="stylesheet" href="css/---.css" media="screen and (max-width : 800px)">
+
+br 없애는 법
+br {content: '';}
+br:after {content: '\00a0'}
+
+pc에서는 사용 말고 mobile에서 사용 / adjust
+-webkit- 구글, 사파리
+-o- opera = 구글, 사파리로 통합함
+-ms- IE
+-moz- safari
+
+-------------------------------
+●html
+<blockquote> 다음에 <address>로 출처 적기
+
+기타
+&gt; >
+&amp; &
+
+●class naming
+감싸는 요소
+
+common
+hide active hidden
+text-ir or area-role=“hidden”
+
+영상 bar
+slider
+track
+scroll bar
+progress bar
+thumb
+
+유투브 썸네일 이미지 추출
+블러 어디선가 안됌
+
+
+●모바일
+이미지 2배 640으로 제작후 줄이기
+헤더 컨텐츠
+푸터는 보통 생략
+모바일 웹과 어플의 차이
+하이브리드
+
+폰트
+ttf window
+otf mac
+경량화 폰트
+폰트변환
+
+-------------------------------
+jquery event
+
+event
+on(), tigger(문자열), off(문자열)
+
+html(get/set, add/remove)
+text(), html(), attr(객체)
+val() - input
+append() - 셀렉터 안의 맨 마지막에
+prepend() - 셀렉터 안의 맨 앞에
+after(), before(), empty(), remove()
+
+html(css)
+addClass(), removeClass(), toggleClass()
+
+html(traversing)
+parent(), find(셀렉터), prev(), next()
+
+html(dimension)
+width(), height() - content-box
+innerWidth(), innerHeight() - padding-box
+outerWidth(), outerHeight() - border-box
+outerWidth(true), outerHeight(true) - margin까지 계산
+offset() - offset().top/offset().left 브라우저 기준에서 어디
+position() - offsetparent 기준에서 어디
+
+animation
+animate(), stop()
+
+etc
+index(셀렉터)
+each(function(i){} - 순번을 가리기 위해 each i 라는 것이 이미 정의되어 있고 i를 넣으면 자동으로 index 계산 해줌
+this
