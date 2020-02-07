@@ -290,9 +290,9 @@
 					<div class="date">2019.08.14 12:00</div>
 				</div>
 			</li>
-			
+
 			<!-- [D] Swiper -->
-			<li class="botMsg_swiper position_target swiper_preview2">
+			<li class="botMsg_swiper position_target swiper_preview2" data-message-id="1">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<a class="swiper_item" href="#" target="_self"> 
@@ -359,7 +359,7 @@
 				<div class="bot_msg">				
 					<div class="txt">가족 단위의 고객님들의 편안한 여행을 위한 스위트룸 입니다.</div>
 				</div>
-				<div class="botMsg_swiper swiper_preview1">
+				<div class="botMsg_swiper swiper_preview1" data-message-id="2">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<a class="swiper_item" href="#" target="_self"> 
@@ -500,8 +500,8 @@
 		<div class="stnBox">
 			<p class="txt">[필독] 개인정보동의 약관</p>
 			<div class="iptBox">
-				<div class="checkBox">                                            
-					<input type="checkbox" name="ipt_check" id="terms_check" class="ipt_check">
+				<div class="checkBox">               
+					<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
 					<label for="terms_check">동의</label>
 				</div>
 			<button type="button" class="btn_terms" title="close">약관보기</button> 
@@ -511,26 +511,26 @@
 			<p class="txt">안녕하세요. 원활한 예약진행을 위해 고객님의 정보를 입력해 주세요.</p>
 			<dl class="dlBox">
 				<dt>이름 [필수]</dt>
-				<dd><input required type="text" class="ipt_txt" placeholder="이름을 입력해 주세요."></dd>
+				<dd><input required type="text" name="name" class="ipt_txt" placeholder="이름을 입력해 주세요."></dd>
 			</dl>
 			<dl class="dlBox">
 				<dt>성별 [필수]</dt>
 				<dd>
-					<div class="radioBox gender">                                   
-						<input required type="radio" name="ipt_check" id="gender_man" class="ipt_check">
+					<div class="radioBox">                                   
+						<input required type="radio" name="gender" id="gender_man" class="ipt_check">
 						<label for="gender_man">남자</label>
-						<input type="radio" name="ipt_check" id="gender_woman" class="ipt_check">
+						<input type="radio" name="gender" id="gender_woman" class="ipt_check">
 						<label for="gender_woman">여자</label>
 					</div>
 				</dd>
 			</dl>
 			<dl class="dlBox">
 				<dt>전화번호 [필수]</dt>
-				<dd><input required type="number" class="ipt_txt"></dd>
+				<dd><input required type="number" name="tel" class="ipt_txt"></dd>
 			</dl>
 			<dl class="dlBox">
 				<dt>요청사항 [필수]</dt>
-				<dd class="block_target"><textarea required rows="10" class="ipt_txt"></textarea></dd>
+				<dd class="block_target"><textarea required rows="10" name="inquire" class="ipt_txt"></textarea></dd>
 			</dl>
 		</div>
 		<div class="btnBox">
@@ -572,7 +572,7 @@
 jQuery.event.add(window,"load",function(){
 	$(document).ready(function (){
 		// iframe 부모 도메인
-		document.domain = "10.122.66.75";
+		document.domain = "127.0.0.1";
 		
 		// 날짜, 요일 시간 정의	
 		var year  = new Date().getFullYear();  //현재 년도
@@ -746,12 +746,19 @@ $(document).ready(function(){
 	$('a.swiper_item').on('click', function(){
 		$('#chatUI_wrap').addClass('popup_backdrop');
 		$('.popup_preview').addClass('popup_active');
+		var swiper = applySwiper($('.popup_preview'), { slidesPerView:1 });
+
+		function handleClose(){
+			swiper.destroy()
+			$('#chatUI_wrap').removeClass('popup_backdrop');
+			$('.popup_preview').removeClass('popup_active');
+			$('.btn_popupClose').off('click', handleClose);	
+		}
+
+		$('.btn_popupClose').on('click', handleClose);
 	});
 
-	$('.btn_popupClose').on('click', function(){
-		$('#chatUI_wrap').removeClass('popup_backdrop');
-		$('.popup_preview').removeClass('popup_active');
-	});
+	
 
 	/* 200207 AMR aside 팝업 open */
 	function handleChatAside(targetBtn, targetAside) {
@@ -765,28 +772,27 @@ $(document).ready(function(){
 		$('.btn_submit').on('click', function(){
 			var $thisChatAside = $(this).parents($chatAside);
 
-			$(this).parents($chatAside).find('.chatAside_bd').addClass('success_screen');
-
-			// if ( $thisChatAside.find('textarea').val() === '' ) {
-			// 	alert('요청사항을 입력해주세요');
-			// } else if ( $thisChatAside.find('input[type="number"]').val() === '' ) {
-			// 	alert('전화번호를 입력해주세요');
-			// } else {
-			// 	$(this).parents($chatAside).find('.chatAside_bd').addClass('success_screen');
-			// }
-
-			console.log($thisChatAside.find('input[type="text"]'))
-			console.log($thisChatAside.find('input[type="text"]').val(),'text val')
-			console.log($thisChatAside.find('textarea').val(),'textarea val')
-
-
-			// if ( $thisChatAside.find('input[type="text"]').val() === '' ) {
-			// 	alert('텍스트 [필수] 항목을 입력해주세요');
-			// } else if ( !$thisChatAside.find('#terms_check').attr() === 'checked' ) {
-			// 	alert('개인정보 약관에 동의해주세요');
-			// } else if ( !$thisChatAside.find('.gender input[type="radio"]').attr() === 'checked' ) {
-			// 	alert('성별을 체크해주세요');
-			// } 
+			if ( !$thisChatAside.find('input[name="agreement"]').is(':checked') ) {
+				alert('개인정보 약관에 동의해주세요');
+				return;
+			}
+			if ( !$thisChatAside.find('input[name="name"]').val().trim() ) {
+				alert('이름을 입력해주세요');
+				return;
+			}
+			if ( !$thisChatAside.find('input[name="gender"]').is(':checked') ) {
+				alert('성별을 체크해주세요');
+				return;
+			}
+			if ( $thisChatAside.find('input[name="tel"]').val() === '' ) {
+				alert('전화번호를 입력해주세요');
+				return;
+			}
+			if ( !$thisChatAside.find('textarea[name="inquire"]').val().trim() ) {
+				alert('요청사항을 입력해주세요');
+				return;
+			}
+			$thisChatAside.find('.chatAside_bd').addClass('success_screen');
 		});
 
 		$('.btn_chatAside_close').on('click', function(){
@@ -799,40 +805,69 @@ $(document).ready(function(){
 	
 
 });
+
+//swiper
+function applySwiper (selector, option){
+	var defaultOption = {
+		speed : 200,
+		slidesPerView:1,
+		spaceBetween: 10,
+		centeredSlides: false,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+		},
+	}
+	return new Swiper(selector, $.extend(defaultOption, option))
+}
+
+// 이미지 스와이퍼가 HTML에 새로 생길때마다 함수를 호출해 주어야 합니다.
+applySwiper($("[data-message-id=1]"), { slidesPerView:2 })
+applySwiper($("[data-message-id=2]"), { slidesPerView:1 })
+
+
 </script>
 <script type="text/javascript">
-// swiper
-var swiper = new Swiper('.swiper_preview2', {
-	speed : 200,
-	slidesPerView:2,
-	spaceBetween: 10,
-	centeredSlides: false,
-	pagination: {
-		el: '.swiper-pagination',
-		clickable: true,
-	},
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-});
+//swiper
 
-var swiper = new Swiper('.swiper_preview1', {
-	speed : 200,
-	slidesPerView:1,
-	spaceBetween: 10,
-	centeredSlides: false,
-	// freeMode: false,
-	grabCursor: true,
-	pagination: {
-		el: '.swiper-pagination',
-		clickable: true,
-	},
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-});
+
+
+
+// swiper
+// var swiper = new Swiper('.swiper_preview2', {
+// 	speed : 200,
+// 	slidesPerView:2,
+// 	spaceBetween: 10,
+// 	centeredSlides: false,
+// 	pagination: {
+// 		el: '.swiper-pagination',
+// 		clickable: true,
+// 	},
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     },
+// });
+
+// var swiper = new Swiper('.swiper_preview1', {
+// 	speed : 200,
+// 	slidesPerView:1,
+// 	spaceBetween: 10,
+// 	centeredSlides: false,
+// 	grabCursor: true,
+// 	pagination: {
+// 		el: '.swiper-pagination',
+// 		clickable: true,
+// 	},
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     },
+// });
 </script>	
 <!-- script -->		
 </body>
