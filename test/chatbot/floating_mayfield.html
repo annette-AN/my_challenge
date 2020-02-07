@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>	
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="Expires" content="Mon, 06 Jan 2016 00:00:01 GMT"/>
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<link rel="shortcut icon" type="image/x-icon" href="../resources/images/ico_favicon_60x60.png">
+<link rel="stylesheet" type="text/css" href="../resources/css/font.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/floating_mayfield.css" />
+<title>floating || chatBot</title>
+</head>
+<body>
+<!-- 수정: 200205 안미례 (tag구조변경) -->
+<div id="chatbot">
+    <embed type="text/html" id="chatbot_iframe" src="chat_mayfield.html">
+</div>
+<div class="chatGreeting">
+    안녕하세요! 인공지능 챗봇 '레타'입니다. 무엇을 도와드릴까요?<br>
+    Welcome! My name is 'Reta'. How may I assist you?
+    <button type="button" class="btn_greetClose"><em>말풍선 닫기</em></button>
+</div>
+<p class="powered">Powered by <img src="../resources/images/img_tit_redtie.png" alt="RedTie Butler"></p>
+
+<!-- 기존 jquery library 있을 경우 제거 -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+// iframe 자식 도메인
+document.domain = "10.122.66.75";
+
+$(document).ready(function(){
+    // 추가: 200203 안미례
+    //chatGreeting 말풍선 닫기 버튼
+    $('.btn_greetClose').on('click', function(){
+        $('.chatGreeting').addClass('chatGreeting_hide').delay(300).queue(function() { $(this).remove(); });
+    });
+})
+</script>
+</body>
+</html>

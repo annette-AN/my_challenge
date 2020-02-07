@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/* only 확인 */
+/* 이미지 팝업 효과 */
+#chatUI_wrap.popup_backdrop:after { content: ''; display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3); z-index: 9100; }
+
+#chatUI_wrap > .botMsg_swiper.popup_preview { display: none; position: absolute; top: calc(50% - 125px); left: 15px; width: calc(100% - 30px); z-index: 9200; }
+
+#chatUI_wrap > .botMsg_swiper.popup_preview.popup_active { display: block; }
+
+#chatUI_wrap > .botMsg_swiper.popup_preview .swiper-slide .item_img img { width: 100%; }
+
+#chatUI_wrap > .botMsg_swiper.popup_preview .swiper-pagination { position: relative; bottom: auto; }
+
+#chatUI_wrap > .botMsg_swiper.popup_preview .swiper-button-prev, #chatUI_wrap > .botMsg_swiper.popup_preview .swiper-container-rtl .swiper-button-next { left: -15px; }
+
+#chatUI_wrap > .botMsg_swiper.popup_preview .swiper-button-next, #chatUI_wrap > .botMsg_swiper.popup_preview .swiper-container-rtl .swiper-button-prev { right: -15px; }
+
+.btn_popupClose { position: absolute; top: 4px; right: 4px; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.8); border: none; z-index: 9300; }
+
+.btn_popupClose em { font-size: 0px; }
+
+.btn_popupClose:before, .btn_popupClose:after { content: ''; position: absolute; top: 50%; left: 50%; width: 16px; margin: 0px 0px 0px -8px; height: 1px; background: black; }
+
+.btn_popupClose:before { -webkit-transform: rotate(-45deg); transform: rotate(-45deg); }
+
+.btn_popupClose:after { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+
+/* 이미지 스와이퍼 css */
+#chatUI_wrap .chatUI_mid li.bot .bot_msg ~ .botMsg_swiper { margin: 10px 0px 0px 0px; }
+
+#chatUI_wrap .chatUI_mid li.bot .bot_msg ~ .botMsg_swiper .swiper-slide { overflow: hidden; border-radius: 7px; }
+
+#chatUI_wrap .chatUI_mid li.bot .bot_msg ~ .botMsg_swiper .swiper-slide .item_img img { width: 100%; }
+
+#chatUI_wrap .chatUI_mid li.bot .bot_msg ~ .botMsg_swiper .swiper-pagination { position: relative; bottom: -4px; }
+
+#chatUI_wrap .chatUI_mid li.bot .botMsg_swiper ~ .btnItem { margin: 10px 0px 0px 0px; }
+
+/* 메이필드 pagenation style */
+#chatUI_wrap .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet { width: 7px; height: 7px; margin: 0px 5px; border: 1px solid #007d8c; }
+
+/* 프로모션UI */
+#chatUI_wrap li.bot_promotion:before { content: ''; position: absolute; top: 0; left: 10px; width: 36px; height: 36px; border: 1px solid rgba(0, 0, 0, 0.1); background: #007d8c url("../images/ico_mayfield.png") 50% 50% no-repeat; background-size: cover; border-radius: 30px; }
+
+#chatUI_wrap .btn_info { display: block; text-align: center; padding: 0px 0px 16px 0px; }
+
+#chatUI_wrap .btn_info a { display: inline-block; height: 30px; padding: 0px 30px; color: #c61f26 !important; font-size: 13px; text-align: center; text-decoration: none !important; line-height: 28px; border: 1px solid #ebeaef; border-radius: 50px; background: #fff; -webkit-box-shadow: rgba(0, 125, 140, 0) 0 0px 0px 2px inset; box-shadow: rgba(0, 125, 140, 0) 0 0px 0px 2px inset; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+
+#chatUI_wrap .btn_info a:hover { color: #fff !important; border: 1px solid rgba(0, 125, 140, 0) !important; -webkit-box-shadow: #c61f26 0 80px 0px 2px inset; box-shadow: #c61f26 0 80px 0px 2px inset; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+
+#chatUI_wrap .chatUI_mid .lst_talk .bot_promotion .generic { max-width: 250px; }
+
+#chatUI_wrap .chatUI_mid .lst_talk .bot_promotion .generic .generic_img { max-height: 166px; }
+
+#chatUI_wrap .chatUI_mid .lst_talk .bot_promotion .generic .generic_tit { font-size: 14px; color: #c61f26; }
+
+#chatUI_wrap .chatUI_mid .lst_talk .bot_promotion .generic .generic_des { margin: 10px 0px 0px 0px; }
+
+#chatUI_wrap .chatUI_mid .lst_talk .bot_promotion .txt { display: block; max-width: 300px; margin: 8px 0px 0px 0px; }
+
+#chatUI_wrap .chatUI_mid .lst_talk .bot_promotion .btnItem { margin: 8px 0px 0px 0px; }
+
+/* 적용되면 좋을것 같음 */
+#chatUI_wrap .btn_primary { display: block; text-align: center; padding: 0px 0px 16px 0px; }
+
+#chatUI_wrap .btn_primary a { display: inline-block; height: 30px; padding: 0px 15px; color: #007d8c !important; font-size: 13px; text-align: center; text-decoration: none !important; line-height: 28px; border: 1px solid #ebeaef; border-radius: 50px; background: #fff; -webkit-box-shadow: rgba(0, 125, 140, 0) 0 0px 0px 2px inset; box-shadow: rgba(0, 125, 140, 0) 0 0px 0px 2px inset; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+
+#chatUI_wrap .btn_primary a:hover { color: #fff !important; border: 1px solid rgba(0, 125, 140, 0) !important; -webkit-box-shadow: #007d8c 0 80px 0px 2px inset; box-shadow: #007d8c 0 80px 0px 2px inset; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+
+/* 폼입력 완료 팝업 */
+.chatAside .chatAside_bd.success_screen { overflow: hidden; }
+
+.chatAside .chatAside_bd.success_screen > .stnBox.popup { display: block; }
+
+.chatAside .chatAside_bd .stnBox.popup { display: none; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #f7f8fa; text-align: center; }
+
+.chatAside .chatAside_bd .stnBox.popup .popup_content { display: inline-block; width: 250px; margin: 100px 0px 0px 0px; text-align: center; }
+
+.chatAside .chatAside_bd .stnBox.popup .popup_content .ico_circle { position: relative; display: inline-block; width: 100px; height: 100px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.1); background: #007d8c; text-align: center; }
+
+.chatAside .chatAside_bd .stnBox.popup .popup_content .ico_circle img { position: absolute; top: 24px; left: 12px; width: 75%; }
+
+.chatAside .chatAside_bd .stnBox.popup .popup_content .popup_txt { margin: 16px 0px 0px 0px; }
+
+.chatAside .chatAside_bd .stnBox.popup .popup_content .popup_txt em { font-size: 18px; color: #222; }
+
+.chatAside .chatAside_bd .stnBox.popup .popup_content .popup_txt p { margin: 16px 0px 0px 0px; line-height: 20px; font-size: 14px; color: #333; }
+/*# sourceMappingURL=floating_test.css.map */
