@@ -428,13 +428,13 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .chatAside_bd .stnBox.popup .popup_content .popup_txt p { margin: 16px 0px 0px 0px; line-height: 20px; font-size: 14px; color: #333; }
 
 /* 200224 AMR datetimepicker 데이트피커 css */
-.chat_reservation .datetimepicker {left: 24px; width: calc(100% - 4px); padding: 12px 0px;}
+.chat_reservation .datetimepicker {left: 24px; width: calc(100% - 4px); padding: 12px 0px; transform: translateZ(0);}
 .chat_reservation .datetimepicker-dropdown-bottom-left:before {display: none;}
 .chat_reservation .datetimepicker-dropdown-bottom-left:after {display: none;}
 .chat_reservation .datetimepicker table {width: 100%;}
 
 .chat_reservation .datetimepicker th {position: relative; max-width: 40px; height: 36px; font-size: 14px;}
-.chat_reservation .datetimepicker td {position: relative; max-width: 40px; height: 36px; margin: 1%; font-size: 14px;}
+.chat_reservation .datetimepicker td {position: relative; max-width: 40px; height: 36px; margin: 1%; font-size: 14px; color: #999;}
 
 .chat_reservation .datetimepicker thead th {font-size: 16px; font-weight: bold;}
 
@@ -459,7 +459,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chat_reservation .datetimepicker table tr td em.disabled:hover {background: none;}
 
 .chat_reservation .datetimepicker table tr td.disabled,
-.chat_reservation .datetimepicker table tr td.disabled:hover {color: inherit; opacity: 0.4;}
+.chat_reservation .datetimepicker table tr td.disabled:hover {color: #999; opacity: 0.4;}
 .chat_reservation .datetimepicker table tr td.day.disabled span {border: none; cursor: default;}
 
 .chat_reservation .datetimepicker table tr td.minute:hover {background: none;}
@@ -522,7 +522,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 	color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #eee;
-    color: inherit;
+    color: #999;
 }
 
 .chat_reservation .datetimepicker table tr td.active:hover,
@@ -588,7 +588,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 	color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background: none;
-    color: inherit;
+    color: #999;
     border-color: rgba(0,0,0,0.3);
 }
 
