@@ -774,8 +774,8 @@
           $.inArray(prevMonth.toDateString(), this.datesDisabled) !== -1) {
           classes.push('disabled');
         }
-        /* 수정 200225 AMR (td > span) */
-        html.push('<td class="' + classes.join(' ') + '"><span>' +  prevMonth.getUTCDate() + '</span></td>');
+        /* 수정 200225 AMR (td > em) */
+        html.push('<td class="' + classes.join(' ') + '"><em>' +  prevMonth.getUTCDate() + '</em></td>');
         if (prevMonth.getUTCDay() === this.weekEnd) {
           html.push('</tr>');
         }
