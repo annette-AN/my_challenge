@@ -396,7 +396,7 @@
 jQuery.event.add(window,"load",function(){
 	$(document).ready(function (){
 		// iframe 부모 도메인
-		document.domain = "192.168.1.21";
+		document.domain = "127.0.0.1";
 		
 		// 날짜, 요일 시간 정의	
 		var year  = new Date().getFullYear();  //현재 년도
@@ -567,22 +567,23 @@ jQuery.event.add(window,"load",function(){
 /* mirye test */
 $(document).ready(function(){
 	/* 200224 AMR 데이터피커 */
-
 	$('#datetime_reservation').datetimepicker({
 		container: '.picker dd',
 		format: 'yyyy-mm-dd hh:ii',
+		formatDate: 'yyyy-mm',
 		language: 'ko',
 		fontAwesome: true,
 		todayHighlight: true,
 		pickerPosition: 'bottom-left',
 		startDate: new Date(),
+		// endDate: moment().add(3, 'month').toDate(),
 		// endDate: new Date(),
 		daysOfWeekDisabled: [0],
 		datesDisabled: ['2020-02-28','2020-01-01','2020-03-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
-		// 01-01 설날, 03-01 삼일절, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
-		// 설날            음력 1월 1일
+		// 01-01 새해(신정), 03-01 삼일절, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
+		// 설날(구정)     음력 1월 1일
         // 부처님오신날    음력 4월 8일
-		// 추석           음력 8월 15일
+		// 추석            음력 8월 15일
 		// 테스트 2020-02-28
 		hoursDisabled: [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23],
 		minuteStep: 30,

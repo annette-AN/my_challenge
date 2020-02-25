@@ -674,7 +674,7 @@
       }
 
       this.date = DPGlobal.parseDate(date, this.format, this.language, this.formatType, this.timezone);
-
+      
       if (fromArgs) this.setValue();
 
       if (this.date < this.startDate) {
@@ -723,14 +723,17 @@
         endMonth = this.endDate.getUTCMonth() + 1,
         currentDate = (new UTCDate(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate())).valueOf(),
         today = new Date();
-      this.setTitle('.datetimepicker-days', dates[this.language].months[month] + ' ' + year)
+      
+      // 수정 달력뷰일때 화살표 사이 날짜
+      
+      this.setTitle('.datetimepicker-days', year + '년 ' + (month + 1) + '월')
       if (this.formatViewType === 'time') {
         var formatted = this.getFormattedDate();
         this.setTitle('.datetimepicker-hours', formatted);
         this.setTitle('.datetimepicker-minutes', formatted);
       } else {
-        this.setTitle('.datetimepicker-hours', dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
-        this.setTitle('.datetimepicker-minutes', dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
+        this.setTitle('.datetimepicker-hours', year + '년 ' + (month + 1) + '월 ' + dayMonth + '일');
+        this.setTitle('.datetimepicker-minutes', year + '년 ' + (month + 1) + '월 ' + dayMonth + '일');
       }
       this.picker.find('tfoot th.today')
         .text(dates[this.language].today || dates['en'].today)
