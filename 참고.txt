@@ -161,22 +161,6 @@ if( navigator.userAgent.match(/SonyEricsson/) ) {
 구체적인 디바이스 설명 url
 https://holybell87.tistory.com/20#.XjoULGgzaUk
 
- 구분
-
-UserAgent 값 
-iPhone
-Mozilla/5.0 (iPhone; CPU iphone OS 6_1_3 like Mac OS X) AppleWebkit/536.26 (KHTML, like Gecko) Verstion/6.0 Mobile/10B329 Safari/8536.25 
-
-iPhone 크롬
-Mozilla/5.0 (iPhone; CPU iphone OS 6_1_3 like Mac OS X) AppleWebkit/536.26 (KHTML, like Gecko) CriOs/28.0.1500.16 Mobile/10B329 Safari/8536.25 (00236FCC-CE47 -4774-9A79-DBBEEC199F9A) 
-
-iPad 
-Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebkit/536.26 (KHTML, like Gecko) Verstion/6.0 Mobile/10B329 Safari/8536.25 
-
-Android(갤럭시 S4)
-Mozilla/5.0 (Linux; Android 4.2.2; ko-kr; SAMSUNG SHV-E300K/KKUAME7 Build/JDQ39) AppleWebkit/535.19(KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19 
-
-
 indexOf : 문자열내에 찾을 문자열이 있는지 여부를 알고싶을 때 사용
 match() : 정규표현식에 맞는 문자열을 찾음. 문자열을 찾으면 배열로 반환하고 없으면 null 반환
 replace 함수
@@ -194,34 +178,6 @@ jQuery의 text() 메소드를 통한 값의 직접 변경
 .html() : 선택 요소에 html을 코드를 넣거나 받아 올 수 있음. 함수 htmlspecialchars() 적용됨.
 .text() : 선택 요소의 텍스트 내용을 설정 및 받아옴
 .val() : form의 선택 요소 텍스트 값을 설정 혹은 받아옴
-
-window edge
-appVersion: "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362"
-userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362"
-
-window 11
-appVersion"5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko"
-userAgent"Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko"
-
-window 10
-appVersion"5.0 (compatible; MSIE 10.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-userAgent"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-
-window 9 
-appVersion"5.0 (compatible; MSIE 9.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-userAgent"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-
-window 8
-appVersion"4.0 (compatible; MSIE 8.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-userAgent"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-
-window 7
-appVersion"4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-userAgent"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-
-window 5
-appVersion"4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
-userAgent"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
 
 
 ie 가상머신으로 test하기
