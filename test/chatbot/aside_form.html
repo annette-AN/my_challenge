@@ -1,0 +1,181 @@
+<!-- 20200207 AMR 메이필드 입력폼 -->
+<div class="chatAside" style="display: none;">
+	<!-- 20200207 AMR 문의남기기 -->
+	<div class="chat_inquiry">
+		    <!-- .chatAside_hd -->
+			<div class="chatAside_hd">
+				<h3>문의 남기기</h3>
+				<button type="button" class="btn_chatAside_close" title="close">close</button>
+			</div> 
+			<!-- //.chatAside_hd -->
+			<!-- .chatAside_bd -->
+			<div class="chatAside_bd">
+				<div class="stnBox">
+					<p class="txt">[*] 개인정보동의 약관</p>
+					<div class="iptBox">
+						<div class="checkBox">                                            
+							<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
+							<label for="terms_check">동의</label>
+						</div>
+					<button type="button" class="btn_terms" title="close">약관보기</button> 
+					</div>
+				</div>
+				<div class="stnBox">
+					<p class="txt">안녕하세요. 원활한 예약진행을 위해 고객님의 정보를 입력해 주세요.</p>
+					<dl class="dlBox">
+						<dt>이름 [*]</dt>
+						<dd><input type="text" name="name" class="ipt_txt" placeholder="이름을 입력해 주세요."></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>성별 [*]</dt>
+						<dd>
+							<div class="radioBox gender">                                   
+								<input type="radio" name="gender" id="gender_man" class="ipt_check">
+								<label for="gender_man">남자</label>
+								<input type="radio" name="gender" id="gender_woman" class="ipt_check">
+								<label for="gender_woman">여자</label>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>전화번호 [*]</dt>
+						<dd><input type="tel" name="tel" class="ipt_txt"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>이메일 [*]</dt>
+						<dd><input type="text" name="email" class="ipt_txt"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>요청사항 [*]</dt>
+						<dd class="block_target"><textarea name="inquiry" rows="10" class="ipt_txt"></textarea></dd>
+					</dl>
+				</div>
+				<div class="btnBox">
+					<button type="submit" class="btn_point btn_submit">문의남기기</button> 
+				</div>
+				
+				<!--
+					[D] 문의남기기 입력 완료(팝업)
+					20200207 AMR 
+				-->
+				<div class="stnBox popup">
+					<div class="popup_content">
+						<div class="ico_circle">
+							<img src="../resources/images/ico_success_74x.png" alt="완료">
+						</div>
+						<div class="popup_txt">
+							<em>문의 접수 신청 완료</em>
+							<p>
+								문의 접수가 완료되었습니다.<br>
+								빠른 시간 내 답변드릴 수<br>
+								있도록 하겠습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div> 
+			<!-- //.chatAside_bd -->
+			
+	</div>
+
+	<!-- 200224 AMR 예약하기 -->
+	<div class="chat_reservation">
+		<!-- .chatAside_hd -->
+		<div class="chatAside_hd">
+			<h3>간편 예약하기</h3>
+			<button type="button" class="btn_chatAside_close" title="close">close</button>
+		</div> 
+		<!-- //.chatAside_hd -->
+		<!-- .chatAside_bd -->
+		<div class="chatAside_bd">
+			<div class="stnBox">
+				<p class="txt">[필독] 개인정보동의 약관</p>
+				<div class="iptBox">
+					<div class="checkBox">                                            
+						<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
+						<label for="terms_check">동의</label>
+					</div>
+				<button type="button" class="btn_terms" title="close">약관보기</button> 
+				</div>
+			</div>
+			<div class="stnBox">
+				<p class="txt">예약 정보 입력</p>
+				<dl class="dlBox">
+					<dt>이름 [*]</dt>
+					<dd><input type="text" name="name" class="ipt_txt" placeholder="이름을 입력해 주세요."></dd>
+				</dl>
+				<dl class="dlBox">
+					<dt>성별 [*]</dt>
+					<dd>
+						<div class="radioBox gender">                                   
+							<input type="radio" name="gender" id="gender_man" class="ipt_check">
+							<label for="gender_man">남자</label>
+							<input type="radio" name="gender" id="gender_woman" class="ipt_check">
+							<label for="gender_woman">여자</label>
+						</div>
+					</dd>
+				</dl>
+				<dl class="dlBox">
+					<dt>전화번호 [*]</dt>
+					<dd><input type="tel" name="tel" class="ipt_txt"></dd>
+				</dl>
+				<dl class="dlBox">
+					<dt>이메일 [*]</dt>
+					<dd><input type="text" name="email" class="ipt_txt"></dd>
+				</dl>
+				<dl class="dlBox picker">
+					<dt>예약일시 [*]</dt>
+					<dd class="date_picker">
+						<!-- <div id="datetime_reservation" class="input-append date ipt_txt" data-date="12-02-2012" data-date-format="yyyy-mm-dd hh:ii">
+							<input name="datetime" class="span2" size="16" type="text" value="" placeholder="날짜와 시간을 선택해주세요">
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div> -->
+					</dd>
+					<dt class="text_hide">달력 표시 설명</dt>
+					<dd class="circle_guide">
+						<div>
+							<div class="circle_guide01"></div>
+							<span>오늘</span>
+						</div>
+						<div>
+							<div class="circle_guide02"></div>
+							<span>진료가능일</span>
+						</div>
+						<div>
+							<div class="circle_guide03"></div>
+							<span>진료일선택</span>
+						</div>
+					</dd>
+				</dl>
+				<dl class="dlBox">
+					<dt>기타사항</dt>
+					<dd class="block_target"><textarea name="add" rows="10" class="ipt_txt" placeholder="내용을 입력해주세요 (선택)"></textarea></dd>
+				</dl>
+			</div>
+			<div class="btnBox">
+				<button type="submit" class="btn_point btn_submit">예약하기</button> 
+			</div>
+			
+			<!--
+				[D] 문의남기기 입력 완료(팝업)
+				20200207 AMR 
+			-->
+			<div class="stnBox popup">
+				<div class="popup_content">
+					<div class="ico_circle">
+						<img src="../resources/images/ico_success_74x.png" alt="완료">
+					</div>
+					<div class="popup_txt">
+						<em>예약 접수 완료</em>
+						<p>
+							예약 접수가 완료되었습니다.<br>
+							담당자가 확인 후 예약 확정 안내를<br>
+							드릴 수 있도록 하겠습니다.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<!-- //.chatAside_bd -->
+	</div>
+</div>
