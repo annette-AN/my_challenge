@@ -347,10 +347,6 @@
 				<dl class="dlBox picker">
 					<dt>예약일시 [*]</dt>
 					<dd class="block_target">
-						<!-- <div id="" class="input-append date " data-date="12-02-2012" data-date-format="yyyy-mm-dd hh:ii">
-							<input name="datetime" class="span2" size="16" type="text" value="" placeholder="날짜와 시간을 선택해주세요">
-							<span class="add-on"><i class="icon-th"></i></span>
-						</div> -->
 						<div class="container">
 							<div class="row">
 								<div class='col-sm-6'>
@@ -606,6 +602,7 @@ $(document).ready(function(){
 	$('#reservation_date').datetimepicker({
 		locale: 'ko',
 		inline: true,
+		ignoreReadonly: true,
 		format: 'YYYY-MM-DD HH:mm dd',
 		dayViewHeaderFormat: 'YYYY 년 MM 월',
 		stepping: 30,
