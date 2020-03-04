@@ -428,6 +428,8 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .chatAside_bd .stnBox.popup .popup_content .popup_txt p { margin: 16px 0px 0px 0px; line-height: 20px; font-size: 14px; color: #333; }
 
 /* 200224 AMR datetimepicker 데이트피커 css */
+#datetimepicker4 {transform: translateZ(0);}
+
 .chat_reservation .datetimepicker {left: 24px; width: calc(100% - 4px); padding: 12px 0px; transform: translateZ(0);}
 .chat_reservation .datetimepicker-dropdown-bottom-left:before {display: none;}
 .chat_reservation .datetimepicker-dropdown-bottom-left:after {display: none;}
