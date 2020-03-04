@@ -746,7 +746,10 @@
                         date: currentDate,
                         classNames: clsNames
                     });
-                    /* 200303 AMR td > em 추가 */
+                    /*  
+                        200304 AMR td > em 추가 
+                        em에 data-day attr 추가
+                    */
                     row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '"><em data-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '">' + currentDate.date() + '</em></td>');
                     currentDate.add(1, 'd');
                 }
