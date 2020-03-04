@@ -570,6 +570,8 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .box_hide {position: absolute !important; left:-999px !important; width: 0px !important; height: 0px !important;}
 
 /* datetimepicker css */
+#reservation_date {transform: translateZ(0);}
+
 .bootstrap-datetimepicker-widget table {margin: 10px 0px 0px 0px;}
 .bootstrap-datetimepicker-widget table th {padding: 6px 0px; font-size: 14px; font-weight: bold;}
 .bootstrap-datetimepicker-widget table th.dow {padding: 6px 0px 10px 0px;}
