@@ -747,7 +747,7 @@
                         classNames: clsNames
                     });
                     /* 200303 AMR td > em 추가 */
-                    row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '">' + currentDate.date() + '</td>');
+                    row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '"><em>' + currentDate.date() + '</em></td>');
                     currentDate.add(1, 'd');
                 }
 
@@ -775,7 +775,7 @@
                         html.push(row);
                     }
                     /* 200303 AMR td > em 추가 */
-                    row.append('<td data-action="selectHour" class="hour' + (!isValid(currentHour, 'h') ? ' disabled' : '') + '">' + currentHour.format(use24Hours ? 'HH' : 'hh') + '</td>');
+                    row.append('<td data-action="selectHour" class="hour' + (!isValid(currentHour, 'h') ? ' disabled' : '') + '"><em>' + currentHour.format(use24Hours ? 'HH' : 'hh') + '</em></td>');
                     currentHour.add(1, 'h');
                 }
                 table.empty().append(html);
@@ -794,7 +794,7 @@
                         html.push(row);
                     }
                     /* 200303 AMR td > em 추가 */
-                    row.append('<td data-action="selectMinute" class="minute' + (!isValid(currentMinute, 'm') ? ' disabled' : '') + '">' + currentMinute.format('mm') + '</td>');
+                    row.append('<td data-action="selectMinute" class="minute' + (!isValid(currentMinute, 'm') ? ' disabled' : '') + '"><em>' + currentMinute.format('mm') + '</em></td>');
                     currentMinute.add(step, 'm');
                 }
                 table.empty().append(html);
