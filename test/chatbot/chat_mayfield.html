@@ -351,7 +351,7 @@
 							<div class="row">
 								<div class='col-sm-6'>
 									<!-- value 빼기 -->
-									<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='reservation_date' />
+									<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='reservation_date' readonly />
 								</div>
 							</div>
 						</div>
@@ -602,7 +602,6 @@ $(document).ready(function(){
 	$('#reservation_date').datetimepicker({
 		locale: 'ko',
 		inline: true,
-		ignoreReadonly: true,
 		format: 'YYYY-MM-DD HH:mm dd',
 		dayViewHeaderFormat: 'YYYY 년 MM 월',
 		stepping: 30,
