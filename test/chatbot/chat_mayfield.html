@@ -592,7 +592,15 @@ jQuery.event.add(window,"load",function(){
 <script>
 /* mirye test */
 $(document).ready(function(){
-	/* 수정 200304 AMR 데이터피커 
+	/* 추가 200304 AMR 데이트피커로 scroll이동 */
+	$('#reservation_date').on('focus', function(){
+		var top = $(this).offset().top;
+		var parentTop = $(this).parents('.stnBox').offset().top;
+		var nowScrollTop = $(this).parents('.stnBox').scrollTop();
+		var addScrolltop = top - parentTop
+		$(this).parents('.stnBox').scrollTop( nowScrollTop + addScrolltop );
+	});
+	/* 수정 200304 AMR 데이트피커 
 		문제 : 지나간 날과 시간에 <td class="disabled">가 추가되어야합니다
 	*/
 	$('#reservation_date').datetimepicker({
