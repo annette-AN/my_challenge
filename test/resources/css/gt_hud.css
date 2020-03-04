@@ -565,11 +565,14 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     .chatAside.aside_show {bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
 }
 
+/* 공통 */
+.text_hide {text-indent: -999px !important; line-height: 0px !important; font-size: 0px !important;}
+.box_hide {position: absolute !important; left:-999px !important; width: 0px !important; height: 0px !important;}
 
 /* datetimepicker css */
-.chatAside .chatAside_bd .stnBox dl.dlBox dd.reservation_picker {display: block; width: calc(100% - 16px); margin: 0px;}
 .bootstrap-datetimepicker-widget table {margin: 10px 0px 0px 0px;}
-.bootstrap-datetimepicker-widget table th {padding: 4px 0px; font-weight: bold;}
+.bootstrap-datetimepicker-widget table th {padding: 6px 0px; font-size: 14px; font-weight: bold;}
+.bootstrap-datetimepicker-widget table th.dow {padding: 6px 0px 10px 0px;}
 .bootstrap-datetimepicker-widget table td {width: auto;}
 /* td max-width 안먹음 */
 .bootstrap-datetimepicker-widget table td.day {width: 14%; height: 36px;}
@@ -589,8 +592,8 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     bottom: 4px;
     right: 4px;
     display: none;
-  }
-  .bootstrap-datetimepicker-widget table td.today em:before {
+}
+.bootstrap-datetimepicker-widget table td.today em:before {
     content: '';
     display: inline-block;
     border: solid transparent;
@@ -601,29 +604,63 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     position: absolute;
     bottom: 6px;
     right: 6px;
-  }
-  .bootstrap-datetimepicker-widget table td.active.today em:before {
+}
+.bootstrap-datetimepicker-widget table td.active.today em:before {
     border-bottom-color: #fff;
-  }
+}
 
-/* datetimepicker icons */
+.glyphicon-time {background: rgba(245,222,178,0.4);}
+.glyphicon-time:before {content: '시간을 선택해주세요 Click (다음선택)'; font-size: 13px;}
+.glyphicon-calendar {background: rgba(245,222,178,0.4);}
+.glyphicon-calendar:before {content: '날짜를 선택해주세요 Click (이전선택)'; font-size: 13px;}
+
+
+
+.glyphicon-chevron-up {display: block; height: 100%; background-image: url(../images/ico_chevron_up.png); background-repeat: no-repeat; background-position: center center; background-size: 16px auto;}
+.glyphicon-chevron-down {display: block; height: 100%; background-image: url(../images/ico_chevron_down.png); background-repeat: no-repeat; background-position: center center; background-size: 16px auto;}
+
+.glyphicon-chevron-left {display: block; height: 100%; background-image: url(../images/ico_chevron_left.png); background-repeat: no-repeat; background-position: center center; background-size: auto 12px;}
+.glyphicon-chevron-right {display: block; height: 100%; background-image: url(../images/ico_chevron_right.png); background-repeat: no-repeat; background-position: center center; background-size: auto 12px;}
+
+.glyphicon-chevron-up:before {display: none;}
+.glyphicon-chevron-down:before {display: none;}
+.glyphicon-chevron-left:before {display: none;}
+.glyphicon-chevron-right:before {display: none;}
+
+
+.chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide {width: calc(100% - 16px); margin: 10px 0px 0px 0px; text-align: right;}
+.chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide > div {display: inline-block;}
+.chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide > div > div {display: inline-block; position: relative; width: 18px; height: 18px; vertical-align: bottom; border: 1px solid rgba(0,0,0,0.3); border-radius: 4px;}
+.chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide .pick_guide01:before {content: ''; display: inline-block; border: solid transparent; border-width: 0 0 7px 7px; border-bottom-color: #337ab7; border-bottom-color: rgba(245,222,178,1.0); border-top-color: rgba(0, 0, 0, 0.2); position: absolute; bottom: 2px; right: 2px;}
+.chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide .pick_guide03 {background: rgba(245,222,178,1.0);}
+
+.chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide > div > span {font-size: 11px;}
+
 
 /* 마우스 이벤트, 디자인 효과수정 */
+.bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+    background: rgba(245,222,178,0.6);
+}
+
+.bootstrap-datetimepicker-widget table td span:hover {background-color: rgba(245,222,178,0.6);}
+.bootstrap-datetimepicker-widget table td .glyphicon-chevron-up:hover {background-image: url(../images/ico_chevron_up.png); background-repeat: no-repeat; background-position: center center; background-size: 16px auto;}
+.bootstrap-datetimepicker-widget table td .glyphicon-chevron-down:hover {background-image: url(../images/ico_chevron_down.png); background-repeat: no-repeat; background-position: center center; background-size: 16px auto;}
+
 .bootstrap-datetimepicker-widget table td.day.disabled {opacity: 0.4;}
 .bootstrap-datetimepicker-widget table td.day.disabled em {border: none;}
-.bootstrap-datetimepicker-widget table td.day.disabled.weekend {color: red;}
+.bootstrap-datetimepicker-widget table td.day.disabled.weekend {color: #ff0000;}
 .bootstrap-datetimepicker-widget table td.active,
 .bootstrap-datetimepicker-widget table td.active:hover {
-  /* background-color: wheat;
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); */
-  background-color: transparent;
+    /* background-color: wheat;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); */
+    background-color: transparent;
 }
 .bootstrap-datetimepicker-widget table td.active em,
 .bootstrap-datetimepicker-widget table td.active:hover em {
-  background-color: rgba(245,222,178,1.0);
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: rgba(245,222,178,1.0);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 .bootstrap-datetimepicker-widget table td span.active {
@@ -667,28 +704,28 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .bootstrap-datetimepicker-widget table td.hour:hover,
 .bootstrap-datetimepicker-widget table td.minute:hover,
 .bootstrap-datetimepicker-widget table td.second:hover {
-  background: #eeeeee;
-  cursor: pointer;
-  background: transparent;
+    background: #eeeeee;
+    cursor: pointer;
+    background: transparent;
 }
 .bootstrap-datetimepicker-widget table td.day:hover em,
 .bootstrap-datetimepicker-widget table td.hour:hover em,
 .bootstrap-datetimepicker-widget table td.minute:hover em,
 .bootstrap-datetimepicker-widget table td.second:hover em {
-  background: rgba(245,222,178,0.6);
-  cursor: pointer;
+    background: rgba(245,222,178,0.6);
+    cursor: pointer;
 }
 
 
 .bootstrap-datetimepicker-widget table td.disabled,
 .bootstrap-datetimepicker-widget table td.disabled:hover {
-  background: none;
-  color: #777777;
-  cursor: not-allowed;
+    background: none;
+    color: #777777;
+    cursor: not-allowed;
 }
 .bootstrap-datetimepicker-widget table td.disabled em,
 .bootstrap-datetimepicker-widget table td.disabled:hover em {
-  background: none;
-  /* color: #777777; */
-  cursor: not-allowed;
+    background: none;
+    /* color: #777777; */
+    cursor: not-allowed;
 }
