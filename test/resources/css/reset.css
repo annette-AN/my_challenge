@@ -26,7 +26,8 @@ h1,h2,h3,h4,h5,h6 {font-family:"Spoqa Han Sans", sans-serif;}
 br {background:none !important;}
 img {vertical-align:top;}
 a:focus, input:focus, textarea:focus, button:focus {outline:none !important;}
-button {cursor:pointer;}
+/* 추가 200306 AMR border */
+button {border: none; cursor:pointer;}
 
 /* input 기본 스타일 초기화 */
 input {-webkit-appearance:none; -moz-appearance:none; appearance:none;}

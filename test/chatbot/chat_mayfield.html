@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/swiper.min.css" />
 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-datetimepicker.css" />
 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-datetimepicker-standalone.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/commonCSS.css" />
 <link rel="stylesheet" type="text/css" href="../resources/css/gt_hud.css" />
 <!-- //css -->
 <!--[if lt IE 9]>
@@ -309,73 +310,75 @@
 		<!-- //.chatAside_hd -->
 		<!-- .chatAside_bd -->
 		<div class="chatAside_bd">
-			<div class="stnBox">
-				<p class="txt">[필독] 개인정보동의 약관</p>
-				<div class="iptBox">
-					<div class="checkBox">                                            
-						<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
-						<label for="terms_check">동의</label>
-					</div>
-				<button type="button" class="btn_terms" title="close">약관보기</button> 
-				</div>
-			</div>
-			<div class="stnBox">
-				<p class="txt">예약 정보 입력</p>
-				<dl class="dlBox">
-					<dt>이름 [*]</dt>
-					<dd><input type="text" name="name" class="ipt_txt" placeholder="이름을 입력해 주세요."></dd>
-				</dl>
-				<dl class="dlBox">
-					<dt>성별 [*]</dt>
-					<dd>
-						<div class="radioBox gender">                                   
-							<input type="radio" name="gender" id="gender_man" class="ipt_check">
-							<label for="gender_man">남자</label>
-							<input type="radio" name="gender" id="gender_woman" class="ipt_check">
-							<label for="gender_woman">여자</label>
+			<div class="stn_area">
+				<div class="stnBox">
+					<p class="txt">개인정보동의 약관</p>
+					<div class="iptBox">
+						<div class="checkBox">                                            
+							<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
+							<label for="terms_check">동의</label>
 						</div>
-					</dd>
-				</dl>
-				<dl class="dlBox">
-					<dt>전화번호 [*]</dt>
-					<dd><input type="tel" name="tel" class="ipt_txt"></dd>
-				</dl>
-				<dl class="dlBox">
-					<dt>이메일 [*]</dt>
-					<dd><input type="text" name="email" class="ipt_txt"></dd>
-				</dl>
-				<dl class="dlBox picker">
-					<dt>예약일시 [*]</dt>
-					<dd class="block_target">
-						<div class="container">
-							<div class="row">
-								<div class='col-sm-6'>
-									<!-- value 빼기 -->
-									<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='reservation_date' readonly />
+					<button type="button" class="btn_terms" title="close">약관보기</button> 
+					</div>
+				</div>
+				<div class="stnBox">
+					<p class="txt">예약 정보 입력</p>
+					<dl class="dlBox">
+						<dt>이름</dt>
+						<dd><input type="text" name="name" class="ipt_txt" placeholder="필수사항입니다"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>성별</dt>
+						<dd>
+							<div class="radioBox gender">                                   
+								<input type="radio" name="gender" id="gender_man" class="ipt_check">
+								<label for="gender_man">남자</label>
+								<input type="radio" name="gender" id="gender_woman" class="ipt_check">
+								<label for="gender_woman">여자</label>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>전화번호</dt>
+						<dd><input type="tel" name="tel" class="ipt_txt" placeholder="필수사항입니다"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>이메일</dt>
+						<dd><input type="text" name="email" class="ipt_txt" placeholder="필수사항입니다"></dd>
+					</dl>
+					<dl class="dlBox picker">
+						<dt>예약일시</dt>
+						<dd class="block_target">
+							<div class="container">
+								<div class="row">
+									<div class='col-sm-6'>
+										<!-- value 빼기 -->
+										<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='reservation_date' />
+									</div>
 								</div>
 							</div>
-						</div>
-					</dd>
-					<dt class="box_hide">달력 표시 설명</dt>
-					<dd class="pick_guide">
-						<div>
-							<div class="pick_guide01"></div>
-							<span>오늘</span>
-						</div>
-						<div>
-							<div class="pick_guide02"></div>
-							<span>진료가능일</span>
-						</div>
-						<div>
-							<div class="pick_guide03"></div>
-							<span>진료일선택</span>
-						</div>
-					</dd>
-				</dl>
-				<dl class="dlBox">
-					<dt>기타사항</dt>
-					<dd class="block_target"><textarea name="add" rows="10" class="ipt_txt" placeholder="내용을 입력해주세요 (선택)"></textarea></dd>
-				</dl>
+						</dd>
+						<dt class="box_hide">달력 표시 설명</dt>
+						<dd class="pick_guide">
+							<div>
+								<div class="pick_guide01"></div>
+								<span>오늘</span>
+							</div>
+							<div>
+								<div class="pick_guide02"></div>
+								<span>진료가능일</span>
+							</div>
+							<div>
+								<div class="pick_guide03"></div>
+								<span>진료일선택</span>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>기타사항</dt>
+						<dd class="block_target"><textarea name="add" rows="10" class="ipt_txt" placeholder="내용을 입력해주세요 (선택)"></textarea></dd>
+					</dl>
+				</div>
 			</div>
 			<div class="btnBox">
 				<button type="submit" class="btn_point btn_submit">예약하기</button> 
@@ -594,7 +597,9 @@ $(document).ready(function(){
 		var parentTop = $(this).parents('.stnBox').offset().top;
 		var nowScrollTop = $(this).parents('.stnBox').scrollTop();
 		var addScrolltop = top - parentTop
-		$(this).parents('.stnBox').scrollTop( nowScrollTop + addScrolltop );
+		setTimeout(function(){
+			$(this).parents('.stnBox').scrollTop( nowScrollTop + addScrolltop );
+		}, 300);
 	});
 	/* 수정 200304 AMR 데이트피커 
 		문제 : 지나간 날과 시간에 <td class="disabled">가 추가되어야합니다
