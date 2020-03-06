@@ -403,6 +403,72 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="stnBox info_text">
+				<div class="content">
+					<div class="txt_box">
+						<em>약관</em>
+						<div class="txt">
+							<pre>
+								챗봇을 처음 사용하시는군요 :)
+
+								메이퓨어 챗봇서비스는 예약자 본인 인증 후 본인의 진료예약만 가능합니다.
+								동행하시는 분은 예약 안되는 점 꼭 확인 부탁드립니다.
+
+								앞으로 별도의 인증 없이 편리하게 사용하실 수 있도록, 최초 1회! 개인정보를 저장하려고 합니다.
+
+								- 수집목록 : 이름, 휴대폰번호, 예약정보(메이퓨어의원)
+								- 보유기간 : 법정기간 준수
+								...
+
+								개인정보 수집에 대하여 동의하시나요?(필수)
+
+								챗봇을 처음 사용하시는군요 :)
+
+								메이퓨어 챗봇서비스는 예약자 본인 인증 후 본인의 진료예약만 가능합니다.
+								동행하시는 분은 예약 안되는 점 꼭 확인 부탁드립니다.
+
+								앞으로 별도의 인증 없이 편리하게 사용하실 수 있도록, 최초 1회! 개인정보를 저장하려고 합니다.
+
+								- 수집목록 : 이름, 휴대폰번호, 예약정보(메이퓨어의원)
+								- 보유기간 : 법정기간 준수
+								...
+
+								개인정보 수집에 대하여 동의하시나요?(필수)
+
+								챗봇을 처음 사용하시는군요 :)
+
+								메이퓨어 챗봇서비스는 예약자 본인 인증 후 본인의 진료예약만 가능합니다.
+								동행하시는 분은 예약 안되는 점 꼭 확인 부탁드립니다.
+
+								앞으로 별도의 인증 없이 편리하게 사용하실 수 있도록, 최초 1회! 개인정보를 저장하려고 합니다.
+
+								- 수집목록 : 이름, 휴대폰번호, 예약정보(메이퓨어의원)
+								- 보유기간 : 법정기간 준수
+								...
+
+								개인정보 수집에 대하여 동의하시나요?(필수)
+
+								챗봇을 처음 사용하시는군요 :)
+
+								메이퓨어 챗봇서비스는 예약자 본인 인증 후 본인의 진료예약만 가능합니다.
+								동행하시는 분은 예약 안되는 점 꼭 확인 부탁드립니다.
+
+								앞으로 별도의 인증 없이 편리하게 사용하실 수 있도록, 최초 1회! 개인정보를 저장하려고 합니다.
+
+								- 수집목록 : 이름, 휴대폰번호, 예약정보(메이퓨어의원)
+								- 보유기간 : 법정기간 준수
+								...
+
+								개인정보 수집에 대하여 동의하시나요?(필수)
+							</pre>
+						</div>
+					</div>
+					<div class="btnBox">
+						<button type="submit" class="btn_point">확인</button>
+					</div>
+				</div>
+			</div>
 		</div> 
 		<!-- //.chatAside_bd -->
 	</div>
@@ -591,17 +657,7 @@ jQuery.event.add(window,"load",function(){
 <script>
 /* mirye test */
 $(document).ready(function(){
-	/* 추가 200304 AMR 데이트피커로 scroll이동 */
-	$('#reservation_date').on('focus', function(){
-		var top = $(this).offset().top;
-		var parentTop = $(this).parents('.stnBox').offset().top;
-		var nowScrollTop = $(this).parents('.stnBox').scrollTop();
-		var addScrolltop = top - parentTop
-		setTimeout(function(){
-			$(this).parents('.stnBox').scrollTop( nowScrollTop + addScrolltop );
-		}, 300);
-	});
-	/* 수정 200304 AMR 데이트피커 
+	/* 200304 AMR 데이트피커 
 		문제 : 지나간 날과 시간에 <td class="disabled">가 추가되어야합니다
 	*/
 	$('#reservation_date').datetimepicker({
@@ -665,7 +721,7 @@ $(document).ready(function(){
 	}
 	handleSwipePopupPreviewOpenClose();
 
-	/* 200226 추가 AMR chatAside (날짜)*/
+	/* 200226 AMR chatAside */
 	function handleChatAside(targetBtn) {
 		var $chatAside = $('.chatAside');
 
@@ -719,6 +775,16 @@ $(document).ready(function(){
 			$(this).parents($chatAside).removeClass('aside_show').find('.chatAside_bd').removeClass('success_screen');
 			$(this).parents($chatAside).find('input[type="text"], input[type="number"], textarea').val('');
 			$(this).parents($chatAside).find('input[type="checkbox"], input[type="radio"]').removeAttr('checked');
+		});
+
+		/* 추가 200306 AMR 약관보기 open */
+		$chatAside.find('.btn_terms').on('click', function(){
+			$(this).parents('.chatAside_bd').addClass('info_screen');
+		});
+
+		$chatAside.find('.info_text .btn_point').on('click', function(){
+			$(this).parents('.chatAside_bd').removeClass('info_screen');
+			$chatAside.find('input[name="agreement"]').attr('checked', '')
 		});
 	}
 	handleChatAside($('.inquiry_btn'));

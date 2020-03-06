@@ -365,6 +365,16 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .chatAside_bd .stnBox.popup .popup_content .popup_txt em {font-size: 18px; color: #222;}
 .chatAside .chatAside_bd .stnBox.popup .popup_content .popup_txt p {margin: 16px 0px 0px 0px; line-height: 20px; font-size: 14px; color: #333;}
 
+/* 추가 200306 AMR text 팝업 (약관보기) */
+.chatAside .chatAside_bd.info_screen {overflow: hidden;}
+.chatAside .chatAside_bd.info_screen > .stnBox.info_text {display: block;}
+
+.chatAside .chatAside_bd .stnBox.info_text {display: none; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #f7f8fa; text-align: center;}
+.chatAside .chatAside_bd .stnBox.info_text .content {display: inline-block; width: calc(100% - 32px); height: 100%; margin: 16px; text-align: left;}
+.chatAside .chatAside_bd .stnBox.info_text .content .txt_box {height: calc(100% - 72px);}
+.chatAside .chatAside_bd .stnBox.info_text .content .txt_box em {font-size: 16px;}
+.chatAside .chatAside_bd .stnBox.info_text .content .txt_box .txt {overflow: auto; width: calc(100% - 24px); max-height: calc(100% - 90px); margin: 10px 0px 0px 0px; padding: 20px 12px; border: 1px solid #ebeaef; border-radius: 7px; line-height: 18px; font-size: 13px; color: #333; background: #fff;}
+
 #chatUI_wrap .txt .txt_btn {display:block; padding:10px 0 0 0; text-align:center;}
 #chatUI_wrap .txt .txt_btn a {display:inline-block; height:30px; padding:0 15px; font-size:13px; text-align:center; text-decoration:none !important; line-height:28px; border:1px solid #ebeaef; border-radius:50px; background:#fff; transition:all 0.3s ease-out;}
 #chatUI_wrap .txt .txt_btn a:hover {color:#fff !important; transition:all 0.3s ease-out;}
