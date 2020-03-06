@@ -515,6 +515,9 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .box_hide {position: absolute !important; left:-999px !important; width: 0px !important; height: 0px !important;}
 
 /* datetimepicker css */
+.date_inaccessible {position: relative;}
+.date_inaccessible:after {content: ''; display: block; position: absolute; top: 0px; left: 0px; width: calc(100% + 12px); height: 35px; cursor: default;}
+
 .bootstrap-datetimepicker-widget {transform: translateZ(0);}
 
 .bootstrap-datetimepicker-widget table {margin: 10px 0px 0px 0px;}
@@ -556,13 +559,12 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     border-bottom-color: #fff;
 }
 
-.glyphicon-time {background: rgba(210,208,206,0.4);}
-.glyphicon-time:before {content: '시간을 선택해주세요 Click (다음선택)'; font-size: 13px;}
-.glyphicon-calendar {background: rgba(210,208,206,0.4);}
-.glyphicon-calendar:before {content: '날짜 수정하기 Click (뒤로가기)'; font-size: 13px;}
-
-.bootstrap-datetimepicker-widget table td .glyphicon-time:hover,
-.bootstrap-datetimepicker-widget table td .glyphicon-calendar:hover {background-color: rgba(210,208,206,0.7);}
+.glyphicon-time {background: rgba(245,222,178,0.4);}
+/*.glyphicon-time:before {content: '시간을 선택해주세요 Click (다음선택)'; font-size: 13px;}*/
+.glyphicon-time:before {content: attr(time-data-before); font-size: 13px;}
+.glyphicon-calendar {background: rgba(245,222,178,0.4);}
+/*.glyphicon-calendar:before {content: '날짜를 선택해주세요 Click (이전선택)'; font-size: 13px;}*/
+.glyphicon-calendar:before {content: attr(date-data-before); font-size: 13px;}
 
 .glyphicon-chevron-up {display: block; height: 100%; background-image: url(../images/ico_chevron_up.png); background-repeat: no-repeat; background-position: center center; background-size: 16px auto;}
 .glyphicon-chevron-down {display: block; height: 100%; background-image: url(../images/ico_chevron_down.png); background-repeat: no-repeat; background-position: center center; background-size: 16px auto;}
@@ -583,7 +585,6 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide .pick_guide03 {background: rgba(245,222,178,1.0);}
 
 .chatAside .chatAside_bd .stnBox dl.dlBox dd.pick_guide > div > span {font-size: 11px;}
-
 
 /* 마우스 이벤트, 디자인 효과수정 */
 .bootstrap-datetimepicker-widget table thead tr:first-child th:hover {

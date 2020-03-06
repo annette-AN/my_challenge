@@ -1,3 +1,6 @@
+/* AMR h1 logo 크기 조절 */
+#chatUI_wrap .chatUI_top h1 {background: url(../images/logo_mayfield.png) no-repeat 50% 10px !important; background-size: auto 30px !important;}
+
 /* floating_.html css */
 /* MINDsLab. UX/UI Team. AMR. 20200206 */
 #chatbot {display:block; overflow:hidden; position:fixed; width: 90px; right:0; bottom:55px; height:75px; border-radius:10px; z-index:9999;}
