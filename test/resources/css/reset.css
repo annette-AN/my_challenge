@@ -39,5 +39,3 @@ input[type=number] {-moz-appearance:textfield;}
 /* Select box 스타일 초기화 */
 select {-webkit-appearance:none; -moz-appearance:none; appearance:none;}
 
-/* 추가 200306 AMR */
-pre {white-space: pre-line;}

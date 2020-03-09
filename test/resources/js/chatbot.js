@@ -14,9 +14,10 @@ $('#inputArea').keyup(function (event) {
 });
 
 $(document).ready(function (){
-
+    var chatBtnClicked = false;
     // chatbot open
     $('#btn_goChat').on('click', function(){
+        chatBtnClicked = true;
         window.parent.postMessage("chatbot_open", "*");
         $(this).addClass('goChat_hide');
         $('.chatGreeting').addClass('chatGreeting_hide');
@@ -26,6 +27,13 @@ $(document).ready(function (){
             scrollTop: scrollHeight
         },150);
         return false;
+    });
+
+    // chatbot open trigger
+    $('#btn_goChat').on("animationend", function() {
+        if (!chatBtnClicked) {
+            $('#btn_goChat').trigger('click');
+        }
     });
 
     // chatbot close
@@ -126,7 +134,8 @@ $(document).ready(function (){
         if (!display) {
             display = value;
         }
-        let data = {"type": type, "input":value.replace("<br>", ""), "host": host, "lang": lang, "channel": checkDevice()};
+        var jsonData = {"device":checkDevice(), "channel":"HOMEPAGE"};
+        let data = {"type": type, "input":value.replace("<br>", ""), "host": host, "lang": lang, "jsonData": JSON.stringify(jsonData)};
 
         $('.chatUI_mid .lst_talk').append(
             '<li class="user"> \
@@ -163,13 +172,15 @@ $(document).ready(function (){
 
         changeTextHolder(lang);
 
+        var jsonData = {"device":checkDevice(), "channel":"HOMEPAGE"};
+
         $.ajax({
             url: "/chat/hostInfo",
             data: JSON.stringify(data),
             type: "POST",
             contentType: 'application/json',
         }).done(function (response) {
-            callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "channel": checkDevice()})
+            callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "jsonData": JSON.stringify(jsonData)})
         });
     }
 
@@ -212,17 +223,41 @@ $(document).ready(function (){
     }
 
     function selectResponseType(response) {
-        if(!!response.answer && response.answer.includes("|||MAP|||")) {
-            let res = response.answer.split("|||MAP|||");
-            botResponseMap(res[1]);
+        if(!!response.answer) {
+            let ans = response.answer;
+
+            // map이나 inquiry 중 하나만 있다고 가정.
+            // console.log(ans);
+
+            if (ans.includes("|||MAP|||")) {
+                let res = ans.split("|||MAP|||");
+                botResponseMap(res[1]);
+                response.answer = res[0];
+
+            } else if (ans.includes("|||INQUIRY|||")) {
+                let res = ans.split("|||INQUIRY|||");
+                botResponseInquiry(res[1]);
+                response.answer = res[0];
+            } else if (ans.includes("|||PROMOTION|||")) {
+                let res = ans.split("|||PROMOTION|||");
+                botResponsePromotion(res[1]);
+                response.answer = res[0];
+            } else if (ans.includes("|||IMG_CAROUSEL|||")) {
+                let res = ans.split("|||IMG_CAROUSEL|||");
+                // 이미지 캐로셀은 예외적으로 textResponse를 먼저 처리.
+                response.answer = res[0];
+                if (!!response.answer) botResponseText(response.answer);
+                response.answer = undefined;
+
+                botResponseImgCarousel(res[1]);
+            }
         }
-        else {
-            if (!!response.answer) botResponseText(response.answer);
-            if (response.list.length > 0) botResponseList(response.list);
-            botResponseButton(response.buttons);
-            if (response.carousel.length > 0) botResponseCarousel(response.carousel);
-            if (!!response.farewell) botResponseText(response.farewell);
-        }
+
+        if (!!response.answer) botResponseText(response.answer);
+        if (response.list.length > 0) botResponseList(response.list);
+        botResponseButton(response.buttons);
+        if (response.carousel.length > 0) botResponseCarousel(response.carousel);
+        if (!!response.farewell) botResponseText(response.farewell);
         botResponseTime();
         makeTxtInnerButton();
     }
@@ -361,12 +396,12 @@ $(document).ready(function (){
             loop: false,
             pagination: {
                 el: '.swiper-pagination',
-                clickable: true,
+                clickable: true
             },
             navigation: {
                 nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+                prevEl: '.swiper-button-prev'
+            }
         };
 
         if (carousel_response.length > swiper_option.slidesPerView) {
@@ -380,110 +415,431 @@ $(document).ready(function (){
 
     }
 
+    function botResponsePromotion(promoResponse) {
+        promoResponse = JSON.parse(promoResponse);
+
+        $('.chatUI_mid .lst_talk').append(
+            '<li class="bot bot_promotion"> \
+            <div class="bot_msg">\
+                <div class="generic"> \
+                    <span class="generic_img"><img src="' + promoResponse.img + '" alt="프로모션 사진"></span> \
+                    <span class="generic_tit">' + promoResponse.title + '</span> \
+                        <div class="txt">' + promoResponse.comment + '</div> \
+                 </div> \
+            </div>\
+            </li>'
+        );
+
+        $('.chatUI_mid').scrollTop($('.chatUI_mid')[0].scrollHeight);
+    }
+
+    /* 예약 일자: datetimepicker */
+    $('#reservation_date').datetimepicker({
+        minDate: 'now',
+        locale: 'ko',
+        inline: true,
+        format: 'YYYY-MM-DD HH:mm dd',
+        dayViewHeaderFormat: 'YYYY / MM ',
+        stepping: 30,
+        daysOfWeekDisabled: [0],
+        disabledDates: ['2020-01-01','2020-03-01','2020-05-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
+        // 01-01 새해(신정), 03-01 삼일절, 05-01 근로자의날, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
+        // 설날(구정)				음력 1월 1일
+        // 석가탄신일(부처님오신날)	 음력 4월 8일
+        // 추석						음력 8월 15일
+        disabledHours: [0,1,2,3,4,5,6,7,8,20,21,22,23],
+        icons: {
+            time: 'glyphicon glyphicon-time',
+            date: 'glyphicon glyphicon-calendar',
+            up: 'glyphicon glyphicon-chevron-up',
+            down: 'glyphicon glyphicon-chevron-down',
+            previous: 'glyphicon glyphicon-chevron-left',
+            next: 'glyphicon glyphicon-chevron-right',
+            today: 'glyphicon glyphicon-screenshot',
+            clear: 'glyphicon glyphicon-trash',
+            close: 'glyphicon glyphicon-remove'
+        }
+    });
+
+    function initializeInquiryDisplsy(){
+        for (i = 0; i < $('.chat_inquiry .chatAside_bd .form dl.dlBox').length; i++) {
+            dl = $('.chat_inquiry .chatAside_bd .form dl.dlBox')[i];
+            dl.style.display = 'None';
+        }
+    }
+
+    function botResponseInquiry(iqrResponse) {
+        iqrResponse = JSON.parse(iqrResponse);
+
+        initializeInquiryDisplsy();
+
+        // 문의하기 및 예약하기 팝업 채우기
+        // title
+        $('.chatAside_hd h3').text(iqrResponse.title);
+        // 이용약관
+        iqrResponse.tos.forEach(function(terms){
+            $('.chatAside_bd .tos p.txt').text(terms.title);
+            $('.chatAside_bd .tos div.iptBox label').text(terms.check);
+            $('.chatAside_bd .tos div.iptBox button.btn_terms').text(terms.btn);
+        });
+
+        // form
+        $('.chatAside_bd .form p.txt').text(iqrResponse.form.comment);
+        fields = iqrResponse.form.field;
+        for (name in fields) {
+            field = fields[name];
+            title = field.title;
+
+            $('.chatAside_bd .form dl.dlBox.form_' + name)[0].style.display = '';
+            $('.chatAside_bd .form dl.dlBox.form_' + name + ' dt').text(title);
+
+            if (field.placeholder) {
+                $('.chatAside_bd .form dl.dlBox.form_' + name + ' dd input.ipt_txt').placeholder = field.placeholder
+            }
+
+            if ($('.chatAside_bd .form dl.dlBox.form_' + name + ' dd .radioBox').length !== 0) {
+                // radio btn options
+                for (label in field.options) {
+                    $('.chatAside_bd .form dl.dlBox.form_' + name + ' dd .radioBox label[for=' + label  + ']')
+                        .text(field.options[label].title);
+                }
+            }
+        }
+
+        // datetimepicker 관련 meta 설정
+        if (!!fields['datetime']) {
+            let meta = fields['datetime'].meta;
+            $('.glyphicon-time').attr('time-data-before', meta.timePlaceholder);
+            $('.glyphicon-time').attr('date-data-before', meta.datePlaceholder);
+
+            $('.chatAside_bd .form dl.dlBox.form_datetime dd.pick_guide .pick_guide01').next().text(meta.today);
+            $('.chatAside_bd .form dl.dlBox.form_datetime dd.pick_guide .pick_guide02').next().text(meta.available);
+            $('.chatAside_bd .form dl.dlBox.form_datetime dd.pick_guide .pick_guide03').next().text(meta.selected);
+        }
+
+        // submit button
+        $('.chatAside_bd div.btnBox button.btn_submit').text(iqrResponse.form.submitBtn);
+
+        var $chatAside = $('.chatAside');
+
+        // submit btn onclick
+        let submitBtn = $('.chatAside_bd div.btnBox button.btn_submit');
+        submitBtn.prop("onclick", null).off("click");
+        submitBtn.on('click', function(){
+            var $thisChatAside = $(this).parents($chatAside);
+            if ( !!iqrResponse.tos[0] && iqrResponse.tos[0].required &&
+                !!$thisChatAside.find('input[name="agreement"]').length &&
+                !$thisChatAside.find('input[name="agreement"]').is(':checked') ) {
+                // alert('개인정보 약관에 동의해주세요');
+                alert(iqrResponse.tos[0].requireAlert);
+                return;
+            }
+            if ( !!fields['name'] && fields['name'].required &&
+                !!$thisChatAside.find('input[name="name"]').length &&
+                !$thisChatAside.find('input[name="name"]').val().trim() ) {
+                // alert('이름을 입력해주세요');
+                alert(fields['name'].requireAlert);
+                return;
+            }
+            if ( !!fields['gender'] && fields['gender'].required &&
+                !!$thisChatAside.find('input[name="gender"]').length &&
+                !$thisChatAside.find('input[name="gender"]').is(':checked') ) {
+                // alert('성별을 선택해주세요');
+                alert(fields['gender'].requireAlert);
+                return;
+            }
+            if ( !!fields['tel'] && fields['tel'].required &&
+                !!$thisChatAside.find('input[name="tel"]').length &&
+                !$thisChatAside.find('input[name="tel"]').val().trim() ) {
+                // alert('연락처를 입력해주세요');
+                alert(fields['tel'].requireAlert);
+                return;
+            }
+            if ( !!fields['email'] && fields['email'].required &&
+                !!$thisChatAside.find('input[name="email"]').length &&
+                !$thisChatAside.find('input[name="email"]').val().trim() ) {
+                // alert('이메일을 입력해주세요');
+                alert(fields['email'].requireAlert);
+                return;
+            }
+            if ( !!fields['datetime'] && fields['datetime'].required &&
+                !!$thisChatAside.find('input[name="datetime"]').length &&
+                !$thisChatAside.find('input[name="datetime"]').val().trim() ) {
+                // alert('날짜를 선택해주세요');
+                alert(fields['datetime'].requireAlert);
+                return;
+            }
+            if ( !!fields['inquiry'] && fields['inquiry'].required &&
+                !!$thisChatAside.find('textarea[name="inquiry"]').length &&
+                !$thisChatAside.find('textarea[name="inquiry"]').val().trim() ) {
+                // alert('요청사항을 입력해주세요');
+                alert(fields['inquiry'].requireAlert);
+                return;
+            }
+
+            // 문의내용 뒷단으로 넘기기
+            var genderInfo = 'm';
+            if ($(".form_gender").find(":radio[name='{{gender}}']:checked").val() === undefined){
+                genderInfo = 'f';
+            }
+            var inquiryData = {
+                "name": $(".form_name").find("input").val(),
+                "gender": genderInfo,
+                "phone": $(".form_tel").find("input").val(),
+                "email": $(".form_email").find("input").val(),
+                "inquiryMsg": $(".form_inquiry").find("textarea").val()};
+
+            var jsonData = {"device":checkDevice(), "channel":"HOMEPAGE"};
+
+            callBackend({"type": "intent", "input": JSON.stringify(inquiryData), "host": host, "lang":lang, "jsonData": JSON.stringify(jsonData)});
+
+            // success 팝업 채우기
+            $('.chatAside_bd div.stnBox.popup .popup_content .popup_txt em').text(iqrResponse.form.successPopup.title);
+            $('.chatAside_bd div.stnBox.popup .popup_content .popup_txt p').html(iqrResponse.form.successPopup.description);
+            $thisChatAside.find('.chatAside_bd').addClass('success_screen');
+
+        });
+
+        // aside open
+        $(document).on('click', '.inquiry_btn', function(){
+            $chatAside.addClass('aside_show');
+            window.parent.postMessage("aside_open", "*");
+        });
+
+        // aside close (input value 초기화 및 창 닫힘)
+        $('.btn_chatAside_close').on('click', function(){
+            window.parent.postMessage("aside_close", "*");
+            $(this).parents($chatAside).removeClass('aside_show').find('.chatAside_bd').removeClass('success_screen');
+            $(this).parents($chatAside).find('input[type="text"], input[type="tel"], textarea').val('');
+            $(this).parents($chatAside).find('input[type="checkbox"], input[type="radio"]').removeAttr('checked');
+        });
+
+        // 추가 200306 AMR 약관보기
+        $chatAside.find('.btn_terms').on('click', function(){
+            $(this).parents('.chatAside_bd').addClass('info_screen');
+        });
+
+        $chatAside.find('.info_text .btn_point').on('click', function(){
+            $(this).parents('.chatAside_bd').removeClass('info_screen');
+            $chatAside.find('input[name="agreement"]').attr('checked', '')
+        });
+    }
+
+    // swiper
+    function applySwiper (selector, option) {
+        var defaultOption = {
+            speed : 200,
+            slidesPerView:2,
+            spaceBetween: 10,
+            centeredSlides: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        };
+        return new Swiper(selector, $.extend(defaultOption, option))
+    }
+
+    function handleSwipePopupPreviewOpenClose() {
+        //open
+        $('.full_preview .swiper_item').on('click', function(e){
+            $('.popup_swipe_backdrop').addClass('popup_active');
+            var slideIndex = $('.full_preview .swiper-slide').index($(this).parent());
+            var thisSlide = slideIndex;
+            var swiper = applySwiper($('.popup_swipe_backdrop .botMsg_swiper'), { slidesPerView:1, initialSlide: thisSlide, });
+
+            //close (btn click)
+            function handleClose(){
+                e.stopPropagation();
+                swiper.destroy();
+                $('.popup_swipe_backdrop .popup_swipe_preview').off('click');
+                $('.popup_swipe_backdrop').removeClass('popup_active');
+                $('.btn_popupClose').off('click', handleClose);
+                $('.popup_swipe_backdrop').off('click');
+            }
+
+            $('.btn_popupClose').on('click', handleClose);
+
+            $('.popup_swipe_backdrop .popup_swipe_preview').on('click', function(e){
+                e.stopPropagation();
+            });
+
+            //close (영역 밖 click)
+            $('.popup_swipe_backdrop').on('click', function(){
+                if ( $(this).hasClass('popup_active') ) {
+                    handleClose();
+                }
+            });
+        });
+    }
+
+    function botResponseImgCarousel(imgResponse) {
+        imgResponse = JSON.parse(imgResponse);
+
+        let imgCarouselHtml =
+            '<li class="bot"> \
+                <div data-swiper-id="2" class="botMsg_swiper full_preview">\
+                    <div class="swiper-wrapper">';
+
+        // img 클릭시 나오는 Back swiper를 별도로 그려줘야.
+        let imgBackdropHtml =
+            '<div class="popup_swipe_backdrop"> \
+                <div class="popup_swipe_preview"> \
+                    <div class="botMsg_swiper"> \
+                        <div class="swiper-wrapper">';
+
+        for (i in imgResponse.imgList) {
+            let img = imgResponse.imgList[i];
+            imgCarouselHtml +=
+                '<div class="swiper-slide"> \
+                    <a class="swiper_item" href="#" target="_self"> \
+                        <span class="item_img"><img src="' + img.src + '" alt="' + img.title + '"></span> \
+                    </a> \
+                </div>';
+
+            imgBackdropHtml +=
+                '<div class="swiper-slide"> \
+                    <div class="swiper_item"> \
+                        <span class="item_img"><img src="' + img.src + '" alt="' + img.title + '"></span> \
+                    </div> \
+                </div>';
+        }
+
+        imgCarouselHtml +=
+            '</div> \
+                <!-- [D] Swiper Pagination --> \
+            <div class="swiper-pagination"></div> \
+            <!-- [D] Swiper navigation buttons --> \
+            <div class="swiper-button-prev"></div> \
+            <div class="swiper-button-next"></div> \
+            </div>\
+        </li>';
+
+        imgBackdropHtml +=
+            '</div>\
+            <!-- [D] Swiper Pagination -->\
+            <div class="swiper-pagination"></div>\
+            <!-- [D] Swiper navigation buttons -->\
+            <div class="swiper-button-prev"></div>\
+            <div class="swiper-button-next"></div>\
+            <button type="button" class="btn_popupClose"><em>팝업 닫기</em></button>\
+        </div>';
+
+
+        $('.chatUI_mid .lst_talk').append(imgCarouselHtml);
+        $('#chatUI_wrap').append(imgBackdropHtml);
+
+        handleSwipePopupPreviewOpenClose();
+        applySwiper($('[data-swiper-id="2"]'), {slidesPerView: 1});
+
+        $('.chatUI_mid').scrollTop($('.chatUI_mid')[0].scrollHeight);
+    }
+
     function botResponseMap(map_response) {
         let jsonRes = JSON.parse(map_response);
         // console.log(jsonRes)
 
         let mapSelectHtml =
-        `
-            <li class="bot">
-            <div class="bot_msg">
-                <div class="btnLst"> 
-                    <span class="txt txt_radius">${jsonRes.answer}</span>
-                    <div class="iptBox">
-                        <dl class="dl_ipt">
-                            <dt>${jsonRes.texts.start}</dt>
-                            <dd>
-                                <select class="select start"> 
-         `;
+            '   <li class="bot"> \
+                <div class="bot_msg"> \
+                    <div class="btnLst"> \
+                        <span class="txt txt_radius">' + jsonRes.answer + '</span> \
+                    <div class="iptBox"> \
+                        <dl class="dl_ipt"> \
+                            <dt>' + jsonRes.texts.start + '</dt> \
+                            <dd> \
+                                <select class="select start">';
 
         let startCustomCheck = false;
-        jsonRes.starts.forEach(start => {
-            mapSelectHtml += `<option data-location=`;
+        jsonRes.starts.forEach(function(start) {
+            mapSelectHtml += '<option data-location=';
             if(start.location.hasOwnProperty("get"))
             {
-                mapSelectHtml += `"${start.location.get}" `;
+                mapSelectHtml += '"' + start.location.get + '"';
                 if(start.location.get == "custom")
                 {
-                    mapSelectHtml += `value="direct"  `
+                    mapSelectHtml += 'value="direct"  '
                 }
             }
             else
             {
-                mapSelectHtml += `'{"lat": ${start.location.lat}, "lng": ${start.location.lng}}' `
+                mapSelectHtml += '\'{"lat": ' + start.location.lat + ', "lng": ' + start.location.lng + '}\' ';
             }
             if(start.selected){
-                mapSelectHtml += `selected`
+                mapSelectHtml += 'selected';
                 if(start.location.get == "custom")
                 {
                     startCustomCheck = true;
                 }
             }
-            mapSelectHtml +=`> ${start.name}</option>`
+            mapSelectHtml +='> ' + start.name + '</option>';
         });
 
         mapSelectHtml +=
-        `
-                                </select>
-                                <input type="text" name="selboxDirect" class="ipt_txt selboxDirect startInput" value=""
-        `
+            '                       </select> \
+                                    <input type="text" name="selboxDirect" class="ipt_txt selboxDirect startInput" value="" \
+            ';
         if(startCustomCheck){
-            mapSelectHtml += `style="display: inline-block;"`
+            mapSelectHtml += 'style="display: inline-block;"'
         }
-        mapSelectHtml += `>
-                            </dd>
-                        </dl>
-                        <dl class="dl_ipt">
-                            <dt>${jsonRes.texts.end}</dt>
-                            <dd>
-                                <select class="select end">
-        `;
+        mapSelectHtml += '> \
+                            </dd> \
+                        </dl> \
+                        <dl class="dl_ipt"> \
+                            <dt>' + jsonRes.texts.end + '</dt> \
+                            <dd> \
+                                <select class="select end"> \
+        ';
 
         let endCustomCheck = false;
-        jsonRes.ends.forEach(end => {
-            mapSelectHtml += `<option data-location=`;
+        jsonRes.ends.forEach(function(end) {
+            mapSelectHtml += '<option data-location=';
             if(end.location.hasOwnProperty("get"))
             {
-                mapSelectHtml += `"${end.location.get}" `;
+                mapSelectHtml += '"' + end.location.get + '"';
                 if(end.location.get == "custom")
                 {
-                    mapSelectHtml += `value="direct" `
+                    mapSelectHtml += 'value="direct" ';
                 }
             }
             else
             {
-                mapSelectHtml += `'{"lat": ${end.location.lat}, "lng": ${end.location.lng}}' `
+                mapSelectHtml += '\'{"lat": ' + end.location.lat + ', "lng":' + end.location.lng + '}\' '
             }
             if(end.selected){
-                mapSelectHtml += `selected`
-                if(end.location.get == "custom")
+                mapSelectHtml +='selected';
+                if(end.location.get === "custom")
                 {
                     endCustomCheck = true;
                 }
             }
-            mapSelectHtml +=`> ${end.name}</option>`
+            mapSelectHtml +='> ' +  end.name + '</option>';
         });
 
         mapSelectHtml +=
-        `
-                                </select>
-                                <input type="text" name="selboxDirect" class="ipt_txt selboxDirect endInput" value=""
-        `
+            ' \
+                                    </select> \
+                                    <input type="text" name="selboxDirect" class="ipt_txt selboxDirect endInput" value="" \
+            ';
         if(endCustomCheck){
-            mapSelectHtml += `style="display: inline-block;"`
+            mapSelectHtml += 'style="display: inline-block;"'
         }
-        mapSelectHtml += `
-                                >
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="btnBox">
-                        <button type="button" class="btn_point btn_map">${jsonRes.texts.button}</button> 
-                    </div>
-                </div>
-            </div> 
-            </li>
-         `;
+        mapSelectHtml += '\
+                                > \
+                            </dd> \
+                        </dl> \
+                    </div> \
+                    <div class="btnBox"> \
+                        <button type="button" class="btn_point btn_map">' + jsonRes.texts.button + '</button> \
+                    </div> \
+                </div> \
+            </div>  \
+            </li> \
+         ';
 
         $('.chatUI_mid .lst_talk').append(
             mapSelectHtml
@@ -504,10 +860,10 @@ $(document).ready(function (){
         //지도UI
         $('.btn_map').on('click', function(e){
             $('.mapWrap').removeClass('map_hide');
-            $('#map').show()
+            $('#map').show();
             // 경로 그리기
             let start = $(this).parent().parent().find('select.start')[0];
-            let startCoord = start.options[start.selectedIndex].getAttribute('data-location')
+            let startCoord = start.options[start.selectedIndex].getAttribute('data-location');
             let startData;
             if(startCoord == "current" || startCoord == "custom"){startData = startCoord;}
             else {startData = JSON.parse(startCoord);}
@@ -546,38 +902,47 @@ $(document).ready(function (){
 
 
     $(document).on('click', 'a', function(event){
+        if ($(this).attr("href") == '#') {
+            return;
+        }
         event.preventDefault();
         let message_data = {type:"href", value:$(this).attr("href")};
         window.parent.postMessage(message_data, "*");
-    })
+    });
 
     $('.langBox p').on('click', function(){
         $(this).parents('.langBox').find('.lst_lang').toggleClass('show');
         $(this).toggleClass('active');
-
-        $('.langBox .lst_lang .btn_lang').on('click', function(){
-            var langCopy = $(this).clone();
-            $('.langBox p').html(langCopy);
-            $('.langBox p .btn_lang').hasClass('active');
-            $('.langBox p .btn_lang').removeClass('active');
-            $(this).parents('.lst_lang').hasClass('show');
-            $(this).parents('.lst_lang').removeClass('show');
-            $('.langBox .lst_lang .btn_lang').removeClass('active');
-            $(this).addClass('active');
-        });
     });
 
-    $(".btn_lang").click(function(){
+    $('.langBox .lst_lang .btn_lang').on('click', function(){
+        var langCopy = $(this).clone();
+        $('.langBox p').html(langCopy);
+        $('.langBox p .btn_lang').hasClass('active');
+        $('.langBox p .btn_lang').removeClass('active');
+        $(this).parents('.lst_lang').hasClass('show');
+        $(this).parents('.lst_lang').removeClass('show');
+        $('.langBox .lst_lang .btn_lang').removeClass('active');
+        $(this).addClass('active');
+
         let new_lang = $(this).data("lang");
 
-        if (new_lang == undefined) {
+        if (lang == new_lang) {
             return;
         } else {
             lang = new_lang;
-            changeTextHolder(lang);
-            callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "channel": checkDevice()})
+            // load google map api
+            let langCode = getGoogleLangCode(lang);
+            var jsonData = {"device":checkDevice(), "channel":"HOMEPAGE"};
+            setMapAPILanguage(langCode).then(() => {
+                // after API is loaded
+                changeTextHolder(lang);
+                callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "jsonData": JSON.stringify(jsonData)})
+            });
+
         }
-    })
+    });
+
 });
 
 function replaceAll(str, searchStr, replaceStr) {
@@ -675,7 +1040,7 @@ function checkDevice() {
         }
     }
 
-    console.log(OSName,'OSName');
-    console.log(connectDevice,'connect Device');
+    console.debug(OSName,'OSName');
+    console.debug(connectDevice,'connect Device');
     return connectDevice;
 }
