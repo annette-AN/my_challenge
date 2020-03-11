@@ -15,6 +15,7 @@
         em {font-style: normal; font-weight: bold;}
 
         hr {margin: 50px 0px 0px 0px;}
+        xmp {margin: 0px 0px 0px -290px; padding: 0px;}
 
         section + section {margin: 50px 0px 0px 0px;}
         
@@ -28,6 +29,9 @@
         dl > dd {overflow: hidden; margin: 0px; padding: 0px 0px 10px 20px; border-radius: 0px 0px 10px 10px;}
         dl > dd:empty {padding: 0px 0px 0px 0px;}
         dl > dd > div {margin: 20px 40px; border-radius: 10px;}
+        dl > dd h5 {font-size: 16px; margin: 20px 0px 4px;}
+        dl > dd ul > li {margin: 0px; list-style: disc;}
+        dl > dd ul > .list_style_none {list-style: none;}
 
         button {padding: 10px 20px; border-radius: 5px; background-color: rgba(0,0,0,0.1); cursor: pointer;}
         button:enabled {cursor: pointer;}
@@ -75,13 +79,6 @@
                 gnb - 내용이 거의 변하지 않음<br>
                 lnb - gnb 내용에 따라 변함<br>
                 snb - 내용이 거의 변하지 않음
-            </p>
-        </div>
-        <div>
-            <h2>table > caption</h2>
-            <p>
-                form이 돌아가는 table의 경우<br>
-                캡션 내용 적지 않기
             </p>
         </div>
     </section>
@@ -341,6 +338,27 @@
                             </div>
                         </dd>
                     </dl>
+                    <dl>
+                        <dt>table</dt>
+                        <dd>
+                            <div>
+                                <p>
+                                    table에 scroll을 적용해야한다면<br>
+                                    table(thead~tfoot) 전체 scroll은 css로 적용이 가능<br>
+                                    <br>
+                                    만약, tbody만 scroll을 적용해야한다면<br>
+                                    <br>
+                                    1. css로 구현해야 할 경우 (접근성 불충족)<br>
+                                    table tag를 2개 사용하여 구현가능<br>
+                                    
+                                    <br>
+                                    2. js로 구현할 경우 (접근성 충족)<br>
+                                    table에서의 모든 table속성을 block으로 바꿔주고, tbody에만 scroll을 적용<br>
+                                    th, td width를 일일히 지정해줘야하고 스크롤이 생기는 시점에 js로 계산하여 width값 재입력<br>
+                                </p>
+                            </div>
+                        </dd>
+                    </dl>
                 </li>
             </ul>
         </section>
@@ -430,7 +448,7 @@
                                     다른 block 요소를 포함할 수 없다
                                 </p>
                                 <div>
-                                    <xmp style="margin: 0px 0px 0px -290px; padding: 0px;">
+                                    <xmp>
                                         <button type="button">
                                             button 입니다
                                             <span>span 입니다</span> <em>em 입니다</em>
@@ -490,7 +508,7 @@
                                     다른 block 요소를 포함할 수 없다
                                 </p>
                                 <div>
-                                    <xmp style="margin: 0px 0px 0px -290px; padding: 0px;">
+                                    <xmp>
                                         <p>
                                             p 입니다
                                             <span>span 입니다</span> <em>em 입니다</em>
@@ -614,18 +632,93 @@
                         <dd>
                             <div>
                                 <p>
-                                    table에 scroll을 적용해야한다면<br>
-                                    table(thead~tfoot) 전체 scroll은 css로 적용이 가능<br>
+                                    form이 돌아가는 table의 경우<br>
+                                    캡션 내용 적지 않기
+                                </p>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>form / fieldset / legend </dt>
+                        <dd>
+                            <div>
+                                <p>
+                                    form : 데이터를 입력 받고 전송할 때 사용<br>
+                                    fieldset : 여러 컨트롤(input)과 레이블(label)을 묶을때 사용<br>
+                                    legend : fieldset에 대한 설명
+                                </p>
+
+                                <h5>form[method]</h5>
+                                <ul>
+                                    <li>get - 읽을때</li>
+                                    <li>post - 넘버를 새로 쓸때</li>
+                                    <li>patch - 넘버를 일부만 수정할 때</li>
+                                    <li>put - 넘버를 전체 덮어씌울때</li>
+                                    <li>delete - 넘버를 삭제할때</li>
+                                    <li>options - 재확인절차</li>
+                                </ul>
+
+                                <h5>form[action]</h5>
+                                <ul>
+                                    <li>값을 전달할 페이지를 입력</li>
+                                </ul>
+                                <div class="example">
+                                    <xmp>
+                                        <form method="post" action="yyy">
+                                            <fieldset>
+                                                <legend>legend : fieldset에 대한 설명</legend>
+                                                <input type="text" placeholder="fieldset이 영역을 감싸줌">
+                                            </fieldset>
+                                        </form>
+                                    </xmp>
+                                    <form method="post" action="yyy">
+                                        <fieldset>
+                                            <legend>legend : fieldset에 대한 설명</legend>
+                                            <input type="text" placeholder="fieldset이 영역을 감싸줌">
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            
+                                <hr>
+
+                                <h5>폼과 에이작스의 차이</h5>
+                                <ul>
+                                    <li>폼: 페이지 이동 (동기)</li>
+                                    <li>에이작스: 페이지 비이동 (비동기)</li>
+                                </ul>
+                                
+                                
+                                <h5 style="display: inline-block;">form 속성으로 메일 보내기 :</h5>
+                                <span>action="mailto:someone@example.com" method="post"</span>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>input</dt>
+                        <dd>
+                            <div>
+                                <p>
+                                    input type=text/passwerd/tel(모바일에서는 숫자패드로 바뀜)/email/checkbox/radio/date/number<br>
+                                    textarea<br>
+                                    input속성 required(submit과함께사용)/value/placeholder/readonly<br>
+                                    button type=submit(required)/reset/menu<br>
+                                    label/input 함께 사용 시 순서는 상황에 따라 다르게 할 수있음 아래는 예제<br>
+                                    label for 값과 input id를 같게 주면 함께 focus됌<br>
                                     <br>
-                                    만약, tbody만 scroll을 적용해야한다면<br>
-                                    <br>
-                                    1. css로 구현해야 할 경우 (접근성 불충족)<br>
-                                    table tag를 2개 사용하여 구현가능<br>
-                                    
-                                    <br>
-                                    2. js로 구현할 경우 (접근성 충족)<br>
-                                    table에서의 모든 table속성을 block으로 바꿔주고, tbody에민 scroll을 적용<br>
-                                    th, td width를 일일히 지정해줘야하고 스크롤이 생기는 시점에 js로 계산하여 width값 재입력<br>
+                                    optgroup>option<br>
+                                    button[submit(required)/reset/button]<br>
+                                    input [placeholder/readonly]<br>
+                                    video > source[src]<br>
+                                    form action=“board” method=“get”<br>
+
+                                    input 가상 선택자 익스에서는 표현 안됌<br>
+                                    title: 리더기가 읽어줌<br>
+
+                                    ex) email 작성 표현 중<br>
+                                    label[for="email"]<br>
+                                    input[type="text" id="email" title="이메일 아이디"] @ input[type="text" title="이메일 주소"]<br>
+                                    type="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"<br>
+                                    type=“email” mailto
                                 </p>
                             </div>
                         </dd>
@@ -640,49 +733,6 @@
         <section>
             <h3>html</h3>
             <ul>
-                <li>
-                    <h4>콘텐츠의 종류</h4>
-                    <dl>
-                        <dt>메타 데이터</dt>
-                        <dd>
-                            <div>
-                                <p>head 태그 안에 포함되는 요소들</p>
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>플로우</dt>
-                        <dd>
-                            <div>
-                                <p>body 태그 안에 포함되는 대부분의 요소들</p>
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>프레이징</dt>
-                        <dd>
-                            <div>
-                                <p>text를 markup하는 요소 span, em 등</p>
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>임베디드</dt>
-                        <dd>
-                            <div>
-                                <p>다른 리소스 삽입 img, video 등</p>
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>인터렉티브</dt>
-                        <dd>
-                            <div>
-                                <p>사용자의 상호작용 button, select, a 등</p>
-                            </div>
-                        </dd>
-                    </dl>
-                </li>
                 <li>
                     <h4>head</h4>
                     <dl>
@@ -709,7 +759,7 @@
                     <h4>body</h4>
                     <dl>
                         <dt class="dt_only">
-                            <a href="https://happysos.tistory.com/14">w3c 흔한 경고 설명 url</a>
+                            <a href="https://happysos.tistory.com/14">w3c 흔한 경고</a>
                         </dt>
                         <dd></dd>
                     </dl>
@@ -742,55 +792,7 @@
                                     colgroup > col 의 개수 = tr 내의 tag 개수<br>
                                     caption/summary 둘 중 하나만 적용해도 접근성 품질마크 취득에 문제 없음<br>
                                     scope=“col/row” 속성(리더기가 읽어주는 방향) 적어야함
-                                    <a href="https://jowook.tistory.com/entry/%EC%9B%B9%EC%A0%91%EA%B7%BC%EC%84%B1table%EC%9D%98-scopecol%EA%B3%BC-scoperow">table sope 참조 url</a>
-                                </p>
-                            </div>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>form</dt>
-                        <dd>
-                            <div>
-                                <p>
-                                    준비중<br>
-                                    fieldset-legend<br>
-                                    input type=text/passwerd/tel(모바일에서는 숫자패드로 바뀜)/email/checkbox/radio/date/number<br>
-                                    textarea<br>
-                                    input속성 required(submit과함께사용)/value/placeholder/readonly<br>
-                                    button type=submit(required)/reset/menu<br>
-                                    label/input 함께 사용 시 순서는 상황에 따라 다르게 할 수있음 아래는 예제<br>
-                                    label for 값과 input id를 같게 주면 함께 focus됌<br>
-                                    <br>
-                                    optgroup>option<br>
-                                    button[submit(required)/reset/button]<br>
-                                    input [placeholder/readonly]<br>
-                                    video > source[src]<br>
-                                    form action=“board” method=“get”<br>
-                                    <br>
-                                    폼과 에이작스의 차이<br>
-                                    폼: 페이지 이동 (동기)<br>
-                                    에이작스: 페이지 비이동 (비동기)
-                                    <br>
-                                    method<br>
-                                    form 전달 방식<br>
-                                    get 읽을때<br>
-                                    post 넘버를 새로 쓸때<br>
-                                    patch 넘버를 일부만 수정할 때<br>
-                                    put 넘버를 전체 덮어씌울때<br>
-                                    delete 넘버를 삭제할때<br>
-                                    options 재확인절차<br>
-                                    <br>
-                                    form 속성으로 메일 보내기<br>
-                                    action="mailto:someone@example.com" method="post"<br>
-                                    <br>
-                                    input 가상 선택자 익스에서는 표현 안됌<br>
-                                    <br>
-                                    title: 리더기가 읽어줌<br>
-                                    ex) email 작성 표현 중<br>
-                                    label[for="email"]<br>
-                                    input[type="text" id="email" title="이메일 아이디"] @ input[type="text" title="이메일 주소"]<br>
-                                    type="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"<br>
-                                    type=“email” mailto
+                                    <a href="https://jowook.tistory.com/entry/%EC%9B%B9%EC%A0%91%EA%B7%BC%EC%84%B1table%EC%9D%98-scopecol%EA%B3%BC-scoperow">table sope 참조</a>
                                 </p>
                             </div>
                         </dd>
