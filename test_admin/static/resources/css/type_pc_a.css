@@ -902,13 +902,14 @@ table.scroll{display:table-caption;}
 .stn_cont .srchBox {display:block; clear:both;}
 
 /* 200305 AMR */
-.stn_cont .stn_col {display: block; padding: 16px 0px; border-bottom:1px solid rgba(0,0,0,0.05);}
+.stn_cont .stn_col {display: block; border-bottom:1px solid rgba(0,0,0,0.05);}
 .stn_cont .stn_col:last-child {border:none;}
-.stn_cont .stn_col .dlBox {display: inline-block; position: relative; padding: 0px 10px 10px 10px; vertical-align: top;}
+/* 수정 200316 AMR width */
+.stn_cont .stn_col .dlBox {display: inline-block; position: relative; width: calc(100% - 32px); vertical-align: top;}
 
 /* 200305 AMR .stn_col.col_third, .stn_col.col_fifth */
-.stn_cont .stn_col.col_third .dlBox {width: calc(33% - 22px); vertical-align: top;}
-.stn_cont .stn_col.col_fifth .dlBox {width: calc(20% - 24px);}
+.stn_cont .stn_col.col_third .dlBox {width: calc(33% - 22px); padding: 0px 10px 10px 10px; vertical-align: top;}
+.stn_cont .stn_col.col_fifth .dlBox {width: calc(20% - 24px);  padding: 0px 10px 10px 10px;}
 
 .stn_cont .stn_col .dlBox dt {margin:0 0 5px 0;}
 .stn_cont .stn_col .dlBox dd .selectbox {width: 100%;}
@@ -964,6 +965,14 @@ table.scroll{display:table-caption;}
 .iptBox.date + .btn_send.positioning {float: right; margin: 4px 8px 0px 0px;}
 
 .cc_text:hover {cursor: pointer;}
+
+/* 추가 AMR 200316 global map */
+#map1 {width: 100%; max-width: 1200px; height: 666px;}
+
+.jvectormap-zoomin {display: none;}
+.jvectormap-zoomout {display: none;}
+
+
 
 @media screen and (max-width: 760px) {
     body {height: auto;}

@@ -354,12 +354,14 @@
                 <!-- //.section(All Box Type) -->
                 <div class="stn contBoxType">
                     <div class="stn_cont">
-                        <dl>
-                            <dt>global map</dt>
-                            <dd>
-                                <div id="map1" style="width: 600px; height: 400px"></div>
-                            </dd>
-                        </dl>
+                        <div class="stn_col">
+                            <dl class="dlBox">
+                                <dt>Global Map</dt>
+                                <dd>
+                                    <div id="map1"></div>
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -387,7 +389,7 @@
 <script type="text/javascript" src="../static/resources/js/datepicker-ko.js"></script>
 <script type="text/javascript" src="../static/resources/js/jquery-jvectormap-2.0.5.min.js"></script>
 <script type="text/javascript" src="../static/resources/js/jquery-mousewheel.js"></script>
-<script type="text/javascript" src="../static/resources/js/jquery-jvectormap-world-mill-en.js"></script>
+<script type="text/javascript" src="../static/resources/js/jquery-jvectormap-world-mill-ko.js"></script>
 
 <script type="text/javascript" src="../static/resources/js/all.js"></script>
 <script type="text/javascript" src="../static/resources/js/Chart.min.js"></script>
@@ -399,8 +401,8 @@
 <script>
 $(function(){
     $('#map1').vectorMap({
-        map: 'world_mill_en',
-        panOnDrag: true,
+        map: 'world_mill_ko',
+        // panOnDrag: true,
         focusOn: {
           x: 0.5,
           y: 0.5,
@@ -409,7 +411,8 @@ $(function(){
         },
         series: {
           regions: [{
-            // scale: ['#C8EEFF', '#0071A4'],
+            // [D] scale이 아닌 접속자 수에 따른 색상 변화가 필요합니다.
+            scale: ['#FFE2E2', '#710000'],
             normalizeFunction: 'polynomial',
             values: {
               "AF": 16.63,
