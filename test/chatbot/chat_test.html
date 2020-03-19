@@ -98,7 +98,7 @@
 			</li>
 			
 			<!-- [D] Swiper -->
-			<!-- 추가 200310 AMR carousel class -->
+			<!-- 200310 AMR carousel class -->
 			<li data-swiper-id="1" class="botMsg_swiper position_target">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
@@ -612,12 +612,12 @@ jQuery.event.add(window,"load",function(){
 			$('.chatGreeting').removeClass('chatGreeting_hide');
 			$('#chatUI_wrap').addClass('chatUI_hide');
 			$('#chatUI_wrap').removeClass('chatUI_show');
-			// $('.chatAside').addClass('aside_hide');
-			// $('.chatAside').removeClass('aside_show');
+			$('.chatAside').addClass('aside_hide');
+			$('.chatAside').removeClass('aside_show');
 			setTimeout(function() {
 				$('#chatbot', parent.document).removeClass('chatOpen');	
 				$('#chatUI_wrap').removeClass('chatUI_hide');
-				// $('.chatAside').removeClass('aside_hide');
+				$('.chatAside').removeClass('aside_hide');
 			}, 0);
 		});
 		
@@ -740,9 +740,7 @@ jQuery.event.add(window,"load",function(){
 <script>
 /* mirye test */
 $(document).ready(function(){
-	/* 200304 AMR 데이트피커 
-		문제 : 지나간 날과 시간에 <td class="disabled">가 추가되어야합니다
-	*/
+	/* 200304 AMR 데이트피커 */
 	$('#reservation_date').datetimepicker({
 		locale: 'ko',
 		inline: true,
@@ -860,14 +858,15 @@ $(document).ready(function(){
 			$(this).parents($chatAside).find('input[type="checkbox"], input[type="radio"]').removeAttr('checked');
 		});
 
-		/* 추가 200306 AMR 약관보기 open */
+		/* 200306 AMR 약관보기 open */
 		$chatAside.find('.btn_terms').on('click', function(){
 			$(this).parents('.chatAside_bd').addClass('info_screen');
 		});
 
 		$chatAside.find('.info_text .btn_point').on('click', function(){
 			$(this).parents('.chatAside_bd').removeClass('info_screen');
-			$chatAside.find('input[name="agreement"]').attr('checked', '')
+			// 수정 200319 AMR
+			$chatAside.find('input[name="agreement"]').prop('checked', true);
 		});
 	}
 	handleChatAside($('.inquiry_btn'));
