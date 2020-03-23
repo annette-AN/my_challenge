@@ -59,7 +59,6 @@ $(document).ready(function (){
         $('.chatGreeting').removeClass('chatGreeting_hide');
         $('#chatUI_wrap').addClass('chatUI_hide');
         $('#chatUI_wrap').removeClass('chatUI_show');
-        // 추가 AMR 200319
         $('.chatAside').removeClass('aside_show');
         setTimeout(function() {
             $('#chatUI_wrap').removeClass('chatUI_hide');
@@ -641,7 +640,7 @@ $(document).ready(function (){
 
         $chatAside.find('.info_text .btn_point').on('click', function(){
             $(this).parents('.chatAside_bd').removeClass('info_screen');
-            $chatAside.find('input[name="agreement"]').attr('checked', '')
+            $chatAside.find('input[name="agreement"]').prop('checked', true);
         });
     }
 
