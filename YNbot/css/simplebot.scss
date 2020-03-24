@@ -62,13 +62,12 @@ body.lyr_show {
     top: 100px;
     left: 50%;
     transform: translate(-50%, 0%);
-    width: 300px;
     border-radius: 4px;
     background-color: #fff;
 
     .lyr_top {
       overflow: hidden;
-      padding: 8px 10px;
+      padding: 12px;
       background-color: #5e77ff;
 
       h3 {
@@ -79,7 +78,7 @@ body.lyr_show {
     }
 
     .lyr_mid {
-      padding: 10px 15px;
+      padding: 20px;
 
       .lyr_dl {
         font-weight: bold;
@@ -169,7 +168,7 @@ body.lyr_show {
 
 input[name="excel_file_name"] {
   display: inline-block;
-  width: calc(100% - 90px);
+  width: 200px;
 }
 
 label[for="excel_file"] {
@@ -255,6 +254,7 @@ label[for="excel_file"] {
 
     > div {
       min-width: 1000px;
+      min-height: 500px;
     }
   }
 

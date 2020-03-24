@@ -65,14 +65,13 @@ body.lyr_show .lyrWrap {
   left: 50%;
   -webkit-transform: translate(-50%, 0%);
           transform: translate(-50%, 0%);
-  width: 300px;
   border-radius: 4px;
   background-color: #fff;
 }
 
 .lyrWrap .lyrBox .lyr_top {
   overflow: hidden;
-  padding: 8px 10px;
+  padding: 12px;
   background-color: #5e77ff;
 }
 
@@ -83,7 +82,7 @@ body.lyr_show .lyrWrap {
 }
 
 .lyrWrap .lyrBox .lyr_mid {
-  padding: 10px 15px;
+  padding: 20px;
 }
 
 .lyrWrap .lyrBox .lyr_mid .lyr_dl {
@@ -171,7 +170,7 @@ body.lyr_show .lyrWrap {
 
 input[name="excel_file_name"] {
   display: inline-block;
-  width: calc(100% - 90px);
+  width: 200px;
 }
 
 label[for="excel_file"] {
@@ -260,6 +259,7 @@ label[for="excel_file"] {
 
 .scenario_view .scenario > div {
   min-width: 1000px;
+  min-height: 500px;
 }
 
 .scenario_view .aside_view {
