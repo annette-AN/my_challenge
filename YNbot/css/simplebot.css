@@ -17,7 +17,7 @@
 .info_text {
   padding: 8px 0px;
   font-weight: normal;
-  font-size: 10px;
+  font-size: 11px;
   color: #5e77ff;
 }
 
@@ -168,6 +168,10 @@ body.lyr_show .lyrWrap {
   background-color: initial;
 }
 
+textarea:disabled {
+  background-color: initial;
+}
+
 input[name="excel_file_name"] {
   display: inline-block;
   width: 200px;
@@ -305,6 +309,7 @@ label[for="excel_file"] {
 
 .scenario_edit .edit_tool {
   overflow: hidden;
+  margin: 5px 0px 0px 0px;
   padding: 0px 10px;
 }
 
