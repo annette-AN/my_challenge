@@ -1,13 +1,366 @@
+/* 공통 */
+.align_center {
+  text-align: center!important;
+}
+
+.inline_block {
+  display: inline-block!important;
+}
+
+.text_hide {
+  line-height: 0px;
+  text-indent: -999px;
+  font-size: 0px;
+}
+
+.info_text {
+  padding: 8px 0px;
+  font-weight: normal;
+  font-size: 10px;
+  color: #5e77ff;
+}
+
+.primary_solid_btn {
+  padding: 2px 12px;
+  border: 1px solid #5e77ff;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #5e77ff;
+  background-color: #fff;
+}
+
+.primary_solid_btn + button {
+  margin: 0px 0px 0px 4px;
+}
+
+body.lyr_show {
+  overflow: hidden;
+
+  .lyrWrap {
+    display: block;
+  }
+}
+
+.lyrWrap {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+  .lyr_bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  .lyrBox {
+    overflow: hidden;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 300px;
+    border-radius: 4px;
+    background-color: #fff;
+
+    .lyr_top {
+      overflow: hidden;
+      padding: 8px 10px;
+      background-color: #5e77ff;
+
+      h3 {
+        float: left;
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+
+    .lyr_mid {
+      padding: 10px 15px;
+
+      .lyr_dl {
+        font-weight: bold;
+        color: #262626;
+
+        dt, dd {
+          display: inline-block;
+        }
+      }
+
+      .lyr_dl.input_dl {
+        dt, dd {
+          display: block;
+        }
+
+        dd {
+          margin: 10px 0px 0px 0px;
+        }
+      }
+    }
+
+    .lyr_btm {
+      padding: 8px 10px;
+      background-color: #f1f1f1;
+
+      .primary_solid_btn {
+        padding: 2px 20px;
+        color: #262626;
+        border-color: #777;
+      }
+    }
+  }
+
+  .btn_lyr_close {
+    float: right;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: #5e77ff;
+    transform: rotate(45deg);
+  }
+
+  .btn_lyr_close:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255,255,255,0.6);
+    transform: translate(-50%, -50%);
+  }
+
+  .btn_lyr_close:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+    transform: translate(-50%, -50%);
+  }
+}
+
+.input_style {
+  padding: 3px;
+  border: 1px solid rgba(0,0,0,0.2);
+  outline: 1px solid transparent;
+  appearance: none;
+  background-color: #fff;
+  color: #666;
+  font-size: 12px;
+  transition: outline 0.2s;
+}
+
+.input_style:disabled {
+  background-color: initial;
+}
+
+.input_style:focus, .input_style:active{
+  // outline: 1px solid #5e77ff;
+}
+
+input[name="excel_file_name"] {
+  display: inline-block;
+  width: calc(100% - 90px);
+}
+
+label[for="excel_file"] {
+  display: inline-block;
+  width: 75px;
+  padding: 2px 0px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-size: 12px;
+  font-weight: normal;
+  color: #666;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+/* //공통 */
 #maum_simplebot {
+  min-width: 1240px;
   height: 100%;
   text-align: center;
   background-color: #e3e5ea;
+}
 
-  #simplebot_wrap {
-    display: inline-block;
+#simplebot_wrap {
+  display: inline-block;
+  width: calc(100% - 20px);
+  margin: 20px 10px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+#simplebot_header {
+  min-width: 1240px;
+  max-height: 60px;
+  background-color: #15161F;
+
+  h1 {
+    padding: 15px;
+    font-size: 20px;
+    color: #5B76FB;
+  }
+}
+
+.scenario_title {
+  overflow: hidden;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e3e5ea;
+
+  h2 {
+    float: left;
+    width: 70px;
+    padding: 2px 0px 0px 0px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #262626;
+  }
+
+  .btns {
+    float: right;
+    width: calc(100% - 70px);
+
+    > div {
+      display: inline-block;
+    }
+
+    > div:last-child {
+      float: right;
+    }
+  }
+}
+
+.scenario_view {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #e3e5ea;
+
+  .scenario {
+    overflow: auto;
     width: calc(100% - 20px);
     margin: 10px;
-    text-align: left;
-    background-color: #fff;
+    border: 1px solid #e3e5ea;
+    transition: width 0.4s;
+
+    > div {
+      min-width: 1000px;
+    }
+  }
+
+  .aside_view {
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    width: 330px;
+    height: 100%;
+    transition: left 0.4s;
+    background-color: pink;
+  }
+}
+
+.scenario_view.aside_open {
+  .scenario {
+    width: calc(100% - 350px);
+  }
+  .aside_view {
+    left: calc(100% - 330px);
+  }
+}
+
+.scenario_edit {
+  overflow: hidden;
+  display: none;
+  // position: fixed;
+  // left: 10px;
+  // bottom: 0px;
+  // width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #fff;
+
+  .edit_title {
+    overflow: hidden;
+
+    h3 {
+      float: left;
+      color: #262626;
+    }
+
+    .primary_solid_btn {
+      float: right;
+      color: #262626;
+      border-color: #777;
+    }
+  }
+
+  .edit_tool {
+    overflow: hidden;
+    padding: 0px 10px;
+
+    > dl {
+      float: left;
+      vertical-align: top;
+      width: 45%;
+
+      dt {
+        color: #5e77ff;
+      }
+
+      dd > div {
+        margin: 4px 0px 0px 0px;
+      }
+
+      em {
+        display: inline-block;
+        width: 30px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      em, textarea {
+        vertical-align: middle;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 4px 6px;
+        border-radius: 2px;
+        color: #666;
+      }
+
+      em + textarea {
+        width: calc(100% - 35px);
+      }
+    }
+
+    > dl + dl {
+      float: right;
+    }
+  }
+}
+
+.scenario_edit.show {
+  display: block;
+}
+
+.saved_time {
+  margin: 0px 8px 0px 0px;
+  vertical-align: bottom;
+  font-size: 10px;
+  color: #999;
+
+  span {
+    font-size: 10px;
+    color: #999;
   }
 }
