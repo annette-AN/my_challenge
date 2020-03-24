@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,MAAM;EAClB,gBAAgB,EAAE,OAAO;CAS1B;;AAZD,AAKE,eALa,CAKb,eAAe,CAAC;EACd,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,iBAAiB;EACxB,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,IAAI;EAChB,gBAAgB,EAAE,IAAI;CACvB",
+    "sources": [
+        "simplebot.scss"
+    ],
+    "names": [],
+    "file": "simplebot.css"
+}

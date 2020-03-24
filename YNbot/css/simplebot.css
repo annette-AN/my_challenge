@@ -1,0 +1,14 @@
+#maum_simplebot {
+  height: 100%;
+  text-align: center;
+  background-color: #e3e5ea;
+}
+
+#maum_simplebot #simplebot_wrap {
+  display: inline-block;
+  width: calc(100% - 20px);
+  margin: 10px;
+  text-align: left;
+  background-color: #fff;
+}
+/*# sourceMappingURL=simplebot.css.map */
