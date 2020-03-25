@@ -191,6 +191,7 @@
   #maum_simplebot {
     min-width: 1240px;
     height: 100%;
+    height: calc(100% - 50px);
     text-align: center;
     background-color: #e3e5ea;
   }
@@ -206,7 +207,7 @@
   
   #simplebot_header {
     min-width: 1240px;
-    max-height: 60px;
+    height: 50px;
     background-color: #15161F;
   
     h1 {
