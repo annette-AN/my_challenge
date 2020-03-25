@@ -226,16 +226,16 @@ label[for="excel_file"] {
 
 .scenario_title h2 {
   float: left;
-  width: 80px;
+  width: 70px;
   padding: 2px 0px 0px 0px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: #262626;
 }
 
 .scenario_title .btns {
   float: right;
-  width: calc(100% - 80px);
+  width: calc(100% - 70px);
 }
 
 .scenario_title .btns > div {
@@ -254,18 +254,13 @@ label[for="excel_file"] {
 
 .scenario_view .scenario {
   overflow: auto;
+  min-height: 500px;
+  height: 500px;
   width: calc(100% - 20px);
   margin: 10px;
   border: 1px solid #e3e5ea;
   -webkit-transition: width 0.4s;
   transition: width 0.4s;
-}
-
-.scenario_view .scenario > div {
-  overflow: auto;
-  min-width: 1000px;
-  min-height: 500px;
-  height: 500px;
 }
 
 .scenario_view .aside_view {
@@ -279,19 +274,15 @@ label[for="excel_file"] {
   background-color: pink;
 }
 
-.scenario_view.aside_open .scenario {
-  width: calc(100% - 350px);
-}
-
-.scenario_view.aside_open .aside_view {
-  left: calc(100% - 330px);
-}
-
 .scenario_edit {
   overflow: hidden;
   display: none;
+  width: 100%;
   padding: 10px;
   background-color: #fff;
+  border-top: 1px dashed #e3e5ea;
+  -webkit-transition: width 0.4s;
+  transition: width 0.4s;
 }
 
 .scenario_edit .edit_title {
@@ -300,8 +291,12 @@ label[for="excel_file"] {
 
 .scenario_edit .edit_title h3 {
   float: left;
-  font-size: 13px;
   color: #262626;
+}
+
+.scenario_edit .edit_title h3 span {
+  color: #5e77ff;
+  border-bottom: 1px solid #5e77ff;
 }
 
 .scenario_edit .edit_title .primary_solid_btn {
@@ -360,6 +355,18 @@ label[for="excel_file"] {
   display: block;
 }
 
+.scenario_view.aside_open .scenario {
+  width: calc(100% - 350px);
+}
+
+.scenario_view.aside_open .scenario_edit {
+  width: calc(100% - 330px);
+}
+
+.scenario_view.aside_open .aside_view {
+  left: calc(100% - 330px);
+}
+
 .saved_time {
   margin: 0px 8px 0px 0px;
   vertical-align: bottom;
@@ -371,4 +378,4 @@ label[for="excel_file"] {
   font-size: 10px;
   color: #999;
 }
-/*# sourceMappingURL=simplebot.css.map */
+/*# sourceMappingURL=simplebot2.css.map */

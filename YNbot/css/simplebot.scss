@@ -223,16 +223,16 @@ label[for="excel_file"] {
 
   h2 {
     float: left;
-    width: 70px;
+    width: 80px;
     padding: 2px 0px 0px 0px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: #262626;
   }
 
   .btns {
     float: right;
-    width: calc(100% - 70px);
+    width: calc(100% - 80px);
 
     > div {
       display: inline-block;
@@ -257,8 +257,10 @@ label[for="excel_file"] {
     transition: width 0.4s;
 
     > div {
+      overflow: auto;
       min-width: 1000px;
       min-height: 500px;
+      height: 500px;
     }
   }
 
@@ -297,6 +299,7 @@ label[for="excel_file"] {
 
     h3 {
       float: left;
+      font-size: 13px;
       color: #262626;
     }
 
