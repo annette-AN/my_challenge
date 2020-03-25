@@ -277,6 +277,7 @@ label[for="excel_file"] {
 
 .scenario_edit {
   overflow: hidden;
+  display: none;
   width: 100%;
   padding: 14px 10px;
   background-color: #fff;
