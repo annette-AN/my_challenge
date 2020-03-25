@@ -226,16 +226,16 @@ label[for="excel_file"] {
 
 .scenario_title h2 {
   float: left;
-  width: 70px;
+  width: 80px;
   padding: 2px 0px 0px 0px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #262626;
 }
 
 .scenario_title .btns {
   float: right;
-  width: calc(100% - 70px);
+  width: calc(100% - 80px);
 }
 
 .scenario_title .btns > div {
@@ -254,8 +254,8 @@ label[for="excel_file"] {
 
 .scenario_view .scenario {
   overflow: auto;
-  min-height: 500px;
-  height: 500px;
+  min-height: 300px;
+  height: 300px;
   width: calc(100% - 20px);
   margin: 10px;
   border: 1px solid #e3e5ea;
@@ -276,9 +276,8 @@ label[for="excel_file"] {
 
 .scenario_edit {
   overflow: hidden;
-  display: none;
   width: 100%;
-  padding: 10px;
+  padding: 14px 10px;
   background-color: #fff;
   border-top: 1px dashed #e3e5ea;
   -webkit-transition: width 0.4s;
@@ -291,10 +290,12 @@ label[for="excel_file"] {
 
 .scenario_edit .edit_title h3 {
   float: left;
+  font-size: 13px;
   color: #262626;
 }
 
 .scenario_edit .edit_title h3 span {
+  font-size: 13px;
   color: #5e77ff;
   border-bottom: 1px solid #5e77ff;
 }

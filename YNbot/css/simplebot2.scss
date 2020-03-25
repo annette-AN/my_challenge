@@ -223,16 +223,16 @@
   
     h2 {
       float: left;
-      width: 70px;
+      width: 80px;
       padding: 2px 0px 0px 0px;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: bold;
       color: #262626;
     }
   
     .btns {
       float: right;
-      width: calc(100% - 70px);
+      width: calc(100% - 80px);
   
       > div {
         display: inline-block;
@@ -251,8 +251,8 @@
   
     .scenario {
       overflow: auto;
-      min-height: 500px;
-      height: 500px;
+      min-height: 300px;
+      height: 300px;
       width: calc(100% - 20px);
       margin: 10px;
       border: 1px solid #e3e5ea;
@@ -272,12 +272,9 @@
 
   .scenario_edit {
     overflow: hidden;
-    display: none;
-    // position: fixed;
-    // left: 10px;
-    // bottom: 0px;
+    // display: none;
     width: 100%;
-    padding: 10px;
+    padding: 14px 10px;
     background-color: #fff;
     border-top: 1px dashed #e3e5ea;
     transition: width 0.4s;
@@ -287,9 +284,11 @@
   
       h3 {
         float: left;
+        font-size: 13px;
         color: #262626;
 
         span {
+          font-size: 13px;
           color: #5e77ff;
           border-bottom: 1px solid #5e77ff;
         }
