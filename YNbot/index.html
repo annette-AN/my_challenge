@@ -94,9 +94,10 @@
               <dd>
                 <div class="dual_input">
                   <!-- [D] input[file] value = input[text] value -->
-                  <input type="text" name="excel_file_name" value="선택된 파일 없음" class="input_style inline_block">
+                  <input type="text" name="excel_file_name" value="선택된 파일 없음" class="input_style inline_block" disabled>
                   <label for="excel_file">찾아보기..</label>
-                  <input type="file" name="excel_file" id="excel_file" accept=".xls, .xlsx" style="display: none;">
+                  <input type="file" name="excel_file" id="excel_file" style="display: none;">
+                  <!-- accept=".xls, .xlsx" -->
                 </div>
                 <p class="info_text">* 파일 업로드 시 시나리오가 덮어 쓰기 됩니다.</p>
               </dd>
@@ -120,6 +121,7 @@
       //excel upload lyr open
       $('.excel_upload').on('click', function(){
         $('body').addClass('lyr_show')
+        handleInsideLyrInputValue($('.lyrWrap'));
       });
 
       $('.btn_lyr_close').on('click', function(){
@@ -129,6 +131,24 @@
       $('.lyrWrap .btn_submit').on('click', function(){
         $('body').removeClass('lyr_show')
       });
+
+      //선택한 파일이름을 input value에 치환
+      $('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('input[name="excel_file_name"').val(fileName);
+      });
+
+      // 추가 AMR 200326 input value 초기화
+      function handleInsideLyrInputValue(lyr) {
+        lyr.find('input').each(function(){
+          var inputEl = $(this)
+          if(inputEl.is('[name="excel_file_name"]')){
+            inputEl.val('선택한 파일 없음');
+          } else {
+            inputEl.val('')
+          }
+        })
+      }
 
 
       //testbot open
@@ -146,6 +166,9 @@
       $('.btn_save').on('click', function(){
         alert('저장되었습니다.')
       })
+
+
+
     })
 
   </script>
