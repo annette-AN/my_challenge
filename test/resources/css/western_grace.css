@@ -1,18 +1,19 @@
-/* AMR h1 logo 크기 조절 */
-#chatUI_wrap .chatUI_top h1 {background: url(../images/logo_western_grace.png) no-repeat 50% 7px !important; background-size: auto 30px !important;}
+/* 수정 200327 AMR */
+#chatUI_wrap .chatUI_top h1 {background: url(../images/logo_western_grace.png) no-repeat 50% 11px !important; background-size: auto 24px !important;}
 
 /* floating_.html css */
 /* MINDsLab. UX/UI Team. AMR. 20200206 */
 #chatbot {display:block; overflow:hidden; position:fixed; width: 90px; right:0; bottom:55px; height:75px; border-radius:10px; z-index:9999;}
-#chatbot.chatOpen {width: 420px; height:80%;}
-/* 200220 width: 775px */
-#chatbot.aside_area {width: 775px;}
+/* 수정 AMR 200327 */
+#chatbot.chatOpen {width: 370px; height:80%; bottom: 0px;}
+#chatbot.aside_area {width: 725px;}
+
 #chatbot_iframe {position: absolute; right: 0px; bottom: 0px; width:775px;height:100%; border:none;}
 
 .chatGreeting:hover .btn_greetClose {opacity: 1;}
 .chatGreeting {display:block; position:fixed; right:100px; bottom:30px; margin-bottom:0px; padding:10px 35px 10px 10px; line-height: 18px; color:#fff; font-size:12px; text-align:right; border-radius:7px; background:#00718f; z-index:700; -webkit-animation-duration:1.2s; animation-duration:1.2s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:chatGreeting; animation-name:chatGreeting; animation-delay:0.5s;}
 
-/* 수정 200310 AMR animation 경량화 */
+/* 200310 AMR animation 경량화 */
 @-webkit-keyframes chatGreeting {
 0%   {opacity:0; display:none; transform: translateY(0px);}
 50%  {opacity:0; display:none; transform: translateY(0px);}
@@ -105,7 +106,7 @@
 
 #chatUI_wrap .chatUI_mid .lst_talk li.botMsg_swiper a.swiper_item:hover {border:1px solid rgba(0,113,143,1.0);}
 
-/* 수정 200310 AMR class */
+/* 200310 AMR class */
 #chatUI_wrap .full_preview .swiper-pagination-bullet-active {background:rgba(0,113,143,1.0);}
 
 #chatUI_wrap .swiper-button-prev, .swiper-container-rtl .swiper-button-next {background:rgba(0,113,143,0.9) url("../images/arw_left_w.png") center center no-repeat;}
@@ -113,7 +114,7 @@
 
 #chatUI_wrap .swiper-pagination-bullet-active {background:rgba(0,113,143,1.0);}
 
-/* 수정 200310 AMR class */
+/* 200310 AMR class */
 #chatUI_wrap .full_preview .swiper-pagination-bullets .swiper-pagination-bullet {border: 1px solid #00718f;}
 
 #chatUI_wrap .chatUI_btm .textArea:focus {border:1px solid rgba(0,113,143,1.0);}

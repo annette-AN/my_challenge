@@ -15,12 +15,13 @@ $('#inputArea').keyup(function (event) {
 });
 
 $(document).ready(function (){
+
+
     var chatBtnClicked = false;
-    // chatbot open
-    window.addEventListener("message", metaInfo, false);
-    function metaInfo(e) {
-        data = e.data;
-        qrLocation = data.qrLocation;
+    window.addEventListener("message", sendHostInfo, false);
+
+    // chatbot open todo:qr관련 소스 정리~
+    function actChatbotOpen () {
         if (qrLocation !== undefined && qrLocation !== "") {
             chatBtnClicked = true;
             window.parent.postMessage("chatbot_open", "*");
@@ -28,9 +29,9 @@ $(document).ready(function (){
             var scrollHeight = $('.lst_talk').height();
             $('.chatUI_mid').animate({
                 scrollTop: scrollHeight
-            },150);
+            }, 150);
         } else {
-            $('#btn_goChat').on('click', function(){
+            $('#btn_goChat').on('click', function () {
                 chatBtnClicked = true;
                 window.parent.postMessage("chatbot_open", "*");
                 $(this).addClass('goChat_hide');
@@ -39,7 +40,7 @@ $(document).ready(function (){
                 var scrollHeight = $('.lst_talk').height();
                 $('.chatUI_mid').animate({
                     scrollTop: scrollHeight
-                },150);
+                }, 150);
                 return false;
             });
         }
@@ -104,10 +105,10 @@ $(document).ready(function (){
         $('#btn_chat').trigger('click');
 
         $('.chatbot_contents .bot_infoBox').css({
-            'display':'none',
+            'display':'none'
         });
         $('.chatbot_contents .lst_talk').css({
-            'display':'block',
+            'display':'block'
         });
 
         $('#inputArea').val('');
@@ -171,7 +172,6 @@ $(document).ready(function (){
 
         $('.chatUI_mid').scrollTop($('.chatUI_mid')[0].scrollHeight);
     }
-    window.addEventListener("message", sendHostInfo, false);
 
     function sendHostInfo(e) {
 
@@ -189,6 +189,7 @@ $(document).ready(function (){
             $('.langBox').remove();
         }
 
+        actChatbotOpen();
         changeTextHolder(lang);
         getJsonData();
 
@@ -196,7 +197,7 @@ $(document).ready(function (){
             url: "/chat/hostInfo",
             data: JSON.stringify(data),
             type: "POST",
-            contentType: 'application/json',
+            contentType: 'application/json'
         }).done(function (response) {
             callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "jsonData": JSON.stringify(jsonData)})
         });
@@ -228,8 +229,9 @@ $(document).ready(function (){
             url: "/chat/request",
             data: JSON.stringify(data),
             type: "POST",
-            contentType: 'application/json',
+            contentType: 'application/json'
         }).done(function (response) {
+
             for(var index = 0 ; index < response.length; index++) {
                 selectResponseType(response[index]);
             }

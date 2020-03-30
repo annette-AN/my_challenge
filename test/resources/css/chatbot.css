@@ -2,10 +2,6 @@
 /* MINDsLab. UX/UI Team. AMR. 200206 */
 /* 200305 AMR 공통 css 생성 */
 
-/* 추가 AMR 200316 qr코드 진입 css */
-.qr #btn_goChat {display: none; animation: none;}
-.qr #chatUI_wrap.chatUI_show {animation: none;}
-
 /* 페이지 랜딩 로딩 */
 #chatUI_wrap .page_ldWrap {position:fixed; left:0; top:0; width:100%; height:100%; background:#fff; z-index:999;}
 #chatUI_wrap .page_ldBg {background-color:#ed184f!important; background-image:linear-gradient(90deg, #fd5581, #fd8b55);}
@@ -43,7 +39,8 @@
 }
 
 /* 공통 */
-#chatUI_wrap {display:none; overflow:hidden; float:right; position:absolute; right:15px; bottom:55px; width:400px; min-width:320px; height:calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out;}
+/* 수정 AMR 200327 */
+#chatUI_wrap {display:none; overflow:hidden; float:right; position:absolute; right:15px; bottom:55px; width:350px; min-width:320px; height:calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out;}
 
 #chatUI_wrap.chatUI_show {display:block; -webkit-animation-duration:1.2s; animation-duration:1.2s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:chat_show; animation-name:chat_show;}
 
@@ -285,8 +282,8 @@
 #chatUI_wrap .chatUI_btm .btn_chat.disabled {background:url(../images/ico_send_trans.png) 50% 50% no-repeat; background-color:#a8a8a8; cursor:default;}
 
 /* chatAside */
-/* 200305 AMR height */
-.chatAside {display:none; overflow:hidden; float:right; position:absolute; left:0; bottom:55px; width:0; height: calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out;}
+/* 200327 AMR left */
+.chatAside {display:none; overflow:hidden; float:right; position:absolute; left:50px; bottom:55px; width:0; height: calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out;}
 .chatAside.aside_show {display:block; width:335px;}
 .chatAside.aside_hide {display:block; min-width:0; height:calc(100% - 2px); margin-left:50px;}
 /* 200214 애니메이션 삭제 */
@@ -524,7 +521,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .text_hide {text-indent: -999px !important; line-height: 0px !important; font-size: 0px !important;}
 .box_hide {position: absolute !important; left:-999px !important; width: 0px !important; height: 0px !important;}
 
-/* 추가 AMR 200318 약관보기 */
+/* AMR 200318 약관보기 */
 .pre_table {width: 100%; text-align: center;}
 .pre_table thead th {font-weight: bold; color: #333;}
 .pre_table th {border: 1px solid #666;}
