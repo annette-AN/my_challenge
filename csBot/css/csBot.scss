@@ -1,0 +1,357 @@
+/* AMR 
+  backgroud : rgba 
+  color : #
+*/
+
+/* defult */
+.text_hide {
+  line-height: 0px;
+  font-size: 0px;
+  text-indent: -999px;
+}
+
+.chevron_prev {
+  width: 30px;
+  height: 30px;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    margin: 0px 0px 0px -1px;
+    transform: rotate(-45deg);
+    transform-origin: left center;
+    background-color: rgba(99,94,94,1.0);
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 2px;
+    margin: -2px 0px 0px 0px;
+    transform: rotate(45deg);
+    transform-origin: left center;
+    background-color: rgba(99,94,94,1.0);
+  }
+}
+
+#cschat_wrap {
+  overflow: hidden;
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  width: 350px;
+  height: 80%;
+  border-radius: 8px;
+  border: 1px solid #e2e2f0;
+
+  textarea {
+    border: 1px solid #e2e2f0;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  textarea:focus {
+    border:1px solid rgba(0,160,200,1.0);
+  }
+
+  .cschat_top {
+    overflow: hidden;
+    height: 50px;
+    padding: 15px 0px 0px 0px;
+    border-bottom: 1px solid #e2e2f0;
+    text-align: center;
+    font-size: 16px;
+    background-color: rgba(255,255,255,1.0);
+
+    .svc_title {
+      em {
+        font-weight: bold;
+      }
+    }
+
+    .chevron_prev {
+      position: absolute;
+      top: 10px;
+      left: 14px;
+    }
+  }
+
+  .cschat_body {
+    position: relative;
+    height: calc(100% - 50px);
+
+    .dialog {
+      display: none;
+    }
+  }
+
+  .cschat_mid {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 65px;
+  }
+
+  .cschat_btm {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 12px;
+    border-top: 1px solid #e2e2f0;
+    font-size: 16px;
+    background-color: rgba(255,255,255,1.0);
+
+    .user_writes {
+      position: relative;
+      width: calc(100% - 40px);
+      height: 100%;
+
+      button {
+        position: absolute;
+        top: 0px;
+        left: calc(100% + 2px);
+        width: 40px;
+        height: 40px;
+        background: rgba(0,160,200,1.0) url(../image/ico_send_trans.png) no-repeat;
+        background-size: contain;
+      }
+    }
+
+    textarea[name="user_message"] {
+      overflow: auto;
+      width: 100%;
+      height: 40px;
+      padding: 9px 8px 6px 8px;
+      color: #5e5c68;
+    }
+  }
+
+  /* 모달 backdrop */
+  .cschat_body.backdrop {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(247,248,250,1.0);
+      z-index: 10;
+    }
+
+    .dialog {
+      overflow: auto;
+      position: relative;
+      display: block;
+      height: 100%;
+      padding: 8px 10px;
+      z-index: 11;
+
+      > div {
+        display: none;
+      }
+
+      > div.on {
+        display: block;
+      }
+    }
+  }
+}
+
+.cs_talk {
+  overflow: auto;
+  height: 100%;
+  color: #5e5c68;
+  background-color: rgba(247,248,250,1.0);
+  padding: 16px 10px;
+
+  li + li {
+    margin-top: 16px;
+  }
+
+  .date {
+    position: relative;
+    padding: 8px 0px;
+    text-align: center;
+    font-size: 12px;
+  
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(236,236,250,1.0);
+    }
+
+    em {
+      display: inline-block;
+      position: relative;
+      padding: 0px 10px;
+      background-color: rgba(247,248,250,1.0);
+      color: #403738;
+    }
+  }
+
+  .date.chatend {
+    em:first-child {
+      display: none;
+    }
+  }
+
+  li.bot {
+    overflow: hidden;
+    position: relative;
+    min-height: 34px;
+    padding: 0px 40px 0px 55px;
+    text-align: left;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(255,255,255,1.0) url(../image/sample/bot_profile.png) no-repeat center;
+      background-size: cover;
+    }
+
+    .message {
+      border-radius: 0px 20px 0px 20px;
+      background-color: rgba(255,255,255,1.0);
+    }
+  }
+
+  li.user {
+    overflow: hidden;
+    padding: 0px 10px 0px 80px;
+    text-align: right;
+
+    .message {
+      border-radius: 0px 10px 0px 10px;
+      background-color: rgba(0,160,200,1.0);
+      color: #fff;
+    }
+  }
+
+  .message {
+    display: inline-block;
+    padding: 8px 8px 7px 10px;
+    text-align: left;
+  }
+}
+
+/* //defult */
+#supporter_evaluation {
+  .text_box {
+    padding: 80px 0px 40px 0px;
+    text-align: center;
+
+    p {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+      letter-spacing: -1px;
+    }
+  }
+
+  .suggestion {
+    margin: 10px;
+
+    .star_score {
+      padding: 20px 0px;
+      margin: 10px 0px;
+      text-align: center;
+
+      .score {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+
+        button {
+          width: 100%;
+          height: 100%;
+          background: url(../image/ico_star.png) no-repeat 0 0;
+          background-size: cover;
+        }
+      }
+
+      .score.on {
+        button {
+          background: url(../image/ico_star_on.png) no-repeat 0 0;
+          background-size: cover;
+        }
+      }
+    }
+
+    textarea[name="evaluation"] {
+      width: 100%;
+      padding: 10px 8px;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px 0px;
+      margin: 20px 0px 0px 0px;
+      font-size: 16px;
+      background-color: rgba(0,0,0,0.2);
+    }
+  }
+}
+/* 모달 dialog */
+
+
+/* //모달 dialog */
+
+/* 다크모드 */
+#cschat_wrap.dark_mode {
+  color: #f0f0f0;
+
+  .cschat_top {
+    background-color: rgba(64,55,56,1.0);
+
+    .chevron_prev {
+      &:before {
+        background-color: rgba(240,240,240,1.0);
+      }
+    
+      &:after {
+        background-color: rgba(240,240,240,1.0);
+      }
+    }
+  }
+
+  .cschat_mid {
+    background-color: rgba(68,68,68,1.0);
+    color: #fff;
+  }
+
+  .cs_talk {
+    .date {
+      &:before {
+        background-color: rgba(34,34,34,1.0);
+      }
+  
+      em {
+        background-color: rgba(64,55,56,1.0);
+        color: #f7f8fa;
+      }
+    }
+  }
+
+}
