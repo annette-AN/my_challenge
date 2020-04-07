@@ -1,0 +1,3 @@
+#btn_goChat {visibility: hidden; overflow:hidden; position:fixed; right:0; bottom:0px; width:72px; height:0; margin:0 15px 0 0; padding:66px 0 0 0; border-radius:70px;opacity:1; z-index:8888; cursor:pointer; -webkit-animation-duration:1.2s; animation-duration:1.2s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:goChat; animation-name:goChat; transition:all 0.3s ease-out;}
+#chatUI_wrap.chatUI_show {display:block; animation: none;}
+.btn_chatClose {display: none;}
