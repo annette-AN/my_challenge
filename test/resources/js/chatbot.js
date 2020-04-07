@@ -429,8 +429,19 @@ $(document).ready(function (){
         }
 
         var swiper = new Swiper('.botMsg_swiper', swiper_option);
-        $('.botMsg_swiper:last')[0].swiper.init();
+        // var lenght = $('.botMsg_swiper').length;
+        // if (lenght > 1) {
+        //     for (var i = lenght-1; i > 1; i--) {
+        //         if ($('.botMsg_swiper')[i].localName === 'li') {
+        //             $('.botMsg_swiper')[i].swiper.init();
+        //             break;
+        //         }
+        //     }
+        // } else {
+        //     $('.botMsg_swiper:last')[0].swiper.init();
+        // }
 
+        $('.botMsg_swiper:last')[0].swiper.init();
         $('.chatUI_mid').scrollTop($('.chatUI_mid')[0].scrollHeight);
 
     }
