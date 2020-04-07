@@ -44,7 +44,7 @@ label[for="excel_file"] {display: inline-block; width: 75px; padding: 2px 0px; b
 
 .scenario_view {position: relative; overflow: hidden; border-bottom: 1px solid #e3e5ea;}
 .scenario_view .scenario {overflow: auto; min-height: 300px; height: 300px; width: calc(100% - 20px); margin: 10px; border: 1px solid #e3e5ea; -webkit-transition: width 0.4s; transition: width 0.4s;}
-.scenario_view .aside_view {position: absolute; top: 0px; left: 100%; width: 330px; height: 100%; -webkit-transition: left 0.4s; transition: left 0.4s; background-color: pink;}
+.scenario_view .aside_view {position: absolute; top: 0px; left: 100%; width: 330px; height: 100%; -webkit-transition: left 0.4s; transition: left 0.4s; }
 
 .scenario_edit {overflow: hidden; display: none; width: 100%; padding: 14px 10px; background-color: #fff; border-top: 1px dashed #e3e5ea; -webkit-transition: width 0.4s; transition: width 0.4s;}
 .scenario_edit .edit_title {overflow: hidden;}
