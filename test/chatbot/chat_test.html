@@ -303,7 +303,7 @@
 
 <div class="chatAside">
 	<!-- 200408 AMR 주문하기 -->
-	<div class="chat_older">
+	<div class="chat_order">
 		<!-- .chatAside_hd -->
 		<div class="chatAside_hd">
 			<h3>카페 간편 예약하기</h3>
@@ -348,10 +348,10 @@
 							</div>
 						</dd>
 					</dl>
-					<dl class="dlBox older_menu">
+					<dl class="dlBox order_menu">
 						<dt>메뉴</dt>
 						<dd class="block_target">
-							<ul class="menu">
+							<ul id="order_menu_area" class="menu">
 								<li>
 									<button type="button" class="menu_categori">All</button>
 									<div class="checkBox">
@@ -488,40 +488,7 @@
 											</div>
 										</div>
 
-										<script>
-											MenuPavanCafe() {
-												{
-													[
-														inputName: 'espresso_hot',
-														name: '에스프레소 Hot',
-														id:' menu',
-														menuNum: 01,
-														price: 2500,
-													],
-													[
-														inputName: 'espresso_ice',
-														name: '에스프레소 Ice',
-														id:' menu',
-														menuNum: 02,
-														price: 2800,
-													],
-													[
-														inputName: 'americano_hot',
-														name: '아메리카노 Hot',
-														id:' menu',
-														menuNum: 03,
-														price: 2500,
-													],
-													[
-														inputName: 'americano_ice',
-														name: '아메리카노 Ice',
-														id:' menu',
-														menuNum: 04,
-														price: 2800,
-													],
-												}
-											}
-										</script>
+										
 									</div>
 								</li>
 								<li>
@@ -1359,17 +1326,127 @@ $(document).ready(function(){
 		console.log(OSName,'OSName')
 	}
 	checkDevice()
+	
+	function getChatAsideOrderData (){
+		var menu = [
+			{
+				name:"coffee",
+				children:[
+					{
+						name: '에스프레소 Hot',
+						inputName: 'espresso_hot',
+						price: 2500,
+					},
+					{
+						name: '에스프레소 Ice',
+						inputName: 'espresso_ice',
+						price: 2800,
+					},
+					{
+						name: '아메리카노 Hot',
+						inputName: 'americano_hot',
+						price: 2500,
+					},
+					{
+						name: '아메리카노 Ice',
+						inputName: 'americano_ice',
+						price: 2800,
+					}
+				]
+			},
+			{
+				name:"non-coffee",
+				children:[
+					{
+						name: '에스프레소 Hot',
+						inputName: 'espresso_hot',
+						price: 2500,
+					},
+					{
+						name: '에스프레소 Ice',
+						inputName: 'espresso_ice',
+						price: 2800,
+					}
+				]
+			}
+		]
+		return menu
+	}
+
+	// 주문하기 메뉴
+	function renderChatAsideOrder (){
+		var menu = getChatAsideOrderData()
+
+		// all 
+		var allChildren = []
+		for(var i=0,l=menu.length;i<l;i++){
+			var category = menu[i]
+			var categoryChild = category['children']
+			for(var ii=0,ll=categoryChild.length;ii<ll;ii++){
+				var childData = categoryChild[ii]
+				childData.origin = category.name + "_" + (i + 1) + "_" + ii
+				allChildren.push(childData)
+			}
+		}
+		menu.unshift({ name: "All", children: allChildren })
+
+		// category
+		var $orderMenu = $('#order_menu_area')
+		var menuElements = []
+		$orderMenu.empty()
+
+		for(var menuIndex=0,menuLength=menu.length;menuIndex<menuLength;menuIndex++){
+			var menuData = menu[menuIndex]
+			var menuChildren = menuData.children
+			var itemElements = []
+
+			var $menuList = $(`
+				<li>
+					<button type="button" class="menu_categori">${menuData.name}</button>
+					<div class="checkBox menu-list-item-contents">
+					</div>
+				</li>	
+			`)
+
+			for(var i=0,l=menuChildren.length;i<l;i++){
+				var item = menuChildren[i]
+				var itemId = menuData.name + '_' + menuIndex + '_' + i
+
+				var $menuItem = $(`
+				<div data-origin="${item.origin || itemId}">
+					<input type="checkbox" name="${item.inputName}" id="${itemId}" class="ipt_check">
+					<label for="${itemId}">${item.name}</label>
+					<div class="how_many">
+						<em class="price"><span class='price-var'>${item.price}</span><span>원</span></em>
+						<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+					</div>
+				</div>
+				`)
+				$menuList.find('.menu-list-item-contents').append($menuItem)
+			}
+			menuElements.push($menuList)
+		}
+
+		$orderMenu.append(menuElements)
+	}
 
 	// 주문하기 메뉴 open close
 	function handleChatAsideOlder() {
-		var $chatOlder = $('.chatAside .chat_older');
-		var $olderMenu = $('.chatAside .chat_older .older_menu');
-		var categoriBtn = $('.chatAside .chat_older .older_menu .menu_categori');
+		var $chatOlder = $('.chatAside .chat_order');
+		var $orderMenu = $('.chatAside .chat_order .order_menu');
+		var categoriBtn = $('.chatAside .chat_order .order_menu .menu_categori');
 
 		categoriBtn.on('click', function(){
 			$(this).siblings('div').toggleClass('on');
 		})
+
+		$orderMenu.find("input[type=number]").on("keyup",function(){
+			var $checkbox = $(this).parent().parent().find('[type=checkbox]')
+			$checkbox.prop('checked', Boolean(Number(this.value)))
+		})
 	}
+
+	renderChatAsideOrder();
 	handleChatAsideOlder();
 });
 </script>
