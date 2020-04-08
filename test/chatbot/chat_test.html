@@ -302,10 +302,11 @@
 <!-- //#chatUI_wrap -->
 
 <div class="chatAside">
-	<div class="chat_reservation">
+	<!-- 200408 AMR 주문하기 -->
+	<div class="chat_older">
 		<!-- .chatAside_hd -->
 		<div class="chatAside_hd">
-			<h3>간편 예약하기</h3>
+			<h3>카페 간편 예약하기</h3>
 			<button type="button" class="btn_chatAside_close" title="close">close</button>
 		</div> 
 		<!-- //.chatAside_hd -->
@@ -329,32 +330,612 @@
 						<dd><input type="text" name="name" class="ipt_txt" placeholder="필수사항입니다"></dd>
 					</dl>
 					<dl class="dlBox">
-						<dt>성별</dt>
-						<dd>
-							<div class="radioBox gender">                                   
-								<input type="radio" name="gender" id="gender_man" class="ipt_check">
-								<label for="gender_man">남자</label>
-								<input type="radio" name="gender" id="gender_woman" class="ipt_check">
-								<label for="gender_woman">여자</label>
-							</div>
-						</dd>
-					</dl>
-					<dl class="dlBox">
 						<dt>전화번호</dt>
 						<dd><input type="tel" name="tel" class="ipt_txt" placeholder="필수사항입니다"></dd>
 					</dl>
 					<dl class="dlBox">
 						<dt>이메일</dt>
-						<dd><input type="text" name="email" class="ipt_txt" placeholder="필수사항입니다"></dd>
+						<dd><input type="email" name="tel" class="ipt_txt" placeholder="주문내역을 받아볼 수 있습니다."></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>수령방법</dt>
+						<dd>
+							<div class="radioBox"> 
+								<input type="radio" name="take" id="takeIn" class="ipt_check" checked>
+								<label for="takeIn">Take-In</label>
+								<input type="radio" name="take" id="takeOut" class="ipt_check">
+								<label for="takeOut">Take-Out</label>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox older_menu">
+						<dt>메뉴</dt>
+						<dd class="block_target">
+							<ul class="menu">
+								<li>
+									<button type="button" class="menu_categori">All</button>
+									<div class="checkBox">
+										<p>카테고리로 나눠진 메뉴를 불러오기</p>
+										<!-- 카테고리로 나눠진 메뉴를 불러오기 -->
+									</div>
+								</li>
+								<li>
+									<button type="button" class="menu_categori">coffee</button>
+									<div class="checkBox">
+										<div>
+											<input type="checkbox" name="americano_hot" id="menu01" class="ipt_check">
+											<label for="menu01">아메리카노 Hot</label>
+											<div class="how_many">
+												<em class="price">3,500<span>원</span></em>
+												<input type="number" min="0" max="99" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+						
+										<div>
+											<input type="checkbox" name="americano_Ice" id="menu02" class="ipt_check">
+											<label for="menu02">아메리카노 Ice</label>
+											<div class="how_many">
+												<em class="price">3,500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_hot" id="menu03" class="ipt_check">
+											<label for="menu03">카페라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_ice" id="menu04" class="ipt_check">
+											<label for="menu04">카페라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_hot" id="menu05" class="ipt_check">
+											<label for="menu05">카푸치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_ice" id="menu06" class="ipt_check">
+											<label for="menu06">카푸치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_hot" id="menu07" class="ipt_check">
+											<label for="menu07">바닐라라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_ice" id="menu08" class="ipt_check">
+											<label for="menu08">바닐라라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_hot" id="menu09" class="ipt_check">
+											<label for="menu09">모카치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_ice" id="menu10" class="ipt_check">
+											<label for="menu10">모카치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_hot" id="menu11" class="ipt_check">
+											<label for="menu11">카라멜마끼아또 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_ice" id="menu12" class="ipt_check">
+											<label for="menu12">카라멜마끼아또 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_hot" id="menu13" class="ipt_check">
+											<label for="menu13">카페모카 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_ice" id="menu14" class="ipt_check">
+											<label for="menu14">카페모카 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+
+										<script>
+											MenuPavanCafe() {
+												{
+													[
+														inputName: 'espresso_hot',
+														name: '에스프레소 Hot',
+														id:' menu',
+														menuNum: 01,
+														price: 2500,
+													],
+													[
+														inputName: 'espresso_ice',
+														name: '에스프레소 Ice',
+														id:' menu',
+														menuNum: 02,
+														price: 2800,
+													],
+													[
+														inputName: 'americano_hot',
+														name: '아메리카노 Hot',
+														id:' menu',
+														menuNum: 03,
+														price: 2500,
+													],
+													[
+														inputName: 'americano_ice',
+														name: '아메리카노 Ice',
+														id:' menu',
+														menuNum: 04,
+														price: 2800,
+													],
+												}
+											}
+										</script>
+									</div>
+								</li>
+								<li>
+									<button type="button" class="menu_categori">non-coffee</button>
+									<div class="checkBox">
+										<div>
+											<input type="checkbox" name="americano_hot" id="menu01" class="ipt_check">
+											<label for="menu01">아메리카노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+						
+										<div>
+											<input type="checkbox" name="americano_Ice" id="menu02" class="ipt_check">
+											<label for="menu02">아메리카노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_hot" id="menu03" class="ipt_check">
+											<label for="menu03">카페라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_ice" id="menu04" class="ipt_check">
+											<label for="menu04">카페라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_hot" id="menu05" class="ipt_check">
+											<label for="menu05">카푸치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_ice" id="menu06" class="ipt_check">
+											<label for="menu06">카푸치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_hot" id="menu07" class="ipt_check">
+											<label for="menu07">바닐라라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_ice" id="menu08" class="ipt_check">
+											<label for="menu08">바닐라라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_hot" id="menu09" class="ipt_check">
+											<label for="menu09">모카치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_ice" id="menu10" class="ipt_check">
+											<label for="menu10">모카치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_hot" id="menu11" class="ipt_check">
+											<label for="menu11">카라멜마끼아또 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_ice" id="menu12" class="ipt_check">
+											<label for="menu12">카라멜마끼아또 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_hot" id="menu13" class="ipt_check">
+											<label for="menu13">카페모카 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_ice" id="menu14" class="ipt_check">
+											<label for="menu14">카페모카 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<button type="button" class="menu_categori">tea</button>
+									<div class="checkBox">
+										<div>
+											<input type="checkbox" name="americano_hot" id="menu01" class="ipt_check">
+											<label for="menu01">아메리카노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+						
+										<div>
+											<input type="checkbox" name="americano_Ice" id="menu02" class="ipt_check">
+											<label for="menu02">아메리카노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_hot" id="menu03" class="ipt_check">
+											<label for="menu03">카페라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_ice" id="menu04" class="ipt_check">
+											<label for="menu04">카페라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_hot" id="menu05" class="ipt_check">
+											<label for="menu05">카푸치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_ice" id="menu06" class="ipt_check">
+											<label for="menu06">카푸치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_hot" id="menu07" class="ipt_check">
+											<label for="menu07">바닐라라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_ice" id="menu08" class="ipt_check">
+											<label for="menu08">바닐라라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_hot" id="menu09" class="ipt_check">
+											<label for="menu09">모카치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_ice" id="menu10" class="ipt_check">
+											<label for="menu10">모카치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_hot" id="menu11" class="ipt_check">
+											<label for="menu11">카라멜마끼아또 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_ice" id="menu12" class="ipt_check">
+											<label for="menu12">카라멜마끼아또 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_hot" id="menu13" class="ipt_check">
+											<label for="menu13">카페모카 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_ice" id="menu14" class="ipt_check">
+											<label for="menu14">카페모카 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<button type="button" class="menu_categori">other</button>
+									<div class="checkBox">
+										<div>
+											<input type="checkbox" name="americano_hot" id="menu01" class="ipt_check">
+											<label for="menu01">아메리카노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+						
+										<div>
+											<input type="checkbox" name="americano_Ice" id="menu02" class="ipt_check">
+											<label for="menu02">아메리카노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_hot" id="menu03" class="ipt_check">
+											<label for="menu03">카페라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="latte_ice" id="menu04" class="ipt_check">
+											<label for="menu04">카페라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_hot" id="menu05" class="ipt_check">
+											<label for="menu05">카푸치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cappuccino_ice" id="menu06" class="ipt_check">
+											<label for="menu06">카푸치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_hot" id="menu07" class="ipt_check">
+											<label for="menu07">바닐라라떼 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="vanila_latte_ice" id="menu08" class="ipt_check">
+											<label for="menu08">바닐라라떼 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_hot" id="menu09" class="ipt_check">
+											<label for="menu09">모카치노 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="mochaccino_ice" id="menu10" class="ipt_check">
+											<label for="menu10">모카치노 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_hot" id="menu11" class="ipt_check">
+											<label for="menu11">카라멜마끼아또 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="caramel_macchiato_ice" id="menu12" class="ipt_check">
+											<label for="menu12">카라멜마끼아또 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_hot" id="menu13" class="ipt_check">
+											<label for="menu13">카페모카 Hot</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+										
+										<div>
+											<input type="checkbox" name="cafe_mocha_ice" id="menu14" class="ipt_check">
+											<label for="menu14">카페모카 Ice</label>
+											<div class="how_many">
+												<em class="price">3500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>결제방법</dt>
+						<dd>
+							<div class="radioBox"> 
+								<input type="radio" name="payment" id="payForCard" class="ipt_check">
+								<label for="payForCard">카드</label>
+								<input type="radio" name="payment" id="payForCash" class="ipt_check">
+								<label for="payForCash">현금</label>
+							</div>
+						</dd>
 					</dl>
 					<dl class="dlBox picker">
-						<dt>예약일시</dt>
+						<dt>수령시간(오늘디폴트)</dt>
 						<dd class="block_target">
-							<div class="container date_inaccessible">
+							<div class="container">
 								<div class="row">
 									<div class='col-sm-6'>
 										<!-- value 빼기 -->
-										<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='reservation_date' />
+										<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='' />
 									</div>
 								</div>
 							</div>
@@ -365,24 +946,19 @@
 								<div class="pick_guide01"></div>
 								<span>오늘</span>
 							</div>
-							<div>
-								<div class="pick_guide02"></div>
-								<span>진료가능일</span>
-							</div>
-							<div>
-								<div class="pick_guide03"></div>
-								<span>진료일선택</span>
-							</div>
 						</dd>
 					</dl>
 					<dl class="dlBox">
-						<dt>기타사항</dt>
+						<dt>요청사항</dt>
 						<dd class="block_target"><textarea name="add" rows="10" class="ipt_txt" placeholder="내용을 입력해주세요 (선택)"></textarea></dd>
 					</dl>
 				</div>
 			</div>
+			<div>
+				<p class="total_price">총 가격: <em>10000</em>원</p>
+			</div>
 			<div class="btnBox">
-				<button type="submit" class="btn_point btn_submit">예약하기</button> 
+				<button type="submit" class="btn_point btn_submit">주문하기</button> 
 			</div>
 			
 			<!--
@@ -401,154 +977,6 @@
 							담당자가 확인 후 예약 확정 안내를<br>
 							드릴 수 있도록 하겠습니다.
 						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="stnBox info_text">
-				<div class="content">
-					<div class="txt_box">
-						<em>약관</em>
-						<div class="txt">
-<pre>
-제1조 개인정보의 이용 목적 
-골든튤립해운대호텔&스위트는 아래와 같은 목적 이외의 용도로는 개인정보를 수집하지 않으며, 그 목적이 변경되거나 원래 목적 이외의 목적으로 활용할 경우에는 개인정보보호법 제18조에 따라 별도의 정보주체의 동의를 받는 등 필요한 조치를 이행할 예정입니다.   
-
-– 서비스 이행을 위한 연락 및 안내, 고지 사항 전달, 불만처리 등의 의사소통 경로
-
-– 회원 식별, 회원증 발급 및 주차서비스 제공
-
-– 객실예약 보증 및 통계 분석 
-
-– 계약 및 서비스 이행, 청구서 발송, 계약금 지불 및 행사 취소 및 연기에 대한 보증
-
-제2조 개인정보의 수집항목    
-골든튤립해운대호텔&스위트는 원활한 고객상담, 각종 서비스의 제공을 위해 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다. 
-
-<table>
-<thead>
-<tr>
-<th colspan="2">구분</th>
-
-<th>수집항목</th>
-<th>보유기간</th>
-<th>수집방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th rowspan="2">미팅룸 및 연회장 예약</th>
-<td>필수</td>
-<td>연락처 정보: 전화번호, 이메일
-기타 정보: 성명</td>
-<td rowspan="2">5년</td>
-<td rowspan="2">견적서</td>
-</tr>
-<tr>
-
-<td>선택</td>
-<td>기타 정보 : 회사명</td>
-
-
-</tr>
-<tr>
-<th>웨딩 및 가족
-연회 예약</th>
-<td>필수</td>
-<td>연락처 정보 : 전화번호, 이메일, 주소
-기타정보 : 성명</td>
-<td>5년</td>
-<td>견적서</td>
-</tr>
-<tr>
-<th>고객센터</th>
-<td>필수</td>
-<td>연락처 정보 : 전화번호 또는 이메일</td>
-<td>답변처리 후 바로 삭제</td>
-<td>홈페이지</td>
-</tr>
-<tr>
-<th rowspan="2">고객등록</th>
-<td>필수</td>
-<td>연락처 정보: 주소, 전화 번호
-기타 정보: 성명, 국적
-금융정보: 카드번호, 카드 유효기간</td>
-<td rowspan="2">5년</td>
-<td rowspan="2">고객등록카드
-전화예약
-온라인예약</td>
-</tr>
-<tr>
-
-<td>선택</td>
-<td>연락처 정보: 이메일
-기타 정보: 생년월일, 회사명, 직책</td>
-
-
-</tr>
-<tr>
-<th rowspan="2">연회이용</th>
-<td>필수</td>
-<td>연락처 정보: 전화 번호, 이메일
-기타 정보: 성명 (한글 / 영문)</td>
-<td rowspan="2">5년</td>
-<td rowspan="2">연회 계약서</td>
-</tr>
-<tr>
-
-<td>선택</td>
-<td>연락처 정보: 주소
-금융정보: 카드번호, 카드 유효기간</td>
-
-
-</tr>
-</tbody>
-</table>
-제3조 개인정보 처리 위탁 
-
-골든튤립해운대호텔&스위트는 이용자의 서비스 수준 향상 및 원활한 전산업무의 처리를 위해 이용자의 개인정보 관리를 타 업체에 위탁하며 해당업체는 다음과 같습니다.
-
-<table>
-<thead>
-<tr>
-<th>위탁업무내용</th>
-<th>수탁자</th>
-<th>항목</th>
-<th>계약기간</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SW개발 및 유지보수</td>
-<td>산하</td>
-<td>한글성명, 영문성명, 핸드폰 번호, 자택전화번호, 자택주소, 사진, 회사주소, 회사명, 법인등록번호, 담당자, 부서/직위, 회사 전화번호, 차량번호, 이메일</td>
-<td>2019.
-05. 28 ~</td>
-</tr>
-<tr>
-<td>홈페이지 유지보수</td>
-<td>더리얼컴퍼니</td>
-<td>이메일 또는 연락처</td>
-<td>까지</td>
-</tr>
-</tbody>
-</table>
-제4조 개인정보의 공유 및 제공 
-호텔은 이용자들의 개인정보를 “제2조 개인정보의 수집목적 및 이용목적“에서 고지한 범위 내에서 사용하며, 이용자의 사전 동의 없이는 동 범위를 초과하여 이용하거나 원칙적으로 이용자의 개인정보를 외부에 공개하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.   
-
-– 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우
-
-제5조 개인정보의 보유 및 이용기간    
-정보는 ‘수집하는 개인정보의 항목’ 범위 내에서 수집되어 사용되며, 개인정보 이용 목적이 달성된 후에는 수집된 개인정보는 파기됩니다. 다만, 다음의 정보에 대해서는 아래의 보존 이유를 위해 명시한 기간 동안 보존합니다.
-
-가. 관련법령에 의한 정보보유 사유
-
-소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 호텔은 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 호텔은 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.
-</pre>
-						</div>
-					</div>
-					<div class="btnBox">
-						<button type="submit" class="btn_point">확인</button>
 					</div>
 				</div>
 			</div>
@@ -931,6 +1359,18 @@ $(document).ready(function(){
 		console.log(OSName,'OSName')
 	}
 	checkDevice()
+
+	// 주문하기 메뉴 open close
+	function handleChatAsideOlder() {
+		var $chatOlder = $('.chatAside .chat_older');
+		var $olderMenu = $('.chatAside .chat_older .older_menu');
+		var categoriBtn = $('.chatAside .chat_older .older_menu .menu_categori');
+
+		categoriBtn.on('click', function(){
+			$(this).siblings('div').toggleClass('on');
+		})
+	}
+	handleChatAsideOlder();
 });
 </script>
 <script type="text/javascript">

@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/csBot.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/csBot.css">
     <title>Document</title>
     <style>
       body {
@@ -148,15 +149,15 @@ okey~? okey~</textarea>
       </div>
     </div>
     <!-- //cschat_wrap -->
-    <script src="js/jQuery3.4.1.js"></script>
-    <script>
+    <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
+    <script type="text/javascript">
       $(document).ready(function(){
 
         handleCsTalkScoll();
 
         function checkbyte() {
           /* textarea height 길어지는 효과 */
-          $('textarea[name="user_message"]').on("keyup",function(){
+          $('textarea[name="user_message"]').on("keydown",function(){
             var thisHeight = $(this).css('height').replace('px','');
             var cschatMid = $('.cschat_mid');
             var cschatMidHeight = $('.cschat_mid').css('margin-bottom').replace('px','');

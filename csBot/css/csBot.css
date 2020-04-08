@@ -68,7 +68,7 @@
 
 .cs_talk li.user .message { border-radius: 0px 10px 0px 10px; background-color: #00a0c8; color: #fff; }
 
-.cs_talk .message { display: inline-block; padding: 8px 8px 7px 10px; text-align: left; }
+.cs_talk .message { display: inline-block; padding: 8px 8px 7px 10px; text-align: left; word-break: break-all; }
 
 /* //defult */
 #supporter_evaluation .text_box { padding: 80px 0px 40px 0px; text-align: center; }
