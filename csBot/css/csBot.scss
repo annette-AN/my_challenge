@@ -11,30 +11,11 @@
 }
 
 .chevron_prev {
-  width: 30px;
-  height: 30px;
-
-  &:before {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 2px;
-    margin: 0px 0px 0px -1px;
-    transform: rotate(-45deg);
-    transform-origin: left center;
-    background-color: rgba(99,94,94,1.0);
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 2px;
-    margin: -2px 0px 0px 0px;
-    transform: rotate(45deg);
-    transform-origin: left center;
-    background-color: rgba(99,94,94,1.0);
-  }
+  padding: 0px;
+  width: 40px;
+  height: 40px;
+  background: url(../image/arrow_left.png) no-repeat center;
+  background-size: 12px auto;
 }
 
 .sub_title {
@@ -83,8 +64,8 @@
 
   .connect_top {
     overflow: hidden;
-    height: 50px;
-    padding: 15px 0px 0px 0px;
+    height: 60px;
+    padding: 22px 0px 0px 0px;
     border-bottom: 1px solid #e2e2f0;
     text-align: center;
     font-size: 16px;
@@ -103,12 +84,13 @@
     .chevron_prev {
       position: absolute;
       top: 10px;
-      left: 14px;
+      left: 10px;
     }
   }
 
   #content {
-    height: calc(100% - 120px);
+    overflow: auto;
+    height: calc(100% - 130px);
     background-color: rgba(255,255,255,1.0);
   }
 
@@ -196,22 +178,66 @@
     position: relative;
     margin: 26px 0px;
 
-    .recent_list {
+    /* swiper css */
+    .swiper-container {
       overflow: hidden;
       position: relative;
+      width: 100%;
+      height: 100%;
       margin: 15px 0px;
       border-radius: 12px;
-      background-color: pink;
+      background-color: #fff;
       box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
-    
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+      bottom: 6px;
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+      margin: 0px 4px;
+    }
+
+    .swiper-pagination {
+      padding: 0px 8px 0px 0px;
+      text-align: right;
+    }
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border: 1px solid #e2e2f0;
+      background-color: #fff;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 36px;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    .recent_list {
       li {
         display: inline-block;
         width: 100%;
+        height: 150px;
     
         a {
           display: block;
           height: 100%;
           text-align: center;
+
+          img {
+            width: 100%;
+            min-height: 150px;
+          }
         }
       }
     
@@ -529,16 +555,6 @@
 
   .cschat_top {
     background-color: rgba(64,55,56,1.0);
-
-    .chevron_prev {
-      &:before {
-        background-color: rgba(240,240,240,1.0);
-      }
-    
-      &:after {
-        background-color: rgba(240,240,240,1.0);
-      }
-    }
   }
 
   .cschat_mid {
