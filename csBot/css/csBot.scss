@@ -117,7 +117,7 @@
 
         .fas, .far {
           padding: 16px 0px 0px 0px;
-          font-size: 28px;
+          font-size: 24px;
           color: #275791;
         }
 
@@ -142,11 +142,11 @@
 
       .chat_list {
         background: url(../image/circle_bg.png) no-repeat center 8px;
-        background-size: 62px;
+        background-size: 58px;
 
         .fas, .far {
           padding: 18px 0px 0px 0px;
-          font-size: 40px;
+          font-size: 36px;
           color: #fff;
           transform: rotateY(180deg);
         }
@@ -578,6 +578,10 @@
 }
 
 @media all and (max-width: 768px) {
+  .textbox_basic {
+    font-size: 16px;
+  }
+  
   #connect_wrap {
     position: static;
     bottom: auto;
