@@ -23,7 +23,7 @@
 .textbox_basic + .fa-microphone { position: absolute; top: 10px; right: 14px; font-size: 20px; }
 
 /* //defult */
-#connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
+#connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
 
 #connect_wrap .connect_top { overflow: hidden; height: 50px; padding: 15px 0px 0px 0px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
 
@@ -153,4 +153,6 @@
 #cschat_wrap.dark_mode .cs_talk .date:before { background-color: #222222; }
 
 #cschat_wrap.dark_mode .cs_talk .date em { background-color: #403738; color: #f7f8fa; }
+
+@media all and (max-width: 768px) { #connect_wrap { position: static; bottom: auto; right: auto; width: 100%; height: 100%; border-radius: 0px; } }
 /*# sourceMappingURL=csBot.css.map */
