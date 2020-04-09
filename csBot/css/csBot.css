@@ -12,41 +12,89 @@
 
 .chevron_prev:after { content: ''; display: block; width: 8px; height: 2px; margin: -2px 0px 0px 0px; -webkit-transform: rotate(45deg); transform: rotate(45deg); -webkit-transform-origin: left center; transform-origin: left center; background-color: #635e5e; }
 
-#cschat_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; /* 모달 backdrop */ }
+.sub_title { font-size: 18px; font-weight: bold; color: #363636; }
 
-#cschat_wrap textarea { border: 1px solid #e2e2f0; border-radius: 4px; font-size: 14px; line-height: 20px; }
+.sub_more { color: #9f9f9f; }
 
-#cschat_wrap textarea:focus { border: 1px solid #00a0c8; }
+.textbox_basic { width: 100%; height: 40px; border: 1px solid #e2e2f0; border-radius: 4px; font-size: 14px; line-height: 20px; color: #5e5c68; }
 
-#cschat_wrap .cschat_top { overflow: hidden; height: 50px; padding: 15px 0px 0px 0px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
+.textbox_basic:focus { border: 1px solid #00a0c8; }
 
-#cschat_wrap .cschat_top .svc_title em { font-weight: bold; }
+.textbox_basic + .fa-microphone { position: absolute; top: 10px; right: 14px; font-size: 20px; }
 
-#cschat_wrap .cschat_top .chevron_prev { position: absolute; top: 10px; left: 14px; }
+/* //defult */
+#connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
 
-#cschat_wrap .cschat_body { position: relative; height: calc(100% - 50px); }
+#connect_wrap .connect_top { overflow: hidden; height: 50px; padding: 15px 0px 0px 0px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
 
-#cschat_wrap .cschat_body .dialog { display: none; }
+#connect_wrap .connect_top .title em { font-weight: bold; }
 
-#cschat_wrap .cschat_mid { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin-bottom: 65px; }
+#connect_wrap .connect_top .title img { width: 160px; }
 
-#cschat_wrap .cschat_btm { position: absolute; left: 0px; bottom: 0px; width: 100%; padding: 10px 12px; border-top: 1px solid #e2e2f0; font-size: 16px; background-color: white; }
+#connect_wrap .connect_top .chevron_prev { position: absolute; top: 10px; left: 14px; }
 
-#cschat_wrap .cschat_btm .user_writes { position: relative; width: calc(100% - 40px); height: 100%; }
+#connect_wrap #content { height: calc(100% - 120px); background-color: white; }
 
-#cschat_wrap .cschat_btm .user_writes button { position: absolute; top: 0px; left: calc(100% + 2px); width: 40px; height: 40px; background: #00a0c8 url(../image/ico_send_trans.png) no-repeat; background-size: contain; }
+#connect_wrap .connect_btm { height: 70px; background-color: red; }
 
-#cschat_wrap .cschat_btm textarea[name="user_message"] { overflow: auto; width: 100%; height: 40px; padding: 9px 8px 6px 8px; color: #5e5c68; }
+/* content main screen */
+.main_screen { padding: 16px; }
 
-#cschat_wrap .cschat_body.backdrop:after { content: ''; display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #f7f8fa; z-index: 10; }
+.main_screen .srch_box { position: relative; width: 100%; }
 
-#cschat_wrap .cschat_body.backdrop .dialog { overflow: auto; position: relative; display: block; height: 100%; padding: 8px 10px; z-index: 11; }
+.main_screen .srch_box .textbox_basic { padding: 0px 34px 0px 16px; border-radius: 12px; background-color: #eff9ff; }
 
-#cschat_wrap .cschat_body.backdrop .dialog > div { display: none; }
+.main_screen .srch_box .fa-microphone { color: #275791; }
 
-#cschat_wrap .cschat_body.backdrop .dialog > div.on { display: block; }
+.main_screen .service { position: relative; margin: 26px 0px; }
 
-.cs_talk { overflow: auto; height: 100%; color: #5e5c68; background-color: #f7f8fa; padding: 16px 10px; }
+.main_screen .service .recent_list { overflow: hidden; position: relative; margin: 15px 0px; border-radius: 12px; background-color: pink; -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2); }
+
+.main_screen .service .recent_list li { display: inline-block; width: 100%; }
+
+.main_screen .service .recent_list li a { display: block; text-align: center; }
+
+.main_screen .service .recent_list .label { position: absolute; top: 20px; left: 0px; min-width: 100px; padding: 6px 20px; height: 34px; background-color: rgba(0, 0, 0, 0.5); color: #fff; }
+
+.main_screen .service .recent_list .label:before { content: ''; display: block; position: absolute; top: 0%; left: 100%; border: 17px solid transparent; border-left: 17px solid rgba(0, 0, 0, 0.5); }
+
+.main_screen .service .sub_more { position: absolute; top: 14px; right: 5px; }
+
+.main_screen .service .category { text-align: center; }
+
+.main_screen .service .category li { display: inline-block; width: 30%; margin: 16px 0px; }
+
+.main_screen .service .category li .fas { font-size: 30px; color: #275791; }
+
+.main_screen .service .category li .label { display: block; color: #7c7c7c; margin: 12px 0px 0px 0px; }
+
+/* 모음 */
+/* content cschat */
+.cschat_body { position: relative; height: 100%; }
+
+.cschat_body .dialog { display: none; }
+
+.cschat_mid { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin-bottom: 55px; }
+
+.cschat_btm { position: absolute; left: 0px; bottom: 0px; width: 100%; padding: 0px 12px 8px 12px; font-size: 16px; }
+
+.cschat_btm .user_writes { position: relative; width: calc(100% - 40px); height: 100%; }
+
+.cschat_btm .user_writes button { position: absolute; top: 0px; left: calc(100% + 2px); width: 40px; height: 40px; background: #00a0c8 url(../image/ico_send_trans.png) no-repeat; background-size: contain; }
+
+.cschat_btm .textbox_basic { overflow: auto; padding: 9px 8px 6px 8px; }
+
+/* 모달 backdrop */
+.cschat_body.backdrop:after { content: ''; display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #f7f8fa; z-index: 10; }
+
+.cschat_body.backdrop .dialog { overflow: auto; position: relative; display: block; height: 100%; padding: 8px 10px; z-index: 11; }
+
+.cschat_body.backdrop .dialog > div { display: none; }
+
+.cschat_body.backdrop .dialog > div.on { display: block; }
+
+/* /모음 */
+.cs_talk { overflow: auto; height: 100%; color: #5e5c68; padding: 16px 10px; }
 
 .cs_talk li + li { margin-top: 16px; }
 
@@ -62,7 +110,7 @@
 
 .cs_talk li.bot:before { content: ''; display: block; position: absolute; top: 0px; left: 10px; width: 34px; height: 34px; border-radius: 8px; background: white url(../image/sample/bot_profile.png) no-repeat center; background-size: cover; }
 
-.cs_talk li.bot .message { border-radius: 0px 20px 0px 20px; background-color: white; }
+.cs_talk li.bot .message { border-radius: 0px 20px 0px 20px; background-color: #f7f8fa; }
 
 .cs_talk li.user { overflow: hidden; padding: 0px 10px 0px 80px; text-align: right; }
 

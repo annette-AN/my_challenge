@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* AMR 
+  backgroud : rgba 
+  color : #
+*/
+/* defult */
+.text_hide { line-height: 0px; font-size: 0px; text-indent: -999px; }
+
+.chevron_prev { width: 30px; height: 30px; }
+
+.chevron_prev:before { content: ''; display: block; width: 10px; height: 2px; margin: 0px 0px 0px -1px; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); -webkit-transform-origin: left center; transform-origin: left center; background-color: #635e5e; }
+
+.chevron_prev:after { content: ''; display: block; width: 8px; height: 2px; margin: -2px 0px 0px 0px; -webkit-transform: rotate(45deg); transform: rotate(45deg); -webkit-transform-origin: left center; transform-origin: left center; background-color: #635e5e; }
+
+#cschat_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; /* 모달 backdrop */ }
+
+#cschat_wrap textarea { border: 1px solid #e2e2f0; border-radius: 4px; font-size: 14px; line-height: 20px; }
+
+#cschat_wrap textarea:focus { border: 1px solid #00a0c8; }
+
+#cschat_wrap .cschat_top { overflow: hidden; height: 50px; padding: 15px 0px 0px 0px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
+
+#cschat_wrap .cschat_top .svc_title em { font-weight: bold; }
+
+#cschat_wrap .cschat_top .chevron_prev { position: absolute; top: 10px; left: 14px; }
+
+#cschat_wrap .cschat_body { position: relative; height: calc(100% - 50px); }
+
+#cschat_wrap .cschat_body .dialog { display: none; }
+
+#cschat_wrap .cschat_mid { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin-bottom: 65px; }
+
+#cschat_wrap .cschat_btm { position: absolute; left: 0px; bottom: 0px; width: 100%; padding: 10px 12px; border-top: 1px solid #e2e2f0; font-size: 16px; background-color: white; }
+
+#cschat_wrap .cschat_btm .user_writes { position: relative; width: calc(100% - 40px); height: 100%; }
+
+#cschat_wrap .cschat_btm .user_writes button { position: absolute; top: 0px; left: calc(100% + 2px); width: 40px; height: 40px; background: #00a0c8 url(../image/ico_send_trans.png) no-repeat; background-size: contain; }
+
+#cschat_wrap .cschat_btm textarea[name="user_message"] { overflow: auto; width: 100%; height: 40px; padding: 9px 8px 6px 8px; color: #5e5c68; }
+
+#cschat_wrap .cschat_body.backdrop:after { content: ''; display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #f7f8fa; z-index: 10; }
+
+#cschat_wrap .cschat_body.backdrop .dialog { overflow: auto; position: relative; display: block; height: 100%; padding: 8px 10px; z-index: 11; }
+
+#cschat_wrap .cschat_body.backdrop .dialog > div { display: none; }
+
+#cschat_wrap .cschat_body.backdrop .dialog > div.on { display: block; }
+
+.cs_talk { overflow: auto; height: 100%; color: #5e5c68; background-color: #f7f8fa; padding: 16px 10px; }
+
+.cs_talk li + li { margin-top: 16px; }
+
+.cs_talk .date { position: relative; padding: 8px 0px; text-align: center; font-size: 12px; }
+
+.cs_talk .date:before { content: ''; display: block; position: absolute; top: 50%; left: 0%; width: 100%; height: 1px; background-color: #ececfa; }
+
+.cs_talk .date em { display: inline-block; position: relative; padding: 0px 10px; background-color: #f7f8fa; color: #403738; }
+
+.cs_talk .date.chatend em:first-child { display: none; }
+
+.cs_talk li.bot { overflow: hidden; position: relative; min-height: 34px; padding: 0px 40px 0px 55px; text-align: left; }
+
+.cs_talk li.bot:before { content: ''; display: block; position: absolute; top: 0px; left: 10px; width: 34px; height: 34px; border-radius: 8px; background: white url(../image/sample/bot_profile.png) no-repeat center; background-size: cover; }
+
+.cs_talk li.bot .message { border-radius: 0px 20px 0px 20px; background-color: white; }
+
+.cs_talk li.user { overflow: hidden; padding: 0px 10px 0px 80px; text-align: right; }
+
+.cs_talk li.user .message { border-radius: 0px 10px 0px 10px; background-color: #00a0c8; color: #fff; }
+
+.cs_talk .message { display: inline-block; padding: 8px 8px 7px 10px; text-align: left; word-break: break-all; }
+
+/* //defult */
+#supporter_evaluation .text_box { padding: 80px 0px 40px 0px; text-align: center; }
+
+#supporter_evaluation .text_box p { display: inline-block; font-size: 18px; font-weight: bold; text-align: left; letter-spacing: -1px; }
+
+#supporter_evaluation .suggestion { margin: 10px; }
+
+#supporter_evaluation .suggestion .star_score { padding: 20px 0px; margin: 10px 0px; text-align: center; }
+
+#supporter_evaluation .suggestion .star_score .score { display: inline-block; width: 50px; height: 50px; }
+
+#supporter_evaluation .suggestion .star_score .score button { width: 100%; height: 100%; background: url(../image/ico_star.png) no-repeat 0 0; background-size: cover; }
+
+#supporter_evaluation .suggestion .star_score .score.on button { background: url(../image/ico_star_on.png) no-repeat 0 0; background-size: cover; }
+
+#supporter_evaluation .suggestion textarea[name="evaluation"] { width: 100%; padding: 10px 8px; }
+
+#supporter_evaluation .suggestion button[type="submit"] { display: block; width: 100%; padding: 10px 0px; margin: 20px 0px 0px 0px; font-size: 16px; background-color: rgba(0, 0, 0, 0.2); }
+
+/* 모달 dialog */
+/* //모달 dialog */
+/* 다크모드 */
+#cschat_wrap.dark_mode { color: #f0f0f0; }
+
+#cschat_wrap.dark_mode .cschat_top { background-color: #403738; }
+
+#cschat_wrap.dark_mode .cschat_top .chevron_prev:before { background-color: #f0f0f0; }
+
+#cschat_wrap.dark_mode .cschat_top .chevron_prev:after { background-color: #f0f0f0; }
+
+#cschat_wrap.dark_mode .cschat_mid { background-color: #444444; color: #fff; }
+
+#cschat_wrap.dark_mode .cs_talk .date:before { background-color: #222222; }
+
+#cschat_wrap.dark_mode .cs_talk .date em { background-color: #403738; color: #f7f8fa; }
+/*# sourceMappingURL=csBot.css.map */
