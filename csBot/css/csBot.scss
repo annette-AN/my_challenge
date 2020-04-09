@@ -90,12 +90,12 @@
 
   #content {
     overflow: auto;
-    height: calc(100% - 130px);
+    height: calc(100% - 140px);
     background-color: rgba(255,255,255,1.0);
   }
 
   #connect_btm {
-    height: 70px;
+    height: 80px;
     border-top: 1px solid #e2e2f0;
     background-color: #fff;
 
@@ -116,7 +116,7 @@
         }
 
         .fas, .far {
-          padding: 12px 0px 0px 0px;
+          padding: 16px 0px 0px 0px;
           font-size: 28px;
           color: #275791;
         }
@@ -141,12 +141,12 @@
       }
 
       .chat_list {
-        background: url(../image/circle_bg.png) no-repeat center 4px;
-        background-size: 58px;
+        background: url(../image/circle_bg.png) no-repeat center 8px;
+        background-size: 62px;
 
         .fas, .far {
-          padding: 14px 0px 0px 0px;
-          font-size: 38px;
+          padding: 18px 0px 0px 0px;
+          font-size: 40px;
           color: #fff;
           transform: rotateY(180deg);
         }
