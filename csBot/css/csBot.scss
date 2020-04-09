@@ -224,6 +224,37 @@
       background-color: #fff;
     }
 
+    .swiper-container > .label {
+      position: absolute;
+      top: 20px;
+      left: 0px;
+      min-width: 100px;
+      padding: 6px 20px;
+      height: 34px;
+      background-color: rgba(0,0,0,0.5);
+      text-align: center;
+      color: #fff;
+      z-index: 2;
+  
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0%;
+        left: 100%;
+        border: 17px solid transparent;
+        border-left: 17px solid rgba(0,0,0,0.5);
+      }
+
+      > li {
+        display: none;
+      }
+
+      > li.on {
+        display: block;
+      }
+    }
+
     .recent_list {
       li {
         display: inline-block;
@@ -239,27 +270,6 @@
             width: 100%;
             min-height: 150px;
           }
-        }
-      }
-    
-      .label {
-        position: absolute;
-        top: 20px;
-        left: 0px;
-        min-width: 100px;
-        padding: 6px 20px;
-        height: 34px;
-        background-color: rgba(0,0,0,0.5);
-        color: #fff;
-    
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0%;
-          left: 100%;
-          border: 17px solid transparent;
-          border-left: 17px solid rgba(0,0,0,0.5);
         }
       }
     }
