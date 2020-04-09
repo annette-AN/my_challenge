@@ -112,9 +112,64 @@
     background-color: rgba(255,255,255,1.0);
   }
 
-  .connect_btm {
+  #connect_btm {
     height: 70px;
-    background-color: red;
+    border-top: 1px solid #e2e2f0;
+    background-color: #fff;
+
+    #wrapper {
+      overflow: hidden;
+      height: 100%;
+      padding: 0px 16px;
+      text-align: center;
+
+      > div {
+        display: inline-block;
+        height: 100%;
+
+        > a {
+          display: block;
+          height: 100%;
+          padding: 0px 20px;
+        }
+
+        .fas, .far {
+          padding: 12px 0px 0px 0px;
+          font-size: 28px;
+          color: #275791;
+        }
+
+        .label {
+          display: block;
+          font-size: 14px;
+          color: #275791;
+        }
+      }
+
+      .lefe_side {
+        display: block;
+        float: left;
+        margin: 0px 0px 0px 10px;
+      }
+
+      .right_side {
+        display: block;
+        float: right;
+        margin: 0px 10px 0px 0px;
+      }
+
+      .chat_list {
+        background: url(../image/circle_bg.png) no-repeat center 4px;
+        background-size: 58px;
+
+        .fas, .far {
+          padding: 14px 0px 0px 0px;
+          font-size: 38px;
+          color: #fff;
+          transform: rotateY(180deg);
+        }
+      }
+    }
   }
 }
 
@@ -155,6 +210,7 @@
     
         a {
           display: block;
+          height: 100%;
           text-align: center;
         }
       }
@@ -188,12 +244,33 @@
     }
     
     .category {
+      margin: 30px 0px;
       text-align: center;
       
       li {
+        position: relative;
         display: inline-block;
         width: 30%;
-        margin: 16px 0px;
+        margin: 4px 0px;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 44%;
+          right: 20%;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #e2e8fe;
+        }
+
+        > a {
+          position: relative;
+          display: block;
+          height: 100%;
+          padding: 12px 0px;
+        }
 
         .fas {
           font-size: 30px;
@@ -489,8 +566,8 @@
     position: static;
     bottom: auto;
     right: auto;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
     border-radius: 0px;
   }
 }
