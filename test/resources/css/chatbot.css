@@ -366,7 +366,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 
 .chat_order .order_menu .menu {}
 .chat_order .order_menu .menu li + li {margin: 2px 0px 0px 0px;}
-.chat_order .order_menu .menu li .category {width: 100%; padding: 10px; text-align: left;}
+.chat_order .order_menu .menu li .category {width: 100%; padding: 10px; background-color: #F0F0F0; text-align: left;}
 
 .chatAside .chat_order .chatAside_bd .category_menu {display: none; height: auto; margin: 10px;}
 .chatAside .chat_order .chatAside_bd .category_menu.on {display: block;}
@@ -542,7 +542,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     #chatUI_wrap.chatUI_show {border-radius:0;}
     #btn_goChat {bottom:0px; width:52px; padding:50px 0 0 0; }
 
-    .chatAside.aside_show {bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
+    .chatAside.aside_show {left:0; bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
 }
 
 /* 공통 */
