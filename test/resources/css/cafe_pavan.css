@@ -119,9 +119,11 @@
 #chatUI_wrap .chatUI_btm .textArea:focus {border:1px solid rgba(83,25,1,1.0);}
 #chatUI_wrap .chatUI_btm .btn_chat {background-color:rgba(83,25,1,1.0);}
 
-.chatAside .checkBox input[type="checkbox"]:checked + label:before{border-color:rgba(83,25,1,1.0); background:rgba(83,25,1,1.0);}
+/* .chatAside .checkBox input[type="checkbox"]:checked + label:before{border-color:rgba(83,25,1,1.0); background:rgba(83,25,1,1.0);} */
+.chatAside .checkBox input[type="checkbox"]:checked + label:before{color:rgba(83,25,1,1.0);}
 
-.chatAside .radioBox input[type="radio"]:checked + label:before{border-color:rgba(83,25,1,1.0); background:rgba(83,25,1,1.0);}
+/* .chatAside .radioBox input[type="radio"]:checked + label:before{border-color:rgba(83,25,1,1.0); background:rgba(83,25,1,1.0);} */
+.chatAside .radioBox input[type="radio"]:checked + label:before{color:rgba(83,25,1,1.0);}
 
 .chatAside .chatAside_hd h3 {color:rgba(83,25,1,1.0);}
 
