@@ -310,7 +310,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .checkBox input[type="checkbox"] + label:active:before, .checkBox input[type="checkbox"]:checked + label:active:before{}
 .chatAside .checkBox input[type="checkbox"]:focus + label {text-decoration:underline;}
 .chatAside .checkBox input[type="checkbox"]:focus + label:before {border-color:#008ad8;}
-.chatAside .checkBox input[type="checkbox"]:checked + label:before{content:'\2714'; color:#fff;}
+.chatAside .checkBox input[type="checkbox"]:checked + label:before{content:'\2714\fe0e'; color:#fff;}
 .chatAside .checkBox input[type="checkbox"]:disabled + label:before{background:rgba(0,0,0,0.1);}
 
 .chatAside .radioBox input[type="checkbox"] + label:last-child{margin:0;}
