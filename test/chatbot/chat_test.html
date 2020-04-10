@@ -383,7 +383,7 @@
 						<dt>결제방법</dt>
 						<dd>
 							<div class="radioBox"> 
-								<input type="radio" name="payment" id="payForCard" class="ipt_check">
+								<input type="radio" name="payment" id="payForCard" class="ipt_check" checked>
 								<label for="payForCard">카드</label>
 								<input type="radio" name="payment" id="payForCash" class="ipt_check">
 								<label for="payForCash">현금</label>
@@ -391,22 +391,15 @@
 						</dd>
 					</dl>
 					<dl class="dlBox picker">
-						<dt>수령시간(오늘디폴트)</dt>
+						<dt>수령시간</dt>
 						<dd class="block_target">
 							<div class="container">
 								<div class="row">
 									<div class='col-sm-6'>
 										<!-- value 빼기 -->
-										<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='' />
+										<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='pickup_time' />
 									</div>
 								</div>
-							</div>
-						</dd>
-						<dt class="box_hide">달력 표시 설명</dt>
-						<dd class="pick_guide">
-							<div>
-								<div class="pick_guide01"></div>
-								<span>오늘</span>
 							</div>
 						</dd>
 					</dl>
@@ -631,6 +624,7 @@ jQuery.event.add(window,"load",function(){
 /* mirye test */
 $(document).ready(function(){
 	/* 200304 AMR 데이트피커 */
+	
 	$('#reservation_date').datetimepicker({
 		locale: 'ko',
 		inline: true,
@@ -644,6 +638,32 @@ $(document).ready(function(){
 			// 석가탄신일(부처님오신날)	 음력 4월 8일
 			// 추석						음력 8월 15일
 		disabledHours: [0,1,2,3,4,5,6,7,8,20,21,22,23],
+		icons: {
+            time: 'glyphicon glyphicon-time',
+            date: 'glyphicon glyphicon-calendar',
+            up: 'glyphicon glyphicon-chevron-up',
+            down: 'glyphicon glyphicon-chevron-down',
+            previous: 'glyphicon glyphicon-chevron-left',
+            next: 'glyphicon glyphicon-chevron-right',
+            today: 'glyphicon glyphicon-screenshot',
+            clear: 'glyphicon glyphicon-trash',
+            close: 'glyphicon glyphicon-remove'
+        }
+	});
+
+	$('#pickup_time').datetimepicker({
+		locale: 'ko',
+		inline: true,
+		format: 'HH:mm',
+		dayViewHeaderFormat: 'YYYY 년 MM 월',
+		stepping: 15,
+		daysOfWeekDisabled: [0],
+		disabledDates: ['2020-01-01','2020-03-01','2020-05-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
+			// 01-01 새해(신정), 03-01 삼일절, 05-01 근로자의날, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
+			// 설날(구정)				음력 1월 1일
+			// 석가탄신일(부처님오신날)	 음력 4월 8일
+			// 추석						음력 8월 15일
+		disabledHours: [0,1,2,3,4,5,6,7,8,17,18,19,20,21,22,23],
 		icons: {
             time: 'glyphicon glyphicon-time',
             date: 'glyphicon glyphicon-calendar',
@@ -828,18 +848,13 @@ $(document).ready(function(){
 				name:"coffee",
 				children:[
 					{
-						name: '에스프레소 Ice',
-						inputName: 'espresso_ice',
-						price: 2800,
-					},
-					{
 						name: '에스프레소 Hot',
 						inputName: 'espresso_hot',
 						price: 2500,
 					},
 					{
-						name: '아메리카노 Ice',
-						inputName: 'americano_ice',
+						name: '에스프레소 Ice',
+						inputName: 'espresso_ice',
 						price: 2800,
 					},
 					{
@@ -848,9 +863,9 @@ $(document).ready(function(){
 						price: 2500,
 					},
 					{
-						name: '카페라떼 Ice',
-						inputName: 'latte_ice',
-						price: 3500,
+						name: '아메리카노 Ice',
+						inputName: 'americano_ice',
+						price: 2800,
 					},
 					{
 						name: '카페라떼 Hot',
@@ -858,8 +873,8 @@ $(document).ready(function(){
 						price: 3000,
 					},
 					{
-						name: '카푸치노 Ice',
-						inputName: 'cappuccino_ice',
+						name: '카페라떼 Ice',
+						inputName: 'latte_ice',
 						price: 3500,
 					},
 					{
@@ -868,9 +883,9 @@ $(document).ready(function(){
 						price: 3000,
 					},
 					{
-						name: '바닐라라떼 Ice',
-						inputName: 'vanilla_latte_ice',
-						price: 3900,
+						name: '카푸치노 Ice',
+						inputName: 'cappuccino_ice',
+						price: 3500,
 					},
 					{
 						name: '바닐라라떼 Hot',
@@ -878,8 +893,8 @@ $(document).ready(function(){
 						price: 3400,
 					},
 					{
-						name: '모카치노 Ice',
-						inputName: 'mochaccino_ice',
+						name: '바닐라라떼 Ice',
+						inputName: 'vanilla_latte_ice',
 						price: 3900,
 					},
 					{
@@ -888,8 +903,8 @@ $(document).ready(function(){
 						price: 3400,
 					},
 					{
-						name: '카라멜마끼아또 Ice',
-						inputName: 'caramel_macchiato_ice',
+						name: '모카치노 Ice',
+						inputName: 'mochaccino_ice',
 						price: 3900,
 					},
 					{
@@ -898,8 +913,8 @@ $(document).ready(function(){
 						price: 3400,
 					},
 					{
-						name: '카페모카 Ice',
-						inputName: 'cafe_mocha_ice',
+						name: '카라멜마끼아또 Ice',
+						inputName: 'caramel_macchiato_ice',
 						price: 3900,
 					},
 					{
@@ -907,6 +922,11 @@ $(document).ready(function(){
 						inputName: 'cafe_mocha_hot',
 						price: 3400,
 					},
+					{
+						name: '카페모카 Ice',
+						inputName: 'cafe_mocha_ice',
+						price: 3900,
+					}
 
 				]
 			},
@@ -965,119 +985,216 @@ $(document).ready(function(){
 					},
 				]
 			},
-			/*{
+			{
 				name:"tea",
 				children:[
 					{
-						name: '녹차 Ice
-',
-						inputName: 'greentea_ice
-',
-						price: 3500
-,
+						name: '녹차 Hot',
+						inputName: 'greentea_Hot',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '녹차 Ice',
+						inputName: 'greentea_Ice',
+						price: 4000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '루이보스 Hot',
+						inputName: 'luiboss_Hot',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '루이보스 Ice',
+						inputName: 'luiboss_Ice',
+						price: 4000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '다즐링 Hot',
+						inputName: 'dazzling_Hot',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '다즐링 Ice',
+						inputName: 'dazzling_Ice',
+						price: 4000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '얼그레이 Hot',
+						inputName: 'earlgrey_Hot',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '얼그레이 Ice',
+						inputName: 'earlgrey_Ice',
+						price: 4000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '캐모마일 Hot',
+						inputName: 'camomile_Hot',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '캐모마일 Ice',
+						inputName: 'camomile_Ice',
+						price: 4000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '페퍼민트 Hot',
+						inputName: 'peppermint_Hot',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '페퍼민트 Ice',
+						inputName: 'peppermint_Ice',
+						price: 4000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '유자차 Hot',
+						inputName: 'yuzatea_Hot',
+						price: 3000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '유자차 Ice',
+						inputName: 'yuzatea_Ice',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '레몬차 Hot',
+						inputName: 'lemontea_Hot',
+						price: 3000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '레몬차 Ice',
+						inputName: 'lemontea_Ice',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '모과차 Hot',
+						inputName: 'quincetea_Hot',
+						price: 3000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '모과차 Ice',
+						inputName: 'quincetea_Ice',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '생강차 Hot',
+						inputName: 'gingertea_Hot',
+						price: 3000,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '생강차 Ice',
+						inputName: 'gingertea_Ice',
+						price: 3500,
 					},
 					{
-						name: '메뉴한글이름',
-						inputName: '메뉴영어이름',
-						price: 가격,
+						name: '자몽차 Hot',
+						inputName: 'grapefruittea_Hot',
+						price: 3500,
+					},
+					{
+						name: '자몽차 Ice',
+						inputName: 'grapefruittea_Ice',
+						price: 4000,
 					},
 				]
-			}*/
+			},
+			{
+				name:"frappuccino & smoothy & ade",
+				children:[
+					{
+						name: '초코자바칩프라푸치노',
+						inputName: 'javachip_frap',
+						price: 4500,
+					},
+					{
+						name: '초코모카프라푸치노',
+						inputName: 'mochachip_frap',
+						price: 4500,
+					},
+					{
+						name: '민트초코프라푸치노',
+						inputName: 'mintchoco_frap',
+						price: 4500,
+					},
+					{
+						name: '그린티프라푸치노',
+						inputName: 'greantea_frap',
+						price: 4500,
+					},
+					{
+						name: '플레인요거트 ',
+						inputName: 'plain_yogurt',
+						price: 4000,
+					},
+					{
+						name: '딸기요거트 ',
+						inputName: 'strawberry_yogurt',
+						price: 4000,
+					},
+					{
+						name: '키위요거트 ',
+						inputName: 'kiwi_yogurt',
+						price: 4000,
+					},	
+					{
+						name: '망고요거트 ',
+						inputName: 'mango_yogurt',
+						price: 4000,
+					},
+					{
+						name: '블루베리요거트 ',
+						inputName: 'blueberry_yogurt',
+						price: 4000,
+					},	
+					{
+						name: '유자스무디 ',
+						inputName: 'yuza_smoothy',
+						price: 4000,
+					},
+					{
+						name: '레몬 에이드',
+						inputName: 'lemon_ade',
+						price: 3000,
+					},	
+					{
+						name: '오렌지 에이드',
+						inputName: 'orange_ade',
+						price: 3000,
+					},
+					{
+						name: '자몽 에이드',
+						inputName: 'grapefruit_ade',
+						price: 3000,
+					},	
+					{
+						name: '라임 에이드',
+						inputName: 'lime_ade',
+						price: 3000,
+					},
+					{
+						name: '블루베리 에이드',
+						inputName: 'blueberry_ade',
+						price: 3000,
+					},	
+				]
+			},
+			{
+				name: 'other',
+				children:[
+					{
+						name: '콜라',
+						inputName: 'cola',
+						price: 2000,
+					},
+					{
+						name: '사이다',
+						inputName: 'sprite',
+						price: 2000,
+					},
+				]
+			}
 		]
 		return menu
 	}

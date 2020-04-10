@@ -155,8 +155,8 @@
   }
 }
 
-/* content main screen */
-.main_screen {
+/* content home screen */
+.home_screen {
   padding: 16px;
 
   .srch_box {
@@ -180,7 +180,7 @@
     margin: 0px 0px 26px 0px;
 
     /* swiper css */
-    .swiper-container {
+    .company_list {
       overflow: hidden;
       position: relative;
       width: 100%;

@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/font.css">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/csBot.css">
-  <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
   <title>chatting</title>
   <style>
     body {
@@ -34,76 +34,14 @@
             <li class="bot">
               <div class="message">
                 <p class="text">
-                  하위 나는 여기서 일하는 봇이야 공부열심히 해야 나처럼 봇인척하는 알바 안한다
+                  고객님과 상담을 시작합니다.
                 </p>
               </div>
             </li>
-            <li class="date">
-              <em>2020년 4월 6일 월요일</em>
-            </li>
-            <li class="bot">
-              <div class="message">
-                <p class="text">
-                  하위 나는 여기서 일하는 봇이야 공부열심히 해야 나처럼 봇인척하는 알바 안한다
-                </p>
-              </div>
-            </li>
-            <li class="user">
-              <div class="message">
-                <p class="text">
-                  사회는 그런 아픔이 있구나 명심할게
-                </p>
-              </div>
-            </li>
-            <li class="bot">
-              <div class="message">
-                <p class="text">
-                  하위 나는 여기서 일하는 봇이야 공부열심히 해야 나처럼 봇인척하는 알바 안한다
-                </p>
-              </div>
-            </li>
-            <li class="user">
-              <div class="message">
-                <p class="text">
-                  사회는 그런 아픔이 있구나
-                </p>
-              </div>
-            </li>
-            <li class="date">
-              <em>2020년 4월 7일 화요일</em>
-            </li>
-            <li class="bot">
-              <div class="message">
-                <p class="text">
-                  하위 나는 여기서 일하는 봇이야 공부열심히 해야 나처럼 봇인척하는 알바 안한다
-                </p>
-              </div>
-            </li>
-            <li class="user">
-              <div class="message">
-                <p class="text">
-                  사회는 그런 아픔이 있구나
-                </p>
-              </div>
-            </li>
-            <li class="bot">
-              <div class="message">
-                <p class="text">
-                  하위 나는 여기서 일하는 봇이야 공부열심히 해야 나처럼 봇인척하는 알바 안한다
-                </p>
-              </div>
-            </li>
-            <li class="user">
-              <div class="message">
-                <p class="text">
-                  사회는 그런 아픔이 있구나 명심할게
-                </p>
-              </div>
-            </li>
-            <li class="date chatend">
-              <em>2020년 4월 6일 월요일</em>
-              <em>채팅이 종료되었습니다.</em>
-            </li>
+            <!--<li class="date chatend" id="chat_end_dt">-->
+            <!--<em>2020년 4월 6일 월요일</em>-->
+            <!--<em>채팅이 종료되었습니다.</em>-->
+            <!--</li>-->
             <li class="bot">
               <button type="button" class="chat_out">채팅종료(눌러주세요)</button>
             </li>
@@ -168,6 +106,9 @@
     </div>
   </div>
   <!-- //cschat_wrap -->
+  <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
+  <script type="text/javascript" src="http://cdn.socket.io/socket.io-1.4.0.js"></script>
+  <script type="text/javascript" src="chat.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
 
@@ -211,7 +152,7 @@
       function handleCsTalkScoll() {
         var $csTalk = $('.cschat_mid .cs_talk')
         var csTalkHeight = $csTalk.height();
-        var csTalkPadding = 16*2;
+        var csTalkPadding = 16 * 2;
 
         $csTalk.scrollTop(csTalkHeight + csTalkPadding);
       }
@@ -248,7 +189,7 @@
         // var txtHeight = $('textarea[name="user_message"]').height();
         var code = e.keyCode ? e.keyCode : e.which; if (code == 13) // EnterKey 
 
-        var thisHeight = $(this).css('height').replace('px', '');
+          var thisHeight = $(this).css('height').replace('px', '');
         var cschatMid = $('.cschat_mid');
         var cschatMidHeight = $('.cschat_mid').css('margin-bottom').replace('px', '');
 
