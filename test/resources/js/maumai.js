@@ -229,12 +229,20 @@ $(document).ready(function (){
 
     function selectResponseType(response) {
 
+        var ans = response.answer;
+        if (ans.includes("|||MAP|||")) {
+            var res = ans.split("|||MAP|||");
+            botResponseMap(res[1]);
+            response.answer = res[0];
+        }
+
         if (!!response.answer) botResponseText(response.answer);
         if (response.list.length > 0) botResponseList(response.list);
         botResponseButton(response.buttons);
         if (response.carousel.length > 0) botResponseCarousel(response.carousel);
         if (!!response.farewell) botResponseText(response.farewell);
         botResponseTime();
+        makeTxtInnerButton();
     }
 
     function botResponseTime() {
@@ -374,6 +382,162 @@ $(document).ready(function (){
 
     }
 
+    function botResponseMap(map_response) {
+        var jsonRes = JSON.parse(map_response);
+        // console.log(jsonRes)
+
+        var mapSelectHtml =
+            '   <li class="bot"> \
+                <div class="bot_msg"> \
+                    <div class="btnLst"> \
+                        <span class="txt txt_radius">' + jsonRes.answer + '</span> \
+                    <div class="iptBox"> \
+                        <dl class="dl_ipt"> \
+                            <dt>' + jsonRes.texts.start + '</dt> \
+                            <dd> \
+                                <select class="select start">';
+
+        var startCustomCheck = false;
+        jsonRes.starts.forEach(function(start) {
+            mapSelectHtml += '<option data-location=';
+            if(start.location.hasOwnProperty("get"))
+            {
+                mapSelectHtml += '"' + start.location.get + '"';
+                if(start.location.get == "custom")
+                {
+                    mapSelectHtml += 'value="direct"  '
+                }
+            }
+            else
+            {
+                mapSelectHtml += '\'{"lat": ' + start.location.lat + ', "lng": ' + start.location.lng + '}\' ';
+            }
+            if(start.selected){
+                mapSelectHtml += 'selected';
+                if(start.location.get == "custom")
+                {
+                    startCustomCheck = true;
+                }
+            }
+            mapSelectHtml +='> ' + start.name + '</option>';
+        });
+
+        mapSelectHtml +=
+            '                       </select> \
+                                    <input type="text" name="selboxDirect" class="ipt_txt selboxDirect startInput" value="" \
+            ';
+        if(startCustomCheck){
+            mapSelectHtml += 'style="display: inline-block;"'
+        }
+        mapSelectHtml += '> \
+                            </dd> \
+                        </dl> \
+                        <dl class="dl_ipt"> \
+                            <dt>' + jsonRes.texts.end + '</dt> \
+                            <dd> \
+                                <select class="select end"> \
+        ';
+
+        var endCustomCheck = false;
+        jsonRes.ends.forEach(function(end) {
+            mapSelectHtml += '<option data-location=';
+            if(end.location.hasOwnProperty("get"))
+            {
+                mapSelectHtml += '"' + end.location.get + '"';
+                if(end.location.get == "custom")
+                {
+                    mapSelectHtml += 'value="direct" ';
+                }
+            }
+            else
+            {
+                mapSelectHtml += '\'{"lat": ' + end.location.lat + ', "lng":' + end.location.lng + '}\' '
+            }
+            if(end.selected){
+                mapSelectHtml +='selected';
+                if(end.location.get === "custom")
+                {
+                    endCustomCheck = true;
+                }
+            }
+            mapSelectHtml +='> ' +  end.name + '</option>';
+        });
+
+        mapSelectHtml +=
+            ' \
+                                    </select> \
+                                    <input type="text" name="selboxDirect" class="ipt_txt selboxDirect endInput" value="" \
+            ';
+        if(endCustomCheck){
+            mapSelectHtml += 'style="display: inline-block;"'
+        }
+        mapSelectHtml += '\
+                                > \
+                            </dd> \
+                        </dl> \
+                    </div> \
+                    <div class="btnBox"> \
+                        <button type="button" class="btn_point btn_map">' + jsonRes.texts.button + '</button> \
+                    </div> \
+                </div> \
+            </div>  \
+            </li> \
+         ';
+
+        $('.chatUI_mid .lst_talk').append(
+            mapSelectHtml
+        );
+
+        $('.chatUI_mid').scrollTop($('.chatUI_mid')[0].scrollHeight);
+
+        //191129 추가
+        //대화Type (출발지&도착지)
+        $('.dl_ipt .select').on('change', function(){
+            if ($(this).val() == 'direct') {
+                $(this).parent().find('.selboxDirect').show();
+            } else {
+                $(this).parent().find('.selboxDirect').hide();
+            }
+        });
+
+        //지도UI
+        $('.btn_map').on('click', function(e){
+            $('.mapWrap').removeClass('map_hide');
+            $('#map').show();
+            // 경로 그리기
+            var start = $(this).parent().parent().find('select.start')[0];
+            var startCoord = start.options[start.selectedIndex].getAttribute('data-location');
+            var startData;
+            if(startCoord == "current" || startCoord == "custom"){startData = startCoord;}
+            else {startData = JSON.parse(startCoord);}
+
+            var end = $(this).parent().parent().find('select.end')[0];
+            var endCoord = end.options[end.selectedIndex].getAttribute('data-location');
+            var endData;
+            if(endCoord == "current" || endCoord == "custom"){endData = endCoord;}
+            else {endData = JSON.parse(endCoord);}
+
+            var startInput = $(this).parent().parent().find('input.startInput').val();
+            var endInput = $(this).parent().parent().find('input.endInput').val();
+
+            if(startCoord == 'custom') { $('#startLctn').val(startInput); }
+            else { $('#startLctn').val(start.value); }
+
+            if(endCoord == 'custom') { $('#endtLctn').val(endInput); }
+            else { $('#endtLctn').val(end.value); }
+
+            var panel = document.getElementById('panel');
+            directionsBySelection(startData, endData,'TRANSIT', startInput, endInput, panel);
+        });
+
+        $('.btn_mapWrap_close').on('click',function(){
+            $('.mapWrap').removeClass('detailTransform');
+            $('.mapWrap_tit .iptBox .ipt_txt').prop('disabled',false);
+            $('.mapWrap').addClass('map_hide').delay(500);
+        });
+
+    }
+
     $(document).on('click', '#chatUI_wrap a', function(event){
         event.preventDefault();
         let href = $(this).attr("href");
@@ -399,17 +563,18 @@ $(window).resize(function (){
     });
 });
 
-// 추가: 20191112 유명종
-//텍스트 속 버튼
-$('.txt_s').each(function(){
-    var txt_btn = $(this).find('a');
-    var txt_btnLength = $(this).find('a').length;
-    if (txt_btnLength > 1) {
-        $(this).find('a').wrapAll('<div class="txt_btns"></div>');
-    } else {
-        $(this).find('a').wrapAll('<div class="txt_btn"></div>');
-    }
-});
+function makeTxtInnerButton() {
+
+    $('.txt').each(function(){
+        var txt_btn = $(this).find('a');
+        var txt_btnLength = $(this).find('a').length;
+        if (txt_btnLength > 1) {
+            $(this).find('a').wrapAll('<div class="txt_btns"></div>');
+        } else {
+            $(this).find('a').wrapAll('<div class="txt_btn"></div>');
+        }
+    });
+}
 
 //지도 전체화면
 $('.btn_map').on('click', function(){

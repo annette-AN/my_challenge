@@ -210,8 +210,10 @@
       /* 채팅 스크롤 하단 유지 */
       function handleCsTalkScoll() {
         var $csTalk = $('.cschat_mid .cs_talk')
-        var scrollHeight = $csTalk.height();
-        $csTalk.scrollTop(scrollHeight);
+        var csTalkHeight = $csTalk.height();
+        var csTalkPadding = 16*2;
+
+        $csTalk.scrollTop(csTalkHeight + csTalkPadding);
       }
 
       /* 채팅 말풍선 생기기 */
@@ -237,8 +239,6 @@
           '</li>'
         );
         userMessage = $textarea.val('');
-        $textarea.css({ 'height': 40 + 'px' });
-        $csChatMid.css({ 'margin-bottom': 65 + 'px' });
         handleCsTalkScoll();
       });
 
@@ -248,28 +248,28 @@
         // var txtHeight = $('textarea[name="user_message"]').height();
         var code = e.keyCode ? e.keyCode : e.which; if (code == 13) // EnterKey 
 
-          var thisHeight = $(this).css('height').replace('px', '');
+        var thisHeight = $(this).css('height').replace('px', '');
         var cschatMid = $('.cschat_mid');
         var cschatMidHeight = $('.cschat_mid').css('margin-bottom').replace('px', '');
 
-        {
-          if (e.shiftKey === true) {
-            // shift + Enter
-            $(this).css({ 'height': Number(thisHeight) + 20 + 'px' })
-            cschatMid.css({ 'margin-bottom': Number(cschatMidHeight) + 20 + 'px' })
-          } else {
-            // Enter
-            $('.chatUI_btm #btn_chat').submit();
-            $('.chatUI_btm .textArea').val('');
-            $('.chatUI_mid').css({
-              'height': '',
-            });
-            $('.chatUI_btm .textArea').css({
-              'height': '',
-            });
-          }
-          return false;
-        }
+        // {
+        //   if (e.shiftKey === true) {
+        //     // shift + Enter
+        //     $(this).css({ 'height': Number(thisHeight) + 20 + 'px' })
+        //     cschatMid.css({ 'margin-bottom': Number(cschatMidHeight) + 20 + 'px' })
+        //   } else {
+        //     // Enter
+        //     $('.chatUI_btm #btn_chat').submit();
+        //     $('.chatUI_btm .textArea').val('');
+        //     $('.chatUI_mid').css({
+        //       'height': '',
+        //     });
+        //     $('.chatUI_btm .textArea').css({
+        //       'height': '',
+        //     });
+        //   }
+        //   return false;
+        // }
       });
 
       /* 상담원 별점 평가 open */

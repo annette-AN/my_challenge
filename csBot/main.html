@@ -1,144 +1,150 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/font.css">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/csBot.css">
-    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-    <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
-    <script type="text/javascript" src="js/swiper.min.js"></script>
-    <title>main</title>
-    <style>
-      body {
-        background-color: rgb(240, 227, 227);
-      }
-    </style>
-  </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/font.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/csBot.css">
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
+  <script type="text/javascript" src="js/swiper.min.js"></script>
+  <title>main</title>
+  <style>
+    body {
+      background-color: rgb(240, 227, 227);
+    }
+  </style>
+</head>
+
 <body>
-    <!-- cschat_wrap -->
-    <div id="connect_wrap">
-        <div class="connect_top">
+  <!-- cschat_wrap -->
+  <div id="connect_wrap">
+    <div class="connect_top">
+      <div>
+        <button type="button" class="chevron_prev text_hide">이전으로 가기</button>
+        <div class="title"><em><img src="image/logo.png" alt="로고"></em></div>
+      </div>
+    </div>
+    <!-- //cschat_top -->
+    <div id="content">
+      <div class="main_screen">
+        <div class="srch_box">
+          <input type="text" name="search" class="textbox_basic" placeholder="바로 말하기">
+          <span class="fas fa-microphone"></span>
+        </div>
+
+        <div class="service">
           <div>
-            <button type="button" class="chevron_prev text_hide">이전으로 가기</button>
-            <div class="title"><em><img src="image/logo.png" alt="로고"></em></div>
+            <div>
+              <em class="sub_title">최근 이용 서비스</em>
+            </div>
+            <div class="swiper-container">
+              <ul class="label">
+                <li class="on">팬심</li>
+                <li>포몽드</li>
+                <li>온누리</li>
+                <li>리앤노</li>
+                <li>온누리온누리온누리</li>
+                <li>리앤노리앤노리앤노리앤노</li>
+              </ul>
+
+              <ul class="recent_list swiper-wrapper">
+                <li class="swiper-slide">
+                  <a href="#none">
+                    <img src="image/sample/ee_company.png" alt="기업로고">
+                  </a>
+                </li>
+                <li class="swiper-slide">
+                  <a href="#none">
+                    <img src="image/sample/formongde_company.png" alt="기업로고">
+                  </a>
+                </li>
+                <li class="swiper-slide">
+                  <a href="#none">
+                    <img src="image/sample/onnuri_company.png" alt="기업로고">
+                  </a>
+                </li>
+                <li class="swiper-slide">
+                  <a href="#none">
+                    <img src="image/sample/leeandno_company.jpg" alt="기업로고">
+                  </a>
+                </li>
+                <li class="swiper-slide">
+                  <a href="#none">
+                    <img src="image/sample/onnuri_company.png" alt="기업로고">
+                  </a>
+                </li>
+                <li class="swiper-slide">
+                  <a href="#none">
+                    <img src="image/sample/leeandno_company.jpg" alt="기업로고">
+                  </a>
+                </li>
+              </ul>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div>
+              <a href="#none" class="sub_more">전체보기 +</a>
+            </div>
+          </div>
+
+          <div>
+            <ul class="category">
+              <li>
+                <a href="#none"><span class="fas fa-hospital-alt"></span><em class="label">병원</em></a>
+              </li>
+              <li>
+                <a href="#none"><span class="fas fa-utensils"></span><em class="label">음식점</em></a>
+              </li>
+              <li>
+                <a href="#none"><span class="fas fa-shopping-cart"></span><em class="label">의류몰</em></a>
+              </li>
+              <li>
+                <a href="#none"><span class="fas fa-gamepad"></span><em class="label">게임</em></a>
+              </li>
+              <li>
+                <a href="#none"><span class="fas fa-smile"></span><em class="label">엔터테인먼트</em></a>
+              </li>
+              <li>
+                <a href="#none"><span class="fas fa-question-circle"></span><em class="label">그
+                    외</em></a>
+              </li>
+            </ul>
           </div>
         </div>
-        <!-- //cschat_top -->
-        <div id="content">
-            <div class="main_screen">
-                <div class="srch_box">
-                    <input type="text" name="search" class="textbox_basic" placeholder="바로 말하기">
-                    <span class="fas fa-microphone"></span>
-                </div>
-
-                <div class="service">
-                    <div>
-                        <div>
-                            <em class="sub_title">최근 이용 서비스</em>
-                        </div>
-                        <div class="swiper-container">
-                            <ul class="label">
-                                <li class="on">팬심</li>
-                                <li>포몽드</li>
-                                <li>온누리</li>
-                                <li>리앤노</li>
-                                <li>온누리온누리온누리</li>
-                                <li>리앤노리앤노리앤노리앤노</li>
-                            </ul>
-
-                            <ul class="recent_list swiper-wrapper">
-                                <li class="swiper-slide">
-                                    <a href="#none">
-                                        <img src="image/sample/ee_company.png" alt="기업로고">
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#none">
-                                        <img src="image/sample/formongde_company.png" alt="기업로고">
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#none">
-                                        <img src="image/sample/onnuri_company.png" alt="기업로고">
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#none">
-                                        <img src="image/sample/leeandno_company.jpg" alt="기업로고">
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#none">
-                                        <img src="image/sample/onnuri_company.png" alt="기업로고">
-                                    </a>
-                                </li>
-                                <li class="swiper-slide">
-                                    <a href="#none">
-                                        <img src="image/sample/leeandno_company.jpg" alt="기업로고">
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                        <div>
-                            <a href="#none" class="sub_more">전체보기 +</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <ul class="category">
-                            <li>
-                                <a href="#none"><span class="fas fa-hospital-alt"></span><em class="label">병원</em></a>
-                            </li>
-                            <li>
-                                <a href="#none"><span class="fas fa-utensils"></span><em class="label">음식점</em></a>
-                            </li>
-                            <li>
-                                <a href="#none"><span class="fas fa-shopping-cart"></span><em class="label">의류몰</em></a>
-                            </li>
-                            <li>
-                                <a href="#none"><span class="fas fa-gamepad"></span><em class="label">게임</em></a>
-                            </li>
-                            <li>
-                                <a href="#none"><span class="fas fa-smile"></span><em class="label">엔터테인먼트</em></a>
-                            </li>
-                            <li>
-                                <a href="#none"><span class="fas fa-question-circle"></span><em class="label">그 외</em></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div id="connect_btm">
+      <div id="wrapper">
+        <div class="lefe_side">
+          <a href="#none"><span class="fas fa-home"></span><em class="label">홈</em></a>
         </div>
-        <div id="connect_btm">
-            <div id="wrapper">
-                <div class="lefe_side">
-                    <a href="#none"><span class="fas fa-home"></span><em class="label">홈</em></a>
-                </div>
-                <div>
-                    <a href="#none" class="chat_list"><span class="far fa-comment"></span><em class="text_hide">이전 채팅 보기</em></a>
-                </div>
-                <div class="right_side">
-                    <a href="#none"><span class="fas fa-cog"></span><em class="label">설정</em></a>
-                </div>
-            </div>
+        <div>
+          <a href="#none" class="chat_list"><span class="far fa-comment"></span><em class="text_hide">이전 채팅
+              보기</em></a>
+        </div>
+        <div class="right_side">
+          <a href="#none"><span class="fas fa-cog"></span><em class="label">설정</em></a>
         </div>
       </div>
-      <!-- //cschat_wrap -->
+    </div>
+  </div>
+  <!-- //cschat_wrap -->
 
-    <script>
-        $(document).ready(function(){
-            // swiper
-            var swiper = new Swiper('.swiper-container', {
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-            });
-        });
-         
-    </script>
+  <script>
+    $(document).ready(function () {
+      // swiper
+      var swiper = new Swiper('.swiper-container', {
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
+    });
+
+  </script>
 </body>
+
 </html>

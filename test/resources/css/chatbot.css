@@ -160,7 +160,7 @@
 
 /* 대화_chatbot_텍스트 */
 /* 수정 200331 AMR */
-#chatUI_wrap .chatUI_mid .lst_talk .txt {display:inline-block; position:relative; max-width:300px; margin:0; padding:7px 10px; color:#403738; font-size:14px; font-style:normal; text-align:left; word-break:normal; line-height:22px; border:1px solid #ebeaef; border-radius:7px 7px 7px 0; background:#fff;}
+#chatUI_wrap .chatUI_mid .lst_talk .txt {display:inline-block; position:relative; max-width:300px; margin:0; padding:7px 10px; color:#403738; font-size:14px; font-style:normal; text-align:left; word-break:break-all; line-height:22px; border:1px solid #ebeaef; border-radius:7px 7px 7px 0; background:#fff;}
 #chatUI_wrap .chatUI_mid .lst_talk .txt img {width: 100%;}
 
 
@@ -314,7 +314,6 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .checkBox input[type="checkbox"]:disabled + label:before{background:rgba(0,0,0,0.1);}
 
 .chatAside .radioBox input[type="checkbox"] + label:last-child{margin:0;}
-
 /* 200207 AMR radioBox */
 .chatAside .radioBox input[type="radio"]{position:absolute; overflow:hidden; width:1px; height:1px; padding:0; margin:-1px; clip:rect(0,0,0,0); border:0;}
 .chatAside .radioBox input[type="radio"] + label{display:inline-block; position:relative; margin:0 10px 0 0; padding-left:25px; color:#403738; font-size:13px; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none;}

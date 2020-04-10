@@ -223,7 +223,7 @@
 #chatUI_wrap .chatLoading .chatLoading_item02 {-webkit-animation-delay:-0.16s; animation-delay:-0.16s;}
 
 /* 대화_chatbot_텍스트 */
-#chatUI_wrap .chatUI_mid .lst_talk .txt {display:inline-block; position:relative; max-width:300px; margin:0; padding:7px 10px; color:#403738; font-size:14px; font-style:normal; text-align:left; word-break:normal; line-height:22px; border:1px solid #ebeaef; border-radius:7px 7px 7px 0; background:#fff;}
+#chatUI_wrap .chatUI_mid .lst_talk .txt {display:inline-block; position:relative; max-width:300px; margin:0; padding:7px 10px; color:#403738; font-size:14px; font-style:normal; text-align:left; word-break:break-all; line-height:22px; border:1px solid #ebeaef; border-radius:7px 7px 7px 0; background:#fff;}
 
 /* 대화_chatbot_제네릭 */
 #chatUI_wrap .chatUI_mid .lst_talk .generic {display:inline-block; overflow:hidden; position:relative; width:100%; max-width:300px; margin:0; padding:0; text-align:left; vertical-align:bottom; border-radius:7px; border:1px solid #ebeaef; background:#fff; transition:all 0.3s ease-out;}
@@ -251,7 +251,7 @@
 #chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li {display:block; margin:0; padding:0; border-bottom:1px solid #ececfa;}
 #chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li:last-child {border:none;}
 #chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li a {display:block; position:relative; padding:10px 0; color:rgba(0,113,143,1.0); font-size:13px; text-align:center; text-decoration:none; line-height:22px; transition:all 0.2s ease-out;}
-#chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li a:hover {color:#fff;  box-shadow:rgba(0,113,143,1.0) 0 80px 0px 2px inset; transition:all 0.2 ease-out;}
+#chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li a:hover {color:#fff;  box-shadow:rgba(0,113,143,1.0) 0 80px 0px 2px inset; transition:all 0.2s ease-out;}
 #chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li a.active {color:#fff; background:rgba(0,113,143,1.0); transition:all 0.2s ease-out;}
 #chatUI_wrap .chatUI_mid .lst_talk .btnLst .iptBox {display:block; padding:13px; border-bottom:1px solid #ebeaef; background:#f7f8fa;}
 #chatUI_wrap .chatUI_mid .lst_talk .btnLst .iptBox .dl_ipt {display:block; margin:0 0 10px 0;}

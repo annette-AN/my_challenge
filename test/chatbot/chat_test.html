@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-datetimepicker.css" />
 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-datetimepicker-standalone.css" />
 <link rel="stylesheet" type="text/css" href="../resources/css/chatbot.css" />
-<link rel="stylesheet" type="text/css" href="../resources/css/cafe_pavan.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/food_delight.css" />
 <!-- //css -->
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -302,7 +302,149 @@
 <!-- //#chatUI_wrap -->
 
 <div class="chatAside">
+	<!-- 200408 AMR 주문하기 -->
+	<div class="chat_order">
+		<!-- .chatAside_hd -->
+		<div class="chatAside_hd">
+			<h3>카페 간편 예약하기</h3>
+			<button type="button" class="btn_chatAside_close" title="close">close</button>
+		</div> 
+		<!-- //.chatAside_hd -->
+		<!-- .chatAside_bd -->
+		<div class="chatAside_bd">
+			<div class="stn_area">
+				<div class="stnBox">
+					<p class="txt">개인정보동의 약관</p>
+					<div class="iptBox">
+						<div class="checkBox">                                            
+							<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
+							<label for="terms_check">동의</label>
+						</div>
+					<button type="button" class="btn_terms" title="close">약관보기</button> 
+					</div>
+				</div>
+				<div class="stnBox">
+					<p class="txt">예약 정보 입력</p>
+					<dl class="dlBox">
+						<dt>이름</dt>
+						<dd><input type="text" name="name" class="ipt_txt" placeholder="필수사항입니다"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>전화번호</dt>
+						<dd><input type="tel" name="tel" class="ipt_txt" placeholder="필수사항입니다"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>이메일</dt>
+						<dd><input type="email" name="tel" class="ipt_txt" placeholder="주문내역을 받아볼 수 있습니다."></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>수령방법</dt>
+						<dd>
+							<div class="radioBox"> 
+								<input type="radio" name="take" id="takeIn" class="ipt_check" checked>
+								<label for="takeIn">Take-In</label>
+								<input type="radio" name="take" id="takeOut" class="ipt_check">
+								<label for="takeOut">Take-Out</label>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox order_menu">
+						<dt>메뉴</dt>
+						<dd class="block_target">
+							<ul id="order_menu_area" class="menu">
+								<li>
+									<button type="button" class="category">coffee</button>
+									<div class="checkBox category_menu">
 
+										<div class="each_menu">
+											<input type="checkbox" name="americano_hot" id="coffee01" class="ipt_check">
+											<label for="coffee01">아메리카노 Hot</label>
+											<div class="how_many">
+												<em class="price">3,500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt count"><span>개</span>
+											</div>
+										</div>
+										<div class="each_menu">
+											<input type="checkbox" name="americano_ice" id="coffee02" class="ipt_check">
+											<label for="coffee02">아메리카노 Hot</label>
+											<div class="how_many">
+												<em class="price">3,500<span>원</span></em>
+												<input type="number" placeholder="0" class="ipt_txt count"><span>개</span>
+											</div>
+										</div>
+
+
+									</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>결제방법</dt>
+						<dd>
+							<div class="radioBox"> 
+								<input type="radio" name="payment" id="payForCard" class="ipt_check">
+								<label for="payForCard">카드</label>
+								<input type="radio" name="payment" id="payForCash" class="ipt_check">
+								<label for="payForCash">현금</label>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox picker">
+						<dt>수령시간(오늘디폴트)</dt>
+						<dd class="block_target">
+							<div class="container">
+								<div class="row">
+									<div class='col-sm-6'>
+										<!-- value 빼기 -->
+										<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='' />
+									</div>
+								</div>
+							</div>
+						</dd>
+						<dt class="box_hide">달력 표시 설명</dt>
+						<dd class="pick_guide">
+							<div>
+								<div class="pick_guide01"></div>
+								<span>오늘</span>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>요청사항</dt>
+						<dd class="block_target"><textarea name="add" rows="10" class="ipt_txt" placeholder="내용을 입력해주세요 (선택)"></textarea></dd>
+					</dl>
+				</div>
+			</div>
+			<div>
+				<p class="total_price">총 가격: <em>10000</em>원</p>
+			</div>
+			<div class="btnBox">
+				<button type="submit" class="btn_point btn_submit">주문하기</button> 
+			</div>
+			
+			<!--
+				[D] 문의남기기 입력 완료(팝업)
+				20200207 AMR 
+			-->
+			<div class="stnBox popup">
+				<div class="popup_content">
+					<div class="ico_circle">
+						<img src="../resources/images/ico_success_74x.png" alt="완료">
+					</div>
+					<div class="popup_txt">
+						<em>예약 접수 완료</em>
+						<p>
+							예약 접수가 완료되었습니다.<br>
+							담당자가 확인 후 예약 확정 안내를<br>
+							드릴 수 있도록 하겠습니다.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<!-- //.chatAside_bd -->
+	</div>
 </div>
 
 <!-- script -->	
@@ -686,13 +828,18 @@ $(document).ready(function(){
 				name:"coffee",
 				children:[
 					{
+						name: '에스프레소 Ice',
+						inputName: 'espresso_ice',
+						price: 2800,
+					},
+					{
 						name: '에스프레소 Hot',
 						inputName: 'espresso_hot',
 						price: 2500,
 					},
 					{
-						name: '에스프레소 Ice',
-						inputName: 'espresso_ice',
+						name: '아메리카노 Ice',
+						inputName: 'americano_ice',
 						price: 2800,
 					},
 					{
@@ -701,27 +848,236 @@ $(document).ready(function(){
 						price: 2500,
 					},
 					{
-						name: '아메리카노 Ice',
-						inputName: 'americano_ice',
-						price: 2800,
-					}
+						name: '카페라떼 Ice',
+						inputName: 'latte_ice',
+						price: 3500,
+					},
+					{
+						name: '카페라떼 Hot',
+						inputName: 'latte_hot',
+						price: 3000,
+					},
+					{
+						name: '카푸치노 Ice',
+						inputName: 'cappuccino_ice',
+						price: 3500,
+					},
+					{
+						name: '카푸치노 Hot',
+						inputName: 'cappuccino_hot',
+						price: 3000,
+					},
+					{
+						name: '바닐라라떼 Ice',
+						inputName: 'vanilla_latte_ice',
+						price: 3900,
+					},
+					{
+						name: '바닐라라떼 Hot',
+						inputName: 'vanilla_latte_hot',
+						price: 3400,
+					},
+					{
+						name: '모카치노 Ice',
+						inputName: 'mochaccino_ice',
+						price: 3900,
+					},
+					{
+						name: '모카치노 Hot',
+						inputName: 'mochaccino_hot',
+						price: 3400,
+					},
+					{
+						name: '카라멜마끼아또 Ice',
+						inputName: 'caramel_macchiato_ice',
+						price: 3900,
+					},
+					{
+						name: '카라멜마끼아또 Hot',
+						inputName: 'caramel_macchiato_hot',
+						price: 3400,
+					},
+					{
+						name: '카페모카 Ice',
+						inputName: 'cafe_mocha_ice',
+						price: 3900,
+					},
+					{
+						name: '카페모카 Hot',
+						inputName: 'cafe_mocha_hot',
+						price: 3400,
+					},
+
 				]
 			},
 			{
 				name:"non-coffee",
 				children:[
 					{
-						name: '에스프레소 Hot',
-						inputName: 'espresso_hot',
-						price: 2500,
+						name: '녹차라떼 Hot',
+						inputName: 'greentea_latte_hot',
+						price: 3000,
 					},
 					{
-						name: '에스프레소 Ice',
-						inputName: 'espresso_ice',
-						price: 2800,
-					}
+						name: '녹차라떼 Ice',
+						inputName: 'greentea_latte_ice',
+						price: 3500,
+					},
+					{
+						name: '오곡라떼 Hot',
+						inputName: 'mixedgrains_latte_hot',
+						price: 3000,
+					},
+					{
+						name: '오곡라떼 Ice',
+						inputName: 'mixedgrains_latte_ice',
+						price: 3500,
+					},
+					{
+						name: '고구마라떼 Hot',
+						inputName: 'sweetpotato_latte_hot',
+						price: 3000,
+					},
+					{
+						name: '고구마라떼 Ice',
+						inputName: 'sweetpotato_latte_ice',
+						price: 3500,
+					},
+					{
+						name: '핫초코 Hot',
+						inputName: 'chocolate_hot',
+						price: 3000,
+					},
+					{
+						name: '핫초코 Ice',
+						inputName: 'chocolate_ice',
+						price: 3500,
+					},
+					{
+						name: '로얄밀크티 Hot',
+						inputName: 'milktea_hot',
+						price: 3000,
+					},
+					{
+						name: '로얄밀크티 Ice',
+						inputName: 'milktea_ice',
+						price: 3500,
+					},
 				]
-			}
+			},
+			/*{
+				name:"tea",
+				children:[
+					{
+						name: '녹차 Ice
+',
+						inputName: 'greentea_ice
+',
+						price: 3500
+,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+					{
+						name: '메뉴한글이름',
+						inputName: '메뉴영어이름',
+						price: 가격,
+					},
+				]
+			}*/
 		]
 		return menu
 	}
@@ -755,8 +1111,8 @@ $(document).ready(function(){
 
 			var $menuList = $(`
 				<li>
-					<button type="button" class="menu_categori">${menuData.name}</button>
-					<div class="checkBox menu-list-item-contents">
+					<button type="button" class="category">${menuData.name}</button>
+					<div class="checkBox category_menu">
 					</div>
 				</li>	
 			`)
@@ -765,22 +1121,41 @@ $(document).ready(function(){
 				var item = menuChildren[i]
 				var itemId = menuData.name + '_' + menuIndex + '_' + i
 
+				// <div data-origin="${item.origin || itemId}">
 				var $menuItem = $(`
-				<div data-origin="${item.origin || itemId}">
+				<div class="each_menu">
 					<input type="checkbox" name="${item.inputName}" id="${itemId}" class="ipt_check">
 					<label for="${itemId}">${item.name}</label>
 					<div class="how_many">
-						<em class="price"><span class='price-var'>${item.price}</span><span>원</span></em>
-						<input type="number" placeholder="0" class="ipt_txt"><span>개</span>
+						<em class="price"><span class='price'>${item.price}</span><span>원</span></em>
+						<input type="number" placeholder="0" class="ipt_txt count"><span>개</span>
 					</div>
 				</div>
 				`)
-				$menuList.find('.menu-list-item-contents').append($menuItem)
+				$menuList.find('.category_menu').append($menuItem)
 			}
 			menuElements.push($menuList)
 		}
 
 		$orderMenu.append(menuElements)
+	}
+	renderChatAsideOrder();
+
+	// 주문하기 메뉴 open close
+	function handleChatAsideOlder() {
+		var categoryBtn = $('.chatAside .chat_order .category');
+		var categoryMenu = $('chatAside .chat_order .category_menu')
+		var eachMenu = categoryMenu.find('.each_menu')
+
+		categoryBtn.on('click', function(){
+			$(this).siblings(categoryMenu).toggleClass('on');
+		});
+
+		eachMenu.find('.count').on('keyup',function(){
+			console.log('count')
+			// var $checkbox = $(this).parent('.each_menu').find('type=[checkbox]');
+			// $checkbox.prop('checked', Boolean(Number(this.value)))
+		});
 	}
 	handleChatAsideOlder();
 });
