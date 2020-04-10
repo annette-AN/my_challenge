@@ -371,7 +371,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 
 .chatAside .chat_order .chatAside_bd .category_menu {display: none; height: auto; margin: 10px;}
 .chatAside .chat_order .chatAside_bd .category_menu.on {display: block;}
-.chatAside .chat_order .chatAside_bd .category_menu input[type="checkbox"] + label {max-width: 126px; height: 26px; line-height: normal; padding-top: 8px;}
+.chatAside .chat_order .chatAside_bd .category_menu input[type="checkbox"] + label {display: inline-block; width: calc(100% - 135px); height: 26px; line-height: normal; padding-top: 8px;}
 
 .chatAside .chat_order .chatAside_bd .stnBox dl.dlBox dd.block_target {width: calc(100% - 12px);}
 
