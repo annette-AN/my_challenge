@@ -366,7 +366,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 
 .chat_order .order_menu .menu {}
 .chat_order .order_menu .menu li + li {margin: 2px 0px 0px 0px;}
-.chat_order .order_menu .menu li .category {width: 100%; padding: 10px; background-color: #F0F0F0; text-align: left;}
+.chat_order .order_menu .menu li .category {width: 100%; padding: 14px 10px; background-color: #F0F0F0; text-align: left;}
 
 .chatAside .chat_order .chatAside_bd .category_menu {display: none; height: auto; margin: 10px;}
 .chatAside .chat_order .chatAside_bd .category_menu.on {display: block;}
@@ -380,17 +380,15 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chat_order .total_price {height: 30px; padding: 0px 4px 0px 0px; font-size: 18px; letter-spacing: 1px; text-align: right; color: #000;}
 .chat_order .total_price em {letter-spacing: 0px; font-weight: bold;}
 
-#pickup_time {transform: translateZ(0);}
-
 /* 주문확인 팝업 */
 .chatAside .chat_order .chatAside_bd .stnBox.popup .popup_content {width: calc(100% - 80px); margin: 20px; text-align: left;}
 .chat_order .check_order {padding: 20px; background-color: #fff;}
 .chat_order .check_order .title {font-size: 16px; font-weight: bold;}
 .chat_order .check_order .title em {display: block; font-size: 11px;}
 .chat_order .check_order ul li {margin: 16px 0px; font-size: 15px;}
-.chat_order .check_order ul li > span {display: inline-block; min-width: 100px; padding: 0px 5px; vertical-align: top; letter-spacing: 1px; text-align: right;}
+.chat_order .check_order ul li > span {display: inline-block; min-width: 100px; padding: 0px 5px 0px 0px; vertical-align: top; letter-spacing: 1px; text-align: right;}
 .chat_order .check_order ul li > em {color: #000;}
-.chat_order .check_order ul li > p {display: inline-block; width: calc(100% - 130px); vertical-align: top; color: #000;}
+.chat_order .check_order ul li > p {display: inline-block; width: calc(100% - 120px); vertical-align: top; color: #000;}
 .chat_order .check_order ul li > p > em {display: block;}
 
 /* 200214 AMR 폼 입력 완료 팝업 */

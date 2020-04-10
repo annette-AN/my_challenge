@@ -372,8 +372,6 @@
 												<input type="number" placeholder="0" class="ipt_txt count"><span>개</span>
 											</div>
 										</div>
-
-
 									</div>
 								</li>
 							</ul>
@@ -444,7 +442,7 @@
 						<li>
 							<span>요청사항 :</span>
 							<p>
-								맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~
+								맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~
 							</p>
 						</li>
 						<li>
@@ -1280,22 +1278,24 @@ $(document).ready(function(){
 	renderChatAsideOrder();
 
 	// 주문하기 메뉴 open close
-	function handleChatAsideOlder() {
+	function handleChatAsideOrder() {
 		var categoryBtn = $('.chatAside .chat_order .category');
 		var categoryMenu = $('chatAside .chat_order .category_menu')
-		var eachMenu = categoryMenu.find('.each_menu')
 
 		categoryBtn.on('click', function(){
 			$(this).siblings(categoryMenu).toggleClass('on');
 		});
 
-		eachMenu.find('.count').on('keyup',function(){
-			console.log('count')
-			// var $checkbox = $(this).parent('.each_menu').find('type=[checkbox]');
-			// $checkbox.prop('checked', Boolean(Number(this.value)))
-		});
+		$('.chat_order .each_menu').on('click', function(){
+			var childCheckbox = $(this).find('[type="checkbox"]');
+			childCheckbox.prop('checked', function(){
+				return !childCheckbox.prop('checked');
+			})
+		})
 	}
-	handleChatAsideOlder();
+	handleChatAsideOrder();
+
+
 });
 </script>
 <script type="text/javascript">
