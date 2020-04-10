@@ -421,17 +421,38 @@
 				20200207 AMR 
 			-->
 			<div class="stnBox popup">
-				<div class="popup_content">
-					<div class="ico_circle">
-						<img src="../resources/images/ico_success_74x.png" alt="완료">
-					</div>
-					<div class="popup_txt">
-						<em>예약 접수 완료</em>
-						<p>
-							예약 접수가 완료되었습니다.<br>
-							담당자가 확인 후 예약 확정 안내를<br>
-							드릴 수 있도록 하겠습니다.
-						</p>
+				<div class="popup_content check_order">
+					<span class="title">주문 정보 확인 <em>(확인완료를 클릭하셔야 주문정보가 전달됩니다.)</em></span>
+					<ul>
+						<li>
+							<span>이름 :</span> <em>안미례</em>
+						</li>
+						<li>
+							<span>전화번호 :</span> <em>010-1212-3434</em>
+						</li>
+						<li>
+							<span>선택한 메뉴 :</span>
+							<p>
+								<em>아메리카노 Ice 3개</em>
+								<em>바닐라라떼 Ice 1개</em>
+								<em>유자스무디 1개</em>
+							</p>
+						</li>
+						<li>
+							<span>수령시간 :</span> <em>14:30</em>
+						</li>
+						<li>
+							<span>요청사항 :</span>
+							<p>
+								맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~
+							</p>
+						</li>
+						<li>
+							<span>총 금액 :</span> <em>10000원</em>
+						</li>
+					</ul>
+					<div class="btnBox">
+						<button type="submit" class="btn_point">확인완료</button> 
 					</div>
 				</div>
 			</div>
@@ -727,34 +748,34 @@ $(document).ready(function(){
 		$('.btn_submit').on('click', function(){
 			var $thisChatAside = $(this).parents($chatAside);
 
-			if ( !$thisChatAside.find('input[name="agreement"]').is(':checked') ) {
-				alert('개인정보 약관에 동의해주세요');
-				return;
-			}
-			if ( !$thisChatAside.find('input[name="name"]').val().trim() ) {
-				alert('이름을 입력해주세요');
-				return;
-			}
-			if ( !$thisChatAside.find('input[name="gender"]').is(':checked') ) {
-				alert('성별을 선택해주세요');
-				return;
-			}
-			if ( !$thisChatAside.find('input[name="tel"]').val().trim() ) {
-				alert('연락처를 입력해주세요');
-				return;
-			}
-			if ( !$thisChatAside.find('input[name="email"]').val().trim() ) {
-				alert('이메일을 입력해주세요');
-				return;
-			}
-			if ( !$thisChatAside.find('input[name="datetime"]').val().trim() ) {
-				alert('날짜를 선택해주세요');
-				return;
-			}
-			if ( !$thisChatAside.find('textarea[name="inquiry"]').val() ) {
-				alert('요청사항을 입력해주세요');
-				return;
-			}
+			// if ( !$thisChatAside.find('input[name="agreement"]').is(':checked') ) {
+			// 	alert('개인정보 약관에 동의해주세요');
+			// 	return;
+			// }
+			// if ( !$thisChatAside.find('input[name="name"]').val().trim() ) {
+			// 	alert('이름을 입력해주세요');
+			// 	return;
+			// }
+			// if ( !$thisChatAside.find('input[name="gender"]').is(':checked') ) {
+			// 	alert('성별을 선택해주세요');
+			// 	return;
+			// }
+			// if ( !$thisChatAside.find('input[name="tel"]').val().trim() ) {
+			// 	alert('연락처를 입력해주세요');
+			// 	return;
+			// }
+			// if ( !$thisChatAside.find('input[name="email"]').val().trim() ) {
+			// 	alert('이메일을 입력해주세요');
+			// 	return;
+			// }
+			// if ( !$thisChatAside.find('input[name="datetime"]').val().trim() ) {
+			// 	alert('날짜를 선택해주세요');
+			// 	return;
+			// }
+			// if ( !$thisChatAside.find('textarea[name="inquiry"]').val() ) {
+			// 	alert('요청사항을 입력해주세요');
+			// 	return;
+			// }
 			$thisChatAside.find('.chatAside_bd').addClass('success_screen');
 		});
 
