@@ -377,8 +377,10 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .chat_order .category_menu .how_many {float:right; padding: 3px 0px 0px 0p;}
 .chatAside .chat_order .category_menu .how_many .count {display: inline-block; height: auto; width: 22px; height: 100%; margin: 0px 3px 0px 8px; padding: 5px 3px;}
 
-.chat_order .total_price {height: 30px; padding: 0px 4px 0px 0px; line-height: 30px; font-size: 14px; letter-spacing: 1px; text-align: right; color: #000;}
-.chat_order .total_price em {letter-spacing: 0px;}
+.chat_order .total_price {height: 30px; padding: 0px 4px 0px 0px; font-size: 18px; letter-spacing: 1px; text-align: right; color: #000;}
+.chat_order .total_price em {letter-spacing: 0px; font-weight: bold;}
+
+#pickup_time {transform: translateZ(0);}
 
 /* 200214 AMR 폼 입력 완료 팝업 */
 .chatAside .chatAside_bd.success_screen {overflow: hidden;}
