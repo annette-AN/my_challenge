@@ -286,12 +286,12 @@
 
 /* chatAside */
 /* 200327 AMR left */
-.chatAside {display:none; overflow:hidden; position:absolute; left:50px; bottom:55px; width:0; height: calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out; transform: translateZ(0);}
+.chatAside {display:none; overflow:hidden; position:absolute; left:50px; bottom:55px; width:0; height: calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out;}
 .chatAside.aside_show {display:block; width:335px;}
 .chatAside.aside_hide {display:block; min-width:0; height:calc(100% - 2px); margin-left:50px;}
 /* 200214 애니메이션 삭제 */
 /* 200305 AMR height */
-.chatAside > div {height: 100%;}
+.chatAside > div {height: 100%; transform: translateZ(0);}
 
 /* 200214 AMR ipt_txt */
 .ipt_txt{display:block; width: 100%; height:32px; padding:0 5px; color:#403738; font-size:13px; border:1px solid rgba(0,0,0,0.2); border-radius:5px; background:#fff; transition:all 0.3s ease-out;}
@@ -569,23 +569,23 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .pre_table td {border: 1px solid #666;}
 
 /* datetimepicker css */
-.chatAside .date_inaccessible {position: relative;}
-.chatAside .date_inaccessible:after {content: ''; display: block; position: absolute; top: 0px; left: 0px; width: calc(100% + 12px); height: 35px; cursor: default;}
+.date_inaccessible {position: relative;}
+.date_inaccessible:after {content: ''; display: block; position: absolute; top: 0px; left: 0px; width: calc(100% + 12px); height: 35px; cursor: default;}
 
-.chatAside .bootstrap-datetimepicker-widget {transform: translateZ(0);}
+.bootstrap-datetimepicker-widget {transform: translateZ(0);}
 
-.chatAside .bootstrap-datetimepicker-widget table {margin: 10px 0px 0px 0px;}
-.chatAside .bootstrap-datetimepicker-widget table th {padding: 6px 0px; font-size: 14px; font-weight: bold;}
-.chatAside .bootstrap-datetimepicker-widget table th.dow {padding: 6px 0px 10px 0px;}
-.chatAside .bootstrap-datetimepicker-widget table td {width: auto;}
+.bootstrap-datetimepicker-widget table {margin: 10px 0px 0px 0px;}
+.bootstrap-datetimepicker-widget table th {padding: 6px 0px; font-size: 14px; font-weight: bold;}
+.bootstrap-datetimepicker-widget table th.dow {padding: 6px 0px 10px 0px;}
+.bootstrap-datetimepicker-widget table td {width: auto;}
 /* td max-width 안먹음 */
-.chatAside .bootstrap-datetimepicker-widget table td.day {width: 14%; height: 36px;}
-.chatAside .bootstrap-datetimepicker-widget table td.day.old,
-.chatAside .bootstrap-datetimepicker-widget table td.day.new {opacity: 0.5;}
-.chatAside .bootstrap-datetimepicker-widget table td em {display: inline-block; width: 100%; width: calc(100% - 6px); /*max-width: 30px;*/ height: calc(100% - 6px); line-height: 30px; vertical-align: middle; border-radius: 4px; border: 1px solid rgba(0,0,0,0.3);}
-.chatAside .bootstrap-datetimepicker-widget table td.hour em {/*max-width: 54px;*/ line-height: 48px;}
-.chatAside .bootstrap-datetimepicker-widget table td.minute em {/*width: calc(100% - 6px); max-width: none;*/ line-height: 48px;}
-.chatAside .bootstrap-datetimepicker-widget table td.today:before {
+.bootstrap-datetimepicker-widget table td.day {width: 14%; height: 36px;}
+.bootstrap-datetimepicker-widget table td.day.old,
+.bootstrap-datetimepicker-widget table td.day.new {opacity: 0.5;}
+.bootstrap-datetimepicker-widget table td em {display: inline-block; width: 100%; width: calc(100% - 6px); /*max-width: 30px;*/ height: calc(100% - 6px); line-height: 30px; vertical-align: middle; border-radius: 4px; border: 1px solid rgba(0,0,0,0.3);}
+.bootstrap-datetimepicker-widget table td.hour em {/*max-width: 54px;*/ line-height: 48px;}
+.bootstrap-datetimepicker-widget table td.minute em {/*width: calc(100% - 6px); max-width: none;*/ line-height: 48px;}
+.bootstrap-datetimepicker-widget table td.today:before {
     content: '';
     display: inline-block;
     border: solid transparent;
@@ -597,7 +597,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     right: 4px;
     display: none;
 }
-.chatAside .bootstrap-datetimepicker-widget table td.today em:before {
+.bootstrap-datetimepicker-widget table td.today em:before {
     content: '';
     display: inline-block;
     border: solid transparent;
@@ -609,7 +609,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     bottom: 6px;
     right: 6px;
 }
-.chatAside .bootstrap-datetimepicker-widget table td.active.today em:before {
+.bootstrap-datetimepicker-widget table td.active.today em:before {
     border-bottom-color: #fff;
 }
 
