@@ -55,10 +55,6 @@
   height: 150px;
 }
 
-.horizon_list li + li {
-  border-bottom: 1px solid #e2e2f0;
-}
-
 .horizon_list a {
   display: block;
   height: 100%;
