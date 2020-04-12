@@ -1865,6 +1865,12 @@ $(document).ready(function(){
 		function calcTotalPrice() {
 			var totalPrice = 0;
 			var $total = $('.chat_order .total_price')
+			
+			var orders = {
+				totalPrice: 0,
+				orderList: []
+			}
+
 
 			$eachmenu.each(function(){
 				var price = Number($(this).find('.price').text().replace(/,/g, ''));
