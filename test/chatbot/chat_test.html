@@ -1820,7 +1820,6 @@ $(document).ready(function(){
 	}
 	// renderChatAsideOrder();
 
-
 	// 주문하기 카테고리 메뉴 open close
 	function handleChatAsideOrder() {
 		var categoryBtn = $('.chatAside .chat_order .category');
@@ -1871,7 +1870,6 @@ $(document).ready(function(){
 				orderList: []
 			}
 
-
 			$eachmenu.each(function(){
 				var price = Number($(this).find('.price').text().replace(/,/g, ''));
 				var count = Number($(this).find('.count').val());
@@ -1879,7 +1877,6 @@ $(document).ready(function(){
 			})
 
 			$total.text(numberFormat(totalPrice));
-			
 		}
 		
 	}
