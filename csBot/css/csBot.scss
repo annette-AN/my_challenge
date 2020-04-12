@@ -49,6 +49,35 @@
   right: 14px;
   font-size: 20px;
 }
+
+.horizon_list {
+  li {
+    overflow: hidden;
+    position: relative;
+    height: 150px;
+  }
+
+  li + li {
+    border-bottom: 1px solid #e2e2f0;
+  }
+
+  a {
+    display: block;
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .label {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
 /* //defult */
 
 #connect_wrap {
@@ -323,8 +352,7 @@
     }
   }
 }
-
-/* 모음 */
+/* //content home screen */
 
 /* content cschat */
 .cschat_body {
@@ -406,7 +434,6 @@
     }
   }
 }
-/* /모음 */
 
 .cs_talk {
   overflow: auto;
@@ -495,6 +522,23 @@
     word-break: break-all;
   }
 }
+/* //content cschat */
+
+/* content company list */
+.companies {
+  .horizon_list {
+    .label {
+      min-width: 100px;
+      height: 34px;
+      padding: 6px 20px;
+      color: #fff;
+      background-color: rgba(0,0,0,0.5);
+      text-align: center;
+    }
+  }
+}
+/* //content company list */
+
 
 /* //defult */
 #supporter_evaluation {

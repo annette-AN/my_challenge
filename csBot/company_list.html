@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/font.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/csBot.css">
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <title>home</title>
+  <style>
+    body {
+      background-color: rgb(240, 227, 227);
+    }
+  </style>
+</head>
+
+<body>
+<!-- connect_wrap -->
+<div id="connect_wrap">
+  <div class="connect_top">
+    <div>
+      <button type="button" class="chevron_prev text_hide">이전으로 가기</button>
+      <div class="title"><em><img src="image/logo.png" alt="로고"></em></div>
+    </div>
+  </div>
+  <!-- //connect_top -->
+  <div id="content">
+    <div class="companies">
+      <ul class="horizon_list">
+        <li>
+          <a href="#none">
+            <img src="image/sample/ee_company.png" alt="기업로고">
+            <span class="label">ee</span>
+          </a>
+        </li>
+        <li>
+          <a href="#none">
+            <img src="image/sample/formongde_company.png" alt="기업로고">
+            <span class="label">formongde</span>
+          </a>
+        </li>
+        <li>
+          <a href="#none">
+            <img src="image/sample/onnuri_company.png" alt="기업로고">
+            <span class="label">onnuri</span>
+          </a>
+        </li>
+        <li>
+          <a href="#none">
+            <img src="image/sample/leeandno_company.jpg" alt="기업로고">
+            <span class="label">leeandno</span>
+          </a>
+        </li>
+        <li>
+          <a href="#none">
+            <img src="image/sample/ee_company.png" alt="기업로고">
+            <span class="label">ee</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- //company_list -->
+  </div>
+  <!-- //content -->
+  <div id="connect_btm">
+    <div id="wrapper">
+      <div class="lefe_side">
+        <a href="#none"><span class="fas fa-home"></span><em class="label">홈</em></a>
+      </div>
+      <div>
+        <a href="#none" class="chat_list"><span class="far fa-comment"></span><em class="text_hide">이전 채팅
+            보기</em></a>
+      </div>
+      <div class="right_side">
+        <a href="#none"><span class="fas fa-cog"></span><em class="label">설정</em></a>
+      </div>
+    </div>
+  </div>
+  <!-- //connect_btm -->
+</div>
+<!-- //connect_wrap -->
+
+<script type="text/javascript" src="js/jQuery3.4.1.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // swiper
+    var swiper = new Swiper('.company_list', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  });
+
+</script>
+</body>
+
+</html>
