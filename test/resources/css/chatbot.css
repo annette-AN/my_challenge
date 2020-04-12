@@ -572,7 +572,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .date_inaccessible {position: relative;}
 .date_inaccessible:after {content: ''; display: block; position: absolute; top: 0px; left: 0px; width: calc(100% + 12px); height: 35px; cursor: default;}
 
-.bootstrap-datetimepicker-widget {transform: translateZ(0);}
+.bootstrap-datetimepicker-widget {transform: translateZ(1);}
 
 .bootstrap-datetimepicker-widget table {margin: 10px 0px 0px 0px;}
 .bootstrap-datetimepicker-widget table th {padding: 6px 0px; font-size: 14px; font-weight: bold;}
