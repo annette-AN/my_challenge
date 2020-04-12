@@ -286,7 +286,7 @@
 
 /* chatAside */
 /* 200327 AMR left */
-.chatAside {display:none; overflow:hidden; float:right; position:absolute; left:50px; bottom:55px; width:0; height: calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out;}
+.chatAside {display:none; overflow:hidden; position:absolute; left:50px; bottom:55px; width:0; height: calc(100% - 57px); vertical-align:bottom; border:1px solid #ececfa; border-radius:10px; background:rgba(238, 238, 238, 0.95); z-index:9999; transition:all 0.3s ease-out;}
 .chatAside.aside_show {display:block; width:335px;}
 .chatAside.aside_hide {display:block; min-width:0; height:calc(100% - 2px); margin-left:50px;}
 /* 200214 애니메이션 삭제 */
