@@ -50,34 +50,6 @@
   font-size: 20px;
 }
 
-.horizon_list {
-  li {
-    overflow: hidden;
-    position: relative;
-    height: 150px;
-  }
-
-  li + li {
-    // border-bottom: 1px solid #e2e2f0;
-  }
-
-  a {
-    display: block;
-    height: 100%;
-  }
-
-  img {
-    width: 100%;
-    min-height: 100%;
-  }
-
-  .label {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-  }
-}
-
 /* //defult */
 
 #connect_wrap {
@@ -527,15 +499,90 @@
 
 /* content company list */
 .companies {
-  .horizon_list {
-    .label {
-      min-width: 100px;
-      height: 34px;
-      padding: 6px 20px;
-      color: #fff;
-      background-color: rgba(0,0,0,0.5);
-      text-align: center;
+  padding: 16px;
+
+  .selectbox {
+    width: 150px;
+
+    .select {
+      width: 100%;
+      font-size: 16px;
+      border: 1px solid #e2e2f0;
+      border-radius: 4px;
+      padding: 4px 10px;
+
+      &:focus {
+        border-color: #275791;
+      }
+
+      option {
+        color: #5e5c68;
+      }
     }
+  }
+
+  .horizon_list {
+    li {
+      position: relative;
+      margin: 30px 0px 0px 0px;
+    }
+  
+    li + li {
+      
+    }
+  
+    a {
+      position: relative;
+      display: block;
+      margin: 0px 0px 0px 10px;
+      padding: 18px 0px 22px 0px;
+      border-radius: 20px;
+      box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.3);
+    }
+  
+    .company_img {
+      position: absolute;
+      top: -18px;
+      left: -10px;
+      width: 94px;
+      min-height: 94px;
+      border: 1px solid #e2e2f0;
+      border-radius: 12px;
+    }
+
+    .label, .label_explane {
+      display: block;
+      text-indent: 104px;
+    }
+
+    .label {
+      font-size: 20px;
+      font-weight: bold;
+      color: #5e5c68;
+    }
+
+    .label_explane {
+      line-height: 18px;
+      font-size: 16px;
+      color: #7c7c7c;
+    }
+
+    .favorites {
+      overflow: hidden;
+      display: inline-block;
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      padding: 4px 0px 0px 4px;
+      background-color: #fff;
+
+      img {
+        width: 140px;
+      }
+    }
+
   }
 }
 /* //content company list */
@@ -644,9 +691,6 @@
   }
   
   #connect_wrap {
-    // position: static;
-    top: 0px;
-    left: 0px;
     bottom: 0px;
     right: 0px;
     width: 100%;

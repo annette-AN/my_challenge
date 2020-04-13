@@ -18,14 +18,6 @@
 
 .textbox_basic + .fa-microphone { position: absolute; top: 10px; right: 14px; font-size: 20px; }
 
-.horizon_list li { overflow: hidden; position: relative; height: 150px; }
-
-.horizon_list a { display: block; height: 100%; }
-
-.horizon_list img { width: 100%; min-height: 100%; }
-
-.horizon_list .label { position: absolute; top: 0px; left: 0px; }
-
 /* //defult */
 #connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
 
@@ -163,7 +155,31 @@
 
 /* //content cschat */
 /* content company list */
-.companies .horizon_list .label { min-width: 100px; height: 34px; padding: 6px 20px; color: #fff; background-color: rgba(0, 0, 0, 0.5); text-align: center; }
+.companies { padding: 16px; }
+
+.companies .selectbox { width: 150px; }
+
+.companies .selectbox .select { width: 100%; font-size: 16px; border: 1px solid #e2e2f0; border-radius: 4px; padding: 4px 10px; }
+
+.companies .selectbox .select:focus { border-color: #275791; }
+
+.companies .selectbox .select option { color: #5e5c68; }
+
+.companies .horizon_list li { position: relative; margin: 30px 0px 0px 0px; }
+
+.companies .horizon_list a { position: relative; display: block; margin: 0px 0px 0px 10px; padding: 18px 0px 22px 0px; border-radius: 20px; -webkit-box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.3); box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.3); }
+
+.companies .horizon_list .company_img { position: absolute; top: -18px; left: -10px; width: 94px; min-height: 94px; border: 1px solid #e2e2f0; border-radius: 12px; }
+
+.companies .horizon_list .label, .companies .horizon_list .label_explane { display: block; text-indent: 104px; }
+
+.companies .horizon_list .label { font-size: 20px; font-weight: bold; color: #5e5c68; }
+
+.companies .horizon_list .label_explane { line-height: 18px; font-size: 16px; color: #7c7c7c; }
+
+.companies .horizon_list .favorites { overflow: hidden; display: inline-block; position: absolute; top: 10px; right: 14px; width: 34px; height: 34px; padding: 4px 0px 0px 4px; background-color: #fff; }
+
+.companies .horizon_list .favorites img { width: 140px; }
 
 /* //content company list */
 /* //defult */
@@ -200,5 +216,5 @@
 
 @media all and (max-width: 768px) { .textbox_basic { font-size: 16px; }
   html, body { width: 100vw; height: 100vh; }
-  #connect_wrap { top: 0px; left: 0px; bottom: 0px; right: 0px; width: 100%; height: 100%; width: 100vw; height: 100vh; border-radius: 0px; } }
+  #connect_wrap { bottom: 0px; right: 0px; width: 100%; height: 100%; width: 100vw; height: 100vh; border-radius: 0px; } }
 /*# sourceMappingURL=csBot.css.map */
