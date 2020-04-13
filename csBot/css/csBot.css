@@ -201,5 +201,6 @@
 #cschat_wrap.dark_mode .cs_talk .date em { background-color: #403738; color: #f7f8fa; }
 
 @media all and (max-width: 768px) { .textbox_basic { font-size: 16px; }
-  #connect_wrap { position: static; bottom: auto; right: auto; width: 100vw; height: 100vh; border-radius: 0px; } }
+  #connect_wrap { position: static; bottom: auto; right: auto; width: 100vw; height: 100vh; border-radius: 0px; }
+  #connect_wrap #content { height: calc(100vh - 120px); } }
 /*# sourceMappingURL=csBot.css.map */
