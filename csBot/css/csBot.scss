@@ -636,11 +636,18 @@
   .textbox_basic {
     font-size: 16px;
   }
+
+  html, body {
+    width: 100vw;
+    height: 100vh;
+  }
   
   #connect_wrap {
     position: static;
     bottom: auto;
     right: auto;
+    width: 100%;
+    height: 100%;
     width: 100vw;
     height: 100vh;
     border-radius: 0px;
