@@ -951,7 +951,7 @@
 				</div>
 			</div>
 			<div>
-				<p class="total">총 가격: <em class="total_price">10000</em>원</p>
+				<p class="total">총 가격: <em class="total_price">0</em>원</p>
 			</div>
 			<div class="btnBox">
 				<button type="submit" class="btn_point btn_submit">주문하기</button> 
@@ -1213,7 +1213,7 @@ $(document).ready(function(){
         }
 	});
 
-	false && $('#pickup_time').datetimepicker({
+	$('#pickup_time').datetimepicker({
 		locale: 'ko',
 		inline: true,
 		format: 'HH:mm',
@@ -1820,25 +1820,22 @@ $(document).ready(function(){
 	}
 	// renderChatAsideOrder();
 
-	// 주문하기 카테고리 메뉴 open close
+	// 추가 AMR 200412 주문하기 카테고리 메뉴 open close
 	function handleChatAsideOrder() {
 		var categoryBtn = $('.chatAside .chat_order .category');
 		var categoryMenu = $('.chatAside .chat_order .category_menu');
 		var $eachmenu = $('.chatAside .chat_order .each_menu')
 		var $checkbox = $('.chatAside .chat_order .each_menu [type="checkbox"]');
 
-		$eachmenu.each(function(){
-			var priceEl = $(this).find('.price');
-			var price = numberFormat(priceEl.text());
-			// var count = Number($(this).find('.count').val());
-			// totalPrice = (price * count) + totalPrice;
-
-			priceEl.text(price);
-		})
-		
-
 		categoryBtn.on('click', function(){
-			$(this).siblings(categoryMenu).toggleClass('on');
+			var thisCategoryMenu = $(this).siblings(categoryMenu);
+
+			if ( thisCategoryMenu.hasClass('on') ) {
+				categoryMenu.removeClass('on')
+			} else {
+				categoryMenu.removeClass('on')
+				thisCategoryMenu.toggleClass('on')
+			}
 		});
 
 		// 체크박스 체크해제 시 수량 초기화
@@ -1848,7 +1845,6 @@ $(document).ready(function(){
 			if ( $(this).prop('checked') == false ) {
 				$eachmenu.find('.count').val('');
 			}
-
 			calcTotalPrice()
 		})
 
@@ -1857,31 +1853,26 @@ $(document).ready(function(){
 			var $eachmenu = $(this).parents('.each_menu');
 
 			$eachmenu.find('[type="checkbox"]').prop('checked', Boolean(Number(this.value)))
-
 			calcTotalPrice()
 		});
 
+		// 선택한 메뉴들 합계
 		function calcTotalPrice() {
 			var totalPrice = 0;
 			var $total = $('.chat_order .total_price')
-			
-			var orders = {
-				totalPrice: 0,
-				orderList: []
-			}
 
 			$eachmenu.each(function(){
 				var price = Number($(this).find('.price').text().replace(/,/g, ''));
 				var count = Number($(this).find('.count').val());
 				totalPrice = (price * count) + totalPrice;
 			})
-
 			$total.text(numberFormat(totalPrice));
 		}
 		
 	}
 	handleChatAsideOrder();
 
+	// 추가 AMR 200412 숫자 천단위 콤마
 	function numberFormat(inputNumber) {
 		return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
