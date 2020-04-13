@@ -163,8 +163,6 @@
 
 /* //content cschat */
 /* content company list */
-.companies { height: 100%; }
-
 .companies .horizon_list .label { min-width: 100px; height: 34px; padding: 6px 20px; color: #fff; background-color: rgba(0, 0, 0, 0.5); text-align: center; }
 
 /* //content company list */
