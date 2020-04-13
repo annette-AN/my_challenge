@@ -37,9 +37,9 @@
 
 #connect_wrap .connect_top .chevron_prev { position: absolute; top: 10px; left: 10px; }
 
-#connect_wrap #content { overflow: auto; height: calc(100% - 120px); background-color: white; }
+#connect_wrap #content { overflow: auto; height: calc(100% - 130px); background-color: white; }
 
-#connect_wrap #connect_btm { height: 60px; border-top: 1px solid #e2e2f0; background-color: #fff; }
+#connect_wrap #connect_btm { height: 70px; padding: 4px 0px 0px 0px; border-top: 1px solid #e2e2f0; background-color: #fff; }
 
 #connect_wrap #connect_btm #wrapper { overflow: hidden; height: 100%; padding: 0px 16px; text-align: center; }
 
@@ -200,6 +200,5 @@
 
 @media all and (max-width: 768px) { .textbox_basic { font-size: 16px; }
   html, body { width: 100vw; height: 100vh; }
-  #connect_wrap { bottom: 0px; right: 0px; width: 100%; height: 100%; width: 100vw; height: 100vh; border-radius: 0px; }
-  #connect_wrap #content { height: calc(100vh - 120px); } }
+  #connect_wrap { bottom: 0px; right: 0px; width: 100%; height: 100%; width: 100vw; height: 100vh; border-radius: 0px; } }
 /*# sourceMappingURL=csBot.css.map */

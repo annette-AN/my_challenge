@@ -119,12 +119,13 @@
 
   #content {
     overflow: auto;
-    height: calc(100% - 120px);
+    height: calc(100% - 130px);
     background-color: rgba(255,255,255,1.0);
   }
 
   #connect_btm {
-    height: 60px;
+    height: 70px;
+    padding: 4px 0px 0px 0px;
     border-top: 1px solid #e2e2f0;
     background-color: #fff;
 
@@ -653,7 +654,6 @@
     border-radius: 0px;
 
     #content {
-      height: calc(100vh - 120px);
     }
   }
 }
