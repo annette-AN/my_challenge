@@ -686,16 +686,15 @@
   #connect_wrap {
     // position: static;
     top: 0px;
-    right: 0px;
-    bottom: 0px;
     left: 0px;
-    // bottom: 0px;
-    // right: 0px;
+    right: auto;
+    bottom: auto;
     width: 100vw;
     height: 100vh;
     border-radius: 0px;
 
     #content {
+      
     }
   }
 }
