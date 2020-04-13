@@ -509,7 +509,7 @@
       font-size: 16px;
       border: 1px solid #e2e2f0;
       border-radius: 4px;
-      padding: 4px 10px;
+      padding: 8px 12px;
 
       &:focus {
         border-color: #275791;
@@ -522,20 +522,18 @@
   }
 
   .horizon_list {
+    padding: 10px 0px 0px 0px;
+
     li {
       position: relative;
       margin: 30px 0px 0px 0px;
     }
   
-    li + li {
-      
-    }
-  
     a {
       position: relative;
       display: block;
-      margin: 0px 0px 0px 10px;
-      padding: 18px 0px 22px 0px;
+      margin: 18px 0px 0px 10px;
+      padding: 24px 0px 28px 0px;
       border-radius: 20px;
       box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.3);
     }
@@ -544,25 +542,25 @@
       position: absolute;
       top: -18px;
       left: -10px;
-      width: 94px;
-      min-height: 94px;
+      width: 100px;
+      min-height: 100px;
       border: 1px solid #e2e2f0;
       border-radius: 12px;
     }
 
     .label, .label_explane {
       display: block;
-      text-indent: 104px;
+      text-indent: 110px;
     }
 
     .label {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       color: #5e5c68;
     }
 
     .label_explane {
-      line-height: 18px;
+      line-height: 16px;
       font-size: 16px;
       color: #7c7c7c;
     }
