@@ -684,9 +684,11 @@
   }
   
   #connect_wrap {
-    position: static;
+    // position: static;
     right: auto;
     bottom: auto;
+    top: 0px;
+    left: 0px;
     // bottom: 0px;
     // right: 0px;
     width: 100vw;
