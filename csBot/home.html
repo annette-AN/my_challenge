@@ -76,16 +76,14 @@
             </ul>
             <div class="swiper-pagination"></div>
           </div>
-          <div class="swiper_label">
-            <ul class="label">
-              <li>aa</li>
-              <li>aa</li>
-              <li>aa</li>
-              <li>aa</li>
-              <li>aa</li>
-              <li>aa</li>
-            </ul>
-          </div>
+          <ul class="swiper_label">
+            <li class="label on">aa</li>
+            <li class="label">aa</li>
+            <li class="label">aa</li>
+            <li class="label">aa</li>
+            <li class="label">aa</li>
+            <li class="label">aa</li>
+          </ul>
           <div>
             <a href="#none" class="sub_more">전체보기 +</a>
           </div>
@@ -148,27 +146,40 @@
       },
     });
 
-    function renderRecentListLabel() {
-      var a = $('.service .recent_list');
+    function handleRecentListLabel() {
+      var a = $('.service');
       var b = a.find('.swiper-slide');
+      var $companyName = b.find('.company_name');
+      var $swiperLabel = a.find('.swiper_label')
+      var companyLength = b.length;
+      var companyNames = [];
       var slideIndex = 0;
       
-      b.on('mouseup', function(){
-        if ( b.hasClass('swiper-slide-active') ) {
-          console.log($(this))
-          slideIndex = b.index($('.swiper-slide-active'));
-          console.log(a.length,b.length)
-          console.log(slideIndex)
-        }
+      // 각 company_name에서 기업명 가져오기
+      b.find($companyName).each(function(){
+        companyNames.push($(this).text());
       });
 
+      // 가져온 기업명을 swiper_label에 넣기
+      $swiperLabel.empty();
+      for (i=0, l=companyLength; i<l; i++) {
+        $swiperLabel.append('<li class="label">' + companyNames[i] + '</li>');
+      }
 
+      $swiperLabel.find('.label').eq(slideIndex).addClass('on');
+      
+      // 현재 슬라이드에 맞게 라벨 보여주기
+      b.on('mouseenter', function(){
+        if ( $(this).hasClass('swiper-slide-active') ) {
+          slideIndex = b.index($('.swiper-slide-active'));
 
-
-      // console.log(a.length,b.length,slideIndex)
+          $swiperLabel.find('.label').removeClass('on')
+          $swiperLabel.find('.label').eq(slideIndex).addClass('on');
+        }
+      })
     }
-
-    renderRecentListLabel();
+    handleRecentListLabel();
+    
   });
 
 </script>

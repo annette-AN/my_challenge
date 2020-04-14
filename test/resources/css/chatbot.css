@@ -377,7 +377,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 
 .chatAside .chat_order .chatAside_bd .stnBox dl.dlBox dd.block_target {width: calc(100% - 12px);}
 
-.chatAside .chat_order .category_menu .how_many {float:right; padding: 3px 0px 0px 0p;}
+.chatAside .chat_order .category_menu .how_many {float:right; padding: 3px 0px 0px 0px;}
 .chatAside .chat_order .category_menu .how_many .count {display: inline-block; height: auto; width: 22px; height: 100%; margin: 0px 3px 0px 8px; padding: 5px 3px;}
 
 .chat_order .total {height: 30px; padding: 0px 4px 0px 0px; font-size: 18px; letter-spacing: 1px; text-align: right; color: #000;}
