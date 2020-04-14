@@ -16,7 +16,6 @@ $('#inputArea').keyup(function (event) {
 
 $(document).ready(function (){
 
-
     var chatBtnClicked = false;
     window.addEventListener("message", sendHostInfo, false);
 
@@ -46,11 +45,13 @@ $(document).ready(function (){
         }
     }
 
+    var mainCookie = getCookie("mainCookie");
     // chatbot open trigger
     $('#btn_goChat').on("animationend", function() {
-        if ((!chatBtnClicked && checkDevice() !== 'MOBILE') ||
-            (checkDevice() === 'MOBILE' && qrLocation !== "" && qrLocation !== undefined)) {
+        if (((!chatBtnClicked && checkDevice() !== 'MOBILE') ||
+            (checkDevice() === 'MOBILE' && qrLocation !== "" && qrLocation !== undefined)) && mainCookie === undefined) {
             $('#btn_goChat').trigger('click');
+            setCookie("mainCookie", "mainCookie", 30);
         }
     });
 
@@ -67,6 +68,32 @@ $(document).ready(function (){
             window.parent.postMessage("chatbot_close", "*");
         }, 0);
     });
+
+
+
+    function setCookie(name, value, expireminute ) {
+        var exdate = new Date();
+        exdate.setMinutes(exdate.getMinutes()+expireminute);
+        document.cookie = name +  "=" + escape(value)
+
+            + ((expireminute==null) ? "" : ";expires="+exdate.toUTCString());
+    }
+
+    function getCookie(cookie_name) {
+        var x, y;
+        var val = document.cookie.split(';');
+
+        for (var i = 0; i < val.length; i++) {
+            x = val[i].substr(0, val[i].indexOf('='));
+            y = val[i].substr(val[i].indexOf('=') + 1);
+            x = x.replace(/^\s+|\s+$/g, '');
+            if (x == cookie_name) {
+                return unescape(y);
+            }
+        }
+    }
+
+    document.cookie;
 
     // 날짜, 요일 시간 정의
     var year  = new Date().getFullYear();  //현재 년도
@@ -153,8 +180,7 @@ $(document).ready(function (){
         if (!display) {
             display = value;
         }
-        getJsonData();
-        var data = {"type": type, "input":value.replace("<br>", ""), "host": host, "lang": lang, "jsonData": JSON.stringify(jsonData)};
+        var data = {"type": type, "input":value.replace("<br>", ""), "host": host, "lang": lang, "jsonData": JSON.stringify(getJsonData())};
 
         $('.chatUI_mid .lst_talk').append(
             '<li class="user"> \
@@ -191,7 +217,6 @@ $(document).ready(function (){
 
         actChatbotOpen();
         changeTextHolder(lang);
-        getJsonData();
 
         $.ajax({
             url: "/chat/hostInfo",
@@ -199,7 +224,7 @@ $(document).ready(function (){
             type: "POST",
             contentType: 'application/json'
         }).done(function (response) {
-            callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "jsonData": JSON.stringify(jsonData)})
+            callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "jsonData": JSON.stringify(getJsonData())})
         });
     }
 
@@ -258,6 +283,10 @@ $(document).ready(function (){
                 var res = ans.split("|||INQUIRY|||");
                 botResponseInquiry(res[1]);
                 response.answer = res[0];
+            } else if (ans.includes("|||ORDER|||")) {
+                var res = ans.split("|||ORDER|||");
+                botResponseOrder(res[1]);
+                response.answer = res[0];
             } else if (ans.includes("|||PROMOTION|||")) {
                 var res = ans.split("|||PROMOTION|||");
                 botResponsePromotion(res[1]);
@@ -312,7 +341,7 @@ $(document).ready(function (){
        </li>'
         );
         $('.chatUI_mid').scrollTop($('.chatUI_mid')[0].scrollHeight);
-    };
+    }
 
     function botResponseList(list_response) {
         var list_li = "";
@@ -499,6 +528,227 @@ $(document).ready(function (){
         }
     }
 
+    function botResponseOrder(orderResponse) {
+
+        // 현재 ui hard coding, todo: 메뉴명 db에서 가져오도록.
+        if (orderResponse.includes("PAVAN")) {
+            handleChatAsideOrder();
+        }
+
+        // 추가 AMR 200412 주문하기 카테고리 메뉴 open close
+        function handleChatAsideOrder() {
+            var categoryBtn = $('.chatAside .chat_order .category');
+            var categoryMenu = $('.chatAside .chat_order .category_menu');
+            var $eachmenu = $('.chatAside .chat_order .each_menu');
+            var $checkbox = $('.chatAside .chat_order .each_menu [type="checkbox"]');
+
+            categoryBtn.on('click', function(event){
+                event.preventDefault();
+                var thisCategoryMenu = $(this).siblings(categoryMenu);
+
+                if ( thisCategoryMenu.hasClass('on') ) {
+                    categoryMenu.removeClass('on');
+                } else {
+                    categoryMenu.removeClass('on');
+                    thisCategoryMenu.toggleClass('on');
+                }
+            });
+
+            // 체크박스 체크해제 시 수량 초기화
+            $checkbox.on('change', function(evnet){
+                event.preventDefault();
+                var $eachmenu = $(this).parents('.each_menu');
+
+                if ( $(this).prop('checked') == false ) {
+                    $eachmenu.find('.count').val('');
+                }
+                calcTotalPrice()
+            });
+
+            // 주문 수량을 적으면 메뉴체크
+            $('.chat_order .count').on('keyup', function(evnet){
+                event.preventDefault();
+                var $eachmenu = $(this).parents('.each_menu');
+
+                $eachmenu.find('[type="checkbox"]').prop('checked', Boolean(Number(this.value)))
+                calcTotalPrice()
+            });
+
+            // 선택한 메뉴들 합계
+            function calcTotalPrice() {
+                var totalPrice = 0;
+                var $total = $('.chat_order .total_price');
+
+                $eachmenu.each(function(){
+                    var price = Number($(this).find('span.price').text().replace(/,/g, ''));
+                    var count = Number($(this).find('.count').val());
+                    totalPrice = (price * count) + totalPrice;
+                });
+                var priceText = '총 가격: ' + numberFormat(totalPrice) + '원';
+                $total.text(priceText);
+                return numberFormat(totalPrice);
+            }
+
+            function clearOrderForm () {
+                // input field clear
+                $(".chat_order input[name='name']").val('');
+                $(".chat_order input[name='tel']").val('');
+                $(".chat_order input[name='email']").val('');
+                $(".chat_order input[name='pickupTime']").val('');
+                $(".chat_order textarea[name='add']").val('');
+
+                // each menu count clear
+                $eachmenu.each(function(){
+                    $(this).find('.count').val(0);
+                });
+                // total price clear
+                $('.chat_order .total_price').text('');
+            }
+
+            function checkOrderData(orderData) {
+                if (!orderData.tos) {
+                    alert('개인정보동의 약관에 동의해주세요');
+                    return false;
+                }
+                if (orderData.name === undefined || orderData.name === '') {
+                    alert('이름을 입력해주세요');
+                    return false;
+                }
+                if (orderData.email === undefined || orderData.email === '') {
+                    alert('이메일을 입력해주세요');
+                    return false;
+                }
+                if (orderData.phone === undefined || orderData.phone === '') {
+                    alert('전화번호를 입력해주세요');
+                    return false;
+                }
+
+                return true;
+            }
+
+            var $chatAside = $('.chatAside');
+            // aside open
+            $(document).on('click', '.order_btn', function(){
+                $chatAside.addClass('aside_show');
+                window.parent.postMessage("aside_open", "*");
+                // 현재 무조건 checked. todo: 삭제
+                $chatAside.find('input[name="agreement"]').prop('checked', true);
+            });
+
+            // 약관보기
+            $chatAside.find('.btn_terms').on('click', function(){
+                $(this).parents('.chatAside_bd').addClass('info_screen');
+            });
+
+            // 약관 열어서 확인 (아직 약관 내용 없으므로 작동하지 않음)
+            $chatAside.find('.chat_order .btn_point').on('click', function(){
+                $(this).parents('.chatAside_bd').removeClass('info_screen');
+                $chatAside.find('input[name="agreement"]').prop('checked', true);
+            });
+
+
+            // aside close (input value 초기화 및 창 닫힘)
+            $('.btn_chatAside_close').on('click', function(){
+                clearOrderForm();
+                window.parent.postMessage("aside_close", "*");
+                $(this).parents($chatAside).removeClass('aside_show').find('.chatAside_bd').removeClass('success_screen');
+                $(this).parents($chatAside).find('input[type="text"], input[type="tel"], textarea').val('');
+                $(this).parents($chatAside).find('input[type="checkbox"], input[type="radio"]').removeAttr('checked');
+            });
+
+            /* 추가 200412 AMR주문하기 픽업시간 */
+            $('#pickup_time').datetimepicker({
+                locale: 'ko',
+                inline: true,
+                format: 'HH:mm',
+                dayViewHeaderFormat: 'YYYY 년 MM 월',
+                stepping: 15,
+                daysOfWeekDisabled: [0],
+                disabledDates: ['2020-01-01','2020-03-01','2020-05-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
+                // 01-01 새해(신정), 03-01 삼일절, 05-01 근로자의날, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
+                // 설날(구정)				음력 1월 1일
+                // 석가탄신일(부처님오신날)	 음력 4월 8일
+                // 추석						음력 8월 15일
+                disabledHours: [0,1,2,3,4,5,6,7,8,17,18,19,20,21,22,23],
+                icons: {
+                    time: 'glyphicon glyphicon-time',
+                    date: 'glyphicon glyphicon-calendar',
+                    up: 'glyphicon glyphicon-chevron-up',
+                    down: 'glyphicon glyphicon-chevron-down',
+                    previous: 'glyphicon glyphicon-chevron-left',
+                    next: 'glyphicon glyphicon-chevron-right',
+                    today: 'glyphicon glyphicon-screenshot',
+                    clear: 'glyphicon glyphicon-trash',
+                    close: 'glyphicon glyphicon-remove'
+                }
+            });
+
+            // submit btn onclick
+            var submitBtn = $('.chatAside_bd div.btnBox button.btn_submit');
+            submitBtn.prop("onclick", null).off("click");
+            submitBtn.on('click', function(event) {
+                event.preventDefault();
+                var orderList = [];
+                $eachmenu.each(function(){
+                    var label = $(this).find('label').text();
+                    var count = Number($(this).find('.count').val());
+
+                    if (count > 0) {
+                        var order = [label, count + "개"];
+                        orderList.push(order);
+                    }
+                });
+
+                var orderData = {
+                    "tos" : $('input[name="agreement"]').is(':checked'),
+                    "name": $(".chat_order input[name='name']").val(),
+                    "phone": $(".chat_order input[name='tel']").val(),
+                    "email": $(".chat_order input[name='email']").val(),
+                    "pickupTime": $(".chat_order input[name='pickupTime']").val(),
+                    "msg": $(".chat_order textarea[name='add']").val(),
+                    "totalPrice": calcTotalPrice(),
+                    "reqList": orderList,
+                    "take": $('input:radio[name="take"]:checked').siblings('label:first').text(),
+                    "payment": $('input:radio[name="payment"]:checked').siblings('label:first').text()
+                };
+
+                if (!checkOrderData(orderData)){
+                    return;
+                }
+
+                // console.log(orderData);
+
+                // success 팝업 채우기
+                $('.chatAside_bd div.check_order span.order_name').siblings('em').text(orderData.name);
+                $('.chatAside_bd div.check_order span.order_phone').siblings('em').text(orderData.phone);
+                $('.chatAside_bd div.check_order span.order_email').siblings('em').text(orderData.email);
+                $('.chatAside_bd div.check_order span.order_take').siblings('em').text(orderData.take);
+                $('.chatAside_bd div.check_order span.order_payment').siblings('em').text(orderData.payment);
+                $('.chatAside_bd div.check_order span.order_pickupTime').siblings('em').text(orderData.pickupTime);
+                $('.chatAside_bd div.check_order span.order_msg').siblings('p').text(orderData.msg);
+                $('.chatAside_bd div.check_order span.order_totalPrice').siblings('em').text(orderData.totalPrice);
+                var reqListP = $('.chatAside_bd div.check_order span.order_reqList').siblings('p');
+                reqListP.empty();
+                for (var i in orderList) {
+                    var order = orderList[i];
+                    var em = $("<em></em>").text(order[0] + ' ' + order[1]);
+                    reqListP.append(em);
+                }
+
+                $chatAside.find('.chatAside_bd').addClass('success_screen');
+                $('.chatAside_bd div.check_order .btn_chatAside_close').on('click', function (event) {
+                    clearOrderForm();
+                    event.preventDefault();
+                    callBackend({"type": "intent",
+                        "input": JSON.stringify(orderData),
+                        "host": host, "lang":lang,
+                        "jsonData": JSON.stringify(getJsonData())});
+
+                });
+            });
+        }
+    }
+
     function botResponseInquiry(iqrResponse) {
         iqrResponse = JSON.parse(iqrResponse);
 
@@ -551,7 +801,7 @@ $(document).ready(function (){
         // submit button
         $('.chatAside_bd div.btnBox button.btn_submit').text(iqrResponse.form.submitBtn);
 
-        var $chatAside = $('.chatAside');
+        var $chatAside = $('.chatAside.chat_inquiry');
 
         // submit btn onclick
         var submitBtn = $('.chatAside_bd div.btnBox button.btn_submit');
@@ -622,8 +872,7 @@ $(document).ready(function (){
                 "add": $(".form_add").find("textarea").val(),
                 "inquiryMsg": $(".form_inquiry").find("textarea").val()};
 
-            getJsonData();
-            callBackend({"type": "intent", "input": JSON.stringify(inquiryData), "host": host, "lang":lang, "jsonData": JSON.stringify(jsonData)});
+            callBackend({"type": "intent", "input": JSON.stringify(inquiryData), "host": host, "lang":lang, "jsonData": JSON.stringify(getJsonData())});
 
             // success 팝업 채우기
             $('.chatAside_bd div.stnBox.popup .popup_content .popup_txt em').text(iqrResponse.form.successPopup.title);
@@ -965,11 +1214,10 @@ $(document).ready(function (){
             lang = new_lang;
             // load google map api
             var langCode = getGoogleLangCode(lang);
-            getJsonData();
             setMapAPILanguage(langCode).then(function () {
                 // after API is loaded
                 changeTextHolder(lang);
-                callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "jsonData": JSON.stringify(jsonData)})
+                callBackend({"type": "intent", "input":"처음으로", "host": host, "lang":lang, "jsonData": JSON.stringify(getJsonData())})
             });
 
         }
@@ -1078,9 +1326,16 @@ function checkDevice() {
 }
 
 function getJsonData() {
+    var jsonData;
     if (qrLocation !== undefined && qrLocation !== "") {
         jsonData = {"device":checkDevice(), "channel":"QR_" + qrLocation};
     } else {
         jsonData = {"device":checkDevice(), "channel":"HOMEPAGE"};
     }
+    return jsonData;
+}
+
+// 추가 AMR 200412 숫자 천단위 콤마
+function numberFormat(inputNumber) {
+    return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
