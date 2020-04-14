@@ -147,16 +147,15 @@
     });
 
     function handleRecentListLabel() {
-      var a = $('.service');
-      var b = a.find('.swiper-slide');
-      var $companyName = b.find('.company_name');
-      var $swiperLabel = a.find('.swiper_label')
-      var companyLength = b.length;
+      var $swiperSlide = $('.service').find('.swiper-slide');
+      var $companyName = $swiperSlide.find('.company_name');
+      var $swiperLabel = $('.service').find('.swiper_label')
+      var companyLength = $swiperSlide.length;
       var companyNames = [];
       var slideIndex = 0;
       
       // 각 company_name에서 기업명 가져오기
-      b.find($companyName).each(function(){
+      $swiperSlide.find($companyName).each(function(){
         companyNames.push($(this).text());
       });
 
@@ -169,9 +168,9 @@
       $swiperLabel.find('.label').eq(slideIndex).addClass('on');
       
       // 현재 슬라이드에 맞게 라벨 보여주기
-      b.on('mouseenter', function(){
+      $swiperSlide.on('mouseenter', function(){
         if ( $(this).hasClass('swiper-slide-active') ) {
-          slideIndex = b.index($('.swiper-slide-active'));
+          slideIndex = $swiperSlide.index($('.swiper-slide-active'));
 
           $swiperLabel.find('.label').removeClass('on')
           $swiperLabel.find('.label').eq(slideIndex).addClass('on');
