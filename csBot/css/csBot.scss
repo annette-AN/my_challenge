@@ -590,12 +590,12 @@
       height: 50px;
       padding: 4px 0px 0px 4px;
       border-radius: 0px 20px 0px 0px;
-      background: pink url(../image/ico_star.png) no-repeat 6px center;
+      background: #fff url(../image/ico_star.png) no-repeat 6px 12px;
       background-size: 30px;
     }
 
     .favorites.on {
-      background: #fff url(../image/ico_star_on.png) no-repeat 6px center;
+      background: #fff url(../image/ico_star_on.png) no-repeat 6px 12px;
       background-size: 30px;
     }
   }
