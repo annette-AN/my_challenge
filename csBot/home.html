@@ -152,7 +152,7 @@
       var $swiperLabel = $('.service').find('.swiper_label')
       var companyLength = $swiperSlide.length;
       var companyNames = [];
-      var slideIndex = 0;
+      var slideNow = 0;
       
       // 각 company_name에서 기업명 가져오기
       $swiperSlide.find($companyName).each(function(){
@@ -165,16 +165,32 @@
         $swiperLabel.append('<li class="label">' + companyNames[i] + '</li>');
       }
 
-      $swiperLabel.find('.label').eq(slideIndex).addClass('on');
+      // 현재 슬라이드 라벨표시
+      $swiperLabel.find('.label').eq(slideNow).addClass('on');
       
-      // 현재 슬라이드에 맞게 라벨 보여주기
-      $swiperSlide.on('mouseenter', function(){
-        if ( $(this).hasClass('swiper-slide-active') ) {
-          slideIndex = $swiperSlide.index($('.swiper-slide-active'));
+      // pc 현재 슬라이드에 맞게 라벨 보여주기
+      $swiperSlide.on('mouseenter', function(e){
+        slideNow = $swiperSlide.index($('.swiper-slide-active'));
 
+        console.log('touchstart', slideNow)
+        if ( $(this).hasClass('swiper-slide-active') ) {
           $swiperLabel.find('.label').removeClass('on')
-          $swiperLabel.find('.label').eq(slideIndex).addClass('on');
+          $swiperLabel.find('.label').eq(slideNow).addClass('on');
         }
+      })
+
+      // mobile 현재 슬라이드에 맞게 라벨 보여주기
+      $swiperSlide.on('touchstart', function(e){
+        $(document).on('touchend', function(e){
+          console.log('touchend')
+          slideNow = $swiperSlide.index($('.swiper-slide-active'));
+          setTimeout(function(){
+            if ( $swiperSlide.hasClass('swiper-slide-active') ) {
+              $swiperLabel.find('.label').removeClass('on')
+              $swiperLabel.find('.label').eq(slideNow).addClass('on');
+            }
+          },100);
+        })
       })
     }
     handleRecentListLabel();
