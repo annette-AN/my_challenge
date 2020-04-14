@@ -373,7 +373,9 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 
 .chatAside .chat_order .chatAside_bd .category_menu {display: none; height: auto; margin: 10px;}
 .chatAside .chat_order .chatAside_bd .category_menu.on {display: block;}
-.chatAside .chat_order .chatAside_bd .category_menu input[type="checkbox"] + label {display: inline-block; width: calc(100% - 135px); height: 26px; line-height: normal; padding-top: 8px;}
+.chatAside .chat_order .chatAside_bd .category_menu input[type="checkbox"] + label {display: block; float: left; width: calc(100% - 135px); min-height: 26px; height: auto; line-height: normal; margin: 0px; padding-top: 8px;}
+
+.chatAside .chat_order .chatAside_bd .category_menu .each_menu {overflow: hidden;}
 
 .chatAside .chat_order .chatAside_bd .stnBox dl.dlBox dd.block_target {width: calc(100% - 12px);}
 
@@ -560,6 +562,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     .chatAside.aside_show {left:0; bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
 
     .chatAside > div {left:0; bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
+    .chatAside .chat_order .category_menu .how_many .count {font-size: 16px;}
 }
 
 /* 공통 */
