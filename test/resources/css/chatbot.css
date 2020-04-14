@@ -562,9 +562,9 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     .chatAside.aside_show {left:0; bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
 
     .chatAside > div {left:0; bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
-    
+
     .chatAside .chat_order .category_menu .how_many .count {padding: 2px; font-size: 16px;}
-    .chatAside .chat_order .ipt_txt {font-size: 16px;}
+    .chatAside .chat_order .ipt_txt {font-size: 16px; color: #777;}
     .chatAside .chat_order .ipt_txt::placeholder {font-size: 13px;}
 }
 
