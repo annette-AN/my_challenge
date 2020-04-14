@@ -95,7 +95,7 @@
               <a href="#none"><span class="fas fa-hospital-alt"></span><em class="label">병원</em></a>
             </li>
             <li>
-              <a href="#none"><span class="fas fa-utensils"></span><em class="label">음식점</em></a>
+              <a href="#none"><span class="fas fa-utensils"></span><em class="label">음식점음식점음식점</em></a>
             </li>
             <li>
               <a href="#none"><span class="fas fa-shopping-cart"></span><em class="label">의류몰</em></a>
@@ -104,7 +104,7 @@
               <a href="#none"><span class="fas fa-gamepad"></span><em class="label">게임</em></a>
             </li>
             <li>
-              <a href="#none"><span class="fas fa-smile"></span><em class="label">엔터테인먼트</em></a>
+              <a href="#none"><span class="fas fa-smile"></span><em class="label">엔터테인먼트엔터테인먼트</em></a>
             </li>
             <li>
               <a href="#none"><span class="fas fa-question-circle"></span><em class="label">그
@@ -168,21 +168,19 @@
       // 현재 슬라이드 라벨표시
       $swiperLabel.find('.label').eq(slideNow).addClass('on');
       
-      // pc 현재 슬라이드에 맞게 라벨 보여주기
+      // pc 현재 슬라이드 라벨표시
       $swiperSlide.on('mouseenter', function(e){
         slideNow = $swiperSlide.index($('.swiper-slide-active'));
 
-        console.log('touchstart', slideNow)
         if ( $(this).hasClass('swiper-slide-active') ) {
           $swiperLabel.find('.label').removeClass('on')
           $swiperLabel.find('.label').eq(slideNow).addClass('on');
         }
       })
 
-      // mobile 현재 슬라이드에 맞게 라벨 보여주기
+      // mobile 현재 슬라이드 라벨표시
       $swiperSlide.on('touchstart', function(e){
         $(document).on('touchend', function(e){
-          console.log('touchend')
           slideNow = $swiperSlide.index($('.swiper-slide-active'));
           setTimeout(function(){
             if ( $swiperSlide.hasClass('swiper-slide-active') ) {

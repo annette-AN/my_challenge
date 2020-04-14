@@ -226,37 +226,6 @@
       background-color: #fff;
     }
 
-    // .swiper-container > .label {
-    //   position: absolute;
-    //   top: 20px;
-    //   left: 0px;
-    //   min-width: 100px;
-    //   padding: 6px 20px;
-    //   height: 34px;
-    //   background-color: rgba(0,0,0,0.5);
-    //   text-align: center;
-    //   color: #fff;
-    //   z-index: 2;
-  
-    //   &:before {
-    //     content: '';
-    //     display: block;
-    //     position: absolute;
-    //     top: 0%;
-    //     left: 100%;
-    //     border: 17px solid transparent;
-    //     border-left: 17px solid rgba(0,0,0,0.5);
-    //   }
-
-    //   > li {
-    //     display: none;
-    //   }
-
-    //   > li.on {
-    //     display: block;
-    //   }
-    // }
-
     .swiper_label {
       overflow: hidden;
       position: absolute;
@@ -329,13 +298,14 @@
         display: inline-block;
         width: 30%;
         margin: 4px 0px;
+        vertical-align: top;
 
         &:before {
           content: '';
           display: block;
           position: absolute;
-          bottom: 44%;
-          right: 20%;
+          top: 8px;
+          right: 20px;
           width: 40px;
           height: 40px;
           border-radius: 50%;
@@ -588,17 +558,22 @@
 
     .label, .label_explane {
       display: block;
-      text-indent: 110px;
+      margin: 0px 50px 0px 108px;
+      word-break: break-all;
     }
 
     .label {
+      line-height: 20px;
       font-size: 18px;
       font-weight: bold;
       color: #5e5c68;
     }
 
     .label_explane {
-      line-height: 16px;
+      overflow: hidden;
+      max-height: 54px;
+      margin-top: 4px;
+      line-height: 18px;
       font-size: 16px;
       color: #7c7c7c;
     }
@@ -612,13 +587,14 @@
       width: 34px;
       height: 34px;
       padding: 4px 0px 0px 4px;
-      background-color: #fff;
-
-      img {
-        width: 140px;
-      }
+      background: #fff url(../image/ico_star.png) no-repeat center 2px;
+      background-size: 28px;
     }
 
+    .favorites.on {
+      background: #fff url(../image/ico_star_on.png) no-repeat center 2px;
+      background-size: 28px;
+    }
   }
 }
 /* //content company list */
