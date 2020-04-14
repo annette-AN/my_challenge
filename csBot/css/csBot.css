@@ -76,19 +76,19 @@
 
 .home_screen .service .swiper-pagination-bullet-active { width: 36px; border-radius: 4px; background-color: #fff; }
 
-.home_screen .service .swiper-container > .label { position: absolute; top: 20px; left: 0px; min-width: 100px; padding: 6px 20px; height: 34px; background-color: rgba(0, 0, 0, 0.5); text-align: center; color: #fff; z-index: 2; }
+.home_screen .service .swiper_label { overflow: hidden; position: absolute; top: 55px; left: 0px; min-width: 100px; padding: 0px 17px 0px 0px; height: 34px; text-align: center; color: #fff; z-index: 1; }
 
-.home_screen .service .swiper-container > .label:before { content: ''; display: block; position: absolute; top: 0%; left: 100%; border: 17px solid transparent; border-left: 17px solid rgba(0, 0, 0, 0.5); }
+.home_screen .service .swiper_label .label { padding: 6px 20px; background-color: rgba(0, 0, 0, 0.5); }
 
-.home_screen .service .swiper-container > .label > li { display: none; }
-
-.home_screen .service .swiper-container > .label > li.on { display: block; }
+.home_screen .service .swiper_label .label:before { content: ''; display: block; position: absolute; top: 0px; left: calc(100% - 17px); border: 17px solid transparent; border-left: 17px solid rgba(0, 0, 0, 0.5); }
 
 .home_screen .service .recent_list li { display: inline-block; width: 100%; height: 150px; }
 
 .home_screen .service .recent_list li a { display: block; height: 100%; text-align: center; }
 
 .home_screen .service .recent_list li a img { width: 100%; min-height: 150px; }
+
+.home_screen .service .recent_list .company_name { position: absolute; display: block; top: 25px; left: 0px; min-width: 100px; height: 34px; padding: 6px 20px; text-align: center; color: #fff; }
 
 .home_screen .service .sub_more { position: absolute; top: 14px; right: 5px; }
 

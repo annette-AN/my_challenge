@@ -290,8 +290,8 @@
 .chatAside.aside_show {display:block; width:335px;}
 .chatAside.aside_hide {display:block; min-width:0; height:calc(100% - 2px); margin-left:50px;}
 /* 200214 애니메이션 삭제 */
-/* 200305 AMR height */
-.chatAside > div {height: 100%; transform: translateZ(0);}
+/* 200414 AMR chatAside 속성과 동일하게 해야함 (fixed제외) */
+.chatAside > div {position: fixed; left: 51px; bottom: 57px; width: 335px; height: calc(100% - 58px);}
 
 /* 200214 AMR ipt_txt */
 .ipt_txt{display:block; width: 100%; height:32px; padding:0 5px; color:#403738; font-size:13px; border:1px solid rgba(0,0,0,0.2); border-radius:5px; background:#fff; transition:all 0.3s ease-out;}
@@ -324,7 +324,8 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .radioBox input[type="radio"]:checked + label:before{content:'\2714\fe0e'; color:#fff;}
 .chatAside .radioBox input[type="radio"]:disabled + label:before{background:rgba(0,0,0,0.1);}
 
-.chatAside .chatAside_hd {position:relative; top:0; left:0; width:100%; height:50px; border-bottom:1px solid #ebeaef; background:#fff; z-index:5555;}
+/* 추가 200414 AMR border-radius */
+.chatAside .chatAside_hd {position:relative; top:0; left:0; width:100%; height:50px; border-bottom:1px solid #ebeaef; border-radius: 10px 10px 0px 0px; background:#fff; z-index:5555;}
 .chatAside .chatAside_hd h3 {position:relative; float:left; height:50px; padding:0 0 0 15px; font-size:18px; font-weight:500; line-height:50px; letter-spacing:-1px;}
 .chatAside .chatAside_hd .btn_chatAside_close {overflow:hidden; position:absolute; top:50%; right:10px; width:25px; height:25px; margin:-13px 0 0 0; text-indent:-99px; border:none; cursor:pointer; background:none; opacity:0.5; transition:all 0.3s ease-out;}
 .chatAside .chatAside_hd .btn_chatAside_close:hover {opacity:1.0; transition:all 0.3s ease-out;}
@@ -333,7 +334,8 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chatAside .chatAside_hd .btn_chatAside_close:before {transform:rotate(-45deg);}
 .chatAside .chatAside_hd .btn_chatAside_close:after {transform:rotate(45deg);}
 
-.chatAside .chatAside_bd {display:block; position:relative; width:calc(100% - 20px); height: calc(100% - 70px); padding:10px; vertical-align:top; background:#f7f8fa;}
+/* 추가 200414 AMR border-radius */
+.chatAside .chatAside_bd {display:block; position:relative; width:calc(100% - 20px); height: calc(100% - 70px); padding:10px; border-radius: 0px 0px 10px 10px; vertical-align:top; background:#f7f8fa;}
 /* 200304 AMR stn_area */
 .chatAside .chatAside_bd .stn_area {overflow: auto; height: calc(100% - 50px); margin: 0px 0px 10px 0px;}
 .chatAside .chatAside_bd .stnBox {display:block; overflow:hidden; margin:0 0 15px 0; border-radius:5px; box-shadow:0 1px 2px rgba(0,0,0,0.2); background:#fff;}
@@ -556,6 +558,8 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     #btn_goChat {bottom:0px; width:52px; padding:50px 0 0 0; }
 
     .chatAside.aside_show {left:0; bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
+
+    .chatAside > div {left:0; bottom:0; width:calc(100% - 2px); height:calc(100% - 2px);}
 }
 
 /* 공통 */
