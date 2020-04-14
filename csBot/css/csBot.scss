@@ -587,16 +587,16 @@
       top: 0px;
       right: 0px;
       width: 50px;
-      height: 40px;
+      height: 50px;
       padding: 4px 0px 0px 4px;
       border-radius: 0px 20px 0px 0px;
       background: pink url(../image/ico_star.png) no-repeat 6px center;
-      background-size: 28px;
+      background-size: 30px;
     }
 
     .favorites.on {
-      background: #fff url(../image/ico_star_on.png) no-repeat center 2px;
-      background-size: 28px;
+      background: #fff url(../image/ico_star_on.png) no-repeat 6px center;
+      background-size: 30px;
     }
   }
 }

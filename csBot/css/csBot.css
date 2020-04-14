@@ -181,9 +181,9 @@
 
 .companies .horizon_list .label_explane { overflow: hidden; max-height: 54px; margin-top: 4px; line-height: 18px; font-size: 16px; color: #7c7c7c; }
 
-.companies .horizon_list .favorites { overflow: hidden; display: inline-block; position: absolute; top: 10px; right: 14px; top: 0px; right: 0px; width: 50px; height: 40px; padding: 4px 0px 0px 4px; border-radius: 0px 20px 0px 0px; background: pink url(../image/ico_star.png) no-repeat 6px center; background-size: 28px; }
+.companies .horizon_list .favorites { overflow: hidden; display: inline-block; position: absolute; top: 10px; right: 14px; top: 0px; right: 0px; width: 50px; height: 50px; padding: 4px 0px 0px 4px; border-radius: 0px 20px 0px 0px; background: pink url(../image/ico_star.png) no-repeat 6px center; background-size: 30px; }
 
-.companies .horizon_list .favorites.on { background: #fff url(../image/ico_star_on.png) no-repeat center 2px; background-size: 28px; }
+.companies .horizon_list .favorites.on { background: #fff url(../image/ico_star_on.png) no-repeat 6px center; background-size: 30px; }
 
 /* //content company list */
 /* //defult */
