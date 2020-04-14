@@ -161,7 +161,7 @@
 
 .companies .selectbox { width: 150px; }
 
-.companies .selectbox .select { width: 100%; font-size: 16px; border: 1px solid #e2e2f0; border-radius: 4px; padding: 8px 12px; }
+.companies .selectbox .select { width: 100%; font-size: 16px; border: 1px solid #e2e2f0; border-radius: 4px; padding: 8px 12px; background: url(../image/ico_sortDown_select.png) no-repeat right 10px center; background-size: 15px; }
 
 .companies .selectbox .select:focus { border-color: #275791; }
 

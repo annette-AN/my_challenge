@@ -391,7 +391,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .chat_order .check_order .title {font-size: 16px; font-weight: bold;}
 .chat_order .check_order .title em {display: block; font-size: 11px;}
 .chat_order .check_order ul li {margin: 16px 0px; font-size: 15px;}
-.chat_order .check_order ul li > span {display: inline-block; min-width: 100px; padding: 0px 5px 0px 0px; vertical-align: top; letter-spacing: 1px; text-align: right;}
+.chat_order .check_order ul li > span {display: inline-block; min-width: 100px; padding: 0px 5px 0px 0px; vertical-align: top; text-align: right;}
 .chat_order .check_order ul li > em {color: #000;}
 .chat_order .check_order ul li > p {display: inline-block; width: calc(100% - 120px); vertical-align: top; color: #000;}
 .chat_order .check_order ul li > p > em {display: block;}

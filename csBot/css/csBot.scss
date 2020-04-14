@@ -518,6 +518,8 @@
       border: 1px solid #e2e2f0;
       border-radius: 4px;
       padding: 8px 12px;
+      background: url(../image/ico_sortDown_select.png) no-repeat right 10px center;
+      background-size: 15px;
 
       &:focus {
         border-color: #275791;
