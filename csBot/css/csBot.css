@@ -200,7 +200,7 @@
 
 .cs_talk li.bot div.time { position: absolute; bottom: 0%; left: calc(100% + 4px); width: 60px; }
 
-.cs_talk li.bot div.time .time { font-size: 11px; color: #9f9f9f; }
+.cs_talk li.bot div.time .time { font-size: 11px; }
 
 .cs_talk li.user { overflow: hidden; padding: 0px 10px 0px 80px; text-align: right; }
 
@@ -208,7 +208,7 @@
 
 .cs_talk li.user .message div.time { position: absolute; bottom: 0%; right: calc(100% + 4px); width: 60px; }
 
-.cs_talk li.user .message div.time .time { font-size: 11px; color: #9f9f9f; }
+.cs_talk li.user .message div.time .time { font-size: 11px; color: #5e5c68; }
 
 .cs_talk .message { position: relative; display: inline-block; padding: 8px 8px 7px 10px; text-align: left; word-break: break-all; }
 
