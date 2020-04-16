@@ -11,7 +11,7 @@
   <title>chatting</title>
 </head>
 
-<body>
+<body class="c_btm_hide"> <!-- [A] body.c-btm-hide (#connect_btm 없음) -->
 <!-- connect_wrap -->
 <div id="connect_wrap">
   <div class="connect_top">
@@ -35,9 +35,6 @@
               </div>
             </div>
           </li>
-          <li class="bot">
-            <button type="button" class="chat_out">채팅종료(눌러주세요)</button>
-          </li>
           <li class="user">
             <div class="message">
               <p class="text">
@@ -59,6 +56,13 @@
       </div>
       <!-- //cschat_mid -->
       <div class="cschat_btm">
+        <div class="user_menu">
+          <button type="button" class="menu_open"><em class="text_hide">메뉴 보기</em></button>
+          <ul class="menu">
+            <li><a href="#none" id="change_consultant">상담사 전환</a></li>
+            <li><a href="#none" id="chat_out">상담 종료</a></li>
+          </ul>
+        </div>
         <div class="user_writes">
           <textarea name="user_message" id="" rows="1" class="textbox_basic"></textarea>
           <button type="button" id="text_send" class="text_hide">글 남기기</button>
@@ -105,7 +109,6 @@ okey~? okey~</textarea>
   </div>
   <!-- //content -->
 
-  <!-- [A] chat_user는 connect_btm 없음
   <div id="connect_btm">
     <div id="wrapper">
       <div class="lefe_side">
@@ -118,7 +121,7 @@ okey~? okey~</textarea>
         <a href="#none"><span class="fas fa-cog"></span><em class="label">설정</em></a>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- //connect_btm -->
 </div>
 <!-- //connect_wrap -->
@@ -230,7 +233,7 @@ okey~? okey~</textarea>
     });
 
     /* 상담원 별점 평가 open */
-    $('.cschat_mid .chat_out').on('click', function () {
+    $('#chat_out').on('click', function () {
       $('.cschat_body').addClass('backdrop');
       /* 특정 dialog open */
       $('#supporter_evaluation').addClass('on');

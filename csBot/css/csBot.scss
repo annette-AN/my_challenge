@@ -13,6 +13,18 @@
 */
 
 /* defult */
+body.c_btm_hide {
+  #connect_wrap {
+    #content {
+      height: calc(100% - 60px);
+    }
+  }
+
+  #connect_btm {
+    display: none;
+  }
+}
+
 .text_hide {
   line-height: 0px;
   font-size: 0px;
@@ -465,9 +477,75 @@
   padding: 0px 12px 8px 12px;
   font-size: 16px;
 
+  .user_menu {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+
+    .menu_open {
+      width: 40px;
+      height: 40px;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 19px;
+        left: 10px;
+        width: calc(100% - 19px);
+        height: 3px;
+        background-color: #00a0c8;
+
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 19px;
+        width: 3px;
+        height: calc(100% - 19px);
+        background-color: #00a0c8;
+
+      }
+    }
+
+    .menu {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 0px;
+      width: 100px;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 10px;
+        border: 10px solid transparent;
+        border-top-color: #e2e2f0;
+      }
+
+      li {
+        a {
+          display: block;
+          padding: 6px 10px;
+          font-size: 15px;
+        }
+      }
+
+      li:nth-child(2n) {
+        background-color: #f7f8fa;
+      }
+    }
+  }
+
   .user_writes {
     position: relative;
-    width: calc(100% - 40px);
+    display: inline-block;
+    width: calc(100% - 80px);
     height: 100%;
 
     button {
@@ -619,7 +697,8 @@
       position: absolute;
       bottom: 0%;
       left: calc(100% + 4px);
-      width: 60px;
+      width: 56px;
+      text-align: center;
       
       .time {
         font-size: 11px;
@@ -642,7 +721,8 @@
         position: absolute;
         bottom: 0%;
         right: calc(100% + 4px);
-        width: 60px;
+        width: 56px;
+        text-align: center;
         
         .time {
           font-size: 11px;

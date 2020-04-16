@@ -13,6 +13,10 @@
 }
 */
 /* defult */
+body.c_btm_hide #connect_wrap #content { height: calc(100% - 60px); }
+
+body.c_btm_hide #connect_btm { display: none; }
+
 .text_hide { line-height: 0px; font-size: 0px; text-indent: -999px; }
 
 .chevron_prev { padding: 0px; width: 40px; height: 40px; background: url(../image/arrow_left.png) no-repeat center; background-size: 12px auto; }
@@ -157,7 +161,23 @@
 
 .cschat_btm { position: absolute; left: 0px; bottom: 0px; width: 100%; padding: 0px 12px 8px 12px; font-size: 16px; }
 
-.cschat_btm .user_writes { position: relative; width: calc(100% - 40px); height: 100%; }
+.cschat_btm .user_menu { display: inline-block; position: relative; vertical-align: top; }
+
+.cschat_btm .user_menu .menu_open { width: 40px; height: 40px; }
+
+.cschat_btm .user_menu .menu_open:before { content: ''; display: block; position: absolute; top: 19px; left: 10px; width: calc(100% - 19px); height: 3px; background-color: #00a0c8; }
+
+.cschat_btm .user_menu .menu_open:after { content: ''; display: block; position: absolute; top: 10px; left: 19px; width: 3px; height: calc(100% - 19px); background-color: #00a0c8; }
+
+.cschat_btm .user_menu .menu { position: absolute; bottom: calc(100% + 10px); left: 0px; width: 100px; -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2); }
+
+.cschat_btm .user_menu .menu:before { content: ''; display: block; position: absolute; top: 100%; left: 10px; border: 10px solid transparent; border-top-color: #e2e2f0; }
+
+.cschat_btm .user_menu .menu li a { display: block; padding: 6px 10px; font-size: 15px; }
+
+.cschat_btm .user_menu .menu li:nth-child(2n) { background-color: #f7f8fa; }
+
+.cschat_btm .user_writes { position: relative; display: inline-block; width: calc(100% - 80px); height: 100%; }
 
 .cschat_btm .user_writes button { position: absolute; top: 0px; left: calc(100% + 2px); width: 40px; height: 40px; background: #00a0c8 url(../image/ico_send_trans.png) no-repeat; background-size: contain; }
 
@@ -198,7 +218,7 @@
 
 .cs_talk li.bot .message { border-radius: 0px 20px 0px 20px; background-color: #f7f8fa; }
 
-.cs_talk li.bot div.time { position: absolute; bottom: 0%; left: calc(100% + 4px); width: 60px; }
+.cs_talk li.bot div.time { position: absolute; bottom: 0%; left: calc(100% + 4px); width: 56px; text-align: center; }
 
 .cs_talk li.bot div.time .time { font-size: 11px; }
 
@@ -206,7 +226,7 @@
 
 .cs_talk li.user .message { border-radius: 0px 10px 0px 10px; background-color: #00a0c8; color: #fff; }
 
-.cs_talk li.user .message div.time { position: absolute; bottom: 0%; right: calc(100% + 4px); width: 60px; }
+.cs_talk li.user .message div.time { position: absolute; bottom: 0%; right: calc(100% + 4px); width: 56px; text-align: center; }
 
 .cs_talk li.user .message div.time .time { font-size: 11px; color: #5e5c68; }
 
