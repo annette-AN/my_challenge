@@ -60,7 +60,7 @@
 .new_message {
   position: absolute;
   top: 42px;
-  right: 10px;
+  right: 14px;
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -82,7 +82,7 @@
 
 .chatting {
   margin: 10px 0px;
-  
+
   li {
     position: relative;
   }
@@ -94,7 +94,7 @@
   a {
     // border: 1px solid #000;
     display: block;
-    padding: 14px 50px 14px 84px;
+    padding: 14px 54px 14px 84px;
     
     .label, .last_text {
       display: block;

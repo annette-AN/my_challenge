@@ -25,7 +25,7 @@
 
 .textbox_basic + .fa-microphone { position: absolute; top: 10px; right: 14px; font-size: 20px; }
 
-.new_message { position: absolute; top: 42px; right: 10px; width: 22px; height: 22px; border-radius: 50%; background-color: #e03a3e; text-align: center; }
+.new_message { position: absolute; top: 42px; right: 14px; width: 22px; height: 22px; border-radius: 50%; background-color: #e03a3e; text-align: center; }
 
 .new_message .message_num { color: #fff; }
 
@@ -39,7 +39,7 @@
 
 .chatting li + li { margin: 4px 0px 0px 0px; }
 
-.chatting a { display: block; padding: 14px 50px 14px 84px; }
+.chatting a { display: block; padding: 14px 54px 14px 84px; }
 
 .chatting a .label, .chatting a .last_text { display: block; }
 
