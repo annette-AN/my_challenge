@@ -180,21 +180,37 @@
 
 .cs_talk .date:before { content: ''; display: block; position: absolute; top: 50%; left: 0%; width: 100%; height: 1px; background-color: #ececfa; }
 
-.cs_talk .date em { display: inline-block; position: relative; padding: 0px 10px; background-color: #f7f8fa; color: #403738; }
+.cs_talk .date em { display: inline-block; position: relative; padding: 0px 10px; background-color: #fff; color: #403738; }
 
 .cs_talk .date.chatend em:first-child { display: none; }
 
-.cs_talk li.bot { overflow: hidden; position: relative; min-height: 34px; padding: 0px 40px 0px 55px; text-align: left; }
+.cs_talk .system_entry { position: relative; text-align: center; font-size: 12px; }
+
+.cs_talk .system_entry:before { content: ''; display: block; position: absolute; top: 50%; left: 0%; width: 100%; height: 1px; background-color: #ececfa; }
+
+.cs_talk .system_entry span { font-weight: bold; }
+
+.cs_talk .system_entry em { display: inline-block; position: relative; padding: 0px 10px; background-color: #fff; color: #403738; }
+
+.cs_talk li.bot { overflow: hidden; position: relative; min-height: 34px; padding: 0px 65px 0px 55px; text-align: left; }
 
 .cs_talk li.bot:before { content: ''; display: block; position: absolute; top: 0px; left: 10px; width: 34px; height: 34px; border-radius: 8px; background: white url(../image/sample/bot_profile.png) no-repeat center; background-size: cover; }
 
 .cs_talk li.bot .message { border-radius: 0px 20px 0px 20px; background-color: #f7f8fa; }
 
+.cs_talk li.bot div.time { position: absolute; bottom: 0%; left: calc(100% + 4px); width: 60px; }
+
+.cs_talk li.bot div.time .time { font-size: 11px; color: #9f9f9f; }
+
 .cs_talk li.user { overflow: hidden; padding: 0px 10px 0px 80px; text-align: right; }
 
 .cs_talk li.user .message { border-radius: 0px 10px 0px 10px; background-color: #00a0c8; color: #fff; }
 
-.cs_talk .message { display: inline-block; padding: 8px 8px 7px 10px; text-align: left; word-break: break-all; }
+.cs_talk li.user .message div.time { position: absolute; bottom: 0%; right: calc(100% + 4px); width: 60px; }
+
+.cs_talk li.user .message div.time .time { font-size: 11px; color: #9f9f9f; }
+
+.cs_talk .message { position: relative; display: inline-block; padding: 8px 8px 7px 10px; text-align: left; word-break: break-all; }
 
 /* //content cschat */
 /* content company list */
