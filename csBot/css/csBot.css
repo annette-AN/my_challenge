@@ -2,6 +2,13 @@
 /* AMR 
   backgroud : rgba 
   color : #
+
+  color: #5e5c68; 기본
+  color: #363636; 타이틀
+  color: #9f9f9f; 서브타이틀
+  color: #275791; 파랑
+  color: #e03a3e; 빨강
+}
 */
 /* defult */
 .text_hide { line-height: 0px; font-size: 0px; text-indent: -999px; }
@@ -18,7 +25,34 @@
 
 .textbox_basic + .fa-microphone { position: absolute; top: 10px; right: 14px; font-size: 20px; }
 
+.new_message { position: absolute; top: 42px; right: 10px; width: 22px; height: 22px; border-radius: 50%; background-color: #e03a3e; text-align: center; }
+
+.new_message .message_num { color: #fff; }
+
+.new_message.hide { display: none; }
+
+.chat_time { font-size: 13px; }
+
+.chatting li { position: relative; }
+
+.chatting li + li { margin: 4px 0px 0px 0px; }
+
+.chatting a { display: block; padding: 14px 50px 14px 84px; }
+
+.chatting a .label, .chatting a .last_text { display: block; }
+
+.chatting a .label { font-size: 15px; font-weight: bold; color: #363636; }
+
+.chatting a .last_text { background-color: #fff; overflow: hidden; height: 40px; margin: 4px 0px 0px 0px; color: #5e5c68; }
+
+.chatting .image { overflow: hidden; position: absolute; top: 17px; left: 10px; width: 56px; height: 56px; border-radius: 28px; }
+
+.chatting .image img { position: absolute; top: 0px; left: 50%; -webkit-transform: translate(-50%, 0%); transform: translate(-50%, 0%); min-width: 100%; height: 100%; }
+
+.chatting .chat_time { position: absolute; top: 10px; right: 10px; }
+
 /* //defult */
+/* connect 상, 하단 바 */
 #connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
 
 #connect_wrap .connect_top { overflow: hidden; height: 60px; padding: 22px 0px 0px 0px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
@@ -51,6 +85,7 @@
 
 #connect_wrap #connect_btm #wrapper .chat_list .fas, #connect_wrap #connect_btm #wrapper .chat_list .far { padding: 13px 0px 0px 0px; font-size: 30px; color: #fff; -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
 
+/* //connect 상, 하단 바 */
 /* content home screen */
 .home_screen { padding: 16px; }
 
@@ -181,11 +216,13 @@
 
 .companies .horizon_list .label_explane { overflow: hidden; max-height: 54px; margin-top: 4px; line-height: 18px; font-size: 16px; color: #7c7c7c; }
 
-.companies .horizon_list .favorites { overflow: hidden; display: inline-block; position: absolute; top: 10px; right: 14px; top: 0px; right: 0px; width: 50px; height: 50px; padding: 4px 0px 0px 4px; border-radius: 0px 20px 0px 0px; background: #fff url(../image/ico_star.png) no-repeat 6px 12px; background-size: 30px; }
+.companies .horizon_list .favorites { overflow: hidden; display: inline-block; position: absolute; top: 0px; right: 0px; width: 50px; height: 50px; padding: 4px 0px 0px 4px; border-radius: 0px 20px 0px 0px; background: #fff url(../image/ico_star.png) no-repeat 6px 12px; background-size: 30px; }
 
 .companies .horizon_list .favorites.on { background: #fff url(../image/ico_star_on.png) no-repeat 6px 12px; background-size: 30px; }
 
 /* //content company list */
+/* content chatting_list */
+/* //content chatting_list */
 /* //defult */
 #supporter_evaluation .text_box { padding: 80px 0px 40px 0px; text-align: center; }
 
