@@ -203,6 +203,7 @@
       text-align: center;
 
       > div {
+        position: relative;
         display: inline-block;
         height: 100%;
 
@@ -247,6 +248,12 @@
           color: #fff;
           transform: rotateY(180deg);
         }
+      }
+
+      .chat_list + .new_message {
+        position: absolute;
+        top: 0px;
+        right: 0px;
       }
     }
   }

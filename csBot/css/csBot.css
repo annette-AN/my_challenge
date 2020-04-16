@@ -73,7 +73,7 @@
 
 #connect_wrap #connect_btm #wrapper { overflow: hidden; height: 100%; padding: 0px 16px; text-align: center; }
 
-#connect_wrap #connect_btm #wrapper > div { display: inline-block; height: 100%; }
+#connect_wrap #connect_btm #wrapper > div { position: relative; display: inline-block; height: 100%; }
 
 #connect_wrap #connect_btm #wrapper > div > a { display: block; height: 100%; padding: 0px 20px; }
 
@@ -88,6 +88,8 @@
 #connect_wrap #connect_btm #wrapper .chat_list { background: url(../image/circle_bg.png) no-repeat center 4px; background-size: 50px; }
 
 #connect_wrap #connect_btm #wrapper .chat_list .fas, #connect_wrap #connect_btm #wrapper .chat_list .far { padding: 13px 0px 0px 0px; font-size: 30px; color: #fff; -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
+
+#connect_wrap #connect_btm #wrapper .chat_list + .new_message { position: absolute; top: 0px; right: 0px; }
 
 /* //connect 상, 하단 바 */
 /* content home screen */
