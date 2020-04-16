@@ -232,6 +232,11 @@ okey~? okey~</textarea>
       // }
     });
 
+    /* cschat_btm 메뉴 open */
+    $('.cschat_btm .menu_open').on('click', function(){
+      $(this).siblings('.menu').toggleClass('on');
+    });
+
     /* 상담원 별점 평가 open */
     $('#chat_out').on('click', function () {
       $('.cschat_body').addClass('backdrop');

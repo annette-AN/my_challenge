@@ -512,6 +512,7 @@ body.c_btm_hide {
     }
 
     .menu {
+      display: none;
       position: absolute;
       bottom: calc(100% + 10px);
       left: 12px;
@@ -537,9 +538,13 @@ body.c_btm_hide {
         }
       }
 
-      li:nth-child(2n) {
-        background-color: #f7f8fa;
+      li + li {
+        border-top: 1px solid #e2e2f0;
       }
+    }
+
+    .menu.on {
+      display: block;
     }
   }
 

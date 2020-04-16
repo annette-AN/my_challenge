@@ -15,7 +15,9 @@ address,caption,cite,code,dfn,em,th,var {font-style:normal; font-weight:normal;}
 ol,ul,li {list-style:none;}
 abbr,acronym {border:none;}
 hr {display:none;}
-a {text-decoration:none; cursor:pointer; font-family:"NotoSansKR", sans-serif;}
+a {text-decoration:none; cursor:pointer; font-family:"NotoSansKR", sans-serif; -webkit-tap-highlight-color:transparent;}
+
+출처: https://htglss.tistory.com/123 [행복하기]}
 a:link,a:visited {text-decoration:none;}
 a:hover,a:active,a:focus {text-decoration:none;}
 textarea {overflow:auto; resize: none; border: none;}
