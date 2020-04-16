@@ -125,7 +125,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .home_screen .service .swiper_label .label { display: none; min-height: 34px; padding: 6px 20px; background-color: rgba(0, 0, 0, 0.5); }
 
-.home_screen .service .swiper_label .label:before { content: ''; display: none; position: absolute; top: 0px; left: calc(100% - 17px); border: 17px solid transparent; border-left: 17px solid rgba(0, 0, 0, 0.5); }
+.home_screen .service .swiper_label .label:before { content: ''; display: none; position: absolute; top: 0px; left: calc(100% - 16px); border: 17px solid transparent; border-left: 17px solid rgba(0, 0, 0, 0.5); }
 
 .home_screen .service .swiper_label .label.on { display: block; }
 
