@@ -8,6 +8,8 @@
   color: #9f9f9f; 서브타이틀
   color: #275791; 파랑
   color: #e03a3e; 빨강
+
+  border: 1px solid #e2e2f0;
 }
 */
 /* defult */
@@ -47,7 +49,7 @@
 
 .chatting a .last_text { background-color: #fff; overflow: hidden; height: 40px; margin: 4px 0px 0px 0px; color: #5e5c68; }
 
-.chatting .image { overflow: hidden; position: absolute; top: 17px; left: 10px; width: 56px; height: 56px; border-radius: 28px; }
+.chatting .image { overflow: hidden; position: absolute; top: 17px; left: 10px; width: 56px; height: 56px; border: 1px solid #e2e2f0; border-radius: 28px; }
 
 .chatting .image img { position: absolute; top: 0px; left: 50%; -webkit-transform: translate(-50%, 0%); transform: translate(-50%, 0%); min-width: 100%; height: 100%; }
 
