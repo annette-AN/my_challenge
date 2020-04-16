@@ -29,7 +29,7 @@
 
 .new_message { position: absolute; top: 42px; right: 14px; width: 22px; height: 22px; border-radius: 50%; background-color: #e03a3e; text-align: center; }
 
-.new_message .message_num { color: #fff; }
+.new_message .message_num { line-height: 22px; color: #fff; }
 
 .new_message.hide { display: none; }
 
