@@ -67,6 +67,8 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .image img { position: absolute; top: 0px; left: 50%; -webkit-transform: translate(-50%, 0%); transform: translate(-50%, 0%); min-width: 100%; height: 100%; }
 
+.btn_chat { display: inline-block; background-color: #dce6f2; }
+
 /* //defult */
 /* connect 상, 하단 바 */
 #connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
@@ -335,7 +337,11 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_menu .service .questions .q_answer p { text-align: left; }
 
-.service_home .service_menu .service .questions .q_chat { display: inline-block; margin: 8px 0px; padding: 5px 50px; background-color: #dce6f2; }
+.service_home .service_menu .service .btn_chat { margin: 8px 0px; padding: 5px 50px; }
+
+.service_home .service_menu .service .btn_other { text-align: center; }
+
+.service_home .service_menu .service .btn_other .btn_chat { margin: 20px 0px; padding: 8px 50px; }
 
 .service_home .service_category { padding: 16px 10px; }
 

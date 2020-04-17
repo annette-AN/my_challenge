@@ -168,6 +168,11 @@ body.c_btm_hide {
   }
 }
 
+.btn_chat {
+  display: inline-block;
+  background-color: #dce6f2;
+}
+
 /* //defult */
 
 /* connect 상, 하단 바 */
@@ -1033,12 +1038,19 @@ body.c_btm_hide {
             text-align: left;
           }
         }
+      }
 
-        .q_chat {
-          display: inline-block;
-          margin: 8px 0px;
-          padding: 5px 50px;
-          background-color: #dce6f2;
+      .btn_chat {
+        margin: 8px 0px;
+        padding: 5px 50px;
+      }
+
+      .btn_other {
+        text-align: center;
+
+        .btn_chat {
+          margin: 20px 0px;
+          padding: 8px 50px;
         }
       }
     }
