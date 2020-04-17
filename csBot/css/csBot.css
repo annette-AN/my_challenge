@@ -333,7 +333,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_menu .service .questions li + li { margin: 10px 0px 0px 0px; }
 
-.service_home .service_menu .service .questions .question { display: block; width: 100%; padding: 14px 10px; border-bottom: 2px solid #e2e2f0; border-radius: 20px 20px 0px 0px; font-size: 15px; text-align: left; }
+.service_home .service_menu .service .questions .question { display: block; width: 100%; padding: 14px; border-bottom: 2px solid #e2e2f0; border-radius: 20px 20px 0px 0px; font-size: 15px; text-align: left; }
 
 .service_home .service_menu .service .questions .q_answer { display: none; padding: 8px 10px; border-radius: 0px 0px 20px 20px; background-color: #f7f8fa; color: #5e5c68; text-align: center; }
 
@@ -349,7 +349,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_category li { text-align: center; }
 
-.service_home .service_category button { display: block; width: 100%; padding: 5px 0px; border-radius: 16px; border: 1px solid #3da4fa; color: #3da4fa; }
+.service_home .service_category button { display: block; width: 100%; padding: 10px 0px; border-radius: 28px; border: 1px solid #3da4fa; color: #3da4fa; }
 
 .service_home .service_category button.on { background-color: #3da4fa; color: #fff; }
 
