@@ -89,9 +89,9 @@ body.c_btm_hide #connect_btm { display: none; }
 
 #connect_wrap .connect_top .chevron_prev { position: absolute; top: 10px; left: 10px; }
 
-#connect_wrap #content { overflow: auto; height: calc(100% - 130px); background-color: white; }
+#connect_wrap #content { overflow: auto; height: calc(100% - 140px); background-color: white; }
 
-#connect_wrap #connect_btm { height: 70px; padding: 4px 0px 0px 0px; border-top: 1px solid #e2e2f0; background-color: #fff; }
+#connect_wrap #connect_btm { height: 80px; padding: 8px 0px 0px 0px; border-top: 1px solid #e2e2f0; background-color: #fff; }
 
 #connect_wrap #connect_btm #wrapper { overflow: hidden; height: 100%; padding: 0px 16px; text-align: center; }
 
