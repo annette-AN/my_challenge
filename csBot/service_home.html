@@ -118,6 +118,50 @@
                   <button type="button" class="btn_chat q_chat">챗봇 상담</button>
                 </div>
               </li>
+              <li>
+                <button type="button" class="question">공휴일이나 일요일에도 배달이 가능한가요?</button>
+                <div class="q_answer">
+                  <p>
+                    공휴일과 일요일은 택배사 휴무로 방문이 어려우니 양해 바랍니다. 더 나은 서비스를 제공하기 위해 최선을 다하겠습니다.<br>
+                    더 자세한 내용이 궁금하신 경우, 아래의 버튼을 눌러주세요.
+                  </p>
+                  <button type="button" class="btn_chat q_chat">챗봇 상담</button>
+                </div>
+              </li>
+              <li>
+                <button type="button" class="question">무인락커 예약 사용은 어떻게 하나요?</button>
+                <div class="q_answer">
+                  <p>
+                    CJ대한통운 택배 App 설치 후, 메뉴버튼에서 ‘무인락커 등록’을 선택합니다.<br>
+                    사용 가능한 무인락커를 지도에서 선택, 보내는분, 받는분, 상품정보를 입력하고 상품 크기에 맞는 무인락커를 선택하시면 택배 예약이 완료됩니다. <br>
+                    ※ 사용 가능한 무인락커란? (아파트 : 입주민 대상, 대학교 : 학생 대상, 여성안심택배 등 : 지역주민 대상)<br>
+                    더 자세한 내용이 궁금하신 경우, 아래의 버튼을 눌러주세요.
+                  </p>
+                  <button type="button" class="btn_chat q_chat">챗봇 상담</button>
+                </div>
+              </li>
+              <li>
+                <button type="button" class="question">공휴일이나 일요일에도 배달이 가능한가요?</button>
+                <div class="q_answer">
+                  <p>
+                    공휴일과 일요일은 택배사 휴무로 방문이 어려우니 양해 바랍니다. 더 나은 서비스를 제공하기 위해 최선을 다하겠습니다.<br>
+                    더 자세한 내용이 궁금하신 경우, 아래의 버튼을 눌러주세요.
+                  </p>
+                  <button type="button" class="btn_chat q_chat">챗봇 상담</button>
+                </div>
+              </li>
+              <li>
+                <button type="button" class="question">무인락커 예약 사용은 어떻게 하나요?</button>
+                <div class="q_answer">
+                  <p>
+                    CJ대한통운 택배 App 설치 후, 메뉴버튼에서 ‘무인락커 등록’을 선택합니다.<br>
+                    사용 가능한 무인락커를 지도에서 선택, 보내는분, 받는분, 상품정보를 입력하고 상품 크기에 맞는 무인락커를 선택하시면 택배 예약이 완료됩니다. <br>
+                    ※ 사용 가능한 무인락커란? (아파트 : 입주민 대상, 대학교 : 학생 대상, 여성안심택배 등 : 지역주민 대상)<br>
+                    더 자세한 내용이 궁금하신 경우, 아래의 버튼을 눌러주세요.
+                  </p>
+                  <button type="button" class="btn_chat q_chat">챗봇 상담</button>
+                </div>
+              </li>
             </ul>
             <!-- //questions -->
             <div class="btn_other">
@@ -163,11 +207,39 @@
       spaceBetween: 10,
     });
 
+    // 추가 AMR 200417 카테고리 클릭 시 버튼 색 변경
+    $('.service_category button').on('click', function(){
+      $('.service_category button').removeClass('on');
+      $(this).addClass('on');
+    });
+
     // 추가 AMR 200417 질문 클릭 시 답 open
     $('.question').on('click', function(){
       $(this).parent('li').toggleClass('on');
     });
 
+    // 추가 AMR 200417 기업 프로필 하단 스크롤 고정
+    function handleContentScroll() {
+      var contentTop = $('#content').offset().top;
+      var contentHeight = $('#content').height();
+      var menuTop = $('.service_menu').offset().top;
+      var serviceMenuTop = menuTop - contentTop;
+      console.log(serviceMenuTop)
+
+      $('#content').scroll(function(e){
+        // st = scrollTop
+        var st = $(this).scrollTop();
+
+        if ( st > 50 ) {
+          $(this).scrollTop(serviceMenuTop);
+          $('.service_home').addClass('scroll_effect');
+          $('.service_menu').css({'height': contentHeight + 'px'})
+        }
+      })
+
+    }
+
+    handleContentScroll()
 
   });
 </script>

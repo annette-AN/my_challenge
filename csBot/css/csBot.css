@@ -73,7 +73,7 @@ body.c_btm_hide #connect_btm { display: none; }
 /* connect 상, 하단 바 */
 #connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
 
-#connect_wrap .connect_top { overflow: hidden; height: 60px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
+#connect_wrap .connect_top { overflow: hidden; height: 60px; text-align: center; font-size: 16px; background-color: white; }
 
 #connect_wrap .connect_top .title em { margin: 0px 0px 0px 10px; font-size: 20px; font-weight: bold; }
 
@@ -307,7 +307,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home button { font-size: 14px; }
 
-.service_home .service_title { margin: 25px 0px; text-align: center; }
+.service_home .service_title { margin: 30px 0px 20px 0px; text-align: center; }
 
 .service_home .service_title .image { display: inline-block; width: 80px; height: 80px; -webkit-box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.2); }
 
@@ -325,17 +325,15 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_menu .service .questions { padding: 0px 16px; }
 
-.service_home .service_menu .service .questions li { border-radius: 20px; }
-
-.service_home .service_menu .service .questions li.on { -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2); box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2); }
+.service_home .service_menu .service .questions li { border-radius: 4px; -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2); }
 
 .service_home .service_menu .service .questions li.on .q_answer { display: block; }
 
 .service_home .service_menu .service .questions li + li { margin: 10px 0px 0px 0px; }
 
-.service_home .service_menu .service .questions .question { display: block; width: 100%; padding: 14px; border-bottom: 2px solid #e2e2f0; border-radius: 20px 20px 0px 0px; font-size: 15px; text-align: left; }
+.service_home .service_menu .service .questions .question { display: block; width: 100%; padding: 14px; border-radius: 4px; font-size: 15px; text-align: left; }
 
-.service_home .service_menu .service .questions .q_answer { display: none; padding: 8px 10px; border-radius: 0px 0px 20px 20px; background-color: #f7f8fa; color: #5e5c68; text-align: center; }
+.service_home .service_menu .service .questions .q_answer { display: none; padding: 8px 10px; border-radius: 0px 0px 4px 4px; background-color: #f7f8fa; color: #5e5c68; text-align: center; }
 
 .service_home .service_menu .service .questions .q_answer p { text-align: left; }
 
@@ -352,6 +350,9 @@ body.c_btm_hide #connect_btm { display: none; }
 .service_home .service_category button { display: block; width: 100%; padding: 10px 0px; border-radius: 28px; border: 1px solid #3da4fa; color: #3da4fa; }
 
 .service_home .service_category button.on { background-color: #3da4fa; color: #fff; }
+
+/* 스크롤 효과 */
+.service_home.scroll_effect .service_menu { overflow: auto; }
 
 /* //content service home */
 /* //모달 dialog */

@@ -190,7 +190,6 @@ body.c_btm_hide {
   .connect_top {
     overflow: hidden;
     height: 60px;
-    border-bottom: 1px solid #e2e2f0;
     text-align: center;
     font-size: 16px;
     background-color: rgba(255,255,255,1.0);
@@ -953,7 +952,7 @@ body.c_btm_hide {
   }
 
   .service_title {
-    margin: 25px 0px;
+    margin: 30px 0px 20px 0px;
     text-align: center;
 
     .image {
@@ -1004,12 +1003,11 @@ body.c_btm_hide {
         padding: 0px 16px;
 
         li {
-          border-radius: 20px;
+          border-radius: 4px;
+          box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.2);
         }
 
         li.on {
-          box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.2);
-
           .q_answer {
             display: block;
           }
@@ -1023,8 +1021,7 @@ body.c_btm_hide {
           display: block;
           width: 100%;
           padding: 14px;
-          border-bottom: 2px solid #e2e2f0;
-          border-radius: 20px 20px 0px 0px;
+          border-radius: 4px;
           font-size: 15px;
           text-align: left;
         }
@@ -1032,7 +1029,7 @@ body.c_btm_hide {
         .q_answer {
           display: none;
           padding: 8px 10px;
-          border-radius: 0px 0px 20px 20px;
+          border-radius: 0px 0px 4px 4px;
           background-color: #f7f8fa;
           color: #5e5c68;
           text-align: center;
@@ -1080,6 +1077,13 @@ body.c_btm_hide {
       background-color: #3da4fa;
       color: #fff;
     }
+  }
+}
+
+/* 스크롤 효과 */
+.service_home.scroll_effect {
+  .service_menu {
+    overflow: auto;
   }
 }
 /* //content service home */
