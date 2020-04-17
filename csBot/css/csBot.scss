@@ -8,6 +8,10 @@
   color: #275791; 파랑
   color: #e03a3e; 빨강
 
+  background: #f7f8fa; 밝은 회색
+  background: #3da4fa; 하늘
+  background: #dce6f2; 엹은 하늘
+
   border: 1px solid #e2e2f0;
 }
 */
@@ -877,7 +881,6 @@ body.c_btm_hide {
 }
 /* //content company list */
 
-/* //defult */
 #supporter_evaluation {
   .text_box {
     padding: 80px 0px 40px 0px;
@@ -938,6 +941,133 @@ body.c_btm_hide {
 }
 /* 모달 dialog */
 
+/* content service home */
+.service_home {
+
+  .service_title {
+    margin: 25px 0px;
+    text-align: center;
+
+    .image {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      box-shadow: 0px 0px 35px 0px rgba(0,0,0,0.2);
+    }
+
+    .image_desc {
+      margin: 10px 0px 0px 0px;
+
+      em {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      span {
+        display: block;
+        margin: 4px 0px 0px 0px;
+      }
+    }
+  }
+
+  .service_menu {
+    .btns {
+      overflow: hidden;
+
+      button {
+        float: left;
+        display: block;
+        width: 50%;
+        padding: 5px 0px;
+        border-bottom: 2px solid #e2e2f0;
+        font-size: 16px;
+        color: #e2e2f0;
+      }
+
+      button.on {
+        font-weight: bold;
+        color: #5e5c68;
+        border-bottom-color: #5e5c68;
+      }
+    }
+
+    .service {
+      .questions {
+        padding: 0px 16px;
+
+        li {
+          border-radius: 20px;
+        }
+
+        li.on {
+          box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.2);
+
+          .q_answer {
+            display: block;
+          }
+        }
+
+        li + li {
+          margin: 10px 0px 0px 0px;
+        }
+
+        .question {
+          display: block;
+          width: 100%;
+          padding: 8px 10px;
+          border-bottom: 2px solid #e2e2f0;
+          border-radius: 20px 20px 0px 0px;
+          font-size: 15px;
+          text-align: left;
+        }
+
+        .q_answer {
+          display: none;
+          padding: 8px 10px;
+          border-radius: 0px 0px 20px 20px;
+          background-color: #f7f8fa;
+          color: #5e5c68;
+          text-align: center;
+
+          p {
+            text-align: left;
+          }
+        }
+
+        .q_chat {
+          display: inline-block;
+          margin: 8px 0px;
+          padding: 5px 50px;
+          background-color: #dce6f2;
+        }
+      }
+    }
+  }
+
+  /* swiper design */
+  .service_category {
+    padding: 16px 10px;
+
+    li {
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 5px 0px;
+      border-radius: 16px;
+      border: 1px solid #3da4fa;
+      color: #3da4fa;
+    }
+
+    button.on {
+      background-color: #3da4fa;
+      color: #fff;
+    }
+  }
+}
+/* //content service home */
 
 /* //모달 dialog */
 

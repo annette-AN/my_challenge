@@ -28,7 +28,7 @@ br {background:none !important;}
 img {vertical-align:top;}
 a:focus, input:focus, textarea:focus, button:focus {outline:none !important;}
 /* 추가 200306 AMR border */
-button {border: none; cursor:pointer; background-color: #fff; -webkit-tap-highlight-color:transparent;}
+button {border: none; cursor:pointer; color: #363636; background-color: #fff; -webkit-tap-highlight-color:transparent;}
 
 /* input 기본 스타일 초기화 */
 input {-webkit-appearance:none; -moz-appearance:none; appearance:none;}
