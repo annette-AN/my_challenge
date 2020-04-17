@@ -54,6 +54,7 @@
         <div class="service">
           <div class="swiper-container service_category">
             <ul class="swiper-wrapper">
+              <!-- [D] 카테고리를 클릭하면 ul.questions 리스트가 바껴야합니다 -->
               <li class="swiper-slide"><button type="button" class="on">카테고리1</button></li>
               <li class="swiper-slide"><button type="button">카테고리 두번째</button></li>
               <li class="swiper-slide"><button type="button">카테고리3</button></li>
@@ -64,7 +65,9 @@
 
           <div>
             <ul class="questions">
-              <li class="">
+              <!-- [A] .question 을 클릭하면 .q_answer 가 보여집니다
+              하단 스크립트 -->
+              <li>
                 <button type="button" class="question">팬심 이용료는 얼마인가요팬심 이용료는 얼마인가요팬심 이용료는 얼마인가요?</button>
                 <div class="q_answer">
                   <p>
@@ -74,7 +77,7 @@
                   <button type="button" class="btn_chat q_chat">챗봇 상담</button>
                 </div>
               </li>
-              <li class="on">
+              <li>
                 <button type="button" class="question">택배를 신청했는데 방문은 언제쯤 해주시나요?</button>
                 <div class="q_answer">
                   <p>
@@ -148,16 +151,24 @@
 <script src="js/swiper.min.js"></script>
 <script>
   $(document).ready(function(){
-    var swiper = new Swiper('.service_category', {
-      slidesPerView: 2.5,
-      spaceBetween: 10,
-    });
-
     var $companies = $('.companies');
     $('.companies .favorites').on('click', function(e){
       e.preventdefault;
       $(this).toggleClass('on');
     });
+
+    // 추가 AMR 200417
+    var swiper = new Swiper('.service_category', {
+      slidesPerView: 2.5,
+      spaceBetween: 10,
+    });
+
+    // 추가 AMR 200417 질문 클릭 시 답 open
+    $('.question').on('click', function(){
+      $(this).parent('li').toggleClass('on');
+    });
+
+
   });
 </script>
 </body>

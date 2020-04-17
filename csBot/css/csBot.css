@@ -327,7 +327,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_menu .service .questions li { border-radius: 20px; }
 
-.service_home .service_menu .service .questions li.on { -webkit-box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2); box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2); }
+.service_home .service_menu .service .questions li.on { -webkit-box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.2); box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.2); }
 
 .service_home .service_menu .service .questions li.on .q_answer { display: block; }
 
