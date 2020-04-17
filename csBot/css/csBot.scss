@@ -948,6 +948,9 @@ body.c_btm_hide {
 
 /* content service home */
 .service_home {
+  button {
+    font-size: 14px;
+  }
 
   .service_title {
     margin: 25px 0px;
@@ -1019,7 +1022,7 @@ body.c_btm_hide {
         .question {
           display: block;
           width: 100%;
-          padding: 8px 10px;
+          padding: 14px 10px;
           border-bottom: 2px solid #e2e2f0;
           border-radius: 20px 20px 0px 0px;
           font-size: 15px;
@@ -1042,7 +1045,7 @@ body.c_btm_hide {
 
       .btn_chat {
         margin: 8px 0px;
-        padding: 5px 50px;
+        padding: 10px 50px;
       }
 
       .btn_other {
@@ -1050,7 +1053,7 @@ body.c_btm_hide {
 
         .btn_chat {
           margin: 20px 0px;
-          padding: 8px 50px;
+          padding: 14px 50px;
         }
       }
     }
