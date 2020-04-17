@@ -17,6 +17,10 @@ body.c_btm_hide #connect_wrap #content { height: calc(100% - 60px); }
 
 body.c_btm_hide #connect_btm { display: none; }
 
+.hide { display: none !important; }
+
+.align_center { text-align: center !important; }
+
 .text_hide { line-height: 0px; font-size: 0px; text-indent: -999px; }
 
 .chevron_prev { padding: 0px; width: 40px; height: 40px; background: url(../image/arrow_left.png) no-repeat center; background-size: 12px auto; }
@@ -35,8 +39,6 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .new_message .message_num { line-height: 22px; color: #fff; }
 
-.new_message.hide { display: none; }
-
 .chat_time { font-size: 13px; }
 
 .chatting { margin: 0px 0px 10px 0px; }
@@ -53,21 +55,31 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .chatting a .last_text { background-color: #fff; overflow: hidden; height: 40px; margin: 4px 0px 0px 0px; color: #5e5c68; }
 
-.chatting .image { overflow: hidden; position: absolute; top: 17px; left: 10px; width: 56px; height: 56px; border: 1px solid #e2e2f0; border-radius: 28px; }
-
-.chatting .image img { position: absolute; top: 0px; left: 50%; -webkit-transform: translate(-50%, 0%); transform: translate(-50%, 0%); min-width: 100%; height: 100%; }
+.chatting .image { position: absolute; top: 17px; left: 10px; width: 56px; height: 56px; }
 
 .chatting .chat_time { position: absolute; top: 10px; right: 10px; }
+
+.image { position: relative; overflow: hidden; border: 1px solid #e2e2f0; border-radius: 50%; }
+
+.image img { position: absolute; top: 0px; left: 50%; -webkit-transform: translate(-50%, 0%); transform: translate(-50%, 0%); min-width: 100%; height: 100%; }
 
 /* //defult */
 /* connect 상, 하단 바 */
 #connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
 
-#connect_wrap .connect_top { overflow: hidden; height: 60px; padding: 22px 0px 0px 0px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
+#connect_wrap .connect_top { overflow: hidden; height: 60px; border-bottom: 1px solid #e2e2f0; text-align: center; font-size: 16px; background-color: white; }
 
-#connect_wrap .connect_top .title em { font-weight: bold; }
+#connect_wrap .connect_top .title em { margin: 0px 0px 0px 10px; font-size: 20px; font-weight: bold; }
 
-#connect_wrap .connect_top .title img { width: 160px; }
+#connect_wrap .connect_top .title .mainlogo { display: inline-block; margin: 22px 0px 0px 0px; }
+
+#connect_wrap .connect_top .title .mainlogo img { width: 160px; }
+
+#connect_wrap .connect_top .title .subtitle { display: inline-block; width: calc(100% - 100px); margin: 15px 0px 0px 0px; text-align: left; }
+
+#connect_wrap .connect_top .title .subtitle .image, #connect_wrap .connect_top .title .subtitle em { vertical-align: top; margin: 0px 0px 0px 6px; }
+
+#connect_wrap .connect_top .title .image { display: inline-block; width: 32px; height: 32px; }
 
 #connect_wrap .connect_top .chevron_prev { position: absolute; top: 10px; left: 10px; }
 
@@ -123,9 +135,9 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .home_screen .service .swiper_label { overflow: hidden; position: absolute; top: 55px; left: 0px; padding: 0px 17px 0px 0px; text-align: center; color: #fff; z-index: 1; }
 
-.home_screen .service .swiper_label .label { display: none; min-height: 34px; padding: 6px 20px; background-color: rgba(0, 0, 0, 0.5); }
+.home_screen .service .swiper_label .label { display: none; min-width: 100px; min-height: 34px; padding: 6px 20px; background-color: rgba(0, 0, 0, 0.5); }
 
-.home_screen .service .swiper_label .label:before { content: ''; display: none; position: absolute; top: 0px; left: calc(100% - 16px); border: 17px solid transparent; border-left: 17px solid rgba(0, 0, 0, 0.5); }
+.home_screen .service .swiper_label .label:before { content: ''; display: none; position: absolute; top: 0px; left: calc(100% - 17px); border: 17px solid transparent; border-left: 17px solid rgba(0, 0, 0, 0.5); }
 
 .home_screen .service .swiper_label .label.on { display: block; }
 
@@ -265,8 +277,6 @@ body.c_btm_hide #connect_btm { display: none; }
 .companies .horizon_list .favorites.on { background: #fff url(../image/ico_star_on.png) no-repeat 6px 12px; background-size: 30px; }
 
 /* //content company list */
-/* content chatting_list */
-/* //content chatting_list */
 /* //defult */
 #supporter_evaluation .text_box { padding: 80px 0px 40px 0px; text-align: center; }
 

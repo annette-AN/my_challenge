@@ -25,6 +25,14 @@ body.c_btm_hide {
   }
 }
 
+.hide {
+  display: none!important;
+}
+
+.align_center {
+  text-align: center!important;
+}
+
 .text_hide {
   line-height: 0px;
   font-size: 0px;
@@ -87,10 +95,6 @@ body.c_btm_hide {
   }
 }
 
-.new_message.hide {
-  display: none;
-}
-
 .chat_time {
   font-size: 13px;
 }
@@ -130,29 +134,33 @@ body.c_btm_hide {
   }
 
   .image {
-    overflow: hidden;
     position: absolute;
     top: 17px;
     left: 10px;
     width: 56px;
     height: 56px;
-    border: 1px solid #e2e2f0;
-    border-radius: 28px;
-
-    img {
-      position: absolute;
-      top: 0px;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      min-width: 100%;
-      height: 100%;
-    }
   }
 
   .chat_time {
     position: absolute;
     top: 10px;
     right: 10px;
+  }
+}
+
+.image {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e2f0;
+  border-radius: 50%;
+
+  img {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    min-width: 100%;
+    height: 100%;
   }
 }
 
@@ -173,7 +181,6 @@ body.c_btm_hide {
   .connect_top {
     overflow: hidden;
     height: 60px;
-    padding: 22px 0px 0px 0px;
     border-bottom: 1px solid #e2e2f0;
     text-align: center;
     font-size: 16px;
@@ -181,12 +188,38 @@ body.c_btm_hide {
   
     .title {
       em {
+        margin: 0px 0px 0px 10px;
+        font-size: 20px;
         font-weight: bold;
       }
 
-      img {
-        width: 160px;
+      .mainlogo {
+        display: inline-block;
+        margin: 22px 0px 0px 0px;
+
+        img {
+          width: 160px;
+        }
       }
+
+      .subtitle {
+        display: inline-block;
+        width: calc(100% - 100px);
+        margin: 15px 0px 0px 0px;
+        text-align: left;
+
+        .image , em {
+          vertical-align: top;
+          margin: 0px 0px 0px 6px;
+        }
+      }
+
+      .image {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+      }
+
     }
   
     .chevron_prev {
@@ -347,14 +380,13 @@ body.c_btm_hide {
       top: 55px;
       left: 0px;
       padding: 0px 17px 0px 0px;
-
       text-align: center;
       color: #fff;
       z-index: 1;
 
       .label {
         display: none;
-        // min-width: 100px;
+        min-width: 100px;
         min-height: 34px;
         padding: 6px 20px;
         background-color: rgba(0,0,0,0.5);
@@ -364,7 +396,7 @@ body.c_btm_hide {
           display: none;
           position: absolute;
           top: 0px;
-          left: calc(100% - 16px);
+          left: calc(100% - 17px);
           border: 17px solid transparent;
           border-left: 17px solid rgba(0,0,0,0.5);
         }
@@ -844,12 +876,6 @@ body.c_btm_hide {
   }
 }
 /* //content company list */
-
-/* content chatting_list */
-.chatting_list {
-}
-
-/* //content chatting_list */
 
 /* //defult */
 #supporter_evaluation {
