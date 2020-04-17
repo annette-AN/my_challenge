@@ -924,6 +924,168 @@
 		</div> 
 		<!-- //.chatAside_bd -->
 	</div>
+
+	<!-- 200417 AMR 딜라잇 푸드 주문하기 -->
+	<div class="chat_order">
+		<!-- .chatAside_hd -->
+		<div class="chatAside_hd">
+			<h3>식/음료 예약하기</h3>
+			<button type="button" class="btn_chatAside_close" title="close">close</button>
+		</div> 
+		<!-- //.chatAside_hd -->
+		<!-- .chatAside_bd -->
+		<div class="chatAside_bd">
+			<div class="stn_area">
+				<div class="stnBox">
+					<p class="txt">개인정보동의 약관</p>
+					<div class="iptBox">
+						<div class="checkBox">                                            
+							<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
+							<label for="terms_check">동의</label>
+						</div>
+					<button type="button" class="btn_terms" title="close">약관보기</button> 
+					</div>
+				</div>
+				<div class="stnBox">
+					<p class="txt">예약 정보 입력</p>
+					<dl class="dlBox">
+						<dt>이름</dt>
+						<dd><input type="text" name="name" class="ipt_txt" placeholder="필수사항입니다"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>전화번호</dt>
+						<dd><input type="tel" name="tel" class="ipt_txt" placeholder="필수사항입니다"></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>이메일</dt>
+						<dd><input type="email" name="tel" class="ipt_txt" placeholder="주문내역을 받아볼 수 있습니다."></dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>수령방법</dt>
+						<dd>
+							<div class="radioBox"> 
+								<input type="radio" name="take" id="takeIn" class="ipt_check" checked>
+								<label for="takeIn">Take-In</label>
+								<input type="radio" name="take" id="takeOut" class="ipt_check">
+								<label for="takeOut">Take-Out</label>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox order_menu">
+						<dt>메뉴</dt>
+						<dd class="block_target">
+							<ul id="order_menu_area" class="menu">
+								<li>
+									<button type="button" class="category">other</button>
+									<div class="checkBox category_menu">
+										<div class="each_menu">
+											<input type="checkbox" name="cola" id="other_5_0" class="ipt_check">
+											<label for="other_5_0">콜라</label>
+											<div class="how_many">
+												<em><span class="price">2000</span> 원</em>
+												<input type="number" placeholder="0" class="ipt_txt count"><span>개</span>
+											</div>
+										</div>
+										<div class="each_menu">
+											<input type="checkbox" name="sprite" id="other_5_1" class="ipt_check">
+											<label for="other_5_1">사이다</label>
+											<div class="how_many">
+												<em><span class="price">2000</span> 원</em>
+												<input type="number" placeholder="0" class="ipt_txt count"><span>개</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>결제방법</dt>
+						<dd>
+							<div class="radioBox"> 
+								<input type="radio" name="payment" id="payForCard" class="ipt_check">
+								<label for="payForCard">카드</label>
+								<input type="radio" name="payment" id="payForCash" class="ipt_check">
+								<label for="payForCash">현금</label>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox picker">
+						<dt>수령시간</dt>
+						<dd class="block_target">
+							<div class="container">
+								<div class="row">
+									<div class='col-sm-6'>
+										<!-- value 빼기 -->
+										<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='pickup_time' />
+									</div>
+								</div>
+							</div>
+						</dd>
+						<dt class="box_hide">달력 표시 설명</dt>
+						<dd class="pick_guide">
+							<div>
+								<div class="pick_guide01"></div>
+								<span>오늘</span>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlBox">
+						<dt>요청사항</dt>
+						<dd class="block_target"><textarea name="add" rows="10" class="ipt_txt" placeholder="내용을 입력해주세요 (선택)"></textarea></dd>
+					</dl>
+				</div>
+			</div>
+			<div>
+				<p class="total_price">총 가격: <em>10000</em>원</p>
+			</div>
+			<div class="btnBox">
+				<button type="submit" class="btn_point btn_submit">주문하기</button> 
+			</div>
+			
+			<!--
+				[D] 예약하기 주문 확인(팝업)
+				20200207 AMR 
+			-->
+			<div class="stnBox popup">
+				<div class="popup_content check_order">
+					<span class="title">주문 정보 확인 <em>(확인완료를 클릭하셔야 주문정보가 전달됩니다.)</em></span>
+					<ul>
+						<li>
+							<span>이름 :</span> <em>안미례</em>
+						</li>
+						<li>
+							<span>전화번호 :</span> <em>010-1212-3434</em>
+						</li>
+						<li>
+							<span>선택한 메뉴 :</span>
+							<p>
+								<em>아메리카노 Ice 3개</em>
+								<em>바닐라라떼 Ice 1개</em>
+								<em>유자스무디 1개</em>
+							</p>
+						</li>
+						<li>
+							<span>수령시간 :</span> <em>14:30</em>
+						</li>
+						<li>
+							<span>요청사항 :</span>
+							<p>
+								맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~맛있게 만들어주세요~
+							</p>
+						</li>
+						<li>
+							<span>총 가격 :</span> <em>10000</em>원
+						</li>
+					</ul>
+					<div class="btnBox">
+						<button type="button" class="btn_point btn_chatAside_close">확인완료</button> 
+					</div>
+				</div>
+			</div>
+		</div> 
+		<!-- //.chatAside_bd -->
+	</div>
 </div>
 
 <!-- 추가 200318 AMR 각 고객사 별 개인정보처리 방침 약관 내용 -->

@@ -229,17 +229,19 @@
       $('#content').scroll(function(e){
         // st = scrollTop
         var st = $(this).scrollTop();
-
         if ( st > 50 ) {
           $(this).scrollTop(serviceMenuTop);
           $('#content').addClass('scroll_effect');
           $('.service_menu').css({'height': contentHeight + 'px'})
           $('.service_list').css({'height': (contentHeight - 120) + 'px'})
-        } else {
-          $('.service_home').removeClass('scroll_effect');
-          $('.service_menu').css({'height' : 'auto'})
-          $('.service_list').css({'height' : 'auto'})
         }
+      })
+
+      false && $('#content').on('mousewheel DOMMouseScroll', function(e){
+        // st = scrollTop
+        $('.service_home').removeClass('scroll_effect');
+        $('.service_menu').css({'height' : 'auto'})
+        $('.service_list').css({'height' : 'auto'})
       })
 
     }

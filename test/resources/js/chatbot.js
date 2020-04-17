@@ -51,7 +51,7 @@ $(document).ready(function (){
         if (((!chatBtnClicked && checkDevice() !== 'MOBILE') ||
             (checkDevice() === 'MOBILE' && qrLocation !== "" && qrLocation !== undefined)) && mainCookie === undefined) {
             $('#btn_goChat').trigger('click');
-            setCookie("mainCookie", "mainCookie", 30);
+            setCookie("mainCookie", "mainCookie", 60);
         }
     });
 
@@ -594,7 +594,7 @@ $(document).ready(function (){
                 $(".chat_order input[name='name']").val('');
                 $(".chat_order input[name='tel']").val('');
                 $(".chat_order input[name='email']").val('');
-                $(".chat_order input[name='pickupTime']").val('');
+                // $(".chat_order input[name='pickupTime']").val('');
                 $(".chat_order textarea[name='add']").val('');
 
                 // each menu count clear
@@ -603,6 +603,7 @@ $(document).ready(function (){
                 });
                 // total price clear
                 $('.chat_order .total_price').text('');
+                $('.stn_area').scrollTop($('.stn_area'));
             }
 
             function checkOrderData(orderData) {
@@ -626,7 +627,7 @@ $(document).ready(function (){
                 return true;
             }
 
-            var $chatAside = $('.chatAside');
+            var $chatAside = $('.chat_order').parent();
             // aside open
             $(document).on('click', '.order_btn', function(){
                 $chatAside.addClass('aside_show');
@@ -652,7 +653,7 @@ $(document).ready(function (){
                 clearOrderForm();
                 window.parent.postMessage("aside_close", "*");
                 $(this).parents($chatAside).removeClass('aside_show').find('.chatAside_bd').removeClass('success_screen');
-                $(this).parents($chatAside).find('input[type="text"], input[type="tel"], textarea').val('');
+                // $(this).parents($chatAside).find('input[type="text"], input[type="tel"], textarea').val('');
                 $(this).parents($chatAside).find('input[type="checkbox"], input[type="radio"]').removeAttr('checked');
             });
 
@@ -687,7 +688,6 @@ $(document).ready(function (){
             var submitBtn = $('.chatAside_bd div.btnBox button.btn_submit');
             submitBtn.prop("onclick", null).off("click");
             submitBtn.on('click', function(event) {
-                event.preventDefault();
                 var orderList = [];
                 $eachmenu.each(function(){
                     var label = $(this).find('label').text();
@@ -736,14 +736,15 @@ $(document).ready(function (){
                 }
 
                 $chatAside.find('.chatAside_bd').addClass('success_screen');
-                $('.chatAside_bd div.check_order .btn_chatAside_close').on('click', function (event) {
+                $('.chatAside_bd div.check_order .btn_point.btn_chatAside_close').off('click');
+                $('.chatAside_bd div.check_order .btn_point.btn_chatAside_close').on('click', function (event) {
                     clearOrderForm();
-                    event.preventDefault();
                     callBackend({"type": "intent",
                         "input": JSON.stringify(orderData),
                         "host": host, "lang":lang,
                         "jsonData": JSON.stringify(getJsonData())});
-
+                    window.parent.postMessage("aside_close", "*");
+                    $chatAside.find('.chatAside_bd').removeClass('success_screen');
                 });
             });
         }

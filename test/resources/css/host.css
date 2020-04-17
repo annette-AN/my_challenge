@@ -35,8 +35,9 @@
 0%   {opacity:1; display:block; transform: translateY(-30px);}
 100% {opacity:0; display:none; transform: translateY(0px);}
 }
-.powered {display:block; position:fixed; right:20px; bottom:30px; margin-bottom:0; color:#fff; font-size:12px; text-align:right; text-shadow:1px 1px 3px rgba(0, 0, 0, 0.7); z-index:700;}
-.powered img {height:15px; margin:0 0 0 5px; vertical-align:middle;}
+/* 수정 AMR 200417 img background */
+.powered {display:block; position:fixed; right:20px; bottom:30px; margin-bottom:0; padding: 0px 94px 0px 0px; color:#fff; font-size:12px; text-align:right; text-shadow:1px 1px 3px rgba(0, 0, 0, 0.7); background: url(../images/img_tit_mindsLab.png) no-repeat right top 5px; background-size: auto 11px; z-index:700;}
+.powered img {display: none; height:15px; margin:0 0 0 5px; vertical-align:middle;}
     
 #chatbot.chatOpen ~ .chatGreeting {display:none;}
 #chatbot.chatOpen ~ .powered {display:none;}
