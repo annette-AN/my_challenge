@@ -63,7 +63,7 @@
             </ul>
           </div>
 
-          <div>
+          <div class="service_list">
             <ul class="questions">
               <!-- [A] .question 을 클릭하면 .q_answer 가 보여집니다
               하단 스크립트 -->
@@ -232,8 +232,13 @@
 
         if ( st > 50 ) {
           $(this).scrollTop(serviceMenuTop);
-          $('.service_home').addClass('scroll_effect');
+          $('#content').addClass('scroll_effect');
           $('.service_menu').css({'height': contentHeight + 'px'})
+          $('.service_list').css({'height': (contentHeight - 120) + 'px'})
+        } else {
+          $('.service_home').removeClass('scroll_effect');
+          $('.service_menu').css({'height' : 'auto'})
+          $('.service_list').css({'height' : 'auto'})
         }
       })
 

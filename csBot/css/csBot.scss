@@ -243,6 +243,11 @@ body.c_btm_hide {
     background-color: rgba(255,255,255,1.0);
   }
 
+  /* service_list 스크롤 효과 */
+  #content.scroll_effect {
+    overflow: auto;
+  }
+
   #connect_btm {
     height: 75px;
     padding: 4px 0px 0px 0px;
@@ -999,6 +1004,11 @@ body.c_btm_hide {
     }
 
     .service {
+      .service_list {
+        overflow: auto;
+        margin: 16px 0px;
+      }
+
       .questions {
         padding: 0px 16px;
 
@@ -1058,7 +1068,7 @@ body.c_btm_hide {
 
   /* swiper design */
   .service_category {
-    padding: 16px 10px;
+    margin: 16px 10px 0px;
 
     li {
       text-align: center;
@@ -1080,12 +1090,6 @@ body.c_btm_hide {
   }
 }
 
-/* 스크롤 효과 */
-.service_home.scroll_effect {
-  .service_menu {
-    overflow: auto;
-  }
-}
 /* //content service home */
 
 /* //모달 dialog */

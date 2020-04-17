@@ -71,7 +71,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 /* //defult */
 /* connect 상, 하단 바 */
-#connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; }
+#connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; /* service_list 스크롤 효과 */ }
 
 #connect_wrap .connect_top { overflow: hidden; height: 60px; text-align: center; font-size: 16px; background-color: white; }
 
@@ -90,6 +90,8 @@ body.c_btm_hide #connect_btm { display: none; }
 #connect_wrap .connect_top .chevron_prev { position: absolute; top: 10px; left: 10px; }
 
 #connect_wrap #content { overflow: auto; height: calc(100% - 135px); background-color: white; }
+
+#connect_wrap #content.scroll_effect { overflow: auto; }
 
 #connect_wrap #connect_btm { height: 75px; padding: 4px 0px 0px 0px; border-top: 1px solid #e2e2f0; background-color: #fff; }
 
@@ -323,6 +325,8 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_menu .btns button.on { font-weight: bold; color: #5e5c68; border-bottom-color: #5e5c68; }
 
+.service_home .service_menu .service .service_list { overflow: auto; margin: 16px 0px; }
+
 .service_home .service_menu .service .questions { padding: 0px 16px; }
 
 .service_home .service_menu .service .questions li { border-radius: 4px; -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2); }
@@ -343,16 +347,13 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_menu .service .btn_other .btn_chat { margin: 20px 0px; padding: 14px 50px; }
 
-.service_home .service_category { padding: 16px 10px; }
+.service_home .service_category { margin: 16px 10px 0px; }
 
 .service_home .service_category li { text-align: center; }
 
 .service_home .service_category button { display: block; width: 100%; padding: 10px 0px; border-radius: 28px; border: 1px solid #3da4fa; color: #3da4fa; }
 
 .service_home .service_category button.on { background-color: #3da4fa; color: #fff; }
-
-/* 스크롤 효과 */
-.service_home.scroll_effect .service_menu { overflow: auto; }
 
 /* //content service home */
 /* //모달 dialog */
