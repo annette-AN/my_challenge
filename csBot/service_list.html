@@ -123,8 +123,7 @@
 <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
 <script>
   $(document).ready(function(){
-    var $companies = $('.companies');
-    $('.companies .favorites').on('click', function(e){
+    $('.favorites').on('click', function(e){
       e.preventdefault;
       $(this).toggleClass('on');
     });

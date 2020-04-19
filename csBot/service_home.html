@@ -29,6 +29,9 @@
           <em>팬심</em>
         </div>
       </div>
+      <button type="button" class="favorites">
+        <em class="text_hide">즐겨찾기</em>
+      </button>
     </div>
   </div>
   <!-- //connect_top -->
@@ -196,8 +199,7 @@
 <script src="js/swiper.min.js"></script>
 <script>
   $(document).ready(function(){
-    var $companies = $('.companies');
-    $('.companies .favorites').on('click', function(e){
+    $('.favorites').on('click', function(e){
       e.preventdefault;
       $(this).toggleClass('on');
     });
