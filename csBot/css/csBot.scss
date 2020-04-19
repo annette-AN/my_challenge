@@ -228,6 +228,10 @@ body.c_btm_hide {
         width: calc(100% - 100px);
         opacity: 0;
         transition: all 0.3s;
+
+        .image, em {
+          vertical-align: middle;
+        }
       }
 
       .subtitle.slide_toggle.on {
@@ -1065,7 +1069,7 @@ body.c_btm_hide {
 
         .q_answer {
           display: none;
-          padding: 8px 10px;
+          padding: 8px 14px;
           border-radius: 0px 0px 4px 4px;
           background-color: #f7f8fa;
           color: #5e5c68;

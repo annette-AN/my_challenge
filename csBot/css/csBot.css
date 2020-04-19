@@ -231,6 +231,10 @@ body.c_btm_hide #connect_btm {
   transition: all 0.3s;
 }
 
+#connect_wrap .connect_top .title .subtitle.slide_toggle .image, #connect_wrap .connect_top .title .subtitle.slide_toggle em {
+  vertical-align: middle;
+}
+
 #connect_wrap .connect_top .title .subtitle.slide_toggle.on {
   top: -1px;
   opacity: 1;
@@ -1058,7 +1062,7 @@ body.c_btm_hide #connect_btm {
 
 .service_home .service_menu .service .questions .q_answer {
   display: none;
-  padding: 8px 10px;
+  padding: 8px 14px;
   border-radius: 0px 0px 4px 4px;
   background-color: #f7f8fa;
   color: #5e5c68;
