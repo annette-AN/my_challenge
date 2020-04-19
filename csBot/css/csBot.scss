@@ -187,6 +187,9 @@ body.c_btm_hide {
   border: 1px solid #e2e2f0;
 
   .connect_top {
+    position: absolute;
+    top: 0px;
+    left: 0px;
     overflow: hidden;
     height: 60px;
     text-align: center;
