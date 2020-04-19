@@ -59,9 +59,9 @@
             <ul class="swiper-wrapper">
               <!-- [D] 카테고리를 클릭하면 ul.questions 리스트가 바껴야합니다 -->
               <li class="swiper-slide"><button type="button" class="on">카테고리1</button></li>
-              <li class="swiper-slide"><button type="button">카테고리 두번째</button></li>
+              <li class="swiper-slide"><button type="button">카테고리2</button></li>
               <li class="swiper-slide"><button type="button">카테고리3</button></li>
-              <li class="swiper-slide"><button type="button">카테고리 넷째</button></li>
+              <li class="swiper-slide"><button type="button">카테고리4</button></li>
               <li class="swiper-slide"><button type="button">카테고리5</button></li>
             </ul>
           </div>
@@ -204,25 +204,41 @@
       $(this).toggleClass('on');
     });
 
-    // 추가 AMR 200417
-    var swiper = new Swiper('.service_category', {
-      slidesPerView: 2.5,
-      spaceBetween: 10,
-    });
+      // 추가 AMR 200417
+      var swiper = new Swiper('.service_category', {
+        slidesPerView: 2.5,
+        spaceBetween: 10,
+      });
 
-    // 추가 AMR 200417 카테고리 클릭 시 버튼 색 변경
-    $('.service_category button').on('click', function(){
-      $('.service_category button').removeClass('on');
-      $(this).addClass('on');
-    });
+    // 추가 AMR 200419 service menu event
+    function handleContentServiceMenu() {
+      $content = $('#content');
 
-    // 추가 AMR 200417 질문 클릭 시 답 open
-    $('.question').on('click', function(){
-      $(this).parent('li').toggleClass('on');
-    });
+      //AMR 카테고리 클릭 시 버튼 색 변경
+      $('.service_category button').on('click', function(){
+        $('.service_category button').removeClass('on');
+        $(this).addClass('on');
+      });
 
-    // 추가 AMR 200417 기업 프로필 affix
-    function handleContentScroll() {
+      // AMR 질문 클릭
+      $('.question').on('click', function(){
+        // open
+        $(this).parent('li').toggleClass('on');
+        
+        //scroll
+        var thisTop = $(this).offset().top;
+        var thisHeight = $(this).parent('li').height();
+        var targetLocation = thisTop + thisHeight;
+        var connetbtmTop = $('#connect_btm').offset().top;
+        var nowScrollTop = $content.scrollTop();
+        console.log(connetbtmTop, thisTop, thisHeight, targetLocation)
+
+        if ( targetLocation > connetbtmTop ) {
+          $content.scrollTop(nowScrollTop + thisHeight);
+        }
+
+      });
+
       // affix가 시작 되어야 할 scrollTop
       var contentTop = $('#content').offset().top;
       var menuTop = $('.service_menu').offset().top;
@@ -233,7 +249,8 @@
       var connectTopHeight = $('.connect_top').height();
       var affixTop = connectWrapTop + connectTopHeight;
 
-      $('#content').scroll(function(e){
+      //affix
+      $content.scroll(function(e){
         // st = scrollTop
         var st = $(this).scrollTop();
 
@@ -246,9 +263,9 @@
           $('.service_menu').removeClass('affix');
           $('.affix').css({'top' : 'auto'});
         }
-      })
+      });
     }
-    handleContentScroll()
+    handleContentServiceMenu()
 
   });
 </script>
