@@ -177,7 +177,7 @@ body.c_btm_hide {
 /* connect 상, 하단 바 */
 #connect_wrap {
   // overflow: hidden;
-  // position: fixed;
+  position: fixed;
   bottom: 50px;
   right: 30px;
   min-width: 320px;
@@ -187,9 +187,6 @@ body.c_btm_hide {
   border: 1px solid #e2e2f0;
 
   .connect_top {
-    // position: absolute;
-    // top: 0px;
-    // left: 0px;
     overflow: hidden;
     height: 60px;
     text-align: center;
