@@ -79,12 +79,8 @@
             <div class="swiper-pagination"></div>
           </div>
           <ul class="swiper_label">
-            <li class="label on">aa</li>
-            <li class="label">aa</li>
-            <li class="label">aa</li>
-            <li class="label">aa</li>
-            <li class="label">aa</li>
-            <li class="label">aa</li>
+            <li class="label on"><span>aa</span><div><em class="text_hide">라벨모양 디자인</em></div></li>
+            <li class="label"><span>aa</span><div><em class="text_hide">라벨모양 디자인</em></div></li>
           </ul>
           <div>
             <a href="#none" class="sub_more">전체보기 +</a>
@@ -164,7 +160,7 @@
       // 가져온 기업명을 swiper_label에 넣기
       $swiperLabel.empty();
       for (i=0, l=companyLength; i<l; i++) {
-        $swiperLabel.append('<li class="label">' + companyNames[i] + '</li>');
+        $swiperLabel.append('<li class="label"><span>' + companyNames[i] + '</span><div><em class="text_hide">라벨모양 디자인</em></div></li>');
       }
 
       // 현재 슬라이드 라벨표시
