@@ -988,13 +988,14 @@ body.c_btm_hide #connect_btm {
 }
 
 .service_home .service_title .image_desc em {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .service_home .service_title .image_desc span {
   display: block;
   margin: 4px 0px 0px 0px;
+  font-size: 16px;
 }
 
 .service_home .service_menu .affix {
