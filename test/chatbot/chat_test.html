@@ -308,7 +308,7 @@
 		<div class="chatAside_hd">
 			<h3>식/음료 예약하기</h3>
 			<button type="button" class="btn_chatAside_close" title="close">close</button>
-		</div> 
+		</div>
 		<!-- //.chatAside_hd -->
 		<!-- .chatAside_bd -->
 		<div class="chatAside_bd">
@@ -316,11 +316,11 @@
 				<div class="stnBox">
 					<p class="txt">개인정보동의 약관</p>
 					<div class="iptBox">
-						<div class="checkBox">                                            
+						<div class="checkBox">
 							<input type="checkbox" name="agreement" id="terms_check" class="ipt_check">
 							<label for="terms_check">동의</label>
 						</div>
-					<button type="button" class="btn_terms" title="close">약관보기</button> 
+						<button type="button" class="btn_terms" title="close">약관보기</button>
 					</div>
 				</div>
 				<div class="stnBox">
@@ -414,15 +414,15 @@
 				</div>
 			</div>
 			<div>
-				<p class="total_price">총 가격: <em>10000</em>원</p>
+				<p class="total_price">총 가격: <em>0</em>원</p>
 			</div>
 			<div class="btnBox">
-				<button type="submit" class="btn_point btn_submit">주문하기</button> 
+				<button type="submit" class="btn_point btn_submit">주문하기</button>
 			</div>
-			
+
 			<!--
 				[D] 예약하기 주문 확인(팝업)
-				20200207 AMR 
+				20200207 AMR
 			-->
 			<div class="stnBox popup">
 				<div class="popup_content check_order">
@@ -456,11 +456,11 @@
 						</li>
 					</ul>
 					<div class="btnBox">
-						<button type="button" class="btn_point btn_chatAside_close">확인완료</button> 
+						<button type="button" class="btn_point btn_chatAside_close">확인완료</button>
 					</div>
 				</div>
 			</div>
-		</div> 
+		</div>
 		<!-- //.chatAside_bd -->
 	</div>
 </div>
@@ -708,6 +708,8 @@ $(document).ready(function(){
 		format: 'MM월 DD일',
 		dayViewHeaderFormat: 'YYYY 년 MM 월',
 		daysOfWeekDisabled: [0,6],
+		minDate: moment().add(1, 'days').startOf('day'),
+		maxDate: moment().add(9, 'days').endOf('day'),
 		disabledDates: ['2020-01-01','2020-03-01','2020-05-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
 			// 01-01 새해(신정), 03-01 삼일절, 05-01 근로자의날, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
 			// 설날(구정)				음력 1월 1일
