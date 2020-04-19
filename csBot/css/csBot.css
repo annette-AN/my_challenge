@@ -1163,7 +1163,7 @@ body.c_btm_hide #connect_btm {
   .service_home .service_menu.affix .affix {
     position: fixed;
     right: 20px;
-    width: calc(100% - 22px);
+    width: calc(100% - 2px);
   }
 }
 /*# sourceMappingURL=csBot.css.map */
