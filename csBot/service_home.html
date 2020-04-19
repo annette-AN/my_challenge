@@ -267,7 +267,7 @@
 
         //scroll
         var contentHeight = $content.height();
-        var titleHight = $('.affix').height();
+        var titleHight = 114;
         var connectbtmTop = $('#connect_btm').offset().top;
 
         var listHeight = $(this).parent('li').height();
@@ -279,18 +279,15 @@
         var nowScroll = $content.scrollTop();
         var moveScroll = 0;
         
-        // 마지막 질문을 눌렀을 때 scrollTop 하단으로 가기
-        if ( $(this).parent('li').is(':last-child') ) {
-          moveScroll = $('.questions').height();
-          $content.scrollTop(moveScroll);
-          return;
-        }
-
+        // 질문 클릭 시
         if ( listHeight < ulHeight && listBottom > connectbtmTop ) {
           moveScroll = listOffsetTop + listHeight - connectbtmTop;
           $content.scrollTop(nowScroll + moveScroll + 10);
+          console.log('bottom')
           return;
         }
+
+        console.log('nothing', {listHeight, ulHeight}, {contentHeight, titleHight})
       });
       // end 질문 클릭 시 scrollTop
 
