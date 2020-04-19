@@ -21,7 +21,7 @@
     <div>
       <button type="button" class="chevron_prev text_hide">이전으로 가기</button>
       <div class="title">
-        <div class="subtitle">
+        <div class="subtitle slide_toggle">
           <!-- [D] div.image는 service_home.html에서 사용됩니다 -->
           <div class="image">
             <img src="image/sample/ee_company.png" alt="기업로고">
@@ -236,10 +236,12 @@
         var st = $(this).scrollTop();
 
         if (st > startAffix) {
-          $('.service_menu').addClass('affix')
+          $('.subtitle.slide_toggle').addClass('on');
+          $('.service_menu').addClass('affix');
           $('.affix').css({'top' : affixTop + 'px'});
         } else {
-          $('.service_menu').removeClass('affix')
+          $('.subtitle.slide_toggle').removeClass('on');
+          $('.service_menu').removeClass('affix');
           $('.affix').css({'top' : 'auto'});
         }
       })

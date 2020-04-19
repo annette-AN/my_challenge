@@ -219,6 +219,23 @@ body.c_btm_hide #connect_btm {
   margin: 0px 0px 0px 6px;
 }
 
+#connect_wrap .connect_top .title .subtitle.slide_toggle {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  width: calc(100% - 100px);
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#connect_wrap .connect_top .title .subtitle.slide_toggle.on {
+  top: -1px;
+  opacity: 1;
+}
+
 #connect_wrap .connect_top .title .image {
   display: inline-block;
   width: 32px;
@@ -1015,6 +1032,11 @@ body.c_btm_hide #connect_btm {
           box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
+.service_home .service_menu .service .questions li.on .question {
+  background-image: url(../image/arrow_top.png);
+  background-size: 20px auto;
+}
+
 .service_home .service_menu .service .questions li.on .q_answer {
   display: block;
 }
@@ -1026,10 +1048,12 @@ body.c_btm_hide #connect_btm {
 .service_home .service_menu .service .questions .question {
   display: block;
   width: 100%;
-  padding: 14px;
+  padding: 14px 40px 14px 14px;
   border-radius: 4px;
   font-size: 15px;
   text-align: left;
+  background: url(../image/arrow_bottom.png) no-repeat top 20px right 15px;
+  background-size: 20px auto;
 }
 
 .service_home .service_menu .service .questions .q_answer {
