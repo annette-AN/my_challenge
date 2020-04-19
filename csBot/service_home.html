@@ -254,6 +254,8 @@
         $(this).addClass('on');
       });
 
+      var $content = $('#content');
+
       // 질문 클릭 시 scrollTop
       $('.question').on('click', function(){
         // open
@@ -264,7 +266,6 @@
         }
 
         //scroll
-        var $content = $('#content');
         var contentHeight = $content.height();
         var titleHight = $('.affix').height();
         var connectbtmTop = $('#connect_btm').offset().top;
