@@ -1183,8 +1183,8 @@ body.c_btm_hide {
   
       .affix {
         position: fixed;
-        right: 20px;
-        width: calc(100% - 2px);
+        right: 0px;
+        width: calc(100%);
       }
     }
   }
