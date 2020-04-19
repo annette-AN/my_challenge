@@ -1073,6 +1073,10 @@ body.c_btm_hide #connect_btm {
   text-align: left;
 }
 
+.service_home .service_menu .service .questions .q_answer p + p {
+  margin: 10px 0px 0px 0px;
+}
+
 .service_home .service_menu .service .btn_chat {
   margin: 8px 0px;
   padding: 10px 50px;
