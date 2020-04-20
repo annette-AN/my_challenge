@@ -211,6 +211,19 @@ body.c_btm_hide {
   }
 }
 
+.btn_basic {
+  display: inline-block;
+  border-radius: 28px;
+  border: 1px solid #3da4fa;
+  color: #3da4fa;
+  background-color: #fff;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #3da4fa;
+    color: #fff;
+  }
+}
 /* //defult */
 
 /* connect 상, 하단 바 */
@@ -882,6 +895,19 @@ body.c_btm_hide {
     text-align: left;
     word-break: break-all;
   }
+
+  .btn_basic {
+    padding: 8px 16px;
+  }
+
+  .btns {
+    width: calc(100% - 60px);
+    margin: 4px 0px 0px 0px;
+
+    .btn_basic {
+      margin: 8px 0px 0px 8px;
+    }
+  }
 }
 /* //content cschat */
 
@@ -1171,16 +1197,13 @@ body.c_btm_hide {
       text-align: center;
     }
 
-    button {
+    .btn_basic {
       display: block;
       width: 100%;
       padding: 10px 0px;
-      border-radius: 28px;
-      border: 1px solid #3da4fa;
-      color: #3da4fa;
     }
 
-    button.on {
+    .btn_basic.on {
       background-color: #3da4fa;
       color: #fff;
     }

@@ -34,9 +34,20 @@
               <p class="text">
                 안녕하세요. 서비스센터입니다. 무엇을 도와드릴까요?
               </p>
+              <a href="#none">버튼1</a>
+              <a href="#none">버튼2</a>
+              <a href="#none">버튼3</a>
               <div class="time">
                 <span class="time">오전 12:20</span>
               </div>
+            </div>
+            <div class="btns">
+              <a href="#none" class="btn_basic">카테고리1</a>
+              <a href="#none" class="btn_basic">카테고리2</a>
+              <a href="#none" class="btn_basic">카테고리3</a>
+              <a href="#none" class="btn_basic">버튼1</a>
+              <a href="#none" class="btn_basic">버튼2</a>
+              <a href="#none" class="btn_basic">버튼3</a>
             </div>
           </li>
           <li class="user">
@@ -259,7 +270,8 @@ okey~? okey~</textarea>
       $(this).siblings('.menu').toggleClass('on');
     });
 
-    /* button 클릭 시 dialog 오픈 */
+    /* cschat modal
+    button 클릭 시 dialog 오픈 */
     function handleCschatDialog(button, dialog) {
       button.on('click', function () {
         $('.cschat_body').addClass('backdrop');

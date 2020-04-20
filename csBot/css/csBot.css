@@ -82,6 +82,10 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .btn_dual button { float: left; display: block; width: 50%; }
 
+.btn_basic { display: inline-block; border-radius: 28px; border: 1px solid #3da4fa; color: #3da4fa; background-color: #fff; -webkit-transition: background-color 0.2s; transition: background-color 0.2s; }
+
+.btn_basic:hover { background-color: #3da4fa; color: #fff; }
+
 /* //defult */
 /* connect 상, 하단 바 */
 #connect_wrap { overflow: hidden; position: fixed; bottom: 50px; right: 30px; min-width: 320px; width: 350px; height: 80%; border-radius: 8px; border: 1px solid #e2e2f0; /* service_list 스크롤 효과 */ }
@@ -283,6 +287,12 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .cs_talk .message { position: relative; display: inline-block; padding: 8px 8px 7px 10px; text-align: left; word-break: break-all; }
 
+.cs_talk .btn_basic { padding: 8px 16px; }
+
+.cs_talk .btns { width: calc(100% - 60px); margin: 4px 0px 0px 0px; }
+
+.cs_talk .btns .btn_basic { margin: 8px 0px 0px 8px; }
+
 /* //content cschat */
 /* content company list */
 .companies { padding: 16px; }
@@ -386,9 +396,9 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_category li { text-align: center; }
 
-.service_home .service_category button { display: block; width: 100%; padding: 10px 0px; border-radius: 28px; border: 1px solid #3da4fa; color: #3da4fa; }
+.service_home .service_category .btn_basic { display: block; width: 100%; padding: 10px 0px; }
 
-.service_home .service_category button.on { background-color: #3da4fa; color: #fff; }
+.service_home .service_category .btn_basic.on { background-color: #3da4fa; color: #fff; }
 
 /* //content service home */
 /* content setting */
