@@ -237,11 +237,11 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .cschat_body.backdrop .basic_dialog { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 80%; padding: 30px 0px 20px 0px; border-radius: 8px; background: #fff; }
 
-.cschat_body.backdrop .basic_dialog p { line-height: 26px; font-size: 22px; }
+.cschat_body.backdrop .basic_dialog p { line-height: 26px; font-size: 20px; }
 
 .cschat_body.backdrop .basic_dialog .btn_dual { display: inline-block; margin: 15px 0px 0px 0px; }
 
-.cschat_body.backdrop .basic_dialog .btn_dual button { padding: 10px 40px; font-size: 18px; font-weight: bold; color: #0070C0; }
+.cschat_body.backdrop .basic_dialog .btn_dual button { padding: 10px 40px; font-size: 16px; font-weight: bold; color: #0070C0; }
 
 .cs_talk { overflow: auto; height: 100%; color: #5e5c68; padding: 16px 10px; }
 
