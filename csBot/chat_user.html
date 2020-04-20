@@ -31,7 +31,7 @@
         <ul class="cs_talk">
           <li class="bot">
             <div class="message">
-              <div class="text btn_basic">
+              <div class="text">
                 안녕하세요. 서비스센터입니다. 무엇을 도와드릴까요?
                 <!-- [D] .btn_basic 태그 안에는 a와 button 모두 사용 가능합니다. -->
                 <div class="btn_basic">
@@ -79,8 +79,8 @@
         <div class="user_menu">
           <button type="button" class="menu_open"><em class="text_hide">메뉴 보기</em></button>
           <ul class="menu">
-            <li><a href="#none" id="btn_change">상담사 전환</a></li>
-            <li><a href="#none" id="btn_chatout">상담 종료</a></li>
+            <li><button type="button" id="btn_change">상담사 전환</button></li>
+            <li><button type="button" id="btn_chatout">상담 종료</button></li>
           </ul>
         </div>
         <div class="user_writes">
@@ -92,6 +92,7 @@
 
       <!-- cs_chat 모달 -->
       <div class="modal">
+        <!-- 상담원 전환 모달 -->
         <div class="basic_dialog dialog_change">
           <p>전문 상담사로<br>전환하시겠습니까?</p>
           <div class="btn_dual">
@@ -150,13 +151,16 @@ okey~? okey~</textarea>
   <div id="connect_btm">
     <div id="wrapper">
       <div class="lefe_side">
-        <a href="#none"><span class="fas fa-home"></span><em class="label">홈</em></a>
+        <a href="home.html"><span class="fas fa-home"></span><em class="label">홈</em></a>
       </div>
       <div>
-        <a href="#none" class="chat_list"><span class="far fa-comment"></span><em class="text_hide">이전 채팅 보기</em></a>
+        <a href="chatting_list.html" class="chat_list"><span class="far fa-comment"></span><em class="text_hide">채팅 리스트 보기</em></a>
+        <!-- [D] 총 메세지 수 표시
+          모든 페이지에 적용되어야 합니다 -->
+        <div class="new_message"><span class="text_hide">새로운 메세지 총</span><em class="message_num">8</em><span class="text_hide">개</span></div>
       </div>
       <div class="right_side">
-        <a href="#none"><span class="fas fa-cog"></span><em class="label">설정</em></a>
+        <a href="setting.html"><span class="fas fa-cog"></span><em class="label">설정</em></a>
       </div>
     </div>
   </div>

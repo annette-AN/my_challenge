@@ -2,16 +2,22 @@
   backgroud : rgba 
   color : #
 
-  color: #5e5c68; 기본
-  color: #363636; 타이틀
-  color: #9f9f9f; 서브타이틀
-  color: #275791; 파랑
-  color: #0070C0; 하늘
-  color: #e03a3e; 빨강
+  #5e5c68; 기본
+  #363636; 타이틀
+  #9f9f9f; 서브타이틀
 
-  background: #f7f8fa; 밝은 회색
-  background: #3da4fa; 하늘
-  background: #dce6f2; 엹은 하늘
+  #3da4fa; 메인파랑
+  rgba(61,164,250,1.0)
+  
+  #00a0c8
+  rgba(61,164,250,1.0)
+
+  #275791; 파랑
+  #0070C0; 하늘
+  #e03a3e; 빨강
+
+  #f7f8fa; 밝은 회색
+  #dce6f2; 엹은 하늘
 
   border: 1px solid #e2e2f0;
 }
@@ -73,7 +79,7 @@ body.c_btm_hide {
 }
 
 .textbox_basic:focus {
-  border:1px solid rgba(0,160,200,1.0);
+  border:1px solid rgba(61,164,250,1.0);
 }
 
 .textbox_basic + .fa-microphone {
@@ -628,7 +634,7 @@ body.c_btm_hide {
         left: 10px;
         width: calc(100% - 19px);
         height: 3px;
-        background-color: #00a0c8;
+        background-color: #3da4fa;
 
       }
 
@@ -640,7 +646,7 @@ body.c_btm_hide {
         left: 19px;
         width: 3px;
         height: calc(100% - 19px);
-        background-color: #00a0c8;
+        background-color: #3da4fa;
 
       }
     }
@@ -665,7 +671,7 @@ body.c_btm_hide {
       }
 
       li {
-        a {
+        button {
           display: block;
           padding: 10px 20px;
           font-size: 15px;
@@ -695,7 +701,7 @@ body.c_btm_hide {
       left: calc(100% + 2px);
       width: 40px;
       height: 40px;
-      background: rgba(0,160,200,1.0) url(../image/ico_send_trans.png) no-repeat;
+      background: rgba(61,164,250,1.0) url(../image/ico_send_trans.png) no-repeat;
       background-size: contain;
     }
   }
@@ -875,7 +881,7 @@ body.c_btm_hide {
 
     .message {
       border-radius: 0px 10px 0px 10px;
-      background-color: rgba(0,160,200,1.0);
+      background-color: rgba(61,164,250,1.0);
       color: #fff;
 
       div.time {
