@@ -212,18 +212,23 @@ body.c_btm_hide {
 }
 
 .btn_basic {
-  display: inline-block;
-  border-radius: 28px;
-  border: 1px solid #3da4fa;
-  color: #3da4fa;
-  background-color: #fff;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: #3da4fa;
-    color: #fff;
+  a, button {
+    display: inline-block;
+    border-radius: 28px;
+    border: 1px solid #3da4fa;
+    color: #3da4fa;
+    background-color: #fff;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  
+    &:hover {
+      background-color: #3da4fa;
+      color: #fff;
+    }
   }
 }
+
+
 /* //defult */
 
 /* connect 상, 하단 바 */
@@ -894,18 +899,29 @@ body.c_btm_hide {
     padding: 8px 8px 7px 10px;
     text-align: left;
     word-break: break-all;
-  }
 
-  .btn_basic {
-    padding: 8px 16px;
-  }
+    + .btn_basic {
+      margin: 4px 0px 0px 0px;
+  
+      a, button {
+        padding: 8px 16px;
+        margin: 8px 0px 0px 4px;
+      }
+    }
 
-  .btns {
-    border: 1px solid #000;
-    margin: 4px 0px 0px 0px;
+    .text {
+      .btn_basic {
+        margin: 8px 0px;
+        text-align: center;
 
-    .btn_basic {
-      margin: 8px 0px 0px 4px;
+        button, a {
+          display: inline-block;
+          min-width: 100px;
+          padding: 6px 24px;
+          max-width: 80%;
+          text-align: center;
+        }
+      }
     }
   }
 }
@@ -1198,14 +1214,16 @@ body.c_btm_hide {
     }
 
     .btn_basic {
-      display: block;
-      width: 100%;
-      padding: 10px 0px;
-    }
-
-    .btn_basic.on {
-      background-color: #3da4fa;
-      color: #fff;
+      a, button {
+        display: block;
+        width: 100%;
+        padding: 10px 0px;
+      }
+  
+      button.on {
+        background-color: #3da4fa;
+        color: #fff;
+      }
     }
   }
 }
