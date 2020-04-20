@@ -57,9 +57,9 @@
           </li>
           <li class="user">
             <div class="message">
-              <p class="text">
+              <div class="text">
                 안녕하세요. 서비스센터입니다. 무엇을 도와드릴까요?
-              </p>
+              </div>
               <div class="time">
                 <span class="time">오전 12:20</span>
               </div>
@@ -281,7 +281,6 @@ okey~? okey~</textarea>
       button.on('click', function () {
         $('.cschat_body').addClass('backdrop');
         dialog.addClass('on');
-        console.log('in')
       });
 
       /* 상담원 별점 평가 close */
@@ -289,10 +288,9 @@ okey~? okey~</textarea>
         /* 모달 전체 close 공통 */
         $('.cschat_body').removeClass('backdrop');
         dialog.removeClass('on');
-        console.log('out')
+        $('.menu').removeClass('on')
       })
     }
-
     handleCschatDialog($('#btn_change'), $('.dialog_change'));
     handleCschatDialog($('#btn_chatout'), $('.dialog_chatout'));
     // $('#btn_change').trigger('click');
