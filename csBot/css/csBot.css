@@ -7,6 +7,7 @@
   color: #363636; 타이틀
   color: #9f9f9f; 서브타이틀
   color: #275791; 파랑
+  color: #0070C0; 하늘
   color: #e03a3e; 빨강
 
   background: #f7f8fa; 밝은 회색
@@ -76,6 +77,10 @@ body.c_btm_hide #connect_btm { display: none; }
 .list_info { position: relative; }
 
 .list_info .info { position: absolute; font-size: 18px; }
+
+.btn_dual { overflow: hidden; }
+
+.btn_dual button { float: left; display: block; width: 50%; }
 
 /* //defult */
 /* connect 상, 하단 바 */
@@ -191,7 +196,11 @@ body.c_btm_hide #connect_btm { display: none; }
 /* content cschat */
 .cschat_body { position: relative; height: 100%; }
 
-.cschat_body .dialog { display: none; }
+.cschat_body .modal { display: none; }
+
+.cschat_body .modal > div { opacity: 0; }
+
+.cschat_body .modal > div.on { opacity: 1; }
 
 .cschat_mid { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin-bottom: 55px; }
 
@@ -222,13 +231,17 @@ body.c_btm_hide #connect_btm { display: none; }
 .cschat_btm .textbox_basic { overflow: auto; padding: 9px 8px 6px 8px; }
 
 /* 모달 backdrop */
-.cschat_body.backdrop:after { content: ''; display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #f7f8fa; z-index: 10; }
+.cschat_body.backdrop:after { content: ''; display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 10; }
 
-.cschat_body.backdrop .dialog { overflow: auto; position: relative; display: block; height: 100%; padding: 8px 10px; z-index: 11; }
+.cschat_body.backdrop .modal { overflow: auto; position: relative; display: block; height: 100%; text-align: center; z-index: 11; }
 
-.cschat_body.backdrop .dialog > div { display: none; }
+.cschat_body.backdrop .basic_dialog { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 80%; padding: 30px 0px 20px 0px; border-radius: 8px; background: #fff; }
 
-.cschat_body.backdrop .dialog > div.on { display: block; }
+.cschat_body.backdrop .basic_dialog p { line-height: 26px; font-size: 22px; }
+
+.cschat_body.backdrop .basic_dialog .btn_dual { display: inline-block; margin: 15px 0px 0px 0px; }
+
+.cschat_body.backdrop .basic_dialog .btn_dual button { padding: 10px 40px; font-size: 18px; font-weight: bold; color: #0070C0; }
 
 .cs_talk { overflow: auto; height: 100%; color: #5e5c68; padding: 16px 10px; }
 
@@ -333,11 +346,9 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .service_home .service_menu .affix { background-color: #fff; }
 
-.service_home .service_menu .btns { overflow: hidden; }
+.service_home .service_menu .btn_dual button { height: 40px; border-bottom: 2px solid #e2e2f0; font-size: 16px; color: #e2e2f0; }
 
-.service_home .service_menu .btns button { float: left; display: block; width: 50%; height: 40px; border-bottom: 2px solid #e2e2f0; font-size: 16px; color: #e2e2f0; }
-
-.service_home .service_menu .btns button.on { font-weight: bold; color: #5e5c68; border-bottom-color: #5e5c68; }
+.service_home .service_menu .btn_dual button.on { font-weight: bold; color: #5e5c68; border-bottom-color: #5e5c68; }
 
 .service_home .service_menu .service .service_list { overflow: auto; margin: 16px 0px; }
 
