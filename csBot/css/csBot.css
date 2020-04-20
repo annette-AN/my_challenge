@@ -198,9 +198,9 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .cschat_body .modal { display: none; }
 
-.cschat_body .modal > div { opacity: 0; }
+.cschat_body .modal > div { display: none; opacity: 0; }
 
-.cschat_body .modal > div.on { opacity: 1; }
+.cschat_body .modal > div.on { display: block; opacity: 1; }
 
 .cschat_mid { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin-bottom: 55px; }
 

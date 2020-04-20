@@ -149,7 +149,7 @@ okey~? okey~</textarea>
 <!-- //connect_wrap -->
 <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
 <script type="text/javascript" src="http://cdn.socket.io/socket.io-1.4.0.js"></script>
-<script type="text/javascript" src="chat.js"></script>
+<!-- <script type="text/javascript" src="chat.js"></script> -->
 <script type="text/javascript">
   $(document).ready(function () {
 
@@ -264,6 +264,7 @@ okey~? okey~</textarea>
       button.on('click', function () {
         $('.cschat_body').addClass('backdrop');
         dialog.addClass('on');
+        console.log('in')
       });
 
       /* 상담원 별점 평가 close */
@@ -271,11 +272,12 @@ okey~? okey~</textarea>
         /* 모달 전체 close 공통 */
         $('.cschat_body').removeClass('backdrop');
         dialog.removeClass('on');
+        console.log('out')
       })
     }
 
     handleCschatDialog($('#btn_change'), $('.dialog_change'));
-    $('#btn_change').trigger('click');
+    // $('#btn_change').trigger('click');
 
 
     /* dialog supporter_evaluation 별점 */
