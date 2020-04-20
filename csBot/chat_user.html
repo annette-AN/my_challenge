@@ -64,7 +64,7 @@
           <button type="button" class="menu_open"><em class="text_hide">메뉴 보기</em></button>
           <ul class="menu">
             <li><a href="#none" id="btn_change">상담사 전환</a></li>
-            <li><a href="#none" class="btn_cancle" id="chat_out">상담 종료</a></li>
+            <li><a href="#none" id="btn_chatout">상담 종료</a></li>
           </ul>
         </div>
         <div class="user_writes">
@@ -85,7 +85,7 @@
         </div>
 
         <!-- 상담 종료 모달 -->
-        <div class="basic_dialog">
+        <div class="basic_dialog dialog_chatout">
           <p>상담을<br>종료하시겠습니까?</p>
           <div class="btn_dual">
             <button type="button" class="btn_cancle">취소</button>
@@ -277,6 +277,7 @@ okey~? okey~</textarea>
     }
 
     handleCschatDialog($('#btn_change'), $('.dialog_change'));
+    handleCschatDialog($('#btn_chatout'), $('.dialog_chatout'));
     // $('#btn_change').trigger('click');
 
 
