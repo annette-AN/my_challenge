@@ -289,9 +289,9 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .cs_talk .btn_basic { padding: 8px 16px; }
 
-.cs_talk .btns { width: calc(100% - 60px); margin: 4px 0px 0px 0px; }
+.cs_talk .btns { border: 1px solid #000; margin: 4px 0px 0px 0px; }
 
-.cs_talk .btns .btn_basic { margin: 8px 0px 0px 8px; }
+.cs_talk .btns .btn_basic { margin: 8px 0px 0px 4px; }
 
 /* //content cschat */
 /* content company list */

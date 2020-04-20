@@ -901,11 +901,11 @@ body.c_btm_hide {
   }
 
   .btns {
-    width: calc(100% - 60px);
+    border: 1px solid #000;
     margin: 4px 0px 0px 0px;
 
     .btn_basic {
-      margin: 8px 0px 0px 8px;
+      margin: 8px 0px 0px 4px;
     }
   }
 }
