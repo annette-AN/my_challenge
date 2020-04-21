@@ -464,7 +464,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .connect_login .login_wrap { display: inline-block; width: 80%; }
 
-.connect_login .loginbox { margin: 100px 0px 0px 0px; }
+.connect_login .loginbox { margin: 50px 0px 0px 0px; }
 
 .connect_login .mainlogo { display: inline-block; }
 
