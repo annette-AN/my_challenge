@@ -476,7 +476,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .connect_login .login input[type="text"], .connect_login .login input[type="password"] { margin: 10px 0px 0px 0px; padding: 0px 10px; height: 50px; border-radius: 2px; border: 2px solid #e2e2f0; font-size: 16px; }
 
-.connect_login .login button { margin: 10px 0px 0px 0px; height: 50px; background-color: #3da4fa; color: #fff; font-size: 22px; }
+.connect_login .login button { margin: 10px 0px 0px 0px; height: 50px; background-color: #3da4fa; color: #fff; font-size: 18px; }
 
 .connect_login .each_checkbox { position: relative; margin: 10px 0px 0px 0px; text-align: left; }
 
