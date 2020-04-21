@@ -65,50 +65,77 @@
               </div>
             </div>
           </li>
-          <li class="date chatend" id="chat_end_dt">
+          <li class="date" id="chat_end_dt">
             <em>2020년 4월 6일 월요일</em>
-            <em>상담이 종료되었습니다.</em>
           </li>
           <li class="system_entry">
             <em><span>홍길동</span> 님이 입장하셨습니다.</em>
           </li>
-          <li class="supporter_evaluation">
-            <div class="text_box">
-              <em>
-                상담은 만족스러웠나요??
-              </em>
-              <p>
-                상담 평가를 남겨주시면 다음번 상담 시<br>
-                반영하도록 하겠습니다.
-              </p>
-            </div>
-            <div class="suggestion">
-              <div class="star_score">
-                <div class="score">
-                  <button type="button"><em class="text_hide">5점 만점에 1점</em></button>
-                  <span class="score_text">매우 불만족입니다.</span>
-                </div>
-                <div class="score">
-                  <button type="button"><em class="text_hide">5점 만점에 2점</em></button>
-                  <span class="score_text">만족스럽지 못해요.</span>
-                </div>
-                <div class="score">
-                  <button type="button"><em class="text_hide">5점 만점에 3점</em></button>
-                  <span class="score_text">무난무난, 보통이였습니다.</span>
-                </div>
-                <div class="score">
-                  <button type="button"><em class="text_hide">5점 만점에 4점</em></button>
-                  <span class="score_text">만족했어요.</span>
-                </div>
-                <div class="score">
-                  <button type="button"><em class="text_hide">5점 만점에 5점</em></button>
-                  <span class="score_text">와우! 매우 만족합니다.</span>
-                </div>
+          <!-- <li class="each_chatout">
+            <em>상담이 종료되었습니다.</em>
+            <div class="supporter_evaluation">
+              <div class="text_box">
+                <em>
+                  상담은 만족스러웠나요??
+                </em>
+                <p>
+                  상담 평가를 남겨주시면 다음번 상담 시<br>
+                  반영하도록 하겠습니다.
+                </p>
               </div>
-              <textarea name="evaluation" id="" cols="30" rows="3" placeholder="추가 의견 작성하기"></textarea>
-              <button type="submit" class="score_submit">완료</button>
+              <div class="suggestion">
+                <div class="star_score">
+                  <div class="score">
+                    <button type="button"><em class="text_hide">5점 만점에 1점</em></button>
+                    <span class="score_text">매우 불만족입니다.</span>
+                  </div>
+                  <div class="score">
+                    <button type="button"><em class="text_hide">5점 만점에 2점</em></button>
+                    <span class="score_text">만족스럽지 못해요.</span>
+                  </div>
+                  <div class="score">
+                    <button type="button"><em class="text_hide">5점 만점에 3점</em></button>
+                    <span class="score_text">무난무난, 보통이였습니다.</span>
+                  </div>
+                  <div class="score">
+                    <button type="button"><em class="text_hide">5점 만점에 4점</em></button>
+                    <span class="score_text">만족했어요.</span>
+                  </div>
+                  <div class="score">
+                    <button type="button"><em class="text_hide">5점 만점에 5점</em></button>
+                    <span class="score_text">와우! 매우 만족합니다.</span>
+                  </div>
+                </div>
+                <textarea name="evaluation" id="" cols="30" rows="3" placeholder="추가 의견 작성하기"></textarea>
+                <button type="submit" class="score_submit">완료</button>
+              </div>
             </div>
-          </li>
+          </li> -->
+          <!-- <li class="each_chatout">
+            <em>상담이 종료되었습니다.</em>
+            <div class="star_score">
+              <div class="score">
+                <button type="button"><em class="text_hide">5점 만점에 1점</em></button>
+                <span class="score_text">매우 불만족입니다.</span>
+              </div>
+              <div class="score">
+                <button type="button"><em class="text_hide">5점 만점에 2점</em></button>
+                <span class="score_text">만족스럽지 못해요.</span>
+              </div>
+              <div class="score">
+                <button type="button"><em class="text_hide">5점 만점에 3점</em></button>
+                <span class="score_text">무난무난, 보통이였습니다.</span>
+              </div>
+              <div class="score">
+                <button type="button"><em class="text_hide">5점 만점에 4점</em></button>
+                <span class="score_text">만족했어요.</span>
+              </div>
+              <div class="score">
+                <button type="button"><em class="text_hide">5점 만점에 5점</em></button>
+                <span class="score_text">와우! 매우 만족합니다.</span>
+              </div>
+            </div>
+          </li> -->
         </ul>
       </div>
       <!-- //cschat_mid -->
@@ -291,8 +318,8 @@
         dialog.addClass('on');
       });
 
-      /* 상담원 별점 평가 close */
-      dialog.find('.btn_cancle').on('click', function () {
+      /* dialog 닫기 (취소버튼, 상담종료버튼) */
+      dialog.find('.btn_cancle, #action_chatout').on('click', function () {
         /* 모달 전체 close 공통 */
         $('.cschat_body').removeClass('backdrop');
         dialog.removeClass('on');
@@ -301,35 +328,109 @@
     }
     handleCschatDialog($('#btn_change'), $('.dialog_change'));
     handleCschatDialog($('#btn_chatout'), $('.dialog_chatout'));
-    // $('#btn_change').trigger('click');
 
-    $('#action_chatout').on('click', function(){
-      console.log('action_chatout')
-    });
+    /* 상담종료 시작부터 상담평가 완료까지의 이벤트 */
+    function handleCschatChatend() {
+      // 상담 종료 버튼 클릭 시
+      $('#action_chatout').on('click', function(){
+        // 상담 평가를 완료하기 전까지 .menu button disabled true
+        $('.user_menu .menu button').attr('disabled',true);
 
+        // 평가표 open
+        $('.cs_talk').append(
+          '<li class="each_chatout">'+
+            '<div class="supporter_evaluation">'+
+              '<div class="text_box">\n'+
+                '<em>\n'+
+                  '상담은 만족스러웠나요??\n'+
+                '</em>\n'+
+                '<p>\n'+
+                  '상담 평가를 남겨주시면 다음번 상담 시<br>\n'+
+                  '반영하도록 하겠습니다.\n'+
+                '</p>\n'+
+              '</div>\n'+
+              '<div class="suggestion">\n'+
+                '<div class="star_score">\n'+
+                  '<div class="score">\n'+
+                    '<button type="button"><em class="text_hide">5점 만점에 1점\n</em></button>'+
+                    '<span class="score_text">매우 불만족입니다.</span>\n'+
+                  '</div>\n'+
+                  '<div class="score">\n'+
+                    '<button type="button"><em class="text_hide">5점 만점에 2점\n</em></button>'+
+                    '<span class="score_text">만족스럽지 못해요.</span>\n'+
+                  '</div>\n'+
+                  '<div class="score">\n'+
+                    '<button type="button"><em class="text_hide">5점 만점에 3점\n</em></button>'+
+                    '<span class="score_text">무난무난, 보통이였습니다.</span>\n'+
+                  '</div>\n'+
+                  '<div class="score">\n'+
+                    '<button type="button"><em class="text_hide">5점 만점에 4점\n</em></button>'+
+                    '<span class="score_text">만족했어요.</span>\n'+
+                  '</div>\n'+
+                  '<div class="score">\n'+
+                    '<button type="button"><em class="text_hide">5점 만점에 5점\n</em></button>'+
+                    '<span class="score_text">와우! 매우 만족합니다.</span>\n'+
+                  '</div>\n'+
+                '</div>\n'+
+                '<textarea name="evaluation" id="" cols="30" rows="3\n" placeholder="추가 의견 작성하기"></textarea>'+
+                '<button type="submit" class="score_submit">완료</button>\n'+
+              '</div>\n'+
+            '</div>\n'+
+          '</li>'
+        );
+        handleCsTalkScoll();
+        scoreColoring();
+        scoreSuccess();
+      });
 
-    /* dialog supporter_evaluation 별점 */
-    $('.supporter_evaluation .score button').on('click', function () {
-      var $score = $('.supporter_evaluation .score');
-      var $scoretext = $('.supporter_evaluation .score_text');
-      var index = $score.index($(this).parent('.score'));
-      var coloringScore = index + 1;
+      var $score = '';
+      var coloredScore = 0;
 
-      $score.removeClass('on');
-      $scoretext.removeClass('on');
+      // dialog 상담평가 별점주기
+      function scoreColoring() {
+        $('.supporter_evaluation .score button').on('click', function () {
+          $score = $('.score');
+          var $scoretext = $('.supporter_evaluation .score_text');
+          var index = $score.index($(this).parent('.score'));
+          coloredScore = index + 1;
 
-      for (var i = 0; i < coloringScore; i++) {
-        $score.eq(i).addClass('on');
+          $score.removeClass('on');
+          $scoretext.removeClass('on');
+
+          for (var i = 0; i < coloredScore; i++) {
+            $score.eq(i).addClass('on');
+          }
+          $scoretext.eq(index).addClass('on');
+
+          // var i=0;
+          // while(i<5) {
+          //   $score.eq(i).addClass('on');
+          //   i++;
+          // }
+        });
       }
-      $scoretext.eq(index).addClass('on');
 
-      // var i=0;
-      // while(i<5) {
-      //   $score.eq(i).addClass('on');
-      //   i++;
-      // }
-    });
+      // 평가 결과 채팅창에 표시
+      function scoreSuccess(){
+        $('.score_submit').on('click', function(){
+          console.log(coloredScore);
+          $score = $('.score');
+          scoreEl = $('.star_score').html();
+         
+          $('.each_chatout').empty().html(
+            '<em>상담이 종료되었습니다.</em>\n' +
+            '<div class="star_score">'+ scoreEl + '</div>');
+          $('.score_text').addClass('hide');
 
+        // 상담 평가를 완료 menu button disabled false
+        $('.user_menu .menu button').attr('disabled',false);
+        });
+      }
+
+      coloredScore = 0;
+    }
+    handleCschatChatend();
+    
   })
 </script>
 </body>
