@@ -196,6 +196,31 @@
     </div>
   </div>
   <!-- //connect_btm -->
+
+  <div class="score_templete hide">
+    <div class="star_score">
+      <div class="score">
+        <button type="button"><em class="text_hide">5점 만점에 1점</em></button>
+        <span class="score_text">매우 불만족입니다.</span>
+      </div>
+      <div class="score">
+        <button type="button"><em class="text_hide">5점 만점에 2점</em></button>
+        <span class="score_text">만족스럽지 못해요.</span>
+      </div>
+      <div class="score">
+        <button type="button"><em class="text_hide">5점 만점에 3점</em></button>
+        <span class="score_text">무난무난, 보통이였습니다.</span>
+      </div>
+      <div class="score">
+        <button type="button"><em class="text_hide">5점 만점에 4점</em></button>
+        <span class="score_text">만족했어요.</span>
+      </div>
+      <div class="score">
+        <button type="button"><em class="text_hide">5점 만점에 5점</em></button>
+        <span class="score_text">와우! 매우 만족합니다.</span>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- //connect_wrap -->
 <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
@@ -242,11 +267,8 @@
 
     /* 채팅 스크롤 하단 유지 */
     function handleCsTalkScoll() {
-      var $csTalk = $('.cschat_mid .cs_talk')
-      var csTalkHeight = $csTalk.height();
-      var csTalkPadding = 16*2;
-
-      $csTalk.scrollTop(csTalkHeight + csTalkPadding);
+      var $csTalk = $('.cschat_mid .cs_talk');
+      $csTalk.scrollTop($csTalk[0].scrollHeight);
     }
 
     /* 채팅 말풍선 생기기 */
@@ -329,11 +351,20 @@
     handleCschatDialog($('#btn_change'), $('.dialog_change'));
     handleCschatDialog($('#btn_chatout'), $('.dialog_chatout'));
 
+
     /* 상담종료 시작부터 상담평가 완료까지의 이벤트 */
     function handleCschatChatend() {
+      var starScoreEl = $('.score_templete').html();
+      var $score = '';
+      var $scoretext = '';
+      var coloredScore = 0;
+      var index = 0;
+
       // 상담 종료 버튼 클릭 시
       $('#action_chatout').on('click', function(){
-        // 상담 평가를 완료하기 전까지 .menu button disabled true
+        coloredScore = 0;
+
+        // 상담 평가를 완료하지 않으면 menu 버튼 클릭 불가능
         $('.user_menu .menu button').attr('disabled',true);
 
         // 평가표 open
@@ -350,29 +381,8 @@
                 '</p>\n'+
               '</div>\n'+
               '<div class="suggestion">\n'+
-                '<div class="star_score">\n'+
-                  '<div class="score">\n'+
-                    '<button type="button"><em class="text_hide">5점 만점에 1점\n</em></button>'+
-                    '<span class="score_text">매우 불만족입니다.</span>\n'+
-                  '</div>\n'+
-                  '<div class="score">\n'+
-                    '<button type="button"><em class="text_hide">5점 만점에 2점\n</em></button>'+
-                    '<span class="score_text">만족스럽지 못해요.</span>\n'+
-                  '</div>\n'+
-                  '<div class="score">\n'+
-                    '<button type="button"><em class="text_hide">5점 만점에 3점\n</em></button>'+
-                    '<span class="score_text">무난무난, 보통이였습니다.</span>\n'+
-                  '</div>\n'+
-                  '<div class="score">\n'+
-                    '<button type="button"><em class="text_hide">5점 만점에 4점\n</em></button>'+
-                    '<span class="score_text">만족했어요.</span>\n'+
-                  '</div>\n'+
-                  '<div class="score">\n'+
-                    '<button type="button"><em class="text_hide">5점 만점에 5점\n</em></button>'+
-                    '<span class="score_text">와우! 매우 만족합니다.</span>\n'+
-                  '</div>\n'+
-                '</div>\n'+
-                '<textarea name="evaluation" id="" cols="30" rows="3\n" placeholder="추가 의견 작성하기"></textarea>'+
+                starScoreEl +
+                '\n<textarea name="evaluation" id="" cols="30" rows="3\n" placeholder="추가 의견 작성하기"></textarea>'+
                 '<button type="submit" class="score_submit">완료</button>\n'+
               '</div>\n'+
             '</div>\n'+
@@ -381,53 +391,51 @@
         handleCsTalkScoll();
         scoreColoring();
         scoreSuccess();
-      });
 
-      var $score = '';
-      var coloredScore = 0;
+      });
 
       // dialog 상담평가 별점주기
       function scoreColoring() {
         $('.supporter_evaluation .score button').on('click', function () {
-          $score = $('.score');
-          var $scoretext = $('.supporter_evaluation .score_text');
-          var index = $score.index($(this).parent('.score'));
+          $score = $('.supporter_evaluation .score');
+          thisScore = $(this).parent($('.score'));
+          $scoretext = $score.find($('.score_text'));
+          index = $score.index(thisScore);
           coloredScore = index + 1;
 
-          $score.removeClass('on');
-          $scoretext.removeClass('on');
-
-          for (var i = 0; i < coloredScore; i++) {
-            $score.eq(i).addClass('on');
-          }
-          $scoretext.eq(index).addClass('on');
-
-          // var i=0;
-          // while(i<5) {
-          //   $score.eq(i).addClass('on');
-          //   i++;
-          // }
+          actionColoring();
         });
       }
 
       // 평가 결과 채팅창에 표시
       function scoreSuccess(){
         $('.score_submit').on('click', function(){
-          console.log(coloredScore);
-          $score = $('.score');
-          scoreEl = $('.star_score').html();
-         
           $('.each_chatout').empty().html(
             '<em>상담이 종료되었습니다.</em>\n' +
-            '<div class="star_score">'+ scoreEl + '</div>');
-          $('.score_text').addClass('hide');
+            '<div class="selected_score">\n' + starScoreEl + '\n</div>'
+          );
 
-        // 상담 평가를 완료 menu button disabled false
-        $('.user_menu .menu button').attr('disabled',false);
+          $score = $('.selected_score').find('.score');
+          $scoretext = $score.find($('.score_text'));
+          coloredScore = index + 1;
+
+          $scoretext.addClass('hide');
+          actionColoring()
+
+          // 상담 평가를 완료하면 menu 버튼 클릭 가능
+          $('.user_menu .menu button').attr('disabled',false);
         });
       }
 
-      coloredScore = 0;
+      // 클릭한 별만큼 색칠하기
+      function actionColoring() {
+        $score.removeClass('on');
+        $scoretext.removeClass('on');
+        for (var i = 0; i < coloredScore; i++) {
+          $score.eq(i).addClass('on');
+        }
+        $scoretext.eq(index).addClass('on');
+      }
     }
     handleCschatChatend();
     

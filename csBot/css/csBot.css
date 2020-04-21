@@ -459,6 +459,50 @@ body.c_btm_hide #connect_btm { display: none; }
 .connect_setting .setting_area .list_info .info { top: 20px; right: 20px; }
 
 /* //content setting */
+/* content connect login */
+.connect_login { text-align: center; }
+
+.connect_login .login_wrap { display: inline-block; width: 80%; }
+
+.connect_login .loginbox { margin: 100px 0px 0px 0px; }
+
+.connect_login .mainlogo { display: inline-block; }
+
+.connect_login .mainlogo img { width: 250px; }
+
+.connect_login .login { margin: 20px 0px 0px 0px; }
+
+.connect_login .login input, .connect_login .login button { width: 100%; }
+
+.connect_login .login input[type="text"], .connect_login .login input[type="password"] { margin: 10px 0px 0px 0px; padding: 0px 10px; height: 50px; border-radius: 2px; border: 2px solid #e2e2f0; font-size: 16px; }
+
+.connect_login .login button { margin: 10px 0px 0px 0px; height: 50px; background-color: #3da4fa; color: #fff; font-size: 22px; }
+
+.connect_login .each_checkbox { position: relative; margin: 10px 0px 0px 0px; text-align: left; }
+
+.connect_login .each_checkbox label { display: inline-block; padding: 0px 0px 0px 34px; vertical-align: middle; color: #363636; }
+
+.connect_login .each_checkbox label:before { content: ''; display: block; position: absolute; top: 0px; left: 0px; width: 24px; height: 24px; border: 1px solid #e2e2f0; border-radius: 2px; background-color: #fff; }
+
+.connect_login .each_checkbox input[type="checkbox"]:checked + label:before { background-color: pink; }
+
+.connect_login .other_loginbox { margin: 30px 0px 0px 0px; }
+
+.connect_login .other_loginbox .back_line { position: relative; padding: 8px 0px; text-align: center; font-size: 18px; }
+
+.connect_login .other_loginbox .back_line:before { content: ''; display: block; position: absolute; top: 50%; left: 0%; width: 100%; height: 1px; background-color: #ececfa; }
+
+.connect_login .other_loginbox .back_line span { display: inline-block; position: relative; padding: 0px 20px; background-color: #fff; color: #9f9f9f; }
+
+.connect_login .other_loginbox .other_login { margin: 20px 0px 0px 0px; }
+
+.connect_login .other_loginbox .other_login li { overflow: hidden; display: inline-block; width: 60px; height: 60px; border-radius: 50%; }
+
+.connect_login .other_loginbox .other_login li + li { margin: 0px 0px 0px 12px; }
+
+.connect_login .other_loginbox .other_login button { display: block; width: 100%; height: 100%; }
+
+/* //content connect login */
 /* 다크모드 */
 #cschat_wrap.dark_mode { color: #f0f0f0; }
 
