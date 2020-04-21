@@ -67,10 +67,47 @@
           </li>
           <li class="date chatend" id="chat_end_dt">
             <em>2020년 4월 6일 월요일</em>
-            <em>채팅이 종료되었습니다.</em>
+            <em>상담이 종료되었습니다.</em>
           </li>
           <li class="system_entry">
             <em><span>홍길동</span> 님이 입장하셨습니다.</em>
+          </li>
+          <li class="supporter_evaluation">
+            <div class="text_box">
+              <em>
+                상담은 만족스러웠나요??
+              </em>
+              <p>
+                상담 평가를 남겨주시면 다음번 상담 시<br>
+                반영하도록 하겠습니다.
+              </p>
+            </div>
+            <div class="suggestion">
+              <div class="star_score">
+                <div class="score">
+                  <button type="button"><em class="text_hide">5점 만점에 1점</em></button>
+                  <span class="score_text">매우 불만족입니다.</span>
+                </div>
+                <div class="score">
+                  <button type="button"><em class="text_hide">5점 만점에 2점</em></button>
+                  <span class="score_text">만족스럽지 못해요.</span>
+                </div>
+                <div class="score">
+                  <button type="button"><em class="text_hide">5점 만점에 3점</em></button>
+                  <span class="score_text">무난무난, 보통이였습니다.</span>
+                </div>
+                <div class="score">
+                  <button type="button"><em class="text_hide">5점 만점에 4점</em></button>
+                  <span class="score_text">만족했어요.</span>
+                </div>
+                <div class="score">
+                  <button type="button"><em class="text_hide">5점 만점에 5점</em></button>
+                  <span class="score_text on">와우! 매우 만족합니다.</span>
+                </div>
+              </div>
+              <textarea name="evaluation" id="" cols="30" rows="3" placeholder="의견 작성하기"></textarea>
+              <button type="submit">완료</button>
+            </div>
           </li>
         </ul>
       </div>
@@ -106,7 +143,7 @@
           <p>상담을<br>종료하시겠습니까?</p>
           <div class="btn_dual">
             <button type="button" class="btn_cancle">취소</button>
-            <button type="button">종료</button>
+            <button type="button" id="action_chatout">종료</button>
           </div>
         </div>
       </div>
@@ -114,39 +151,6 @@
     <!-- //cschat_body -->
   </div>
   <!-- //content -->
-
-  <!-- 상담원 별점 평가
-  <div id="supporter_evaluation">
-    <div class="text_box">
-      <p>
-        대화는 만족스러웠나요??
-      </p>
-    </div>
-    <div class="suggestion">
-      <div class="star_score">
-        <div class="score">
-          <button type="button"><em class="text_hide">5점 만점에 1점</em></button>
-        </div>
-        <div class="score">
-          <button type="button"><em class="text_hide">5점 만점에 2점</em></button>
-        </div>
-        <div class="score">
-          <button type="button"><em class="text_hide">5점 만점에 3점</em></button>
-        </div>
-        <div class="score">
-          <button type="button"><em class="text_hide">5점 만점에 4점</em></button>
-        </div>
-        <div class="score">
-          <button type="button"><em class="text_hide">5점 만점에 5점</em></button>
-        </div>
-      </div>
-      <textarea name="evaluation" id="" cols="30" rows="10">안녕하세요
-제가 건의사항이 있어서 이렇게 글을 남깁니다. 이런저러한 상황에서 요 기능이 없어서 불편함을 느꼈습니다.
-요 기능이 있다면은 요러저러호롤로한 상황에서도 불편함이 없을 것 같습니다.
-okey~? okey~</textarea>
-      <button type="submit">서포터 평가완료</button>
-    </div>
-  </div> -->
 
   <div id="connect_btm">
     <div id="wrapper">
@@ -299,10 +303,14 @@ okey~? okey~</textarea>
     handleCschatDialog($('#btn_chatout'), $('.dialog_chatout'));
     // $('#btn_change').trigger('click');
 
+    $('#action_chatout').on('click', function(){
+      console.log('action_chatout')
+    });
+
 
     /* dialog supporter_evaluation 별점 */
-    $('#supporter_evaluation .score button').on('click', function () {
-      var $score = $('#supporter_evaluation .score');
+    $('.supporter_evaluation .score button').on('click', function () {
+      var $score = $('.supporter_evaluation .score');
       var index = $score.index($(this).parent('.score'));
       var coloringScore = index + 1;
 

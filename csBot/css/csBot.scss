@@ -1012,27 +1012,35 @@ body.c_btm_hide {
 /* //content company list */
 
 /* 모달 dialog */
-#supporter_evaluation {
+.supporter_evaluation {
+  padding: 20px;
+  border: 2px solid #e2e2f0;
+  border-radius: 20px;
+
   .text_box {
-    padding: 80px 0px 40px 0px;
     text-align: center;
 
-    p {
-      display: inline-block;
+    em {
+      display: block;
       font-size: 18px;
       font-weight: bold;
-      text-align: left;
+    }
+
+    p {
+      margin: 10px 0px 0px 0px;
+      font-size: 16px;
       letter-spacing: -1px;
     }
   }
 
   .suggestion {
-    margin: 10px;
+    margin: 10px 0px;
+    text-align: center;
 
     .star_score {
-      padding: 20px 0px;
-      margin: 10px 0px;
-      text-align: center;
+      position: relative;
+      padding: 0px 0px 30px 0px;
+
 
       .score {
         display: inline-block;
@@ -1053,20 +1061,38 @@ body.c_btm_hide {
           background-size: cover;
         }
       }
+
+      .score_text {
+        display: none;
+        position: absolute;
+        left: 50%;
+        bottom: 0%;
+        transform: translate(-50%, 0%);
+        font-weight: bold;
+        color: #275791;
+        // color: #3da4fa;
+      }
+
+      .score_text.on {
+        display: block;
+      }
     }
 
     textarea[name="evaluation"] {
       width: 100%;
+      margin: 15px 0px 0px 0px;
       padding: 10px 8px;
+      border: 1px solid #e2e2f0;
     }
 
     button[type="submit"] {
-      display: block;
-      width: 100%;
-      padding: 10px 0px;
-      margin: 20px 0px 0px 0px;
-      font-size: 16px;
-      background-color: rgba(0,0,0,0.2);
+      display: inline-block;
+      padding: 5px 30px;
+      margin: 10px 0px 0px 0px;
+      border-radius: 4px;
+      font-size: 18px;
+      background-color: #3da4fa;
+      color: #fff;
     }
   }
 }
