@@ -1034,7 +1034,7 @@ body.c_btm_hide {
   }
 
   .suggestion {
-    margin: 10px 0px;
+    margin: 10px 0px 0px 0px;
     text-align: center;
 
     .star_score {
@@ -1354,8 +1354,8 @@ body.c_btm_hide {
 }
 
 @media all and (max-width: 768px) {
-  .textbox_basic {
-    font-size: 16px;
+  textarea {
+    font-size: 16px!important;
   }
   
   #connect_wrap {
