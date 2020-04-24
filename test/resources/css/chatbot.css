@@ -360,12 +360,14 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 
 /* 추가 200408 AMR chat_order */
 .chatAside .chat_order .chatAside_bd .stnBox dl.dlBox dt {width: 56px;}
-.chatAside .chat_order .chatAside_bd .stnBox dl.dlBox dd {width: calc(100% - 82px);}
+.chatAside .chat_order .chatAside_bd .stnBox dl.dlBox dd {position: relative; width: calc(100% - 82px);}
 
 .chatAside .chat_order .chatAside_bd .stn_area {height: calc(100% - 80px)}
 
-.chatAside .chat_order .chatAside_bd .stnBox dl.dlBox.order_menu {}
+.chatAside .chat_order .chatAside_bd .stnBox dl.dlBox.order_menu dt {}
 .chatAside .chat_order .chatAside_bd .stnBox dl.dlBox.order_menu dd.block_target {width: 100%; height: auto; margin: 0px;}
+
+.dd_description {position: absolute; right: 0px; bottom: calc(100% + 2px); color: red; font-size: 11px;}
 
 .chat_order .order_menu .menu {}
 .chat_order .order_menu .menu li + li {margin: 2px 0px 0px 0px;}

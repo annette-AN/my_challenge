@@ -4,13 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-signin-client_id" content="398812053663-p5srj6q93bhalt61es7dv1u7977bkmdp.apps.googleusercontent.com">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
   integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/font.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/csBot.css">
-<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-<title>home</title>
+<title>login</title>
 </head>
 
 <body>
@@ -52,9 +52,9 @@
         </div>
         
         <ul class="other_login">
-          <li><button type="button" style="background: rgb(98, 189, 98);"><em class="text_hide">네이버 아이디로 로그인 하기</em></button></li>
+          <li><button type="button" id="naverIdLogin" style="background: rgb(98, 189, 98);"><em class="text_hide">네이버 아이디로 로그인 하기</em></button></li>
           <li><button type="button" style="background: rgb(85, 85, 212);"><em class="text_hide">페이스북 아이디로 로그인 하기</em></button></li>
-          <li><button type="button" style="background: rgb(223, 57, 57);"><em class="text_hide">구글 아이디로 로그인 하기</em></button></li>
+          <li><button type="button" class="g-signin2" data-onsuccess="onSignIn" style="background: rgb(223, 57, 57);"><em class="text_hide">구글 아이디로 로그인 하기</em></button></li>
           <li><button type="button" style="background: rgb(240, 240, 44);"><em class="text_hide">카카오톡 아이디로 로그인 하기</em></button></li>
         </ul>
       </div>
@@ -87,6 +87,29 @@
 
 <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
 <script type="text/javascript" src="js/swiper.min.js"></script>
+<!--<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<script type="text/javascript">
+  let clientId = 'y6L_zW1NRvZWwCjBw23v';
+  let callbackUri = 'http://localhost:3000/user/login/callback/';
+  // let callbackUri = 'http://127.0.0.1:3000/user/login/callback';
+
+  var naverLogin = new naver.LoginWithNaverId({
+    clientId: clientId,
+    callbackUrl: callbackUri,
+    isPopup: false, /* 팝업을 통한 연동처리 여부 */
+    loginButton: {color: "green", type: 2, height: 40} /* 로그인 버튼의 타입을 지정 */
+  });
+  naverLogin.init();
+
+  function onSignIn(googleUser) {
+    let profile = googleUser.getBasicProfile();
+    console.log("Email: " + profile.getEmail());
+    console.log('Full Name: ' + profile.getName());
+    window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/user/chat");
+  }
+</script>
 </body>
 
 </html>

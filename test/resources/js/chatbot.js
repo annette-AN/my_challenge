@@ -529,9 +529,16 @@ $(document).ready(function (){
     }
 
     function botResponseOrder(orderResponse) {
-
+        var $chatAside;
+        var isCafe;
         // 현재 ui hard coding, todo: 메뉴명 db에서 가져오도록.
         if (orderResponse.includes("PAVAN")) {
+            $chatAside = $('.cafe_order').parent();
+            isCafe = true;
+            handleChatAsideOrder();
+        } else if (orderResponse.includes("DELIGHT")) {
+            $chatAside = $('.food_order').parent();
+            isCafe = false;
             handleChatAsideOrder();
         }
 
@@ -555,7 +562,7 @@ $(document).ready(function (){
             });
 
             // 체크박스 체크해제 시 수량 초기화
-            $checkbox.on('change', function(evnet){
+            $checkbox.on('change', function(event){
                 event.preventDefault();
                 var $eachmenu = $(this).parents('.each_menu');
 
@@ -566,18 +573,18 @@ $(document).ready(function (){
             });
 
             // 주문 수량을 적으면 메뉴체크
-            $('.chat_order .count').on('keyup', function(evnet){
+            $chatAside.find('.chat_order .count').on('keyup', function(event){
                 event.preventDefault();
                 var $eachmenu = $(this).parents('.each_menu');
 
-                $eachmenu.find('[type="checkbox"]').prop('checked', Boolean(Number(this.value)))
+                $eachmenu.find('[type="checkbox"]').prop('checked', Boolean(Number(this.value)));
                 calcTotalPrice()
             });
 
             // 선택한 메뉴들 합계
             function calcTotalPrice() {
                 var totalPrice = 0;
-                var $total = $('.chat_order .total_price');
+                var $total = $chatAside.find('.chat_order .total_price');
 
                 $eachmenu.each(function(){
                     var price = Number($(this).find('span.price').text().replace(/,/g, ''));
@@ -591,19 +598,22 @@ $(document).ready(function (){
 
             function clearOrderForm () {
                 // input field clear
-                $(".chat_order input[name='name']").val('');
-                $(".chat_order input[name='tel']").val('');
-                $(".chat_order input[name='email']").val('');
+                $chatAside.find(".chat_order input[name='name']").val('');
+                $chatAside.find(".chat_order input[name='tel']").val('');
+                $chatAside.find(".chat_order input[name='email']").val('');
                 // $(".chat_order input[name='pickupTime']").val('');
-                $(".chat_order textarea[name='add']").val('');
+                $chatAside.find(".chat_order textarea[name='add']").val('');
 
                 // each menu count clear
                 $eachmenu.each(function(){
                     $(this).find('.count').val(0);
                 });
                 // total price clear
-                $('.chat_order .total_price').text('');
-                $('.stn_area').scrollTop($('.stn_area'));
+                $chatAside.find('.chat_order .total_price').text('');
+                $chatAside.find('.stn_area').scrollTop($chatAside.find('.stn_area'));
+
+                //checkbox, radio button clear
+                $chatAside.find('input[type="checkbox"], input[type="radio"]').removeAttr('checked');
             }
 
             function checkOrderData(orderData) {
@@ -615,19 +625,35 @@ $(document).ready(function (){
                     alert('이름을 입력해주세요');
                     return false;
                 }
+                if (orderData.phone === undefined || orderData.phone === '') {
+                    alert('전화번호를 입력해주세요');
+                    return false;
+                }
                 if (orderData.email === undefined || orderData.email === '') {
                     alert('이메일을 입력해주세요');
                     return false;
                 }
-                if (orderData.phone === undefined || orderData.phone === '') {
-                    alert('전화번호를 입력해주세요');
+                if (orderData.reqList === undefined || orderData.reqList.length <= 0) {
+                    alert('메뉴를 선택해주세요');
+                    return false;
+                }
+                if (orderData.pickupTime === undefined || orderData.pickupTime === '') {
+                    if (isCafe) {alert('픽업시간을 선택해주세요');}
+                    else {alert('수령일자를 선택해주세요');}
+                    return false;
+                }
+                if (!isCafe && $chatAside.find('input:radio[name="take"]:checked').length <= 0) {
+                    alert('수령시간을 선택해주세요');
+                    return false;
+                }
+                if (orderData.payment === undefined || orderData.payment === '') {
+                    alert('결제방법을 선택해주세요');
                     return false;
                 }
 
                 return true;
             }
 
-            var $chatAside = $('.chat_order').parent();
             // aside open
             $(document).on('click', '.order_btn', function(){
                 $chatAside.addClass('aside_show');
@@ -685,7 +711,7 @@ $(document).ready(function (){
             });
 
             // submit btn onclick
-            var submitBtn = $('.chatAside_bd div.btnBox button.btn_submit');
+            var submitBtn = $chatAside.find('.chatAside_bd div.btnBox button.btn_submit');
             submitBtn.prop("onclick", null).off("click");
             submitBtn.on('click', function(event) {
                 var orderList = [];
@@ -699,17 +725,22 @@ $(document).ready(function (){
                     }
                 });
 
+                var checkedTake = $chatAside.find('input:radio[name="take"]:checked');
+                var checkedPayment = $chatAside.find('input:radio[name="payment"]:checked');
+                var pickupTime = $chatAside.find(".chat_order input[name='pickupTime']").val();
+                var take = checkedTake[0] ? checkedTake.siblings("label[for='" + checkedTake[0].id + "']").text() : "";
+
                 var orderData = {
                     "tos" : $('input[name="agreement"]').is(':checked'),
-                    "name": $(".chat_order input[name='name']").val(),
-                    "phone": $(".chat_order input[name='tel']").val(),
-                    "email": $(".chat_order input[name='email']").val(),
-                    "pickupTime": $(".chat_order input[name='pickupTime']").val(),
-                    "msg": $(".chat_order textarea[name='add']").val(),
+                    "name": $chatAside.find(".chat_order input[name='name']").val(),
+                    "phone": $chatAside.find(".chat_order input[name='tel']").val(),
+                    "email": $chatAside.find(".chat_order input[name='email']").val(),
+                    "pickupTime": isCafe ? pickupTime : pickupTime + '/' + take,
+                    "msg": $chatAside.find(".chat_order textarea[name='add']").val(),
                     "totalPrice": calcTotalPrice(),
                     "reqList": orderList,
-                    "take": $('input:radio[name="take"]:checked').siblings('label:first').text(),
-                    "payment": $('input:radio[name="payment"]:checked').siblings('label:first').text()
+                    "take": isCafe ? take : '',
+                    "payment": checkedPayment[0]? checkedPayment.siblings("label[for='" + checkedPayment[0].id + "']").text() : ""
                 };
 
                 if (!checkOrderData(orderData)){
@@ -719,25 +750,27 @@ $(document).ready(function (){
                 // console.log(orderData);
 
                 // success 팝업 채우기
-                $('.chatAside_bd div.check_order span.order_name').siblings('em').text(orderData.name);
-                $('.chatAside_bd div.check_order span.order_phone').siblings('em').text(orderData.phone);
-                $('.chatAside_bd div.check_order span.order_email').siblings('em').text(orderData.email);
-                $('.chatAside_bd div.check_order span.order_take').siblings('em').text(orderData.take);
-                $('.chatAside_bd div.check_order span.order_payment').siblings('em').text(orderData.payment);
-                $('.chatAside_bd div.check_order span.order_pickupTime').siblings('em').text(orderData.pickupTime);
-                $('.chatAside_bd div.check_order span.order_msg').siblings('p').text(orderData.msg);
-                $('.chatAside_bd div.check_order span.order_totalPrice').siblings('em').text(orderData.totalPrice);
-                var reqListP = $('.chatAside_bd div.check_order span.order_reqList').siblings('p');
+                $chatAside.find('.chatAside_bd div.check_order span.order_name').siblings('em').text(orderData.name);
+                $chatAside.find('.chatAside_bd div.check_order span.order_phone').siblings('em').text(orderData.phone);
+                $chatAside.find('.chatAside_bd div.check_order span.order_email').siblings('em').text(orderData.email);
+                $chatAside.find('.chatAside_bd div.check_order span.order_take').siblings('em').text(orderData.take);
+                $chatAside.find('.chatAside_bd div.check_order span.order_payment').siblings('em').text(orderData.payment);
+                $chatAside.find('.chatAside_bd div.check_order span.order_pickupTime').siblings('em').text(orderData.pickupTime);
+                $chatAside.find('.chatAside_bd div.check_order span.order_msg').siblings('p').text(orderData.msg);
+                $chatAside.find('.chatAside_bd div.check_order span.order_totalPrice').siblings('em').text(orderData.totalPrice);
+                var reqListP = $chatAside.find('.chatAside_bd div.check_order span.order_reqList').siblings('p');
                 reqListP.empty();
+                var orderResTxt = '';
                 for (var i in orderList) {
                     var order = orderList[i];
                     var em = $("<em></em>").text(order[0] + ' ' + order[1]);
+                    orderResTxt += order[0] + ' ' + order[1] + '</br>';
                     reqListP.append(em);
                 }
 
                 $chatAside.find('.chatAside_bd').addClass('success_screen');
-                $('.chatAside_bd div.check_order .btn_point.btn_chatAside_close').off('click');
-                $('.chatAside_bd div.check_order .btn_point.btn_chatAside_close').on('click', function (event) {
+                $chatAside.find('.chatAside_bd div.check_order .btn_point.btn_chatAside_close').off('click');
+                $chatAside.find('.chatAside_bd div.check_order .btn_point.btn_chatAside_close').on('click', function (event) {
                     clearOrderForm();
                     callBackend({"type": "intent",
                         "input": JSON.stringify(orderData),
@@ -745,6 +778,7 @@ $(document).ready(function (){
                         "jsonData": JSON.stringify(getJsonData())});
                     window.parent.postMessage("aside_close", "*");
                     $chatAside.find('.chatAside_bd').removeClass('success_screen');
+                   botResponseText(orderResTxt + "주문 완료되었습니다.");
                 });
             });
         }
@@ -802,7 +836,7 @@ $(document).ready(function (){
         // submit button
         $('.chatAside_bd div.btnBox button.btn_submit').text(iqrResponse.form.submitBtn);
 
-        var $chatAside = $('.chatAside.chat_inquiry');
+        var $chatAside = $('.chat_inquiry').parent();
 
         // submit btn onclick
         var submitBtn = $('.chatAside_bd div.btnBox button.btn_submit');
