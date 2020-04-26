@@ -1285,15 +1285,17 @@ $(document).ready(function(){
 	});
 
 	// test
-	$('#datetimepicker_test').datetimepicker({
+
+	var dpElement = $('#datetimepicker_test')
+	var dp = dpElement.datetimepicker({
+		date: moment(),
 		locale: 'ko',
 		inline: true,
-		format: 'YYYY-MM-DD HH:mm dd',
+		format: 'YYYY-MM-DD HH:mm',
 		dayViewHeaderFormat: 'YYYY 년 MM 월',
 		daysOfWeekDisabled: [0,6],
-		minDate: moment(),
-		// disabledHours: [0,1,2,3,4,5,6,7,8,20,21,22,23],
-		// disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 12 })]],
+		disabledHours: [0,1,2,3,4,5,6,7,8,17,18,19,20,21,22,23],
+		// disabledHours: getDisabledHoursForDp(),
 		// disabledDates: ['2020-01-01','2020-03-01','2020-05-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
 			// 01-01 새해(신정), 03-01 삼일절, 05-01 근로자의날, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
 			// 설날(구정)				음력 1월 1일
@@ -1311,7 +1313,46 @@ $(document).ready(function(){
         //     clear: 'glyphicon glyphicon-trash',
         //     close: 'glyphicon glyphicon-remove'
         // },
+	}).data("DateTimePicker");
+
+	function getDisabledHoursForDp (selectedDate){
+		var thisHour = moment().hour();
+		var inactiveHours = [0,1,2,3,4,5,6,7,8,17,18,19,20,21,22,23]
+
+		if(
+			(selectedDate === undefined) ||
+			(selectedDate && selectedDate.format('YYYY-MM-DD') === moment().format('YYYY-MM-DD'))
+		) {
+			for (var hour=0, length = thisHour; hour<length; hour++) {
+				var hasHour = false
+				for(var h=0, l=inactiveHours.length; h<l; h++){
+					if(inactiveHours[h] === hour){
+						hasHour = true
+					}
+				}
+				if(hasHour === false){
+					inactiveHours.push(hour)
+				}
+			}
+		}
+		
+		// 24시간 모두 disabled이면 에러가 발생하여 방어코드 
+		if(inactiveHours.length === 24){
+			inactiveHours.shift()
+		}
+		
+		return inactiveHours
+	}
+
+	// 일시를 전부 사용할 때
+	false && dpElement.on("dp.change", function(event){
+		var inactiveHours = getDisabledHoursForDp(event.date);
+		dp.disabledHours(inactiveHours);
 	});
+
+	// 시간만 사용할 때
+	//dpElement.on("dp.change", updateDp);
+	// updateDp();
 
 	/* 200217 AMR popup swiper preview open */
 	function handleSwipePopupPreviewOpenClose() {
