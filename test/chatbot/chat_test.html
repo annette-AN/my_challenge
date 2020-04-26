@@ -215,6 +215,20 @@
 				</div>
 				<div class="date">2019.08.14 12:00</div>
 			</li>
+
+			<!-- 200426 AMR 데이트피커 test -->
+			<li class="bot">
+				<div class="bot_msg">
+					<div class="container">
+						<div class="row">
+							<div class='col-sm-6'>
+								<!-- value 빼기 -->
+								<input type='text' value="" placeholder="날짜와 시간을 선택해주세요" class="form-control ipt_txt" id='datetimepicker_test' />
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
 			<!-- //chatBot UI -->
 		</ul>
 	</div>
@@ -1010,7 +1024,8 @@
 <script type="text/javascript" src="../resources/js/swiper.min.js"></script>
 
 <script type="text/javascript" src="../resources/js/moment.js"></script>
-<script type="text/javascript" src="../resources/js/moment.locale.ko.js"></script>
+<!-- <script type="text/javascript" src="../resources/js/moment-timezone.js"></script> -->
+<!-- <script type="text/javascript" src="../resources/js/moment.locale.ko.js"></script> -->
 <script type="text/javascript" src="../resources/js/bootstrap-datetimepicker.js"></script>
 
 <script type="text/javascript">
@@ -1196,6 +1211,7 @@ $(document).ready(function(){
 		dayViewHeaderFormat: 'YYYY 년 MM 월',
 		stepping: 30,
 		daysOfWeekDisabled: [0],
+		minDate: 'now',
 		disabledDates: ['2020-01-01','2020-03-01','2020-05-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
 			// 01-01 새해(신정), 03-01 삼일절, 05-01 근로자의날, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
 			// 설날(구정)				음력 1월 1일
@@ -1266,6 +1282,35 @@ $(document).ready(function(){
             clear: 'glyphicon glyphicon-trash',
             close: 'glyphicon glyphicon-remove'
         },
+	});
+
+	// test
+	$('#datetimepicker_test').datetimepicker({
+		locale: 'ko',
+		inline: true,
+		format: 'YYYY-MM-DD HH:mm dd',
+		dayViewHeaderFormat: 'YYYY 년 MM 월',
+		daysOfWeekDisabled: [0,6],
+		minDate: moment(),
+		// disabledHours: [0,1,2,3,4,5,6,7,8,20,21,22,23],
+		// disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 12 })]],
+		// disabledDates: ['2020-01-01','2020-03-01','2020-05-01','2020-05-05','2020-06-06','2020-08-15','2020-10-03','2020-10-09','2020-12-25'],
+			// 01-01 새해(신정), 03-01 삼일절, 05-01 근로자의날, 05-05 어린이날, 06-06 현충일, 08-15 광복절, 10-03 개천절, 10-09 한글날, 12-25 크리스마스
+			// 설날(구정)				음력 1월 1일
+			// 석가탄신일(부처님오신날)	 음력 4월 8일
+			// 추석						음력 8월 15일
+	
+		// icons: {
+        //     time: 'glyphicon glyphicon-time',
+        //     date: 'glyphicon glyphicon-calendar',
+        //     up: 'glyphicon glyphicon-chevron-up',
+        //     down: 'glyphicon glyphicon-chevron-down',
+        //     previous: 'glyphicon glyphicon-chevron-left',
+        //     next: 'glyphicon glyphicon-chevron-right',
+        //     today: 'glyphicon glyphicon-screenshot',
+        //     clear: 'glyphicon glyphicon-trash',
+        //     close: 'glyphicon glyphicon-remove'
+        // },
 	});
 
 	/* 200217 AMR popup swiper preview open */
