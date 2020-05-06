@@ -744,3 +744,36 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     /* color: #777777; */
     cursor: not-allowed;
 }
+
+#chatUI_wrap .txt .txt_btn a.gradient_animation {
+    background: linear-gradient(135deg,
+    /* Base gradient stops */
+    #5D77FD, #5D77FD, #0B70C1,
+    /* Repeat your base gradient stops */
+    #5D77FD, #5D77FD, #0B70C1,
+    /* Repeat your first gradient stop */
+    #5D77FD);
+
+    background-size: 200% 200%;
+    animation: gra_ani 2s linear infinite;
+
+    color: #fff!important;
+    border-radius: 5px;
+}
+
+@keyframes gra_ani {
+    /* 0% {
+        background: pink;
+    }
+
+    50% {
+        background: #fff;
+    }
+
+    100% {
+        background: pink;
+    } */
+
+    0% { background-position: 100% 100% }
+    100% { background-position: 0% 0% }
+}
