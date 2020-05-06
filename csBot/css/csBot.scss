@@ -234,6 +234,17 @@ body.c_btm_hide {
   }
 }
 
+.btn_fill {
+  a, button {
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid #3da4fa;
+    color: #fff;
+    background: linear-gradient(to right, #13aef0, #5d78ff);
+    font-size: 14px;
+  }
+}
+
 .star_score {
   position: relative;
 
@@ -871,6 +882,14 @@ body.c_btm_hide {
         height: 25px;
       }
     }
+
+    .btn_fill {
+      a, button {
+        width: 120px;
+        margin: 10px 0px 0px 0px;
+        padding: 8px 0px;
+      }
+    }
   }
 
   .system_entry {
@@ -948,7 +967,7 @@ body.c_btm_hide {
 
     .message {
       border-radius: 0px 10px 0px 10px;
-      background-color: rgba(61,164,250,1.0);
+      background: linear-gradient(to right, #13aef0, #5d78ff);
       color: #fff;
 
       div.time {
@@ -1565,5 +1584,53 @@ body.c_btm_hide {
         width: calc(100%);
       }
     }
+  }
+}
+
+
+.writing_effect {
+
+  .ball {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000;
+    animation-name: writing_ball_effect;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+  }
+
+  .ball:nth-child(1) {
+    animation-delay: 0s;
+    background: #34b6e7;
+  }
+
+  .ball:nth-child(2) {
+    animation-delay: .5s;
+    background: #5479bc;
+  }
+
+  .ball:nth-child(3) {
+    animation-delay: 1s;
+    background: #7359a2;
+  }
+
+  .ball + .ball {
+    margin: 0px 0px 0px 4px;
+  }
+}
+
+@keyframes writing_ball_effect {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

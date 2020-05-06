@@ -71,6 +71,15 @@
           <li class="system_entry">
             <em><span>홍길동</span> 님이 입장하셨습니다.</em>
           </li>
+          <li class="bot">
+            <div class="message">
+              <div class="writing_effect">
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+              </div>
+            </div>
+          </li>
           <!-- <li class="each_chatout">
             <em>상담이 종료되었습니다.</em>
             <div class="supporter_evaluation">
@@ -135,7 +144,11 @@
                 <span class="score_text">와우! 매우 만족합니다.</span>
               </div>
             </div>
+            <div class="btn_fill">
+              <button type="button">상담 시작</button>
+            </div>
           </li> -->
+
         </ul>
       </div>
       <!-- //cschat_mid -->
@@ -412,7 +425,10 @@
         $('.score_submit').on('click', function(){
           $('.each_chatout').empty().html(
             '<em>상담이 종료되었습니다.</em>\n' +
-            '<div class="selected_score">\n' + starScoreEl + '\n</div>'
+            '<div class="selected_score">\n' + starScoreEl + '\n</div>' + 
+            '<div class="btn_fill">\n' +
+              '<button type="button">상담 시작</button>\n' +
+            '</div>'
           );
 
           $score = $('.selected_score').find('.score');

@@ -92,6 +92,8 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .btn_basic a:hover, .btn_basic button:hover { background-color: #3da4fa; color: #fff; }
 
+.btn_fill a, .btn_fill button { display: inline-block; border-radius: 4px; border: 1px solid #3da4fa; color: #fff; background: -webkit-gradient(linear, left top, right top, from(#13aef0), to(#5d78ff)); background: linear-gradient(to right, #13aef0, #5d78ff); font-size: 14px; }
+
 .star_score { position: relative; }
 
 .star_score .score { display: inline-block; width: 10px; height: 10px; }
@@ -269,12 +271,6 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .cs_talk li + li { margin-top: 16px; }
 
-.cs_talk .date { position: relative; padding: 8px 0px; text-align: center; font-size: 12px; }
-
-.cs_talk .date:before { content: ''; display: block; position: absolute; top: 50%; left: 0%; width: 100%; height: 1px; background-color: #ececfa; }
-
-.cs_talk .date em { display: inline-block; position: relative; padding: 0px 10px; background-color: #fff; color: #403738; }
-
 .cs_talk .each_chatout { position: relative; padding: 8px 0px; text-align: center; font-size: 12px; }
 
 .cs_talk .each_chatout:before { content: ''; display: block; position: absolute; top: 16px; left: 0%; width: 100%; height: 1px; background-color: #ececfa; }
@@ -284,6 +280,8 @@ body.c_btm_hide #connect_btm { display: none; }
 .cs_talk .each_chatout .star_score { margin: 5px 0px 0px 0px; }
 
 .cs_talk .each_chatout .star_score .score { width: 25px; height: 25px; }
+
+.cs_talk .each_chatout .btn_fill a, .cs_talk .each_chatout .btn_fill button { width: 120px; margin: 10px 0px 0px 0px; padding: 8px 0px; }
 
 .cs_talk .system_entry { position: relative; text-align: center; font-size: 12px; }
 
@@ -305,7 +303,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .cs_talk li.user { overflow: hidden; padding: 0px 10px 0px 80px; text-align: right; }
 
-.cs_talk li.user .message { border-radius: 0px 10px 0px 10px; background-color: #3da4fa; color: #fff; }
+.cs_talk li.user .message { border-radius: 0px 10px 0px 10px; background: -webkit-gradient(linear, left top, right top, from(#13aef0), to(#5d78ff)); background: linear-gradient(to right, #13aef0, #5d78ff); color: #fff; }
 
 .cs_talk li.user .message div.time { position: absolute; bottom: 0%; right: calc(100% + 4px); width: 56px; text-align: center; }
 
@@ -510,12 +508,26 @@ body.c_btm_hide #connect_btm { display: none; }
 
 #cschat_wrap.dark_mode .cschat_mid { background-color: #444444; color: #fff; }
 
-#cschat_wrap.dark_mode .cs_talk .date:before { background-color: #222222; }
-
-#cschat_wrap.dark_mode .cs_talk .date em { background-color: #403738; color: #f7f8fa; }
-
 @media all and (max-width: 768px) { textarea { font-size: 16px !important; }
   #connect_wrap { top: 0px; left: 0px; right: auto; bottom: auto; width: 100%; height: 100%; border-radius: 0px; }
   .service_home .service_menu.affix { margin: 138px 0px 0px 0px; }
   .service_home .service_menu.affix .affix { position: fixed; right: 0px; width: calc(100%); } }
+
+.writing_effect .ball { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #000; -webkit-animation-name: writing_ball_effect; animation-name: writing_ball_effect; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-duration: 1.5s; animation-duration: 1.5s; }
+
+.writing_effect .ball:nth-child(1) { -webkit-animation-delay: 0s; animation-delay: 0s; background: #34b6e7; }
+
+.writing_effect .ball:nth-child(2) { -webkit-animation-delay: .5s; animation-delay: .5s; background: #5479bc; }
+
+.writing_effect .ball:nth-child(3) { -webkit-animation-delay: 1s; animation-delay: 1s; background: #7359a2; }
+
+.writing_effect .ball + .ball { margin: 0px 0px 0px 4px; }
+
+@-webkit-keyframes writing_ball_effect { 0% { -webkit-transform: scale(1); transform: scale(1); }
+  50% { -webkit-transform: scale(1.4); transform: scale(1.4); }
+  100% { -webkit-transform: scale(1); transform: scale(1); } }
+
+@keyframes writing_ball_effect { 0% { -webkit-transform: scale(1); transform: scale(1); }
+  50% { -webkit-transform: scale(1.4); transform: scale(1.4); }
+  100% { -webkit-transform: scale(1); transform: scale(1); } }
 /*# sourceMappingURL=csBot.css.map */
