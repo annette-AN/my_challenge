@@ -746,7 +746,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 }
 
 #chatUI_wrap .txt .txt_btn a.gradient_animation {
-    background: linear-gradient(135deg,
+    background: linear-gradient(90deg,
     /* Base gradient stops */
     #5D77FD, #5D77FD, #0B70C1,
     /* Repeat your base gradient stops */
