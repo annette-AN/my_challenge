@@ -752,11 +752,11 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     font-size: 15px;
     background: linear-gradient(90deg,
     /* Base gradient stops */
-    #5D77FD, #4BABF9,
+    #4BABF9, #4BABF9, #5D77FD, #5D77FD,
     /* Repeat your base gradient stops */
-    #5D77FD, #4BABF9,
+    #4BABF9, #4BABF9, #5D77FD, #5D77FD,
     /* Repeat your first gradient stop */
-    #5D77FD);
+    #4BABF9);
 
     background-size: 200% 200%;
     animation: gra_ani 2s linear infinite;
