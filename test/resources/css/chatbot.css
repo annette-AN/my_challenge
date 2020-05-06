@@ -752,9 +752,9 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     font-size: 15px;
     background: linear-gradient(90deg,
     /* Base gradient stops */
-    #5D77FD, #0B70C1,
+    #5D77FD, #4BABF9,
     /* Repeat your base gradient stops */
-    #5D77FD, #0B70C1,
+    #5D77FD, #4BABF9,
     /* Repeat your first gradient stop */
     #5D77FD);
 
