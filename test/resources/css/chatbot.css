@@ -279,7 +279,7 @@
 
 /* chatUI_btm */
 #chatUI_wrap .chatUI_btm {display:block; clear:both; overflow:hidden; position:relative; bottom:0; padding:7px 10px; vertical-align:top;border-top:1px solid #ececfa; background:#fff; z-index:6666;}
-#chatUI_wrap .chatUI_btm .textArea {float:right; overflow:hidden; width:calc(100% - 45px); min-height:20px; height:20px; margin:0; padding:9px 33px 9px 10px; color:#5e5c68; font-size:13px; line-height:20px; border:1px solid #ebeaef; border-radius:5px; resize:none;}
+#chatUI_wrap .chatUI_btm .textArea {float:right; overflow:hidden; width:calc(100% - 45px); min-height:20px; margin:0; padding:9px 33px 9px 10px; color:#5e5c68; font-size:13px; line-height:20px; border:1px solid #ebeaef; border-radius:5px; resize:none;}
 #chatUI_wrap .chatUI_btm .textArea:focus {border:1px solid #fff;}
 #chatUI_wrap .chatUI_btm .btn_chat {overflow:hidden; position:absolute; top:15px; right:15px; width:25px; height:25px; margin:0; padding:0; color:#9c9c9c; font-size:14px; text-indent:-999px; border:none; background:url(../images/ico_send_trans.png) 50% 50% no-repeat; background-size:cover; cursor:pointer; transition:all 0.3s ease-out;}
 #chatUI_wrap .chatUI_btm .btn_chat.disabled {background:url(../images/ico_send_trans.png) 50% 50% no-repeat; background-color:#a8a8a8; cursor:default;}
@@ -750,13 +750,13 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     height: 40px;
     line-height: 40px;
     font-size: 15px;
-    background: linear-gradient(90deg,
+    background: linear-gradient(120deg,
     /* Base gradient stops */
-    #4BABF9, #4BABF9, #5D77FD, #5D77FD,
+    #5D77FD, #5D77FD, #4BABF9,
     /* Repeat your base gradient stops */
-    #4BABF9, #4BABF9, #5D77FD, #5D77FD,
+    #5D77FD, #5D77FD, #4BABF9,
     /* Repeat your first gradient stop */
-    #4BABF9);
+    #5D77FD);
 
     background-size: 200% 200%;
     animation: gra_ani 2s linear infinite;

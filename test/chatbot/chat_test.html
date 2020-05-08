@@ -1077,43 +1077,51 @@ jQuery.event.add(window,"load",function(){
 				$('.chatAside').removeClass('aside_hide');
 			}, 0);
 		});
-		
-		// 채팅입력 (Shift + Enter)
-		$('.chatUI_btm .textArea').keyup(function(e) { 
-			e.preventDefault(); 
-			var scrollHeight = $('.lst_talk').height();
-			var chatMidHeight = $('.chatUI_mid').height();
-			var txtHeight = $('.chatUI_btm .textArea').height();
-			var code = e.keyCode ? e.keyCode : e.which; if (code == 13) // EnterKey 
+
+		// 채팅창에 글을 입력 할 때 textarea 높이
+		$('.chatUI_btm .textArea').on('keydown', function (e) {
+			var $this = $(this);
+			var chatBody = $('.chatUI_mid');
+			var keyCode = e.which?e.which:event.keyCode;
+      
+			if ( e.shiftKey === true && keyCode == 13 ) {
+				e.preventDefault()
+				//shift enter를 한 위치
+				var cursorPosition = $this.prop('selectionStart')
+				var content = $this.val()
+
+				//내용 중간에 뉴라인 삽입
+				$this.val(content.substr(0,cursorPosition)+"\n"+content.substr(cursorPosition))
+
+				//뉴라인 적용 후 커서 위치 이동
+				$this.prop('selectionStart', cursorPosition+1)
+				$this.prop('selectionEnd', cursorPosition+1)
+
+				//스크롤 하단유지
+				$this.prop("scrollTop", $this.prop("scrollTop") + 20)
+			} else if ( keyCode == 13 ) {
+				e.preventDefault();
+				$('#btn_chat').trigger('click');
+			}
+
+			handleChatTextAreaHeight();
+					
+			function handleChatTextAreaHeight() {
+				var chatInputScrollHeight = $this.css({'height' : 0 + 'px'}).prop('scrollHeight');
+				var chatWindowHeight = $('#chatUI_wrap').height();
 			
-			{ 
-				if (e.shiftKey === true) { 
-					// shift + Enter
-					$('.chatUI_mid').css({
-						'height': chatMidHeight - 18,
-					});
-					$('.chatUI_btm .textArea').css({
-						'height' : txtHeight + 18,
-					});
-					$('.chatUI_mid').animate({
-						scrollTop: scrollHeight
-					},150);
-				} else { 
-					// Enter
-					$('.chatUI_btm #btn_chat').submit(); 
-					$('.chatUI_btm .textArea').val('');
-					$('.chatUI_mid').css({
-						'height' : '',
-					});
-					$('.chatUI_btm .textArea').css({
-						'height' : '',
-					});
-					$('.chatUI_mid').animate({
-						scrollTop: scrollHeight
-					},150);
-				} 
-				return false; 
-			} 
+				if(chatInputScrollHeight > 120) {
+					chatInputScrollHeight = 120
+				}
+			
+				var calcChatInputHeight = ( chatInputScrollHeight - 18 ) ;
+				var calcChatBodyHeight = chatWindowHeight - ( 68 + chatInputScrollHeight );
+        
+				$this.css({'height' : calcChatInputHeight + 'px'})
+				chatBody.css({'height' : calcChatBodyHeight + 'px' });
+
+				console.log(chatInputScrollHeight)
+			}
 		});
 
 		// 20200131AMR language open
