@@ -124,7 +124,7 @@ body.c_btm_hide {
     display: block;
     padding: 14px 54px 14px 84px;
     
-    .label, .last_text {
+    .label {
       display: block;
     }
 
@@ -134,11 +134,37 @@ body.c_btm_hide {
       color: #363636;
     }
 
-    .last_text {
-      background-color: #fff;
+    .ellipsis {
+      position: relative;
+      display: block;
+
+      &:after {
+        content: '...';
+        display: none;
+        position: absolute;
+        left: 100%;
+        bottom: 0%;
+        color: #5e5c68;
+      }
+
+      &.show {
+        &:after {
+          display: block;
+        }
+      }
+    }
+
+    .ellipsis_box {
       overflow: hidden;
+      display: block;
       height: 40px;
       margin: 4px 0px 0px 0px;
+      background-color: #fff;
+    }
+
+    .last_text {
+      word-break: break-all;
+      line-height: 20px;
       color: #5e5c68;
     }
   }

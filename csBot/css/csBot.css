@@ -60,11 +60,19 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .chatting a { display: block; padding: 14px 54px 14px 84px; }
 
-.chatting a .label, .chatting a .last_text { display: block; }
+.chatting a .label { display: block; }
 
 .chatting a .label { font-size: 15px; font-weight: bold; color: #363636; }
 
-.chatting a .last_text { background-color: #fff; overflow: hidden; height: 40px; margin: 4px 0px 0px 0px; color: #5e5c68; }
+.chatting a .ellipsis { position: relative; display: block; }
+
+.chatting a .ellipsis:after { content: '...'; display: none; position: absolute; left: 100%; bottom: 0%; color: #5e5c68; }
+
+.chatting a .ellipsis.show:after { display: block; }
+
+.chatting a .ellipsis_box { overflow: hidden; display: block; height: 40px; margin: 4px 0px 0px 0px; background-color: #fff; }
+
+.chatting a .last_text { word-break: break-all; line-height: 20px; color: #5e5c68; }
 
 .chatting .image { position: absolute; top: 17px; left: 10px; width: 56px; height: 56px; }
 
