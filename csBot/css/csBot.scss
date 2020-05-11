@@ -134,30 +134,10 @@ body.c_btm_hide {
       color: #363636;
     }
 
-    .ellipsis {
-      position: relative;
-      display: block;
-
-      &:after {
-        content: '...';
-        display: none;
-        position: absolute;
-        left: 100%;
-        bottom: 0%;
-        color: #5e5c68;
-      }
-
-      &.show {
-        &:after {
-          display: block;
-        }
-      }
-    }
-
     .ellipsis_box {
       overflow: hidden;
       display: block;
-      height: 40px;
+      max-height: 40px;
       margin: 4px 0px 0px 0px;
       background-color: #fff;
     }
@@ -166,12 +146,24 @@ body.c_btm_hide {
       word-break: break-all;
       line-height: 20px;
       color: #5e5c68;
+
+      &:after {
+        content: '...';
+        display: none;
+        color: #5e5c68;
+      }
+
+      &.show {
+        &:after {
+          display: inline;
+        }
+      }
     }
   }
 
   .image {
     position: absolute;
-    top: 17px;
+    top: 14px;
     left: 10px;
     width: 56px;
     height: 56px;
