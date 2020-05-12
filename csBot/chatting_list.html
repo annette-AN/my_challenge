@@ -29,9 +29,8 @@
   <div id="content">
     <div class="chatting_list">
       <ul class="chatting">
+        <!-- 1줄일 때 -->
         <li>
-          <!-- [D] 새로운 메세지가 0일 때는 
-            .new_message 에 .hide 추가해주세요 -->
           <div class="new_message hide"><span class="text_hide">새로운 메세지</span><em class="message_num">0</em><span class="text_hide">개</span></div>
           <div class="image">
             <img src="image/sample/ee_company.png" class="company_img" alt="기업로고">
@@ -42,14 +41,9 @@
               <span class="last_text">고객님 어떤 내용이 궁굼하신가요??</span>
             </span>
           </a>
-          <!-- [D] .chat_time format
-            오늘 : 오전/오후 HH:MM
-            하루 전 : 어제
-            이번연도 : MM월 DD일
-            이전연도 : YYYY.MM.DD
-          -->
           <em class="chat_time">오후 4:33</em>
         </li>
+        <!-- 2줄일 때 -->
         <li>
           <div class="new_message"><span class="text_hide">새로운 메세지</span><em class="message_num">2</em><span class="text_hide">개</span></div>
           <div class="image">
@@ -57,12 +51,11 @@
           </div>
           <a href="chat_user.html">
             <em class="label">리앤노</em>
-            <span class="ellipsis_box">
-              <span class="last_text">고객님 팬심 서비스 관련 어떤 내용이 궁굼하신가요??</span>
-            </span>
+            <span class="last_text">고객님 팬심 서비스 관련 어떤 내용이 궁굼하신가요??</span>
           </a>
           <em class="chat_time">4월 2일</em>
         </li>
+        <!-- 3줄 이상 한글(2byte씩) 일 때 -->
         <li>
           <div class="new_message"><span class="text_hide">새로운 메세지</span><em class="message_num">2</em><span class="text_hide">개</span></div>
           <div class="image">
@@ -70,12 +63,11 @@
           </div>
           <a href="chat_user.html">
             <em class="label">온누리</em>
-            <span class="ellipsis_box">
-              <span class="last_text">고객님 팬심 서비스 관련 어떤 내용이 궁굼하신가요?? 상담을 도와드리겠습니다. 상담을 도와드리겠습니다.</span>
-            </span>
+            <span class="last_text">고객님 팬심 서비스 관련 어떤 내용이 궁굼하신가요?? 상담을 도와드리겠습니다. 상담을 도와드리겠습니다.</span>
           </a>
           <em class="chat_time">2019.07.08</em>
         </li>
+        <!-- 3줄 이상 영문(1byte씩) 일 때 -->
         <li>
           <div class="new_message"><span class="text_hide">새로운 메세지</span><em class="message_num">0</em><span class="text_hide">개</span></div>
           <div class="image">
@@ -83,12 +75,11 @@
           </div>
           <a href="chat_user.html">
             <em class="label">포몽드</em>
-            <span class="ellipsis_box">
-              <span class="last_text">https://annette-an.github.io/my_challenge/csBot/chat_user.html/my_challenge/csBot/chat_user.html</span>
-            </span>
+            <span class="last_text">https://annette-an.github.io/my_challenge/csBot/chat_user.html/my_challenge/csBot/chat_user.html</span>
           </a>
           <em class="chat_time">어제</em>
         </li>
+        <!-- <br>이 있을 때 (구현안함) -->
         <li>
           <div class="new_message"><span class="text_hide">새로운 메세지</span><em class="message_num">0</em><span class="text_hide">개</span></div>
           <div class="image">
@@ -96,9 +87,7 @@
           </div>
           <a href="chat_user.html">
             <em class="label">팬심</em>
-            <span class="ellipsis_box">
-              <span class="last_text">고객님 팬심 서비스 관련 어떤 내용이 궁굼하신가요??<br> 상담을 도와드리겠습니다.<br> 상담을 도와드리겠습니다.</span>
-            </span>
+            <span class="last_text">고객님 팬심 서비스 관련 어떤 내용이 궁굼하신가요??<br> 상담을 도와드리겠습니다.<br> 상담을 도와드리겠습니다.</span>
           </a>
           <em class="chat_time">오후 4:33</em>
         </li>
@@ -131,7 +120,6 @@
 <script src="js/jQuery3.4.1.js"></script>
 <script>
 $(document).ready(function(){
-
   function handleTwoLineEllipsis() {
     var txt = $('.last_text')
     // var txtArray = [];
@@ -161,7 +149,6 @@ $(document).ready(function(){
     }
   }
   handleTwoLineEllipsis();
-
 });
 </script>
 </body>

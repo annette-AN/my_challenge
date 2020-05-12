@@ -64,13 +64,7 @@ body.c_btm_hide #connect_btm { display: none; }
 
 .chatting a .label { font-size: 15px; font-weight: bold; color: #363636; }
 
-.chatting a .ellipsis_box { overflow: hidden; display: block; max-height: 40px; margin: 4px 0px 0px 0px; background-color: #fff; }
-
 .chatting a .last_text { word-break: break-all; line-height: 20px; color: #5e5c68; }
-
-.chatting a .last_text:after { content: '...'; display: none; color: #5e5c68; }
-
-.chatting a .last_text.show:after { display: inline; }
 
 .chatting .image { position: absolute; top: 14px; left: 10px; width: 56px; height: 56px; }
 

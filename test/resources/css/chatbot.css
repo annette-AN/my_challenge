@@ -279,7 +279,7 @@
 
 /* chatUI_btm */
 #chatUI_wrap .chatUI_btm {display:block; clear:both; overflow:hidden; position:relative; bottom:0; padding:7px 10px; vertical-align:top;border-top:1px solid #ececfa; background:#fff; z-index:6666;}
-#chatUI_wrap .chatUI_btm .textArea {float:right; overflow:hidden; width:calc(100% - 45px); min-height:20px; margin:0; padding:9px 33px 9px 10px; color:#5e5c68; font-size:13px; line-height:20px; border:1px solid #ebeaef; border-radius:5px; resize:none;}
+#chatUI_wrap .chatUI_btm .textArea {float:right; overflow:hidden; width:calc(100% - 45px); min-height:20px; height:20px; margin:0; padding:9px 33px 9px 10px; color:#5e5c68; font-size:13px; line-height:20px; border:1px solid #ebeaef; border-radius:5px; resize:none;}
 #chatUI_wrap .chatUI_btm .textArea:focus {border:1px solid #fff;}
 #chatUI_wrap .chatUI_btm .btn_chat {overflow:hidden; position:absolute; top:15px; right:15px; width:25px; height:25px; margin:0; padding:0; color:#9c9c9c; font-size:14px; text-indent:-999px; border:none; background:url(../images/ico_send_trans.png) 50% 50% no-repeat; background-size:cover; cursor:pointer; transition:all 0.3s ease-out;}
 #chatUI_wrap .chatUI_btm .btn_chat.disabled {background:url(../images/ico_send_trans.png) 50% 50% no-repeat; background-color:#a8a8a8; cursor:default;}
@@ -364,7 +364,7 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 
 .chatAside .chat_order .chatAside_bd .stn_area {height: calc(100% - 80px)}
 
-.chatAside .chat_order .chatAside_bd .stnBox dl.dlBox.order_menu dt {}
+.chatAside .chat_order .chatAside_bd .stnBox dl.dlBox.order_menu {}
 .chatAside .chat_order .chatAside_bd .stnBox dl.dlBox.order_menu dd.block_target {width: 100%; height: auto; margin: 0px;}
 
 .dd_description {position: absolute; right: 0px; bottom: calc(100% + 2px); color: red; font-size: 11px;}
@@ -580,6 +580,17 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .pre_table th {border: 1px solid #666;}
 .pre_table td {border: 1px solid #666;}
 
+/* AMR 200512 챗봇 시작 popup */
+.start_popup {position: absolute; top: 51px; left: 0px; width: 100%; height: calc(100% - 51px); z-index: 9999;}
+.start_popup .wrap {height: 100%; background-color: #fff; text-align: center;}
+
+.start_popup .sns_link {}
+.start_popup .sns_link li {overflow: hidden; display: inline-block; width: 40px; height: 40px; border-radius: 50%;}
+.start_popup .sns_link a {display: block; height: 100%; background-color: pink;}
+
+.start_popup .promotion {}
+.start_popup .promotion p {}
+
 /* datetimepicker css */
 .date_inaccessible {position: relative;}
 .date_inaccessible:after {content: ''; display: block; position: absolute; top: 0px; left: 0px; width: calc(100% + 12px); height: 35px; cursor: default;}
@@ -743,29 +754,4 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
     background: none;
     /* color: #777777; */
     cursor: not-allowed;
-}
-
-#chatUI_wrap .txt .txt_btn a.gradient_animation {
-    width: 130px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 15px;
-    background: linear-gradient(120deg,
-    /* Base gradient stops */
-    #5D77FD, #5D77FD, #4BABF9,
-    /* Repeat your base gradient stops */
-    #5D77FD, #5D77FD, #4BABF9,
-    /* Repeat your first gradient stop */
-    #5D77FD);
-
-    background-size: 200% 200%;
-    animation: gra_ani 2s linear infinite;
-
-    color: #fff!important;
-    border-radius: 5px;
-}
-
-@keyframes gra_ani {
-    0% { background-position: 100% 100% }
-    100% { background-position: 0% 0% }
 }

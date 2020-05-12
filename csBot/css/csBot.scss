@@ -134,30 +134,10 @@ body.c_btm_hide {
       color: #363636;
     }
 
-    .ellipsis_box {
-      overflow: hidden;
-      display: block;
-      max-height: 40px;
-      margin: 4px 0px 0px 0px;
-      background-color: #fff;
-    }
-
     .last_text {
       word-break: break-all;
       line-height: 20px;
       color: #5e5c68;
-
-      &:after {
-        content: '...';
-        display: none;
-        color: #5e5c68;
-      }
-
-      &.show {
-        &:after {
-          display: inline;
-        }
-      }
     }
   }
 
