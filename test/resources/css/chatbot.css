@@ -581,15 +581,16 @@ textarea.ipt_txt {height: 122px; height: 76px; padding: 5px;}
 .pre_table td {border: 1px solid #666;}
 
 /* AMR 200512 챗봇 시작 popup */
-.start_popup {position: absolute; top: 51px; left: 0px; width: 100%; height: calc(100% - 51px); z-index: 9999;}
-.start_popup .wrap {height: 100%; background-color: #fff; text-align: center;}
+#chatUI_wrap.intro_open .intro {display: block;}
+.intro {display: none; position: absolute; top: 51px; left: 0px; width: 100%; height: calc(100% - 51px); z-index: 9999;}
+.intro .intro_wrap {height: 100%; background-color: #fff; text-align: center;}
 
-.start_popup .sns_link {}
-.start_popup .sns_link li {overflow: hidden; display: inline-block; width: 40px; height: 40px; border-radius: 50%;}
-.start_popup .sns_link a {display: block; height: 100%; background-color: pink;}
+.intro .sns_link {}
+.intro .sns_link li {overflow: hidden; display: inline-block; width: 40px; height: 40px; border-radius: 50%;}
+.intro .sns_link a {display: block; height: 100%; background-color: pink;}
 
-.start_popup .promotion {}
-.start_popup .promotion p {}
+.intro .promotion {}
+.intro .promotion p {}
 
 /* datetimepicker css */
 .date_inaccessible {position: relative;}
