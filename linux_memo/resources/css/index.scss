@@ -1,3 +1,117 @@
 body {
   background: pink;
 }
+
+#wrapper {
+  padding: 20px;
+}
+
+#top_area {
+  background: #fff;
+
+  > div {
+    display: inline-block;
+  }
+
+  .services {
+    position: relative;
+  }
+
+  .each_setting {
+    ul {
+      right: 0%;
+    }
+  }
+
+
+}
+
+#content {
+  margin: 20px 0px 0px 0px;
+  height: calc(100vh - 100px);/*대략 지정함*/
+  min-height: 300px;
+  background: #fff;
+
+  .bookmarks {
+    overflow: hidden;
+
+    li {
+      float: left;
+
+      input[type=text] {
+        padding: 5px;
+        border-radius: 10px 10px 0px 0px;
+        border: 1px solid #333;
+        background: wheat;
+      }
+    }
+  }
+
+  .board {
+    overflow: hidden;
+    padding: 15px;
+
+    > div {
+      width: calc(50% - 10px);
+      background: wheat;
+
+    }
+
+    .category_box {
+      float: left;
+    }
+
+    .memo_box {
+      float: right;
+    }
+  }
+}
+
+
+
+/* 공통 */
+.search_input {
+  border: 1px solid #333;
+  outline-color: #333;
+  background: rgb(207, 163, 80);
+}
+
+// list_show 마무리
+.result_box {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0%;
+  border: 1px solid #333;
+  background: rgb(207, 163, 80);
+
+  &.list_show {
+    display: block;
+  }
+
+  .result_list {
+    background: wheat;
+
+    li, option {
+      padding: 4px 12px;
+    }
+
+  }
+}
+
+.each_setting {
+  position: relative;
+  float: right;
+
+  ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    width: 100px;
+    border: 1px solid #000;
+
+    &.list_show {
+      display: block;
+    }
+  }
+}

@@ -1,4 +1,111 @@
+@charset "UTF-8";
 body {
   background: pink;
+}
+
+#wrapper {
+  padding: 20px;
+}
+
+#top_area {
+  background: #fff;
+}
+
+#top_area > div {
+  display: inline-block;
+}
+
+#top_area .services {
+  position: relative;
+}
+
+#top_area .each_setting ul {
+  right: 0%;
+}
+
+#content {
+  margin: 20px 0px 0px 0px;
+  height: calc(100vh - 100px);
+  /*대략 지정함*/
+  min-height: 300px;
+  background: #fff;
+}
+
+#content .bookmarks {
+  overflow: hidden;
+}
+
+#content .bookmarks li {
+  float: left;
+}
+
+#content .bookmarks li input[type=text] {
+  padding: 5px;
+  border-radius: 10px 10px 0px 0px;
+  border: 1px solid #333;
+  background: wheat;
+}
+
+#content .board {
+  overflow: hidden;
+  padding: 15px;
+}
+
+#content .board > div {
+  width: calc(50% - 10px);
+  background: wheat;
+}
+
+#content .board .category_box {
+  float: left;
+}
+
+#content .board .memo_box {
+  float: right;
+}
+
+/* 공통 */
+.search_input {
+  border: 1px solid #333;
+  outline-color: #333;
+  background: #cfa350;
+}
+
+.result_box {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0%;
+  border: 1px solid #333;
+  background: #cfa350;
+}
+
+.result_box.list_show {
+  display: block;
+}
+
+.result_box .result_list {
+  background: wheat;
+}
+
+.result_box .result_list li, .result_box .result_list option {
+  padding: 4px 12px;
+}
+
+.each_setting {
+  position: relative;
+  float: right;
+}
+
+.each_setting ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  width: 100px;
+  border: 1px solid #000;
+}
+
+.each_setting ul.list_show {
+  display: block;
 }
 /*# sourceMappingURL=index.css.map */

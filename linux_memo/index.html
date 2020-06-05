@@ -3,35 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="resources/css/reset.css">
+  <link rel="stylesheet" href="resources/css/index.css">
   <title>Linux memo</title>
 </head>
 <body>
   <div id="wrapper">
-    <div id="header"></div>
-    <div id="content">
-      <div>
-        <input type="text" class="bookmark" value="board_1">
-        <input type="text" class="add_bookmark" placeholder="+">
+    <div id="top_area">
+      <div class="services">
+        <input type="text" class="search_input">
+        <div class="result_box">
+          <ul id="search_name" class="result_list">
+            <!-- option 값 조정해서 creat name or each name option -->
+            <li>sns</li>
+            <li>snacks</li>
+            <li>sneak</li>
+          </ul>
+        </div>
+        <button type="button">***<span class="text_ir">sync</span></button>
       </div>
-      <div class="board">
-        <div class="category">
-          <div class="category_name">
-            <input type="text" class="bookmark" value="category_1">
-          </div>
-
-          <div>
-            <div class="card"></div>
-            <div class="add_card"></div>
-          </div>
-        </div>
-
-        <div class="add_category">
-          <div class="category_name">
-            <input type="text" class="bookmark" placeholder="+">
-          </div>
-        </div>
+      <div class="each_setting">
+        <button type="button">설정</button>
+        <ul>
+          <li>설정 리스트</li>
+        </ul>
       </div>
     </div>
+    <!-- //header -->
+
+    <div id="content">
+      <ul class="bookmarks">
+        <li>
+          <!-- only show mode : disabled, modify mode(double click) : enabled -->
+          <input type="text" value="board_1" class="show_mode" disabled>
+        </li>
+        <li class="add_bookmark">
+          <!-- click : enabled -->
+          <input type="text" placeholder="+" class="show_mode" disabled>
+        </li>
+      </ul>
+      <!-- //bookmark_list -->
+
+      <div class="board">
+        <div class="category_box">
+          <div class="category">
+            <div class="category_name">
+              <input type="text" value="category_1" class="bookmark show_mode" disabled>
+            </div>
+  
+            <ul class="cards">
+              <li>
+                <div>
+                  txt와 img가 들어간다<br>
+                  두 줄 까지만 보인다?
+                </div>
+                <div class="each_setting">
+                  <button type="button">설정</button>
+                  <ul>
+                    <li>설정 리스트</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="add_card">
+                <button type="button" class="memo_create">+</button>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="add_category">
+            <div class="category_name">
+              <input type="text" placeholder="+" class="bookmark show_mode" disabled>
+            </div>
+          </div>
+        </div>
+        <!-- //category_box -->
+
+        <div class="memo_box">
+          <div class="memo_openfold">
+            <button type="button" title="메모 펼치기"></button>
+            <button type="button" title="메모 접기"></button>
+          </div>
+          <!-- //memo_openfold -->
+
+          <div class="memo_write">
+            <div>
+              <button type="button" class="memo_clear">+ 새 메모</button>
+            </div>
+
+            <div>
+              <ol class="titles title_show">
+                <li>
+                  <div>
+                    <span>board name</span>
+                  </div>
+                  <div>
+                    <input type="text" class="search_input">
+                    <div class="result_box">
+                      <select name="board_name" id="board_name" class="result_list">
+                        <!-- option 값 조정해서 creat name or each name option -->
+                        <option value="board1">board 1</option>
+                        <option value="board2">board 2</option>
+                        <option value="board3">board 3</option>
+                      </select>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>category name</span>
+                  </div>
+                  <div>
+                    <input type="text" class="search_input">
+                    <div class="result_box">
+                      <select name="category_name" id="category_name" class="result_list">
+                        <option value="create">create name</option>
+                      </select>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div>
+              <input type="text" class="card_title">
+              <textarea name="" id="" cols="30" rows="10" class="card_content"></textarea>
+            </div>
+          </div>
+          <!-- //memo_write -->
+        </div>
+        <!-- //memo_box -->
+      </div>
+      <!-- //board -->
+    </div>
+    <!-- //content -->
   </div>
+  <!-- //wrapper -->
 </body>
 </html>
