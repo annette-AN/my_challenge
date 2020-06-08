@@ -10,18 +10,15 @@
 <body>
   <div id="wrapper">
     <div id="top_area">
-      <div class="services">
+      <div class="search_box">
         <input type="text" class="search_input">
-        <div class="result_box">
-          <ul id="search_name" class="result_list">
-            <!-- option 값 조정해서 creat name or each name option -->
-            <li>sns</li>
-            <li>snacks</li>
-            <li>sneak</li>
-          </ul>
-        </div>
-        <button type="button">***<span class="text_ir">sync</span></button>
+        <ul class="result_list result_show">
+          <li><button type="button">sns</button></li>
+          <li><button type="button">snacks</button></li>
+          <li><button type="button">sneak</button></li>
+        </ul>
       </div>
+      <button type="button" class="sync"><span class="text_ir">sync</span></button>
       <div class="each_setting">
         <button type="button">설정</button>
         <ul>
@@ -45,6 +42,7 @@
       <!-- //bookmark_list -->
 
       <div class="board">
+        <!-- class="memobox_opened" : 메모쓰기박스가 모든 영역을 차지함 -->
         <div class="category_box">
           <div class="category">
             <div class="category_name">
@@ -242,48 +240,46 @@
           </div>
           <!-- //memo_openfold -->
 
-          <div class="memo_write">
-            <div>
+          <div class="memo_write titles_show">
+            <div class="new_memo">
               <button type="button" class="memo_clear">+ 새 메모</button>
             </div>
 
-            <div>
-              <ol class="titles title_show">
+            <div class="titles_box">
+              <!-- .titles_box.titles_show : 카테고리 타이틀 선택박스가 보임 -->
+              <button type="button" class="show_btn">v</button>
+              <ol class="titles">
                 <li>
-                  <div>
+                  <div class="title">
                     <span>board name</span>
                   </div>
-                  <div>
+                  <div class="search_box">
                     <input type="text" class="search_input">
-                    <div class="result_box">
-                      <select name="board_name" id="board_name" class="result_list">
-                        <!-- option 값 조정해서 creat name or each name option -->
-                        <option value="board1">board 1</option>
-                        <option value="board2">board 2</option>
-                        <option value="board3">board 3</option>
-                      </select>
-                    </div>
+                    <ul class="result_list result_show">
+                      <!-- .result_box.result_show : 결과값 리스트가 보임 -->
+                      <li><button type="button">board 1</button></li>
+                      <li><button type="button">board 2</button></li>
+                      <li><button type="button">board 3</button></li>
                   </div>
                 </li>
                 <li>
-                  <div>
+                  <div class="title">
                     <span>category name</span>
                   </div>
-                  <div>
+                  <div class="search_box">
                     <input type="text" class="search_input">
-                    <div class="result_box">
-                      <select name="category_name" id="category_name" class="result_list">
-                        <option value="create">create name</option>
-                      </select>
-                    </div>
+                    <ul class="result_list">
+                      <!-- 검색값이 없을 경우 create name 보여지고 선택가능 -->
+                      <li class="create"><button type="button">create name</button></li>
+                    </ul>
                   </div>
                 </li>
               </ol>
             </div>
 
-            <div>
+            <div class="card_box">
               <input type="text" class="card_title">
-              <textarea name="" id="" cols="30" rows="10" class="card_content"></textarea>
+              <textarea name="" id="" rows="10" class="card_content"></textarea>
             </div>
           </div>
           <!-- //memo_write -->

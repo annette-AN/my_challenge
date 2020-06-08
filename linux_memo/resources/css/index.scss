@@ -7,23 +7,32 @@ body {
 }
 
 #top_area {
+  position: relative;
+  height: 40px;
+  padding: 4px 15px 0px 15px;
   background: #fff;
 
   > div {
     display: inline-block;
+    vertical-align: middle;
   }
 
-  .services {
-    position: relative;
+  .sync {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    vertical-align: middle;
   }
 
   .each_setting {
+    top: 4px;
+    right: 15px;
+
     ul {
       right: 0%;
     }
   }
-
-
 }
 
 #content {
@@ -60,23 +69,19 @@ body {
 
     .category_box {
       overflow-x: auto;
-      overflow: hidden;
       float: left;
+      width: calc(60% - 10px);
       height: 100%;
       white-space: nowrap;
-    }
-
-    .memo_box {
-      float: right;
+      transition: width .2s;
     }
 
     .category {
-      overflow: auto;
       position: relative;
       display: inline-block;
       width: 300px;
-      height: auto;
-      max-height: calc(100% - 30px;
+      height: 100%;
+      max-height: calc(100% - 15px);
       border: 1px solid #000;
       vertical-align: top;
 
@@ -87,28 +92,22 @@ body {
     }
 
     .category_name {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
+      height: 30px;
       
       input[type="text"] {
         width: 100%;
         height: 30px;
         padding: 5px 12px;
         font-size: 12px;
-
       }
     }
 
     .cards {
       overflow: auto;
-      position: relative;
-      padding: 30px 0px 0px 0px;
       background: yellowgreen;
       height: auto;
-      max-height: 100%;
+      max-height: calc(100% - 30px);
 
       li {
         position: relative;
@@ -139,38 +138,245 @@ body {
         }
       }
     }
+
+    /* //category_box */
+
+    .memo_box {
+      float: right;
+      position: relative;
+      width: calc(40% - 10px);
+      height: 100%;
+      text-align: right;
+      transition: width .2s;
+    }
+
+    .memo_openfold {
+      position: absolute;
+      top: calc(50% - 45px);
+      left: -30px;
+      width: 60px;
+      height: 90px;
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 20px;
+        height: 100%;
+        background: #fff;
+      }
+
+      button[type=button] {
+        width: 30px;
+        height: 100%;
+        border: 1px solid #000;
+        border-radius: 3px;
+      }
+
+      button[type=button]:first-child {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 20px;
+        border-right: none;
+        transition: left .2s;
+
+        &:hover {
+          left: 0px;
+        }
+      }
+
+      button[type=button]:last-child {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        border-left: none;
+        transition: right .2s;
+
+        &:hover {
+          right: 0px;
+        }
+      }
+    }
+
+    .memo_write {
+      height: 100%;
+      padding: 20px;
+
+      > div {
+        border: 1px solid #000;
+      }
+
+      > div + div {
+        margin: 10px 0px 0px 0px;
+      }
+
+      .new_memo {
+        height: 40px;
+
+        button[type=button] {
+          border: none;
+          height: 100%;
+          padding: 0px 20px;
+          background: wheat;
+        }
+      }
+
+      .titles_box {
+        display: inline-block;
+        width: 400px;
+
+        .show_btn {
+          width: 100%;
+          height: 30px;
+          padding: 0px 20px;
+          border: none;
+          text-align: right;
+          background: wheat;
+        }
+
+        .titles {
+          display: none;
+  
+          li {
+            height: 30px;
+            line-height: 30px;
+            background: pink;
+
+            > div {
+              display: inline-block;
+            }
+          }
+
+          .title {
+            margin: 0px 10px 0px 0px;
+          }
+
+          .search_box {
+            display: inline-block;
+          }
+        }
+      }
+
+      .card_box {
+        height: calc(100% - 90px);
+
+        .card_title {
+          display: block;
+          width: 100%;
+          padding: 7px;
+          height: 30px;
+        }
+  
+        .card_content {
+          display: block;
+          width: 100%;
+          height: calc(100% - 40px);
+          margin: 10px 0px 0px 0px;
+          padding: 7px;
+        }
+      }
+    }
+
+    .memo_write.titles_show {
+      .titles_box {
+        .titles {
+          display: block;
+        }
+      }
+
+      .card_box {
+        height: calc(100% - 150px);
+      }
+    }
+
+    /* //memo_box */
+  }
+
+  .board.memobox_opened {
+    .category_box {
+      width: 0;
+    }
+
+    .memo_box {
+      width: 100%;
+    }
+
+    .memo_openfold {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        width: 20px;
+        height: 100%;
+        background: #fff;
+      }
+
+      button[type=button]:first-child {
+        display: none;
+      }
+
+      button[type=button]:last-child {
+        display: block;
+      }
+    }
   }
 }
 
 
 
 /* 공통 */
-.search_input {
-  border: 1px solid #333;
-  outline-color: #333;
-  background: rgb(207, 163, 80);
-}
+.search_box {
+  position: relative;
 
-// list_show 마무리
-.result_box {
-  position: absolute;
-  display: none;
-  top: 100%;
-  left: 0%;
-  border: 1px solid #333;
-  background: rgb(207, 163, 80);
-
-  &.list_show {
-    display: block;
+  .search_input {
+    width: 170px;
+    height: 24px;
+    border: 1px solid #333;
+    outline-color: #333;
+    background: rgb(207, 163, 80);
   }
-
+  
+  // list_show 마무리
   .result_list {
-    background: wheat;
-
-    li, option {
-      padding: 4px 12px;
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0%;
+    width: 100%;
+    border: 1px solid #000;
+    background: rgb(207, 163, 80);
+    z-index: 10;
+  
+    &.result_show {
+      display: block;
     }
+  
+    li {
+      height: 30px;
 
+      + li {
+        border-top: 1px solid #000;
+      }
+
+      button[type=button] {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0px 10px;
+        border: none;
+        text-align: left;
+      }
+    }
+  }
+  
+  .result_box.result_show {
+    display: block;
   }
 }
 
@@ -185,6 +391,7 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+    border: none;
   }
 
   ul {
@@ -196,6 +403,38 @@ body {
 
     &.list_show {
       display: block;
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  #wrapper {
+    background: red;
+  }
+
+  #content {
+    .board {
+      .category_box {
+        width: calc(100% - 20px);
+      }
+  
+      .memo_box {
+        width: 0;
+  
+        .titles_box {
+          width: 100%;
+        }
+      }
+    }
+
+    .board.memobox_opened {
+      .category_box {
+        width: calc(100% - 420px);
+      }
+  
+      .memo_box {
+        width: 400px;
+      }
     }
   }
 }

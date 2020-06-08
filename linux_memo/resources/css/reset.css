@@ -1,6 +1,6 @@
 html,body {margin: 0; padding: 0;}
-div,ul,ol,li,button,input,select,option {margin: 0; padding: 0; box-sizing: border-box;}
+div,ul,ol,li,button,input,select,option,textarea {margin: 0; padding: 0; box-sizing: border-box;}
 li {list-style: none;}
 button {cursor: pointer; /*background: none;*/}
 input {border: none; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
-/* select {-webkit-appearance:none; -moz-appearance:none; appearance:none;} */
+select {-webkit-appearance:none; -moz-appearance:none; appearance:none;}

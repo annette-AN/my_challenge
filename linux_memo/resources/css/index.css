@@ -1,194 +1,141 @@
 @charset "UTF-8";
-body {
-  background: pink;
-}
+body { background: pink; }
 
-#wrapper {
-  padding: 20px;
-}
+#wrapper { padding: 20px; }
 
-#top_area {
-  background: #fff;
-}
+#top_area { position: relative; height: 40px; padding: 4px 15px 0px 15px; background: #fff; }
 
-#top_area > div {
-  display: inline-block;
-}
+#top_area > div { display: inline-block; vertical-align: middle; }
 
-#top_area .services {
-  position: relative;
-}
+#top_area .sync { width: 32px; height: 32px; border: 1px solid #000; border-radius: 50%; vertical-align: middle; }
 
-#top_area .each_setting ul {
-  right: 0%;
-}
+#top_area .each_setting { top: 4px; right: 15px; }
 
-#content {
-  margin: 20px 0px 0px 0px;
-  height: calc(100vh - 100px);
-  /*대략 지정함*/
-  min-height: 300px;
-  background: #fff;
-}
+#top_area .each_setting ul { right: 0%; }
 
-#content .bookmarks {
-  overflow: hidden;
-}
+#content { margin: 20px 0px 0px 0px; height: calc(100vh - 100px); /*대략 지정함*/ min-height: 300px; background: #fff; }
 
-#content .bookmarks li {
-  float: left;
-}
+#content .bookmarks { overflow: hidden; }
 
-#content .bookmarks li input[type=text] {
-  height: 30px;
-  padding: 5px;
-  border-radius: 10px 10px 0px 0px;
-  border: 1px solid #333;
-  background: wheat;
-}
+#content .bookmarks li { float: left; }
 
-#content .board {
-  overflow: hidden;
-  height: calc(100% - 30px);
-  padding: 15px;
-}
+#content .bookmarks li input[type=text] { height: 30px; padding: 5px; border-radius: 10px 10px 0px 0px; border: 1px solid #333; background: wheat; }
 
-#content .board > div {
-  width: calc(50% - 10px);
-  background: wheat;
-}
+#content .board { overflow: hidden; height: calc(100% - 30px); padding: 15px; /* //category_box */ /* //memo_box */ }
 
-#content .board .category_box {
-  overflow-x: auto;
-  overflow: hidden;
-  float: left;
-  height: 100%;
-  white-space: nowrap;
-}
+#content .board > div { width: calc(50% - 10px); background: wheat; }
 
-#content .board .memo_box {
-  float: right;
-}
+#content .board .category_box { overflow-x: auto; float: left; width: calc(60% - 10px); height: 100%; white-space: nowrap; -webkit-transition: width .2s; transition: width .2s; }
 
-#content .board .category {
-  overflow: auto;
-  position: relative;
-  display: inline-block;
-  width: 300px;
-  height: auto;
-  max-height: calc(100% - 30px);
-  border: 1px solid #000;
-  vertical-align: top;
-}
+#content .board .category { position: relative; display: inline-block; width: 300px; height: 100%; max-height: calc(100% - 15px); border: 1px solid #000; vertical-align: top; }
 
-#content .board .category + .category {
-  margin: 0px 0px 0px 20px;
-}
+#content .board .category + .category { margin: 0px 0px 0px 20px; }
 
-#content .board .category_name {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
+#content .board .category_name { width: 100%; height: 30px; }
 
-#content .board .category_name input[type="text"] {
-  width: 100%;
-  height: 30px;
-  padding: 5px 12px;
-  font-size: 12px;
-}
+#content .board .category_name input[type="text"] { width: 100%; height: 30px; padding: 5px 12px; font-size: 12px; }
 
-#content .board .cards {
-  overflow: auto;
-  position: relative;
-  padding: 30px 0px 0px 0px;
-  background: yellowgreen;
-  height: auto;
-  max-height: 100%;
-}
+#content .board .cards { overflow: auto; background: yellowgreen; height: auto; max-height: calc(100% - 30px); }
 
-#content .board .cards li {
-  position: relative;
-  height: 60px;
-  margin: 10px;
-  background: #fff;
-}
+#content .board .cards li { position: relative; height: 60px; margin: 10px; background: #fff; }
 
-#content .board .cards .card_preview {
-  width: calc(100% - 35px);
-  padding: 10px;
-  white-space: normal;
-}
+#content .board .cards .card_preview { width: calc(100% - 35px); padding: 10px; white-space: normal; }
 
-#content .board .cards .each_setting {
-  top: 15px;
-  right: 5px;
-}
+#content .board .cards .each_setting { top: 15px; right: 5px; }
 
-#content .board .cards .add_card {
-  height: 30px;
-  background: red;
-}
+#content .board .cards .add_card { height: 30px; background: red; }
 
-#content .board .cards .add_card button[type=button] {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
+#content .board .cards .add_card button[type=button] { display: block; width: 100%; height: 100%; }
+
+#content .board .memo_box { float: right; position: relative; width: calc(40% - 10px); height: 100%; text-align: right; -webkit-transition: width .2s; transition: width .2s; }
+
+#content .board .memo_openfold { position: absolute; top: calc(50% - 45px); left: -30px; width: 60px; height: 90px; }
+
+#content .board .memo_openfold:after { content: ''; display: block; position: absolute; top: 0; left: 50%; width: 20px; height: 100%; background: #fff; }
+
+#content .board .memo_openfold button[type=button] { width: 30px; height: 100%; border: 1px solid #000; border-radius: 3px; }
+
+#content .board .memo_openfold button[type=button]:first-child { display: block; position: absolute; top: 0; left: 20px; border-right: none; -webkit-transition: left .2s; transition: left .2s; }
+
+#content .board .memo_openfold button[type=button]:first-child:hover { left: 0px; }
+
+#content .board .memo_openfold button[type=button]:last-child { display: none; position: absolute; top: 0; right: 20px; border-left: none; -webkit-transition: right .2s; transition: right .2s; }
+
+#content .board .memo_openfold button[type=button]:last-child:hover { right: 0px; }
+
+#content .board .memo_write { height: 100%; padding: 20px; }
+
+#content .board .memo_write > div { border: 1px solid #000; }
+
+#content .board .memo_write > div + div { margin: 10px 0px 0px 0px; }
+
+#content .board .memo_write .new_memo { height: 40px; }
+
+#content .board .memo_write .new_memo button[type=button] { border: none; height: 100%; padding: 0px 20px; background: wheat; }
+
+#content .board .memo_write .titles_box { display: inline-block; width: 400px; }
+
+#content .board .memo_write .titles_box .show_btn { width: 100%; height: 30px; padding: 0px 20px; border: none; text-align: right; background: wheat; }
+
+#content .board .memo_write .titles_box .titles { display: none; }
+
+#content .board .memo_write .titles_box .titles li { height: 30px; line-height: 30px; background: pink; }
+
+#content .board .memo_write .titles_box .titles li > div { display: inline-block; }
+
+#content .board .memo_write .titles_box .titles .title { margin: 0px 10px 0px 0px; }
+
+#content .board .memo_write .titles_box .titles .search_box { display: inline-block; }
+
+#content .board .memo_write .card_box { height: calc(100% - 90px); }
+
+#content .board .memo_write .card_box .card_title { display: block; width: 100%; padding: 7px; height: 30px; }
+
+#content .board .memo_write .card_box .card_content { display: block; width: 100%; height: calc(100% - 40px); margin: 10px 0px 0px 0px; padding: 7px; }
+
+#content .board .memo_write.titles_show .titles_box .titles { display: block; }
+
+#content .board .memo_write.titles_show .card_box { height: calc(100% - 150px); }
+
+#content .board.memobox_opened .category_box { width: 0; }
+
+#content .board.memobox_opened .memo_box { width: 100%; }
+
+#content .board.memobox_opened .memo_openfold:after { content: ''; display: block; position: absolute; top: 0; left: 10px; width: 20px; height: 100%; background: #fff; }
+
+#content .board.memobox_opened .memo_openfold button[type=button]:first-child { display: none; }
+
+#content .board.memobox_opened .memo_openfold button[type=button]:last-child { display: block; }
 
 /* 공통 */
-.search_input {
-  border: 1px solid #333;
-  outline-color: #333;
-  background: #cfa350;
-}
+.search_box { position: relative; }
 
-.result_box {
-  position: absolute;
-  display: none;
-  top: 100%;
-  left: 0%;
-  border: 1px solid #333;
-  background: #cfa350;
-}
+.search_box .search_input { width: 170px; height: 24px; border: 1px solid #333; outline-color: #333; background: #cfa350; }
 
-.result_box.list_show {
-  display: block;
-}
+.search_box .result_list { position: absolute; display: none; top: 100%; left: 0%; width: 100%; border: 1px solid #000; background: #cfa350; z-index: 10; }
 
-.result_box .result_list {
-  background: wheat;
-}
+.search_box .result_list.result_show { display: block; }
 
-.result_box .result_list li, .result_box .result_list option {
-  padding: 4px 12px;
-}
+.search_box .result_list li { height: 30px; }
 
-.each_setting {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 30px;
-  height: 30px;
-}
+.search_box .result_list li + li { border-top: 1px solid #000; }
 
-.each_setting button[type=button] {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
+.search_box .result_list li button[type=button] { display: block; width: 100%; height: 100%; padding: 0px 10px; border: none; text-align: left; }
 
-.each_setting ul {
-  position: absolute;
-  display: none;
-  top: 100%;
-  width: 100px;
-  border: 1px solid #000;
-}
+.search_box .result_box.result_show { display: block; }
 
-.each_setting ul.list_show {
-  display: block;
-}
+.each_setting { position: absolute; top: 0px; right: 0px; width: 30px; height: 30px; }
+
+.each_setting button[type=button] { display: block; width: 100%; height: 100%; border: none; }
+
+.each_setting ul { position: absolute; display: none; top: 100%; width: 100px; border: 1px solid #000; }
+
+.each_setting ul.list_show { display: block; }
+
+@media all and (max-width: 1200px) { #wrapper { background: red; }
+  #content .board .category_box { width: calc(100% - 20px); }
+  #content .board .memo_box { width: 0; }
+  #content .board .memo_box .titles_box { width: 100%; }
+  #content .board.memobox_opened .category_box { width: calc(100% - 420px); }
+  #content .board.memobox_opened .memo_box { width: 400px; } }
 /*# sourceMappingURL=index.css.map */
