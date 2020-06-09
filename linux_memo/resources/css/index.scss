@@ -23,6 +23,12 @@
     vertical-align: middle;
   }
 
+  .search_box {
+    .search_input {
+      height: 28px;
+    }
+  }
+
   .sync {
     width: 34px;
     height: 34px;
@@ -104,7 +110,7 @@
       float: left;
       width: calc(60% - 10px);
       height: 100%;
-      padding: 15px;
+      padding: 15px 15px;
       white-space: nowrap;
       transition: width .2s;
     }
@@ -189,23 +195,12 @@
       background: rgb(232, 232, 235);
     }
 
-    .memo_openfold {
+    .memo_swich {
       position: absolute;
       top: calc(50% - 45px);
       left: -30px;
       width: 60px;
       height: 90px;
-
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 20px;
-        height: 100%;
-        background: rgb(232, 232, 235);
-      }
 
       button[type=button] {
         width: 30px;
@@ -233,28 +228,36 @@
         display: none;
         position: absolute;
         top: 0;
-        right: 20px;
+        right: 15px;
         border-left: none;
         background: #e8e8eb url(../images/chevron_right.png) no-repeat 50% 50%;
         background-size: 10px auto;
-        transition: right .2s;
+      }
+    }
 
-        &:hover {
-          right: 0px;
-        }
+    .memo_swich.swich_cover {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 20px;
+        height: 100%;
+        background: rgb(232, 232, 235);
       }
     }
 
     .memo_write {
       height: 100%;
-      padding: 20px;
+      padding: 15px 20px;
 
       > div + div {
         margin: 10px 0px 0px 0px;
       }
 
       .new_memo {
-        height: 40px;
+        height: 30px;
 
         button[type=button] {
           height: 100%;
@@ -272,17 +275,14 @@
           text-align: right;
           background: #D9DADE url(../images/chevron_bottom.png) no-repeat right 22px top 50%;
           background-size: 15px auto;
-          // border-top: 1px solid #D9DADE;
-          // border-bottom: 1px solid #D9DADE;
         }
 
         .titles {
           display: none;
-          padding: 0 10px;
+          padding: 3px 10px;
   
           li {
-            height: 30px;
-            line-height: 30px;
+            margin: 4px 0px;
 
             > div {
               display: inline-block;
@@ -330,7 +330,7 @@
       }
 
       .card_box {
-        height: calc(100% - 150px);
+        height: calc(100% - 160px);
       }
     }
     /* //memo_box */
@@ -338,25 +338,14 @@
 
   .board.memobox_opened {
     .category_box {
-      width: 0;
+      width: 30px;
     }
 
     .memo_box {
-      width: 100%;
+      width: calc(100% - 40px);
     }
 
-    .memo_openfold {
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 10px;
-        width: 20px;
-        height: 100%;
-        background: rgb(232, 232, 235);
-      }
-
+    .memo_swich {
       button[type=button]:first-child {
         display: none;
       }
@@ -366,6 +355,11 @@
       }
     }
   }
+}
+
+/* animation */
+@keyframes hide {
+
 }
 
 
@@ -380,13 +374,11 @@
 
   .search_input {
     width: 170px;
-    height: 24px;
+    height: 26px;
+    padding: 0px 10px;
     border: 1px solid #333;
-    outline-color: #333;
-    background: rgb(207, 163, 80);
   }
   
-  // list_show 마무리
   .result_list {
     position: absolute;
     display: none;
@@ -394,7 +386,7 @@
     left: 0%;
     width: 100%;
     border: 1px solid #000;
-    background: rgb(207, 163, 80);
+    background: #FBF8F5;
     z-index: 10;
   
     &.result_show {
@@ -402,22 +394,15 @@
     }
   
     li {
-      height: 30px;
+      height: 28px;
+      padding: 6px 10px;
+
+      &:hover {
+        background: #C2D4EC;
+      }
 
       + li {
         border-top: 1px solid #000;
-      }
-
-      button[type=button] {
-        display: block;
-        width: 100%;
-        height: 100%;
-        padding: 0px 10px;
-        text-align: left;
-
-        &:hover {
-          background: rgba(0,0,0,0.3);
-        }
       }
     }
   }
@@ -478,6 +463,7 @@
     .board.memobox_opened {
       .category_box {
         width: calc(100% - 420px);
+        padding: 15px 15px;
       }
   
       .memo_box {

@@ -12,10 +12,10 @@
     <div id="top_area">
       <div class="search_box">
         <input type="text" class="search_input">
-        <ul class="result_list result_show">
-          <li><button type="button">sns</button></li>
-          <li><button type="button">snacks</button></li>
-          <li><button type="button">sneak</button></li>
+        <ul class="result_list">
+          <li>sns</li>
+          <li>snacks</li>
+          <li>sneak</li>
         </ul>
       </div>
       <button type="button" class="sync"><span class="text_ir">sync</span></button>
@@ -235,13 +235,13 @@
         <!-- //category_box -->
 
         <div class="memo_box">
-          <div class="memo_openfold">
-            <button type="button" title="메모 펼치기"></button>
-            <button type="button" title="메모 접기"></button>
+          <div class="memo_swich swich_cover">
+            <button type="button" title="메모 펼치기" id="swich_memoopen"></button>
+            <button type="button" title="메모 접기" id="swich_memofold"></button>
           </div>
           <!-- //memo_openfold -->
 
-          <div class="memo_write titles_show">
+          <div class="memo_write">
           <!-- .memo_write.titles_show : .titles_box .titles 가 보여짐 -->
             <div class="new_memo">
               <button type="button" class="memo_clear">+ 새 메모</button>
@@ -256,11 +256,11 @@
                   </div>
                   <div class="search_box">
                     <input type="text" class="search_input">
-                    <ul class="result_list result_show">
+                    <ul class="result_list">
                       <!-- .result_box.result_show : 결과값 리스트가 보임 -->
-                      <li><button type="button">board 1</button></li>
-                      <li><button type="button">board 2</button></li>
-                      <li><button type="button">board 3</button></li>
+                      <li>board 1</li>
+                      <li>board 2</li>
+                      <li>board 3</li>
                   </div>
                 </li>
                 <li>
@@ -271,7 +271,7 @@
                     <input type="text" class="search_input">
                     <ul class="result_list">
                       <!-- 검색값이 없을 경우 create name 보여지고 선택가능 -->
-                      <li class="create"><button type="button">create name</button></li>
+                      <li class="create">create name</li>
                     </ul>
                   </div>
                 </li>
@@ -279,8 +279,8 @@
             </div>
 
             <div class="card_box">
-              <input type="text" class="card_title" placeholder="제목">
-              <textarea name="" id="" rows="10" class="card_content"></textarea>
+              <input type="text" class="card_title" placeholder="title">
+              <textarea name="" id="" rows="10" class="card_content" placeholder="content"></textarea>
             </div>
           </div>
           <!-- //memo_write -->
@@ -292,5 +292,35 @@
     <!-- //content -->
   </div>
   <!-- //wrapper -->
+
+  <script src="resources/js/jQuery3.4.1.js"></script>
+  <script>
+    $(document).ready(function(){
+      // search_input에 text가 입력되면 list up과 동시에 .result_list.result_show
+
+      // board bookmark list active
+      $('.bookmarks li').on('click', function(){
+        $('.bookmarks li').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      // memobox open close
+      $('#swich_memoopen').on('click', function(){
+        $('.board').addClass('memobox_opened');
+        $(this).parent().removeClass('swich_cover')
+      });
+
+      $('#swich_memofold').on('click', function(){
+        $('.board').removeClass('memobox_opened');
+        $(this).parent().addClass('swich_cover')
+      });
+
+      // memo category select box open close
+      $('.titles_box .show_btn').on('click', function(){
+        $('.memo_write').toggleClass('titles_show')
+      });
+
+    });
+  </script>
 </body>
 </html>
