@@ -20,7 +20,8 @@
       </div>
       <button type="button" class="sync"><span class="text_ir">sync</span></button>
       <div class="each_setting">
-        <button type="button">설정</button>
+        <!-- each_setting click 시 버블링 막기 -->
+        <button type="button"><span class="text_ir">설정</span></button>
         <ul>
           <li>설정 리스트</li>
         </ul>
@@ -30,9 +31,9 @@
 
     <div id="content">
       <ul class="bookmarks">
-        <li>
+        <li class="active">
           <!-- only show mode : disabled, modify mode(double click) : enabled -->
-          <input type="text" value="board_1" class="show_mode" >
+          <input type="text" value="board_1" class="show_mode" disabled>
         </li>
         <li class="add_bookmark">
           <!-- click : enabled -->
@@ -56,7 +57,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -68,7 +69,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -80,7 +81,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -92,7 +93,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -104,7 +105,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -116,7 +117,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -128,7 +129,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -140,7 +141,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -152,7 +153,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -164,7 +165,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -176,7 +177,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -188,7 +189,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -213,7 +214,7 @@
                   두 줄 까지만 보인다?
                 </div>
                 <div class="each_setting">
-                  <button type="button">설정</button>
+                  <button type="button"><span class="text_ir">설정</span></button>
                   <ul>
                     <li>설정 리스트</li>
                   </ul>
@@ -241,13 +242,13 @@
           <!-- //memo_openfold -->
 
           <div class="memo_write titles_show">
+          <!-- .memo_write.titles_show : .titles_box .titles 가 보여짐 -->
             <div class="new_memo">
               <button type="button" class="memo_clear">+ 새 메모</button>
             </div>
 
             <div class="titles_box">
-              <!-- .titles_box.titles_show : 카테고리 타이틀 선택박스가 보임 -->
-              <button type="button" class="show_btn">v</button>
+              <button type="button" class="show_btn" title="show category"><span class="text_ir">dropdown open close</span></button>
               <ol class="titles">
                 <li>
                   <div class="title">
@@ -278,7 +279,7 @@
             </div>
 
             <div class="card_box">
-              <input type="text" class="card_title">
+              <input type="text" class="card_title" placeholder="제목">
               <textarea name="" id="" rows="10" class="card_content"></textarea>
             </div>
           </div>

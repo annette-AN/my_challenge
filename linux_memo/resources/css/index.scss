@@ -1,16 +1,22 @@
-body {
-  background: pink;
-}
+/* 
+밝은회색 D9DADE
+더 밝은 회색 rgb(232, 232, 235);
+
+밝은하늘 C2D4EC
+버튼회색 778188
+흰색 FBF8F5
+
+*/
 
 #wrapper {
   padding: 20px;
+  background: #C2D4EC;
 }
 
 #top_area {
   position: relative;
   height: 40px;
-  padding: 4px 15px 0px 15px;
-  background: #fff;
+  padding: 2px 15px 0px 15px;
 
   > div {
     display: inline-block;
@@ -18,16 +24,24 @@ body {
   }
 
   .sync {
-    width: 32px;
-    height: 32px;
-    border: 1px solid #000;
+    width: 34px;
+    height: 34px;
+    margin: 0px 0px 0px 10px;
     border-radius: 50%;
     vertical-align: middle;
+    background: #D9DADE url(../images/btn_sync.png) no-repeat 0 0;
+    background-size: cover;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
   }
 
   .each_setting {
     top: 4px;
     right: 15px;
+
+
+    button[type=button] {
+      background-size: 25px auto;
+    }
 
     ul {
       right: 0%;
@@ -39,20 +53,38 @@ body {
   margin: 20px 0px 0px 0px;
   height: calc(100vh - 100px);/*대략 지정함*/
   min-height: 300px;
-  background: #fff;
 
   .bookmarks {
     overflow: hidden;
 
     li {
+      overflow: hidden;
       float: left;
+      background: #333;
+      border: 1px solid #D9DADE;
+      border-radius: 10px 10px 0px 0px;
+
+
+      &.active {
+        border: 1px solid #FBF8F5;
+
+        input[type=text] {
+          background: #FBF8F5;
+
+          &:disabled {
+            background: #FBF8F5;
+          }
+        }
+      }
 
       input[type=text] {
         height: 30px;
         padding: 5px;
-        border-radius: 10px 10px 0px 0px;
-        border: 1px solid #333;
-        background: wheat;
+        background: #D9DADE;
+
+        &:disabled {
+          background: #D9DADE;
+        }
       }
     }
   }
@@ -60,11 +92,11 @@ body {
   .board {
     overflow: hidden;
     height: calc(100% - 30px);
-    padding: 15px;
+    border: 1px solid #FBF8F5;
+    box-shadow: inset 0 0 8px rgba(251, 248, 245, 0.8);
 
     > div {
       width: calc(50% - 10px);
-      background: wheat;
     }
 
     .category_box {
@@ -72,6 +104,7 @@ body {
       float: left;
       width: calc(60% - 10px);
       height: 100%;
+      padding: 15px;
       white-space: nowrap;
       transition: width .2s;
     }
@@ -81,9 +114,9 @@ body {
       display: inline-block;
       width: 300px;
       height: 100%;
-      max-height: calc(100% - 15px);
-      border: 1px solid #000;
+      max-height: 100%;
       vertical-align: top;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
 
 
       + .category {
@@ -94,6 +127,7 @@ body {
     .category_name {
       width: 100%;
       height: 30px;
+      background: rgb(232, 232, 235);
       
       input[type="text"] {
         width: 100%;
@@ -103,9 +137,12 @@ body {
       }
     }
 
+    .add_category {
+      height: auto;
+    }
+
     .cards {
       overflow: auto;
-      background: yellowgreen;
       height: auto;
       max-height: calc(100% - 30px);
 
@@ -113,7 +150,9 @@ body {
         position: relative;
         height: 60px;
         margin: 10px;
-        background: #fff;
+        background: #D9DADE;
+        box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        cursor: pointer;
       }
 
       .card_preview {
@@ -129,7 +168,6 @@ body {
 
       .add_card {
         height: 30px;
-        background: red;
 
         button[type=button] {
           display: block;
@@ -148,6 +186,7 @@ body {
       height: 100%;
       text-align: right;
       transition: width .2s;
+      background: rgb(232, 232, 235);
     }
 
     .memo_openfold {
@@ -165,13 +204,13 @@ body {
         left: 50%;
         width: 20px;
         height: 100%;
-        background: #fff;
+        background: rgb(232, 232, 235);
       }
 
       button[type=button] {
         width: 30px;
         height: 100%;
-        border: 1px solid #000;
+        border: 1px solid rgba(0,0,0,0.3);
         border-radius: 3px;
       }
 
@@ -181,6 +220,8 @@ body {
         top: 0;
         left: 20px;
         border-right: none;
+        background: #e8e8eb url(../images/chevron_left.png) no-repeat 50% 50%;
+        background-size: 10px auto;
         transition: left .2s;
 
         &:hover {
@@ -194,6 +235,8 @@ body {
         top: 0;
         right: 20px;
         border-left: none;
+        background: #e8e8eb url(../images/chevron_right.png) no-repeat 50% 50%;
+        background-size: 10px auto;
         transition: right .2s;
 
         &:hover {
@@ -206,10 +249,6 @@ body {
       height: 100%;
       padding: 20px;
 
-      > div {
-        border: 1px solid #000;
-      }
-
       > div + div {
         margin: 10px 0px 0px 0px;
       }
@@ -218,33 +257,32 @@ body {
         height: 40px;
 
         button[type=button] {
-          border: none;
           height: 100%;
           padding: 0px 20px;
-          background: wheat;
         }
       }
 
       .titles_box {
-        display: inline-block;
-        width: 400px;
+        background: #FBF8F5;
 
         .show_btn {
           width: 100%;
           height: 30px;
           padding: 0px 20px;
-          border: none;
           text-align: right;
-          background: wheat;
+          background: #D9DADE url(../images/chevron_bottom.png) no-repeat right 22px top 50%;
+          background-size: 15px auto;
+          // border-top: 1px solid #D9DADE;
+          // border-bottom: 1px solid #D9DADE;
         }
 
         .titles {
           display: none;
+          padding: 0 10px;
   
           li {
             height: 30px;
             line-height: 30px;
-            background: pink;
 
             > div {
               display: inline-block;
@@ -269,6 +307,7 @@ body {
           width: 100%;
           padding: 7px;
           height: 30px;
+          background: #FBF8F5;
         }
   
         .card_content {
@@ -277,6 +316,8 @@ body {
           height: calc(100% - 40px);
           margin: 10px 0px 0px 0px;
           padding: 7px;
+          background: #FBF8F5;
+          border: none;
         }
       }
     }
@@ -292,7 +333,6 @@ body {
         height: calc(100% - 150px);
       }
     }
-
     /* //memo_box */
   }
 
@@ -314,7 +354,7 @@ body {
         left: 10px;
         width: 20px;
         height: 100%;
-        background: #fff;
+        background: rgb(232, 232, 235);
       }
 
       button[type=button]:first-child {
@@ -329,8 +369,12 @@ body {
 }
 
 
-
 /* 공통 */
+.text_ir {
+  font-size: 0;
+  line-height: 0;
+}
+
 .search_box {
   position: relative;
 
@@ -369,8 +413,11 @@ body {
         width: 100%;
         height: 100%;
         padding: 0px 10px;
-        border: none;
         text-align: left;
+
+        &:hover {
+          background: rgba(0,0,0,0.3);
+        }
       }
     }
   }
@@ -391,7 +438,8 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    border: none;
+    background: url(../images/img_config.png) no-repeat 50% 50%;
+    background-size: 20px auto;
   }
 
   ul {
