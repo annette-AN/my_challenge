@@ -33,11 +33,13 @@
       <ul class="bookmarks">
         <li class="active">
           <!-- only show mode : disabled, modify mode(double click) : enabled -->
-          <input type="text" value="board_1" class="show_mode" disabled>
+          <input type="text" value="board_1" class="">
+          <span class="show">board_1</span>
         </li>
         <li class="add_bookmark">
           <!-- click : enabled -->
-          <input type="text" placeholder="+" class="show_mode" disabled>
+          <input type="text">
+          <span class="show">+</span>
         </li>
       </ul>
       <!-- //bookmark_list -->
@@ -47,7 +49,7 @@
         <div class="category_box">
           <div class="category">
             <div class="category_name">
-              <input type="text" value="category_1" class="bookmark show_mode" disabled>
+              <input type="text" value="category_1" class="bookmark">
             </div>
   
             <ul class="cards">
@@ -204,7 +206,7 @@
 
           <div class="category">
             <div class="category_name">
-              <input type="text" value="category_1" class="bookmark show_mode" disabled>
+              <input type="text" value="category_1" class="bookmark">
             </div>
   
             <ul class="cards">
@@ -228,7 +230,7 @@
   
           <div class="category add_category">
             <div class="category_name">
-              <input type="text" placeholder="+" class="bookmark show_mode" disabled>
+              <input type="text" placeholder="+" class="bookmark">
             </div>
           </div>
         </div>
@@ -303,6 +305,12 @@
         $('.bookmarks li').removeClass('active');
         $(this).addClass('active');
       });
+
+      // board bookmark modify
+      $('.bookmarks li').on('dblclick', function(){
+        $(this).children('span').removeClass('show');
+        $(this).children('input[type=text]').addClass('show').focus();
+      })
 
       // memobox open close
       $('#swich_memoopen').on('click', function(){

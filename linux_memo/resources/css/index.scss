@@ -66,30 +66,26 @@
     li {
       overflow: hidden;
       float: left;
-      background: #333;
-      border: 1px solid #D9DADE;
+      min-width: 40px;
+      height: 30px;
+      padding: 5px 10px;
       border-radius: 10px 10px 0px 0px;
-
+      background: #D9DADE;
 
       &.active {
-        border: 1px solid #FBF8F5;
-
-        input[type=text] {
-          background: #FBF8F5;
-
-          &:disabled {
-            background: #FBF8F5;
-          }
-        }
+        background: #FBF8F5;
       }
 
-      input[type=text] {
-        height: 30px;
-        padding: 5px;
-        background: #D9DADE;
+      span {
+        display: none;
+      }
 
-        &:disabled {
-          background: #D9DADE;
+      input[type=text], span {
+        display: none;
+        height: 100%;
+
+        &.show {
+          display: block;
         }
       }
     }
@@ -156,7 +152,7 @@
         position: relative;
         height: 60px;
         margin: 10px;
-        background: #D9DADE;
+        background: #edeff3;
         box-shadow: 0 0 8px rgba(0,0,0,0.3);
         cursor: pointer;
       }
@@ -228,7 +224,7 @@
         display: none;
         position: absolute;
         top: 0;
-        right: 15px;
+        left: 5px;
         border-left: none;
         background: #e8e8eb url(../images/chevron_right.png) no-repeat 50% 50%;
         background-size: 10px auto;
@@ -339,6 +335,11 @@
   .board.memobox_opened {
     .category_box {
       width: 30px;
+      overflow: hidden;
+    }
+
+    .cards {
+      overflow: hidden;
     }
 
     .memo_box {
@@ -376,7 +377,7 @@
     width: 170px;
     height: 26px;
     padding: 0px 10px;
-    border: 1px solid #333;
+    border: 1px solid #D9DADE;
   }
   
   .result_list {
@@ -441,10 +442,6 @@
 }
 
 @media all and (max-width: 1200px) {
-  #wrapper {
-    background: red;
-  }
-
   #content {
     .board {
       .category_box {
@@ -462,8 +459,13 @@
 
     .board.memobox_opened {
       .category_box {
+        overflow: auto;
         width: calc(100% - 420px);
         padding: 15px 15px;
+      }
+
+      .cards {
+        overflow: auto;
       }
   
       .memo_box {
