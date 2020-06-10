@@ -31,11 +31,14 @@
 
     <div id="content">
       <ul class="bookmarks">
-        <li class="active">
-          <!-- only show mode : disabled, modify mode(double click) : enabled -->
-          <input type="text" value="board_1" class="">
+        <!-- <li class="active">
+          <input type="text" value="board_1">
           <span class="show">board_1</span>
         </li>
+        <li>
+          <input type="text" value="board2">
+          <span class="show">board2</span>
+        </li> -->
         <li class="add_bookmark">
           <!-- click : enabled -->
           <input type="text">
@@ -295,40 +298,133 @@
   </div>
   <!-- //wrapper -->
 
-  <script src="resources/js/jQuery3.4.1.js"></script>
-  <script>
-    $(document).ready(function(){
-      // search_input에 text가 입력되면 list up과 동시에 .result_list.result_show
+<script src="resources/js/jQuery3.4.1.js"></script>
+<script>
+$(document).ready(function(){
+  // search_input에 text가 입력되면 list up과 동시에 .result_list.result_show
 
-      // board bookmark list active
-      $('.bookmarks li').on('click', function(){
+  $('.bookmarks li.add_bookmark').on('click', function(){
+    var thisInput = $(this).children('input[type=text]');
+
+    $(this).children('span').removeClass('show');
+    thisInput.addClass('show');
+    thisInput.focus();
+
+    // esc를 누르면 text 취소되기
+    
+    // text 결정완료
+    thisInput.focusout(function(){
+      $(this).siblings('span').addClass('show')
+      createBookmarkList();
+      $(this).removeClass('show').val('')
+
+      console.log($(this).val())
+    });
+
+    function createBookmarkList() {
+      // 새로운 bookmark list 생성
+      $('.bookmarks li.add_bookmark')
+      .before('<li>\n' +
+        '<input type="text" value="' + thisInput.val() + '"\n>' +
+        '<span class="show">' + thisInput.val() + '</span\n>' +
+      '</li>');
+
+      // 1 bookmark event
+      $('.bookmarks li').on('click', function(){//1 bookmark active
+        if ( $(this).hasClass('add_bookmark') ) {
+          return;
+        }
         $('.bookmarks li').removeClass('active');
         $(this).addClass('active');
-      });
 
-      // board bookmark modify
-      $('.bookmarks li').on('dblclick', function(){
+      }).on('dblclick', function(){//2 bookmark modify
+        var thisInput = $(this).children('input[type=text]');
+        var value = $(this).children('input[type=text]').val();
+
         $(this).children('span').removeClass('show');
-        $(this).children('input[type=text]').addClass('show').focus();
-      })
+        thisInput.addClass('show');
+        thisInput.focus().val('').val(value);
 
-      // memobox open close
-      $('#swich_memoopen').on('click', function(){
-        $('.board').addClass('memobox_opened');
-        $(this).parent().removeClass('swich_cover')
+        // focusout이랑 enter key 여기 들어가는거 맞는지 확인
+        thisInput.focusout(function(){//2-1 focusout when modify mode
+          $(this).removeClass('show')
+          $(this).siblings('span').text($(this).val()).addClass('show')
+          console.log($(this).val())
+
+        }).on('keydown',function(e){//2-2 press enter when modify mode
+          var keyCode = e.which?e.which:e.keyCode;
+          var thisInput = $(this).children('input[type=text]');
+
+          console.log('enter', keyCode)
+
+          // MQ enter key를 치면 콘솔 2번 찍힘?
+          if ( keyCode === 13 ) {
+            thisInput.focusout();
+          }
+
+          return;
+        });
       });
+    }
+  });
 
-      $('#swich_memofold').on('click', function(){
-        $('.board').removeClass('memobox_opened');
-        $(this).parent().addClass('swich_cover')
-      });
+  // memobox open close
+  $('#swich_memoopen').on('click', function(){
+    $('.board').addClass('memobox_opened');
+    $(this).parent().removeClass('swich_cover')
+  });
 
-      // memo category select box open close
-      $('.titles_box .show_btn').on('click', function(){
-        $('.memo_write').toggleClass('titles_show')
-      });
+  $('#swich_memofold').on('click', function(){
+    $('.board').removeClass('memobox_opened');
+    $(this).parent().addClass('swich_cover')
+  });
 
-    });
-  </script>
+  // memo category select box open close
+  $('.titles_box .show_btn').on('click', function(){
+    $('.memo_write').toggleClass('titles_show')
+  });
+
+
+  // board bookmark list active
+  // $('.bookmarks li').on('click', function(){
+  //   if ( $(this).hasClass('add_bookmark') ) {
+  //     return;
+  //   }
+
+  //   $('.bookmarks li').removeClass('active');
+  //   $(this).addClass('active');
+  // });
+
+  // board bookmark modify
+  // $('.bookmarks li').on('dblclick', function(){
+  //   var input = $('input[type=text]');
+  //   var thisInput = $(this).children('input[type=text]');
+  //   var value = $(this).children(input).val();
+
+  //   if ( $(this).hasClass('add_bookmark') ) {
+  //     return;
+  //   }
+
+  //   $(this).children('span').removeClass('show');
+  //   thisInput.addClass('show');
+  //   thisInput.focus().val('').val(value);
+
+  //   // text 결정완료
+  //   thisInput.focusout(function(){
+  //     $(this).removeClass('show')
+  //     $(this).siblings('span').text($(this).val()).addClass('show')
+  //     console.log($(this).val())
+  //   });
+  // }).on('keydown',function(e){
+  //   var keyCode = e.which?e.which:e.keyCode;
+  //   var thisInput = $(this).children('input[type=text]');
+
+  //   // MQ enter key를 치면 콘솔 2번 찍힘?
+  //   if ( keyCode === 13 ) {
+  //     thisInput.focusout();
+  //   }
+  // });
+});
+</script>
 </body>
 </html>
