@@ -302,42 +302,56 @@
 <script>
 $(document).ready(function(){
   // search_input에 text가 입력되면 list up과 동시에 .result_list.result_show
-
-  $('.bookmarks li.add_bookmark').on('click', function(){
+  $('.bookmarks li.add_bookmark').on('click', function(){// start add bookmark
     var thisInput = $(this).children('input[type=text]');
 
     $(this).children('span').removeClass('show');
-    thisInput.addClass('show');
-    thisInput.focus();
+    thisInput.addClass('show').focus();
 
-    // esc를 누르면 text 취소되기
-    
-    // text 결정완료
-    thisInput.focusout(function(){
+    thisInput.focusout(function(){// end add bookmark
+      if ( !$(this).val() ) {
+        $(this).siblings('span').addClass('show')
+        $(this).removeClass('show').val('')
+        return;
+      }
+
       $(this).siblings('span').addClass('show')
-      createBookmarkList();
+      createBookmarkList();// add bookmark
       $(this).removeClass('show').val('')
 
-      console.log($(this).val())
+    }).on('keydown',function(e){// press enter or esc when modify mode
+      var keyCode = e.which?e.which:e.keyCode;
+
+      // MQ 콘솔이 여러번 찍힘
+      if ( keyCode === 13 ) {
+        console.log('add enter')
+        $(this).focusout();
+        return;
+      }
+
+      if ( keyCode === 27 ) {
+        console.log('add esc')
+        $(this).val('').focusout();
+      }
     });
 
     function createBookmarkList() {
-      // 새로운 bookmark list 생성
+      // add bookmark list
       $('.bookmarks li.add_bookmark')
       .before('<li>\n' +
         '<input type="text" value="' + thisInput.val() + '"\n>' +
         '<span class="show">' + thisInput.val() + '</span\n>' +
       '</li>');
 
-      // 1 bookmark event
-      $('.bookmarks li').on('click', function(){//1 bookmark active
+      // bookmark list event
+      $('.bookmarks li').on('click', function(){//list active
         if ( $(this).hasClass('add_bookmark') ) {
           return;
         }
         $('.bookmarks li').removeClass('active');
         $(this).addClass('active');
 
-      }).on('dblclick', function(){//2 bookmark modify
+      }).on('dblclick', function(){//start modify
         var thisInput = $(this).children('input[type=text]');
         var value = $(this).children('input[type=text]').val();
 
@@ -345,24 +359,23 @@ $(document).ready(function(){
         thisInput.addClass('show');
         thisInput.focus().val('').val(value);
 
-        // focusout이랑 enter key 여기 들어가는거 맞는지 확인
-        thisInput.focusout(function(){//2-1 focusout when modify mode
+        thisInput.focusout(function(){//focusout
           $(this).removeClass('show')
           $(this).siblings('span').text($(this).val()).addClass('show')
-          console.log($(this).val())
 
-        }).on('keydown',function(e){//2-2 press enter when modify mode
+        }).on('keydown',function(e){//press key (enter, esc)
           var keyCode = e.which?e.which:e.keyCode;
-          var thisInput = $(this).children('input[type=text]');
 
-          console.log('enter', keyCode)
-
-          // MQ enter key를 치면 콘솔 2번 찍힘?
-          if ( keyCode === 13 ) {
-            thisInput.focusout();
+          // MQ 콘솔이 여러번 찍힘
+          if ( keyCode === 13 ) {// enter
+            console.log('modify enter')
+            $(this).focusout();
           }
 
-          return;
+          if ( keyCode === 27 ) {// esc
+            console.log('modify esc')
+            $(this).val($(this).siblings('span').text()).focusout();
+          }
         });
       });
     }
@@ -383,47 +396,6 @@ $(document).ready(function(){
   $('.titles_box .show_btn').on('click', function(){
     $('.memo_write').toggleClass('titles_show')
   });
-
-
-  // board bookmark list active
-  // $('.bookmarks li').on('click', function(){
-  //   if ( $(this).hasClass('add_bookmark') ) {
-  //     return;
-  //   }
-
-  //   $('.bookmarks li').removeClass('active');
-  //   $(this).addClass('active');
-  // });
-
-  // board bookmark modify
-  // $('.bookmarks li').on('dblclick', function(){
-  //   var input = $('input[type=text]');
-  //   var thisInput = $(this).children('input[type=text]');
-  //   var value = $(this).children(input).val();
-
-  //   if ( $(this).hasClass('add_bookmark') ) {
-  //     return;
-  //   }
-
-  //   $(this).children('span').removeClass('show');
-  //   thisInput.addClass('show');
-  //   thisInput.focus().val('').val(value);
-
-  //   // text 결정완료
-  //   thisInput.focusout(function(){
-  //     $(this).removeClass('show')
-  //     $(this).siblings('span').text($(this).val()).addClass('show')
-  //     console.log($(this).val())
-  //   });
-  // }).on('keydown',function(e){
-  //   var keyCode = e.which?e.which:e.keyCode;
-  //   var thisInput = $(this).children('input[type=text]');
-
-  //   // MQ enter key를 치면 콘솔 2번 찍힘?
-  //   if ( keyCode === 13 ) {
-  //     thisInput.focusout();
-  //   }
-  // });
 });
 </script>
 </body>
