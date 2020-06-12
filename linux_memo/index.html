@@ -12,11 +12,6 @@
     <div id="top_area">
       <div class="search_box">
         <input type="text" class="search_input">
-        <ul class="result_list">
-          <li>sns</li>
-          <li>snacks</li>
-          <li>sneak</li>
-        </ul>
       </div>
       <button type="button" class="sync"><span class="text_ir">sync</span></button>
       <div class="each_setting">
@@ -30,24 +25,20 @@
     <!-- //header -->
 
     <div id="content">
-      <ul class="bookmarks">
-        <!-- <li class="active">
-          <input type="text" value="board_1">
-          <span class="show">board_1</span>
-        </li>
-        <li>
-          <input type="text" value="board2">
-          <span class="show">board2</span>
+      <ul class="board_list">
+        <!-- <li class="board">
+          <input type="text" value="' + $('#add_board_input').val() + '" class="board_input">
+          <span class="board_span show">' + $('#add_board_input').val()+ '</span>
         </li> -->
-        <li id="add_bookmark">
-          <!-- click : enabled -->
-          <input type="text" id="bookmark_add_input">
-          <span id="bookmark_add_span" class="show">+</span>
+        <li id="add_board">
+          <input type="text" id="add_board_input">
+          <span id="add_board_span" class="show">+</span>
         </li>
+        <!-- //board -->
       </ul>
-      <!-- //bookmark_list -->
+      <!-- //board_list -->
 
-      <div class="board">
+      <div class="board_view">
         <!-- class="memobox_opened" : 메모쓰기박스가 모든 영역을 차지함 -->
         <div class="category_box">
           <div class="category">
@@ -213,18 +204,6 @@
             </div>
   
             <ul class="cards">
-              <li>
-                <div class="card_preview">
-                  txt와 img가 들어간다<br>
-                  두 줄 까지만 보인다?
-                </div>
-                <div class="each_setting">
-                  <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
-                    <li>설정 리스트</li>
-                  </ul>
-                </div>
-              </li>
               <li class="add_card">
                 <button type="button" class="memo_create">+</button>
               </li>
@@ -292,7 +271,7 @@
         </div>
         <!-- //memo_box -->
       </div>
-      <!-- //board -->
+      <!-- //board_view -->
     </div>
     <!-- //content -->
   </div>
@@ -301,24 +280,22 @@
 <script src="resources/js/jQuery3.4.1.js"></script>
 <script>
 $(document).ready(function(){
-  // search_input에 text가 입력되면 list up과 동시에 .result_list.result_show
-
-  // bookmark add(+) 클릭 시 input 창 활성화
-  $('#add_bookmark').on('click', function(){
-    $('#bookmark_add_span').removeClass('show');
-    $('#bookmark_add_input').addClass('show').focus();
+  // board add(+) 클릭 시 input 창 활성화
+  $('#add_board').on('click', function(){
+    $('#add_board_span').removeClass('show');
+    $('#add_board_input').addClass('show').focus();
   });
 
-  // bookmark input focusout 시 bookmark 리스트 생성
-  $('#bookmark_add_input').focusout(function(){
+  // board input focusout 시 board 리스트 생성
+  $('#add_board_input').focusout(function(){
     // value가 없으면 리스트 미생성
     if ( !$(this).val() ) {
-      $('#bookmark_add_span').addClass('show')
+      $('#add_board_span').addClass('show')
       $(this).removeClass('show').val('')
       return;
     }
 
-    $('#bookmark_add_span').addClass('show')
+    $('#add_board_span').addClass('show')
     createBookmarkList();
     $(this).removeClass('show').val('')
 
@@ -340,33 +317,33 @@ $(document).ready(function(){
     }
   });
 
-  // bookmark 리스트 생성 및 이벤트 func
+  // board 리스트 생성 및 이벤트 func
   function createBookmarkList() {
-    // bookmark 리스트 생성
-    $('#add_bookmark').before(
-      '<li class="bookmark">\n' +
-        '<input type="text" value="' + $('#bookmark_add_input').val() + '" class="bookmark_input"\n>' +
-        '<span class="bookmark_span show">' + $('#bookmark_add_input').val()+ '</span\n>' +
+    // board 리스트 생성
+    $('#add_board').before(
+      '<li class="board">\n' +
+        '<input type="text" value="' + $('#add_board_input').val() + '" class="board_input">\n' +
+        '<span class="board_span show">' + $('#add_board_input').val()+ '</span>\n' +
       '</li>'
     );
 
-    // bookmark 리스트 이벤트 (active 및 modify)
-    $('.bookmark').on('click', function(){// 클릭 시 bookmark 활성화
-      $('.bookmark').removeClass('active');
+    // board 리스트 이벤트 (active 및 modify)
+    $('.board').on('click', function(){// 클릭 시 board 활성화
+      $('.board').removeClass('active');
       $(this).addClass('active');
 
-    }).on('dblclick', function(){// 더블클릭 시 bookmark input창이 활성화 되며 수정(modify)모드
-      var childInputEl = $(this).children('.bookmark_input');
-      var nowValue = $(this).children('.bookmark_input').val();
+    }).on('dblclick', function(){// 더블클릭 시 board input창이 활성화 되며 수정(modify)모드
+      var childInputEl = $(this).children('.board_input');
+      var nowValue = $(this).children('.board_input').val();
 
-      $(this).children('.bookmark_span').removeClass('show');
+      $(this).children('.board_span').removeClass('show');
       childInputEl.addClass('show');
       childInputEl.focus().val('').val(nowValue);
     });
 
-    $('.bookmark_input').focusout(function(){// focusout 시 수정완료
+    $('.board_input').focusout(function(){// focusout 시 수정완료
       $(this).removeClass('show')
-      $(this).siblings('.bookmark_span').text($(this).val()).addClass('show')
+      $(this).siblings('.board_span').text($(this).val()).addClass('show')
 
     }).on('keydown',function(e){
       var keyCode = e.which?e.which:e.keyCode;
@@ -374,7 +351,7 @@ $(document).ready(function(){
       // enter 키 입력 시 수정완료 (value 값이 있을 때만)
       if ( keyCode === 13 ) {
         if ( $(this).val() === '' ) {
-          $(this).val($(this).siblings('.bookmark_span').text()).focusout();
+          $(this).val($(this).siblings('.board_span').text()).focusout();
           return;
         }
         $(this).focusout();
@@ -382,14 +359,15 @@ $(document).ready(function(){
 
       // esc 키 입력 시 취소
       if ( keyCode === 27 ) {
-        $(this).val($(this).siblings('.bookmark_span').text()).focusout();
+        $(this).val($(this).siblings('.board_span').text()).focusout();
       }
     });
   }
 
+  // 맨 처음 접속 시 board 생성
   setTimeout(function(){
-    $('#add_bookmark').trigger('click');
-    $('#bookmark_add_input').val('board-1').focusout();
+    $('#add_board').trigger('click');
+    $('#add_board_input').val('board-1').focusout();
   }, 0);
 
   // memobox open close

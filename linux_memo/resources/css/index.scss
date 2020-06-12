@@ -60,7 +60,7 @@
   height: calc(100vh - 100px);/*대략 지정함*/
   min-height: 300px;
 
-  .bookmarks {
+  .board_list {
     overflow: hidden;
 
     li {
@@ -96,14 +96,14 @@
       }
     }
 
-    li#add_bookmark {
+    li#add_board {
       input[type=text] {
         background: #D9DADE;
       }
     }
   }
 
-  .board {
+  .board_view {
     overflow: hidden;
     height: calc(100% - 30px);
     border: 1px solid #FBF8F5;
@@ -455,7 +455,7 @@
 
 @media all and (max-width: 1200px) {
   #content {
-    .board {
+    .board_view {
       .category_box {
         width: calc(100% - 20px);
       }
