@@ -68,7 +68,6 @@
       float: left;
       min-width: 40px;
       height: 30px;
-      line-height: 24px;
       padding: 5px 10px;
       border-radius: 10px 10px 0px 0px;
       border-top: 1px solid #FBF8F5;
@@ -96,7 +95,7 @@
       }
     }
 
-    li.add_bookmark {
+    li#add_bookmark {
       input[type=text] {
         background: #D9DADE;
       }
@@ -372,7 +371,7 @@
 
 /* animation */
 @keyframes hide {
-
+  
 }
 
 

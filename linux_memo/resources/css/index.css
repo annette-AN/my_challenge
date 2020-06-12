@@ -28,7 +28,7 @@
 
 #content .bookmarks { overflow: hidden; }
 
-#content .bookmarks li { overflow: hidden; float: left; min-width: 40px; height: 30px; line-height: 24px; padding: 5px 10px; border-radius: 10px 10px 0px 0px; border-top: 1px solid #FBF8F5; background: #D9DADE; }
+#content .bookmarks li { overflow: hidden; float: left; min-width: 40px; height: 30px; padding: 5px 10px; border-radius: 10px 10px 0px 0px; border-top: 1px solid #FBF8F5; background: #D9DADE; }
 
 #content .bookmarks li.active { background: #FBF8F5; }
 
@@ -40,7 +40,7 @@
 
 #content .bookmarks li span { cursor: default; }
 
-#content .bookmarks li.add_bookmark input[type=text] { background: #D9DADE; }
+#content .bookmarks li#add_bookmark input[type=text] { background: #D9DADE; }
 
 #content .board { overflow: hidden; height: calc(100% - 30px); border: 1px solid #FBF8F5; -webkit-box-shadow: inset 0 0 8px rgba(251, 248, 245, 0.8); box-shadow: inset 0 0 8px rgba(251, 248, 245, 0.8); /* //category_box */ /* //memo_box */ }
 

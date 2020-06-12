@@ -39,10 +39,10 @@
           <input type="text" value="board2">
           <span class="show">board2</span>
         </li> -->
-        <li class="add_bookmark">
+        <li id="add_bookmark">
           <!-- click : enabled -->
-          <input type="text">
-          <span class="show">+</span>
+          <input type="text" id="bookmark_add_input">
+          <span id="bookmark_add_span" class="show">+</span>
         </li>
       </ul>
       <!-- //bookmark_list -->
@@ -52,7 +52,7 @@
         <div class="category_box">
           <div class="category">
             <div class="category_name">
-              <input type="text" value="category_1" class="bookmark">
+              <input type="text" value="category_1" class="">
             </div>
   
             <ul class="cards">
@@ -209,7 +209,7 @@
 
           <div class="category">
             <div class="category_name">
-              <input type="text" value="category_1" class="bookmark">
+              <input type="text" value="category_1" class="">
             </div>
   
             <ul class="cards">
@@ -233,7 +233,7 @@
   
           <div class="category add_category">
             <div class="category_name">
-              <input type="text" placeholder="+" class="bookmark">
+              <input type="text" placeholder="+" class="">
             </div>
           </div>
         </div>
@@ -302,84 +302,95 @@
 <script>
 $(document).ready(function(){
   // search_input에 text가 입력되면 list up과 동시에 .result_list.result_show
-  $('.bookmarks li.add_bookmark').on('click', function(){// start add bookmark
-    var thisInput = $(this).children('input[type=text]');
 
-    $(this).children('span').removeClass('show');
-    thisInput.addClass('show').focus();
+  // bookmark add(+) 클릭 시 input 창 활성화
+  $('#add_bookmark').on('click', function(){
+    $('#bookmark_add_span').removeClass('show');
+    $('#bookmark_add_input').addClass('show').focus();
+  });
 
-    thisInput.focusout(function(){// end add bookmark
-      if ( !$(this).val() ) {
-        $(this).siblings('span').addClass('show')
-        $(this).removeClass('show').val('')
-        return;
-      }
-
-      $(this).siblings('span').addClass('show')
-      createBookmarkList();// add bookmark
+  // bookmark input focusout 시 bookmark 리스트 생성
+  $('#bookmark_add_input').focusout(function(){
+    // value가 없으면 리스트 미생성
+    if ( !$(this).val() ) {
+      $('#bookmark_add_span').addClass('show')
       $(this).removeClass('show').val('')
+      return;
+    }
 
-    }).on('keydown',function(e){// press enter or esc when modify mode
-      var keyCode = e.which?e.which:e.keyCode;
+    $('#bookmark_add_span').addClass('show')
+    createBookmarkList();
+    $(this).removeClass('show').val('')
 
-      // MQ 콘솔이 여러번 찍힘
-      if ( keyCode === 13 ) {
-        console.log('add enter')
-        $(this).focusout();
-        return;
-      }
+  }).on('keydown',function(e){
+    var keyCode = e.which?e.which:e.keyCode;
 
-      if ( keyCode === 27 ) {
-        console.log('add esc')
+    // enter 키 입력 시 리스트 생성 (value 값이 있을 때만)
+    if ( keyCode === 13 ) {
+      if ( $(this).val() === '' ) {
         $(this).val('').focusout();
-      }
-    });
+        return;
+      } 
+      $(this).focusout();
+    }
 
-    function createBookmarkList() {
-      // add bookmark list
-      $('.bookmarks li.add_bookmark')
-      .before('<li>\n' +
-        '<input type="text" value="' + thisInput.val() + '"\n>' +
-        '<span class="show">' + thisInput.val() + '</span\n>' +
-      '</li>');
-
-      // bookmark list event
-      $('.bookmarks li').on('click', function(){//list active
-        if ( $(this).hasClass('add_bookmark') ) {
-          return;
-        }
-        $('.bookmarks li').removeClass('active');
-        $(this).addClass('active');
-
-      }).on('dblclick', function(){//start modify
-        var thisInput = $(this).children('input[type=text]');
-        var value = $(this).children('input[type=text]').val();
-
-        $(this).children('span').removeClass('show');
-        thisInput.addClass('show');
-        thisInput.focus().val('').val(value);
-
-        thisInput.focusout(function(){//focusout
-          $(this).removeClass('show')
-          $(this).siblings('span').text($(this).val()).addClass('show')
-
-        }).on('keydown',function(e){//press key (enter, esc)
-          var keyCode = e.which?e.which:e.keyCode;
-
-          // MQ 콘솔이 여러번 찍힘
-          if ( keyCode === 13 ) {// enter
-            console.log('modify enter')
-            $(this).focusout();
-          }
-
-          if ( keyCode === 27 ) {// esc
-            console.log('modify esc')
-            $(this).val($(this).siblings('span').text()).focusout();
-          }
-        });
-      });
+    // esc 키 입력 시 리스트 미생성
+    if ( keyCode === 27 ) {
+      $(this).val('').focusout();
     }
   });
+
+  // bookmark 리스트 생성 및 이벤트 func
+  function createBookmarkList() {
+    // bookmark 리스트 생성
+    $('#add_bookmark').before(
+      '<li class="bookmark">\n' +
+        '<input type="text" value="' + $('#bookmark_add_input').val() + '" class="bookmark_input"\n>' +
+        '<span class="bookmark_span show">' + $('#bookmark_add_input').val()+ '</span\n>' +
+      '</li>'
+    );
+
+    // bookmark 리스트 이벤트 (active 및 modify)
+    $('.bookmark').on('click', function(){// 클릭 시 bookmark 활성화
+      $('.bookmark').removeClass('active');
+      $(this).addClass('active');
+
+    }).on('dblclick', function(){// 더블클릭 시 bookmark input창이 활성화 되며 수정(modify)모드
+      var childInputEl = $(this).children('.bookmark_input');
+      var nowValue = $(this).children('.bookmark_input').val();
+
+      $(this).children('.bookmark_span').removeClass('show');
+      childInputEl.addClass('show');
+      childInputEl.focus().val('').val(nowValue);
+    });
+
+    $('.bookmark_input').focusout(function(){// focusout 시 수정완료
+      $(this).removeClass('show')
+      $(this).siblings('.bookmark_span').text($(this).val()).addClass('show')
+
+    }).on('keydown',function(e){
+      var keyCode = e.which?e.which:e.keyCode;
+
+      // enter 키 입력 시 수정완료 (value 값이 있을 때만)
+      if ( keyCode === 13 ) {
+        if ( $(this).val() === '' ) {
+          $(this).val($(this).siblings('.bookmark_span').text()).focusout();
+          return;
+        }
+        $(this).focusout();
+      }
+
+      // esc 키 입력 시 취소
+      if ( keyCode === 27 ) {
+        $(this).val($(this).siblings('.bookmark_span').text()).focusout();
+      }
+    });
+  }
+
+  setTimeout(function(){
+    $('#add_bookmark').trigger('click');
+    $('#bookmark_add_input').val('board-1').focusout();
+  }, 0);
 
   // memobox open close
   $('#swich_memoopen').on('click', function(){
