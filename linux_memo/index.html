@@ -13,26 +13,40 @@
       <div class="search_box">
         <input type="text" class="search_input">
       </div>
-      <button type="button" class="sync"><span class="text_ir">sync</span></button>
-      <div class="each_setting">
-        <!-- each_setting click 시 버블링 막기 -->
-        <button type="button"><span class="text_ir">설정</span></button>
-        <ul>
-          <li>설정 리스트</li>
-        </ul>
+      <div class="svc_box">
+        <!-- sync 시작에서 완료시점까지 #wrapper애 .sync_wait class추가해주세요
+        커서 모양이 바뀝니다. -->
+        <button type="button" class="sync"><span class="text_ir">sync</span></button>
+        <div class="each_setting">
+          <button type="button"><span class="text_ir">설정</span></button>
+          <ul class="setting_dropdown">
+            <!-- 미완성 -->
+            <li>
+              <span>mode</span>
+              <!-- <div style="display: inline-block;">
+                <label for="Atype">A type</label>
+                <input type="radio" name="type_select" id="Atype">
+                <label for="Btype">B type</label>
+                <input type="radio" name="type_select" id="Btype">
+              </div> -->
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <!-- //header -->
 
     <div id="content">
       <ul class="board_list">
-        <!-- <li class="board">
-          <input type="text" value="' + $('#add_board_input').val() + '" class="board_input">
-          <span class="board_span show">' + $('#add_board_input').val()+ '</span>
-        </li> -->
-        <li id="add_board">
-          <input type="text" id="add_board_input">
-          <span id="add_board_span" class="show">+</span>
+        <!-- 
+          <li class="board">
+            <input type="text" value="confirmedName" class="name_input">
+            <span class="name_span show">confirmedName</span>
+          </li>
+         -->
+        <li class="create_name">
+          <input type="text" id="add_board" class="write_name">
+          <span class="plus_shape show">+</span>
         </li>
         <!-- //board -->
       </ul>
@@ -40,12 +54,12 @@
 
       <div class="board_view">
         <!-- class="memobox_opened" : 메모쓰기박스가 모든 영역을 차지함 -->
-        <div class="category_box">
-          <div class="category">
+        <div class="category_list">
+          <!-- <div class="category">
             <div class="category_name">
-              <input type="text" value="category_1" class="">
+              <input type="text" id="add_name_input">
+              <span id="add_name_span" class="show">+</span>
             </div>
-  
             <ul class="cards">
               <li>
                 <div class="card_preview">
@@ -54,7 +68,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -66,7 +80,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -78,7 +92,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -90,7 +104,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -102,7 +116,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -114,7 +128,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -126,7 +140,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -138,7 +152,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -150,7 +164,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -162,7 +176,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -174,7 +188,7 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
@@ -186,37 +200,38 @@
                 </div>
                 <div class="each_setting">
                   <button type="button"><span class="text_ir">설정</span></button>
-                  <ul>
+                  <ul class="setting_dropdown">
                     <li>설정 리스트</li>
                   </ul>
                 </div>
               </li>
               
-              <li class="add_card">
-                <button type="button" class="memo_create">+</button>
+              <li class="create_card">
+                <button type="button" class="add_memo">+</button>
               </li>
             </ul>
-          </div>
+          </div> -->
 
+          <!-- 
           <div class="category">
             <div class="category_name">
-              <input type="text" value="category_1" class="">
+              <input type="text" value="confirmedName" class="name_input">
+              <span class="name_span show">confirmedName</span>
             </div>
-  
             <ul class="cards">
-              <li class="add_card">
-                <button type="button" class="memo_create">+</button>
+              <li class="create_card">
+                <button type="button" class="add_memo">+</button>
               </li>
             </ul>
           </div>
+          -->
   
-          <div class="category add_category">
-            <div class="category_name">
-              <input type="text" placeholder="+" class="">
-            </div>
+          <div class="create_name">
+            <input type="text" id="add_category" class="write_name">
+            <span class="plus_shape show">+</span>
           </div>
         </div>
-        <!-- //category_box -->
+        <!-- //category_list -->
 
         <div class="memo_box">
           <div class="memo_swich swich_cover">
@@ -239,12 +254,11 @@
                     <span>board name</span>
                   </div>
                   <div class="search_box">
-                    <input type="text" class="search_input">
-                    <ul class="result_list">
+                    <input type="text" id="board_search" class="search_input">
+                    <ul id="board_dropdown" class="result_list">
                       <!-- .result_box.result_show : 결과값 리스트가 보임 -->
-                      <li>board 1</li>
-                      <li>board 2</li>
-                      <li>board 3</li>
+                      <!-- <li>board 1</li>
+                      <li>board 2</li> -->
                   </div>
                 </li>
                 <li>
@@ -252,8 +266,8 @@
                     <span>category name</span>
                   </div>
                   <div class="search_box">
-                    <input type="text" class="search_input">
-                    <ul class="result_list">
+                    <input type="text" id="category_search" class="search_input">
+                    <ul id="category_dropdown" class="result_list">
                       <!-- 검색값이 없을 경우 create name 보여지고 선택가능 -->
                       <li class="create">create name</li>
                     </ul>
@@ -263,8 +277,8 @@
             </div>
 
             <div class="card_box">
-              <input type="text" class="card_title" placeholder="title">
-              <textarea name="" id="" rows="10" class="card_content" placeholder="content"></textarea>
+              <input type="text" id="card_title" placeholder="title">
+              <textarea name="" id="card_content" rows="10" placeholder="content"></textarea>
             </div>
           </div>
           <!-- //memo_write -->
@@ -280,111 +294,203 @@
 <script src="resources/js/jQuery3.4.1.js"></script>
 <script>
 $(document).ready(function(){
-  // board add(+) 클릭 시 input 창 활성화
-  $('#add_board').on('click', function(){
-    $('#add_board_span').removeClass('show');
-    $('#add_board_input').addClass('show').focus();
-  });
 
-  // board input focusout 시 board 리스트 생성
-  $('#add_board_input').focusout(function(){
-    // value가 없으면 리스트 미생성
-    if ( !$(this).val() ) {
-      $('#add_board_span').addClass('show')
-      $(this).removeClass('show').val('')
+// memobox open close
+$('#swich_memoopen').on('click', function(){
+  $('.board_view').addClass('memobox_opened');
+  $(this).parent().removeClass('swich_cover')
+});
+
+$('#swich_memofold').on('click', function(){
+  $('.board_view').removeClass('memobox_opened');
+  $(this).parent().addClass('swich_cover')
+});
+
+// memo category select box open close
+$('.titles_box .show_btn').on('click', function(){
+  $('.memo_write').toggleClass('titles_show')
+});
+
+// board이름, category이름 추가(+) 클릭 시 input 창 열림
+$('.create_name').on('click', function(){
+  $(this).children('.plus_shape').removeClass('show');
+  $(this).children('.write_name').addClass('show').focus();
+});
+
+// 이름을 추가할 때 보여지는 input 창 focusout 시 이름 생성
+$('.write_name').focusout(function(){
+  // value가 없으면 리스트 미생성
+  if ( !$(this).val() ) {
+    $(this).next('.plus_shape').addClass('show')
+    $(this).removeClass('show').val('')
+    return;
+  }
+
+  if ( $(this).is('#add_board') ) {
+    createBoardEl();
+  } else if ( $(this).is('#add_category') ) {
+    createCategoryEl();
+  }
+
+  handleElEvent($('.board, .category_name'));
+  $(this).next('.plus_shape').addClass('show')
+  $(this).removeClass('show').val('')
+
+}).on('keydown',function(e){
+  var keyCode = e.which?e.which:e.keyCode;
+
+  // enter 키 입력 시 리스트 생성 (value 값이 있을 때만)
+  if ( keyCode === 13 ) {
+    if ( $(this).val() === '' ) {
+      $(this).val('').focusout();
+      return;
+    } 
+    $(this).focusout();
+  }
+
+  // esc 키 입력 시 리스트 미생성
+  if ( keyCode === 27 ) {
+    $(this).val('').focusout();
+  }
+});
+
+// board name 생성 및 board 이벤트 등록
+function createBoardEl() {
+  var confirmedName = $('#add_board').val();
+
+  $('.board_list .create_name').before(
+    '<li class="board">\n' +
+      '<input type="text" value="' + confirmedName + '" class="name_input board_input">\n' +
+      '<span class="name_span board_span show">' + confirmedName + '</span>\n' +
+    '</li>'
+  );
+
+  $('.board').on('click', function(){// 클릭 시 board 활성화
+    $('.board').removeClass('active');
+    $(this).addClass('active');
+  })
+
+  createListNameDropdown($('.board_list .board'), $('#board_dropdown'));
+}
+
+function createListNameDropdown(names, box) {
+  var namesList = [];
+
+  for (var i=0, l=names.length; i<l; i++) {
+    var eachName = names.eq(i).children('span').text();
+    namesList.push(eachName)
+  }
+
+  box.empty();
+  
+  for (var i=0, l=namesList.length; i<l; i++) {
+    box.append(
+      '<li>' + namesList[i] + '</li>'
+    );
+  }
+
+  namesList = [];
+}
+
+// category name 생성 및 add_memo 이벤트 생성
+function createCategoryEl() {
+  var confirmedName = $('#add_category').val();
+
+  $('.category_list .create_name').before(
+    '<div class="category">\n' +
+      '<div class="category_name">\n' +
+        '<input type="text" value="' + confirmedName + '" class="name_input category_input">\n' +
+        '<span class="name_span category_span show">' + confirmedName + '</span>\n' +
+      '</div>\n' +
+      '<ul class="cards">\n' +
+        '<li class="create_card">\n' +
+          '<button type="button" class="add_memo">+</button>\n' +
+        '</li>\n' +
+      '</ul>\n' +
+    '</div>'
+  );
+  createListNameDropdown($('.category .category_name'), $('#category_dropdown'));
+
+  $('.add_memo').on('click', function(){
+    var docWidth = $(document).outerWidth();
+    if ( docWidth <= 1200 ) {
+      $('.board_view').removeClass('memobox_opened')
+      $('.board_view').addClass('memobox_opened')
+      $('.memo_swich').removeClass('swich_cover')
+      $('#card_title').focus();
       return;
     }
+    $('#card_title').focus();
+  });
+}
 
-    $('#add_board_span').addClass('show')
-    createBookmarkList();
-    $(this).removeClass('show').val('')
+
+function handleElEvent(selector) {
+  // board 리스트 이벤트 (active 및 modify)
+  $(selector).on('dblclick', function(){// 더블클릭 시 board input창이 활성화 되며 수정(modify)모드
+    var childInputEl = $(this).children('.name_input');
+    var nowValue = $(this).children('.name_input').val();
+
+    $(this).children('.name_span').removeClass('show');
+    childInputEl.addClass('show');
+    childInputEl.focus().val('').val(nowValue);
+  });
+
+  $('.name_input').focusout(function(){// focusout 시 수정완료
+    $(this).removeClass('show')
+    $(this).siblings('.name_span').text($(this).val()).addClass('show')
 
   }).on('keydown',function(e){
     var keyCode = e.which?e.which:e.keyCode;
 
-    // enter 키 입력 시 리스트 생성 (value 값이 있을 때만)
+    // enter 키 입력 시 수정완료 (value 값이 있을 때만)
     if ( keyCode === 13 ) {
       if ( $(this).val() === '' ) {
-        $(this).val('').focusout();
+        $(this).val($(this).siblings('.name_span').text()).focusout();
         return;
-      } 
+      }
+
+      if ( $(this).is('.board_input') ) {
+        createListNameDropdown($('.board_list .board'), $('#board_dropdown'));
+      }
+      if ( $(this).is('.category_input') ) {
+        createListNameDropdown($('.category .category_name'), $('#category_dropdown'));
+      }
+
       $(this).focusout();
     }
 
-    // esc 키 입력 시 리스트 미생성
+    // esc 키 입력 시 취소
     if ( keyCode === 27 ) {
-      $(this).val('').focusout();
+      $(this).val($(this).siblings('.name_span').text()).focusout();
     }
   });
+}
 
-  // board 리스트 생성 및 이벤트 func
-  function createBookmarkList() {
-    // board 리스트 생성
-    $('#add_board').before(
-      '<li class="board">\n' +
-        '<input type="text" value="' + $('#add_board_input').val() + '" class="board_input">\n' +
-        '<span class="board_span show">' + $('#add_board_input').val()+ '</span>\n' +
-      '</li>'
-    );
+// 맨 처음 접속 시 board와 category 생성
+setTimeout(function(){
+  $('#add_board').focus().val('board-1').focusout();
+  $('#add_category').focus().val('category-1').focusout();
+}, 0);
 
-    // board 리스트 이벤트 (active 및 modify)
-    $('.board').on('click', function(){// 클릭 시 board 활성화
-      $('.board').removeClass('active');
-      $(this).addClass('active');
+// memobox에서 board, category input focus시
+$('#board_search').focus(function(){
+  $('#board_dropdown').addClass('result_show')
+}).focusout(function(){
+  $('#board_dropdown').removeClass('result_show')
+});
 
-    }).on('dblclick', function(){// 더블클릭 시 board input창이 활성화 되며 수정(modify)모드
-      var childInputEl = $(this).children('.board_input');
-      var nowValue = $(this).children('.board_input').val();
+$('#category_search').focus(function(){
+  $('#category_dropdown').addClass('result_show')
+}).focusout(function(){
+  $('#category_dropdown').removeClass('result_show')
+});
 
-      $(this).children('.board_span').removeClass('show');
-      childInputEl.addClass('show');
-      childInputEl.focus().val('').val(nowValue);
-    });
+// setting 클릭 시 dropdown open
+$('.each_setting').on('click', function(){
+  $(this).children('.setting_dropdown').toggleClass('show')
+});
 
-    $('.board_input').focusout(function(){// focusout 시 수정완료
-      $(this).removeClass('show')
-      $(this).siblings('.board_span').text($(this).val()).addClass('show')
-
-    }).on('keydown',function(e){
-      var keyCode = e.which?e.which:e.keyCode;
-
-      // enter 키 입력 시 수정완료 (value 값이 있을 때만)
-      if ( keyCode === 13 ) {
-        if ( $(this).val() === '' ) {
-          $(this).val($(this).siblings('.board_span').text()).focusout();
-          return;
-        }
-        $(this).focusout();
-      }
-
-      // esc 키 입력 시 취소
-      if ( keyCode === 27 ) {
-        $(this).val($(this).siblings('.board_span').text()).focusout();
-      }
-    });
-  }
-
-  // 맨 처음 접속 시 board 생성
-  setTimeout(function(){
-    $('#add_board').trigger('click');
-    $('#add_board_input').val('board-1').focusout();
-  }, 0);
-
-  // memobox open close
-  $('#swich_memoopen').on('click', function(){
-    $('.board').addClass('memobox_opened');
-    $(this).parent().removeClass('swich_cover')
-  });
-
-  $('#swich_memofold').on('click', function(){
-    $('.board').removeClass('memobox_opened');
-    $(this).parent().addClass('swich_cover')
-  });
-
-  // memo category select box open close
-  $('.titles_box .show_btn').on('click', function(){
-    $('.memo_write').toggleClass('titles_show')
-  });
 });
 </script>
 </body>

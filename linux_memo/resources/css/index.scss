@@ -11,6 +11,35 @@
 #wrapper {
   padding: 20px;
   background: #C2D4EC;
+
+  &.sync_wait {
+    cursor: wait;
+
+    #content .board_list li span {
+      cursor: wait;
+    }
+
+    input, button {
+      cursor: wait;
+    }
+
+    .sync {
+      animation-name: sync_rotate;
+      animation-duration: 1.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes sync_rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #top_area {
@@ -24,40 +53,56 @@
   }
 
   .search_box {
+    margin: 4px 0px 0px 0px;
+
     .search_input {
       height: 28px;
     }
   }
 
+  .svc_box {
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
+
   .sync {
     width: 34px;
     height: 34px;
-    margin: 0px 0px 0px 10px;
+    margin: 0px 10px 0px 0px;
     border-radius: 50%;
     vertical-align: middle;
-    background: #D9DADE url(../images/btn_sync.png) no-repeat 0 0;
-    background-size: cover;
+    background: #D9DADE url(../images/btn_sync.png) no-repeat center center;
+    background-size: 28px;
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
   }
 
   .each_setting {
-    top: 4px;
-    right: 15px;
-
+    display: inline-block;
+    position: static;
+    top: auto;
+    right: auto;
+    vertical-align: middle;
 
     button[type=button] {
-      background-size: 25px auto;
+      background-size: 22px auto;
     }
 
-    ul {
+    .setting_dropdown {
       right: 0%;
+
+      li {
+        &:hover {
+          background: #FBF8F5;
+        }
+      }
     }
   }
 }
 
 #content {
-  margin: 20px 0px 0px 0px;
-  height: calc(100vh - 100px);/*대략 지정함*/
+  margin: 10px 0px 0px 0px;
+  height: calc(100vh - 90px);
   min-height: 300px;
 
   .board_list {
@@ -79,12 +124,7 @@
       }
 
       input[type=text], span {
-        display: none;
         height: 100%;
-
-        &.show {
-          display: block;
-        }
       }
 
       input[type="text"] {
@@ -96,7 +136,7 @@
       }
     }
 
-    li#add_board {
+    .create_name {
       input[type=text] {
         background: #D9DADE;
       }
@@ -113,7 +153,7 @@
       width: calc(50% - 10px);
     }
 
-    .category_box {
+    .category_list {
       overflow-x: auto;
       float: left;
       width: calc(60% - 10px);
@@ -133,7 +173,7 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.3);
 
 
-      + .category {
+      + div {
         margin: 0px 0px 0px 20px;
       }
     }
@@ -141,18 +181,34 @@
     .category_name {
       width: 100%;
       height: 30px;
-      background: rgb(232, 232, 235);
+      line-height: 22px;
+      padding: 5px 10px;
+      background: #fff;
       
-      input[type="text"] {
+      input[type="text"], span {
         width: 100%;
-        height: 30px;
-        padding: 5px 12px;
+        height: 100%;
+        // padding: 5px 12px;
         font-size: 12px;
       }
     }
 
-    .add_category {
-      height: auto;
+    .create_name {
+      position: relative;
+      display: inline-block;
+      width: 300px;
+      height: 30px;
+      line-height: 24px;
+      vertical-align: top;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+      background: #fff;
+      
+      input[type="text"], span {
+        width: 100%;
+        height: 100%;
+        padding: 5px 12px;
+        font-size: 12px;
+      }
     }
 
     .cards {
@@ -180,10 +236,10 @@
         right: 5px;
       }
 
-      .add_card {
+      .create_card {
         height: 30px;
 
-        button[type=button] {
+        .add_memo {
           display: block;
           width: 100%;
           height: 100%;
@@ -191,7 +247,7 @@
       }
     }
 
-    /* //category_box */
+    /* //category_list */
 
     .memo_box {
       float: right;
@@ -236,7 +292,7 @@
         display: none;
         position: absolute;
         top: 0;
-        left: 5px;
+        left: 15px;
         border-left: none;
         background: #e8e8eb url(../images/chevron_right.png) no-repeat 50% 50%;
         background-size: 10px auto;
@@ -310,7 +366,7 @@
       .card_box {
         height: calc(100% - 90px);
 
-        .card_title {
+        #card_title {
           display: block;
           width: 100%;
           padding: 7px;
@@ -318,7 +374,7 @@
           background: #FBF8F5;
         }
   
-        .card_content {
+        #card_content {
           display: block;
           width: 100%;
           height: calc(100% - 40px);
@@ -344,8 +400,8 @@
     /* //memo_box */
   }
 
-  .board.memobox_opened {
-    .category_box {
+  .board_view.memobox_opened {
+    .category_list {
       width: 30px;
       overflow: hidden;
     }
@@ -398,24 +454,26 @@
     top: 100%;
     left: 0%;
     width: 100%;
-    border: 1px solid #000;
+    border: 1px solid #D9DADE;
     background: #FBF8F5;
     z-index: 10;
+    text-align: left;
   
     &.result_show {
       display: block;
     }
   
     li {
-      height: 28px;
+      height: 26px;
       padding: 6px 10px;
+      font-size: 12px;
 
       &:hover {
         background: #C2D4EC;
       }
 
       + li {
-        border-top: 1px solid #000;
+        border-top: 1px solid #D9DADE;
       }
     }
   }
@@ -440,23 +498,47 @@
     background-size: 20px auto;
   }
 
-  ul {
+  .setting_dropdown {
     position: absolute;
     display: none;
     top: 100%;
-    width: 100px;
-    border: 1px solid #000;
+    border: 1px solid #D9DADE;
+    background: #FBF8F5;
+    text-align: right;
 
-    &.list_show {
+    &.show {
       display: block;
     }
+
+    li {
+      height: 26px;
+      padding: 6px 10px;
+      font-size: 12px;
+
+      &:hover {
+        background: #D9DADE;
+      }
+
+      + li {
+        border-top: 1px solid #D9DADE;
+      }
+    }
+  }
+}
+
+.name_input, .name_span, .write_name, .plus_shape {
+  display: none;
+  height: 100%;
+
+  &.show {
+    display: block;
   }
 }
 
 @media all and (max-width: 1200px) {
   #content {
     .board_view {
-      .category_box {
+      .category_list {
         width: calc(100% - 20px);
       }
   
@@ -469,8 +551,8 @@
       }
     }
 
-    .board.memobox_opened {
-      .category_box {
+    .board_view.memobox_opened {
+      .category_list {
         overflow: auto;
         width: calc(100% - 420px);
         padding: 15px 15px;
