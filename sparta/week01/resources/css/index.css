@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+.wrap {
+    display: inline-block;
+    width: 900px;
+    text-align: left;
+}
+
+.form-wrap {
+    width: 500px;
+    margin: 0 auto 30px;
+    padding: 50px;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
