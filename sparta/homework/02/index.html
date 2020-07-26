@@ -14,6 +14,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
           crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- 구글폰트 -->
   <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
@@ -24,6 +25,11 @@
       font-family: 'Stylish', sans-serif;
       font-size: 16px;
       text-align: center;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
     }
 
     #wrap {
@@ -42,10 +48,11 @@
     }
 
     .section .desc_box {
-      margin: 20px 0 0 0;
+      margin: 20px 0 10px 0;
     }
 
     .section .desc_box p {
+      margin: 10px 0 0 0;
       line-height: 18px;
     }
 
@@ -65,12 +72,64 @@
       display: block;
       margin: 0 auto;
     }
+
+    .rate {
+      display: block;
+      margin: 0 0 20px 0;
+      color: #0000ff;
+    }
   </style>
 
   <script>
       function orderSuccess() {
-          alert('주문이 완료되었습니다.')
+          let $userName = $('#user_name');
+          let $userOrderCount = $('#user_order_count');
+          let $userAddress = $('#user_address');
+          let $userTel = $('#user_tel');
+
+          let checkTelVal = function () {
+              let userTelVal = $userTel.val();
+              let regex = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})[-][0-9]{3,4}[-][0-9]{4}$/;
+
+              return regex.test(userTelVal);
+          }
+
+          if ($userName.val() == '') {
+              alert('이름을 입력해주세요.')
+              $userName.focus()
+          } else if ($userOrderCount.val() == '-- 수량을 선택하세요 --') {
+              alert('수량을 선택해주세요.')
+              $userOrderCount.focus()
+          } else if ($userAddress.val() == '') {
+              alert('주소를 입력해주세요.')
+              $userAddress.focus()
+          } else if ($userTel.val() == '') {
+              alert('전화번호를 입력해주세요.')
+              $userTel.focus()
+          } else if (!checkTelVal()) {
+              alert('휴대폰 입력 형식이 틀립니다.\n 010-0000-0000 으로 입력해주세요')
+              $userTel.focus()
+          } else {
+              alert('주문이 완료되었습니다.')
+          }
       }
+
+      $(document).ready(function () {
+          $.ajax({
+              type: 'get',
+              url: 'https://api.manana.kr/exchange/rate.json',
+              success: function (res) {
+                  let rate = 0;
+                  for (let i = 0; i < res.length; i++) {
+                      if (res[i]['name'] == 'USDKRW=X') {
+                          rate = res[i]['rate'];
+                          break;
+                      }
+                  }
+                  $('#include_rate').after('<span class="rate">달러-원 환율: ' + rate + '</span>')
+              }
+          })
+      })
   </script>
 
   <title>나만의 쇼핑몰</title>
@@ -82,7 +141,7 @@
       <img src="https://i.pinimg.com/236x/aa/db/62/aadb623e47bc38418ab180ed6a764c76--marianne-fragrance.jpg" alt="양초">
     </div>
 
-    <div class="desc_box">
+    <div id="include_rate" class="desc_box">
       <span class="desc_title">양초를 팝니다</span>
       <span class="desc_info">가격: <em class="price">3,000</em>원/개</span>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis distinctio, ex id minus natus
@@ -92,17 +151,16 @@
     <div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <label class="input-group-text" for="basic-addon1">주문자이름</label>
+          <label class="input-group-text" for="user_name">주문자이름</label>
         </div>
-        <input type="text" id="basic-addon1" class="form-control" aria-label="Username"
-               aria-describedby="basic-addon1">
+        <input type="text" id="user_name" class="form-control">
       </div>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <label class="input-group-text" for="input_select01">수량</label>
+          <label class="input-group-text" for="user_order_count">수량</label>
         </div>
-        <select class="custom-select" id="input_select01">
+        <select class="custom-select" id="user_order_count">
           <option selected>-- 수량을 선택하세요 --</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -112,18 +170,16 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <label class="input-group-text" for="basic-addon2">주소</label>
+          <label class="input-group-text" for="user_address">주소</label>
         </div>
-        <input type="text" id="basic-addon2" class="form-control" aria-label="Username"
-               aria-describedby="basic-addon2">
+        <input type="text" id="user_address" class="form-control">
       </div>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <label class="input-group-text" for="basic-addon3">전화번호</label>
+          <label class="input-group-text" for="user_tel">전화번호</label>
         </div>
-        <input type="tel" id="basic-addon3" class="form-control" aria-label="Username"
-               aria-describedby="basic-addon3">
+        <input type="tel" id="user_tel" class="form-control">
       </div>
 
       <button type="button" onclick="orderSuccess()" class="btn btn-primary btn_order">
