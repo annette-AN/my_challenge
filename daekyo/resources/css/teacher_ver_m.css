@@ -1,0 +1,144 @@
+body { position: relative; text-align: center; }
+
+#wrap { overflow: hidden; display: inline-block; min-width: 320px; width: 100%; text-align: left; }
+
+body.body_fixed { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+
+body.body_fixed #wrap { width: 100%; height: 100%; }
+
+body.body_fixed #m_container { height: 100%; }
+
+body.body_fixed #fixed_login { height: calc(100% - 70px); }
+
+.show { display: block !important; }
+
+.hide { display: none !important; }
+
+.img_box img { width: 100%; }
+
+.dual_box { display: table; table-layout: fixed; width: 100%; }
+
+.dual_box > div { display: table-cell; width: 100%; }
+
+.dual_box > div button { display: inline-block; width: 100%; vertical-align: top; }
+
+.input_txt { display: inline-block; width: 100%; height: 48px; padding: 0 16px; border-bottom: 1px solid #c9d0d8; font-weight: 700; }
+
+.input_txt::-webkit-input-placeholder { font-size: 14px; color: #c9d0d8; }
+
+.input_txt:-ms-input-placeholder { font-size: 14px; color: #c9d0d8; }
+
+.input_txt::-ms-input-placeholder { font-size: 14px; color: #c9d0d8; }
+
+.input_txt::placeholder { font-size: 14px; color: #c9d0d8; }
+
+.input_link { display: inline-block; padding: 0 16px; margin: 16px 0; font-size: 12px; font-weight: 700; color: #4b2c7a; }
+
+.t_warning { color: #fa4730 !important; }
+
+.t_warning em { color: #fa4730 !important; }
+
+.info_text_s { font-size: 12px; }
+
+.info_text { font-weight: 700; }
+
+.primary_text_xs { font-size: 10px; line-height: 14px; }
+
+.primary_text_xs a { font-size: 10px; }
+
+.primary_text_s { font-size: 12px; }
+
+.primary_text_s em { font-size: 12px; font-weight: 700; }
+
+.primary_text { color: #616c78; }
+
+.btn_primary { border-radius: 4px; background: #e60662; color: #fff; }
+
+.btn_secondary { border-radius: 4px; background: #4b2c7a; color: #fff; }
+
+.btn_info { border-radius: 4px; background: #a8b0bc; color: #fff; }
+
+.btn_cancel { border-radius: 4px; background: #c9d0d8; color: #fff; }
+
+body.lyr_backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
+
+body.lyr_backdrop:after { content: ''; display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }
+
+body.lyr_backdrop #wrap { overflow: hidden; }
+
+.lyr_box { position: relative; width: 100%; padding: 36px; border-radius: 20px 20px 0 0; background: #fff; z-index: 20; text-align: left; }
+
+.lyr_box .lyr_cont .title_box .title { display: block; font-size: 16px; font-weight: 800; }
+
+.lyr_box .lyr_cont .title_box .title_desc { margin: 16px 0 0 0; }
+
+.lyr_box .lyr_cont .cont_box { margin: 24px 0 0 0; }
+
+.lyr_box .lyr_cont .cont_box .input_info { display: block; margin: 16px 0 0 0; }
+
+.lyr_box .lyr_btm { margin: 24px 0 0 0; }
+
+.lyr_box .lyr_btm .dual_box button { padding: 15px 0; font-size: 16px; }
+
+.lyr_box .input_txt { padding-top: 3px; }
+
+.lyr_box .input_txt::-webkit-input-placeholder { line-height: 20px; }
+
+.lyr_box .input_txt:-ms-input-placeholder { line-height: 20px; }
+
+.lyr_box .input_txt::-ms-input-placeholder { line-height: 20px; }
+
+.lyr_box .input_txt::placeholder { line-height: 20px; }
+
+.lyr_slide { display: none; position: fixed; top: 100%; left: 0; max-height: 100%; -webkit-animation-duration: .2s; animation-duration: .2s; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-transform: translate(0, 0); transform: translate(0, 0); -webkit-transition: -webkit-transform 0.2s; transition: -webkit-transform 0.2s; transition: transform 0.2s; transition: transform 0.2s, -webkit-transform 0.2s; }
+
+.lyr_slide.on { -webkit-transform: translate(0, -100%); transform: translate(0, -100%); }
+
+.visual { padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px; }
+
+.visual .visual_logo { width: 170px; }
+
+.login_area { position: relative; padding: 0 42px; line-height: 18px; }
+
+.login_area .title { display: block; font-size: 16px; font-weight: 800; }
+
+.login_area .user_check { position: relative; margin: 30px 0 0 0; }
+
+.login_area .user_check > p { display: none; position: absolute; top: 0; left: 0; }
+
+.login_area .user_check.wrong p { display: block; }
+
+.login_area .user_check.wrong .save_check:before { content: ''; background: url(../images/ico_check_unact.svg) no-repeat 0 0; background-size: cover; }
+
+.login_area .user_check.wrong .save_check .info_text_s { color: #a8b0bc; }
+
+.login_area .save_check { display: block; padding: 60px 0 0 0; }
+
+.login_area .save_check:before { content: ''; display: inline-block; width: 14px; height: 14px; margin: 0 10px 0 0; background: url(../images/ico_check_act.svg) no-repeat 0 0; background-size: cover; vertical-align: middle; }
+
+.login_area .save_check .info_text_s { cursor: default; }
+
+.login_area.set_pass input[type="password"] { margin-top: 24px; }
+
+.login_area.set_pass .user_check { display: block; position: static; top: auto; left: auto; margin: 16px 0 0 0; }
+
+.login_area.set_pass .user_check p { visibility: visible; }
+
+body.body_fixed #btn_login { margin: 0; }
+
+#btn_login { position: relative; display: block; float: right; width: 180px; height: 70px; margin: 50px 0 0 0; padding: 26px 0 0 0; border-radius: 40px 0 0 0; font-size: 20px; color: #fff; background: #4b2c7a; text-align: center; }
+
+#btn_login:after { content: ''; display: block; position: absolute; top: 23px; right: 22px; width: 24px; height: 24px; background: url(../images/arr_move_right.svg) no-repeat 0 0; background-size: cover; }
+
+#srch_id .lyr_btm .dual_box > div:first-child { width: 70%; padding: 0 8px 0 0; }
+
+#srch_id .lyr_btm .dual_box > div:nth-child(2) { padding: 0 0 0 8px; }
+
+#srch_password .lyr_btm .dual_box > div:first-child { width: 70%; padding: 0 8px 0 0; }
+
+#srch_password .lyr_btm .dual_box > div:nth-child(2) { padding: 0 0 0 8px; }
+
+@media screen and (max-height: 600px) { .visual { padding-bottom: 30px; }
+  .login_area .user_check { margin: 0; }
+  .login_area .save_check { padding: 36px 0 0 0; } }
+/*# sourceMappingURL=teacher_ver_m.css.map */
