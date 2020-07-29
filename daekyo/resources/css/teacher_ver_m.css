@@ -120,13 +120,15 @@ body.lyr_backdrop #wrap { overflow: hidden; }
 
 .login_area.set_pass input[type="password"] { margin-top: 24px; }
 
-.login_area.set_pass .user_check { display: block; position: static; top: auto; left: auto; margin: 16px 0 0 0; }
+.login_area.set_pass input[type="password"] + input[type="password"] { margin-top: 30px; }
 
-.login_area.set_pass .user_check p { visibility: visible; }
+.login_area.set_pass .user_check { margin: 16px 0 0 0; }
+
+.login_area.set_pass .user_check p { display: block; }
 
 body.body_fixed #btn_login { margin: 0; }
 
-#btn_login { position: relative; display: block; float: right; width: 180px; height: 70px; margin: 50px 0 0 0; padding: 26px 0 0 0; border-radius: 40px 0 0 0; font-size: 20px; color: #fff; background: #4b2c7a; text-align: center; }
+#btn_login { position: relative; display: block; float: right; width: 180px; height: 70px; padding: 4px 0 0 0; border-radius: 40px 0 0 0; font-size: 20px; color: #fff; background: #4b2c7a; text-align: center; }
 
 #btn_login:after { content: ''; display: block; position: absolute; top: 23px; right: 22px; width: 24px; height: 24px; background: url(../images/arr_move_right.svg) no-repeat 0 0; background-size: cover; }
 

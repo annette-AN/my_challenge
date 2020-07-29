@@ -22,9 +22,6 @@ body.body_fixed {
   height: 100%;
 
   #wrap {
-    // position: fixed;
-    // top: 0;
-    // left: 0;
     width: 100%;
     height: 100%;
   }
@@ -38,6 +35,10 @@ body.body_fixed {
 body.body_fixed {
   #fixed_login {
     height: calc(100% - 70px);
+  }
+
+  #btn_login {
+    margin: 0;
   }
 }
 
@@ -333,22 +334,16 @@ body.lyr_backdrop {
     margin-top: 24px;
   }
 
+  input[type="password"] + input[type="password"] {
+    margin-top: 30px;
+  }
+
   .user_check {
-    display: block;
-    position: static;
-    top: auto;
-    left: auto;
     margin: 16px 0 0 0;
 
     p {
-      visibility: visible;
+      display: block;
     }
-  }
-}
-
-body.body_fixed {
-  #btn_login {
-    margin: 0;
   }
 }
 
@@ -359,7 +354,8 @@ body.body_fixed {
   width: 180px;
   height: 70px;
   margin: 50px 0 0 0;
-  padding: 26px 0 0 0;
+  padding: 4
+  px 0 0 0;
   border-radius: 40px 0 0 0;
   font-size: 20px;
   color: #fff;
