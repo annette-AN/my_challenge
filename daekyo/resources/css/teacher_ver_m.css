@@ -10,6 +10,8 @@ body.body_fixed #m_container { height: 100%; }
 
 body.body_fixed #fixed_login { height: calc(100% - 70px); }
 
+body.body_fixed #btn_login { margin: 0; }
+
 .show { display: block !important; }
 
 .hide { display: none !important; }
@@ -62,7 +64,7 @@ body.body_fixed #fixed_login { height: calc(100% - 70px); }
 
 body.lyr_backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
 
-body.lyr_backdrop:after { content: ''; display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }
+body.lyr_backdrop:after { content: ''; display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); }
 
 body.lyr_backdrop #wrap { overflow: hidden; }
 
@@ -126,9 +128,7 @@ body.lyr_backdrop #wrap { overflow: hidden; }
 
 .login_area.set_pass .user_check p { display: block; }
 
-body.body_fixed #btn_login { margin: 0; }
-
-#btn_login { position: relative; display: block; float: right; width: 180px; height: 70px; padding: 4px 0 0 0; border-radius: 40px 0 0 0; font-size: 20px; color: #fff; background: #4b2c7a; text-align: center; }
+#btn_login { position: relative; display: block; float: right; width: 180px; height: 70px; margin: 50px 0 0 0; padding: 4 px 0 0 0; border-radius: 40px 0 0 0; font-size: 20px; color: #fff; background: #4b2c7a; text-align: center; }
 
 #btn_login:after { content: ''; display: block; position: absolute; top: 23px; right: 22px; width: 24px; height: 24px; background: url(../images/arr_move_right.svg) no-repeat 0 0; background-size: cover; }
 
