@@ -34,6 +34,7 @@ body.body_fixed {
 // 개별 body_fixed 를 작동하게 도와주는 코드
 body.body_fixed {
   #fixed_login {
+    overflow: auto;
     height: calc(100% - 70px);
   }
 
@@ -406,6 +407,10 @@ body.lyr_backdrop {
   // login page
   .visual {
     padding-bottom: 30px;
+
+    .visual_logo {
+      width: 140px;
+    }
   }
 
   .login_area .user_check {
