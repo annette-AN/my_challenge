@@ -12,7 +12,7 @@ body.body_fixed #fixed_login {height: calc(100% - 70px);}
 body.body_fixed #btn_login {margin: 0;}
 
 /* 공통 header */
-#header {text-align: center;}
+#header {text-align: center; height: 60px;}
 #header .header_bar {position: fixed; top: 0; left: 0; width: 100%; height: 60px; padding: 14px; background: #fff;}
 #header .header_bar h1 {display: inline-block; width: 50px;}
 #header .header_bar .btn_prev, #header .header_bar .gnb_open {padding: 4px;}
@@ -29,7 +29,7 @@ body.body_fixed #btn_login {margin: 0;}
 #gnb .gnb_card .primary_text {vertical-align: top;}
 #gnb .gnb_card .card {float: left; width: 80px; height: 80px; padding: 16px 0;}
 #gnb .gnb_card .card img {display: block; width: 24px; margin: 0 auto 12px auto;}
-#gnb .btn_movie {display: block; padding: 16px 0 16px 34px;}
+#gnb .btn_movie {display: block; width: 100%; padding: 16px 0 16px 34px; text-align: left;}
 #gnb .btn_movie img {vertical-align: middle;}
 #gnb .btn_movie .primary_text {padding: 0 0 0 8px; vertical-align: middle;}
 

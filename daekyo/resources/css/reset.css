@@ -24,7 +24,7 @@ pre {word-wrap:break-word;}
 br {background:none !important;}
 img {vertical-align:top;}
 a:focus, input:focus, textarea:focus, button:focus {outline:none !important;}
-button {cursor:pointer; margin: 0px; padding: 0px 1px; background: none; border: none; -webkit-tap-highlight-color:transparent;}
+button {cursor:pointer; margin: 0px; padding: 0px 1px; background: none; border: none; outline: none; -webkit-tap-highlight-color:transparent;}
 
 /* input 기본 스타일 초기화 */
 input {-webkit-appearance:none; -moz-appearance:none; appearance:none; border: none; 	-webkit-border-radius:0; /* safari 둥근모서리 */ -webkit-appearance:none; /* safari 그림자 */ font-size: 16px;}
