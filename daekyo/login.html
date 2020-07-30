@@ -13,12 +13,6 @@
   <!-- js -->
   <script type="text/javascript" src="resources/js/jquery-1.11.2.min.js"></script>
 
-  <style>
-    .bg_test {
-      background:rgba(0,128,0,0.2)!important;
-    }
-  </style>
-
   <title>login</title>
 </head>
 <body class="body_fixed">
@@ -39,16 +33,8 @@
           <input type="password" class="input_txt" placeholder="비밀번호를 입력하세요.">
           <a href="#srch_password" class="input_link lyr_open">비밀번호를 잊으셨나요?</a>
 
-          <!-- [D] '.user_check'에 'wrong' class가 추가되면 
-            1. p가 보여지고
-            2. 'save_check'에 비활성 디자인(회색)이 적용됩니다. -->
-          <div class="user_check">
-            <p class="primary_text_s t_warning">선생님 코드가 맞지 않거나, 잘못된 비밀번호입니다.</p>
-
-            <div class="save_check">
-              <span class="info_text_s">선생님코드를 저장합니다.<span>
-            </div>
-          </div>
+          <!-- [D] '.user_check'에 'hide' class가 제거되면 경고 문구가 보여집니다. -->
+          <p class="user_check hide primary_text_s t_warning">선생님 코드가 맞지 않거나, 잘못된 비밀번호입니다.</p>
           <!-- //user_check -->
         </div>
         <!-- //login_area -->
@@ -192,7 +178,7 @@ $(document).ready(function(){
     });
   }
 
-  // 개별 200729
+  // 개별 200729 AMR 
   var $body = $('body');
 
   $('input').on('focus', function(){
