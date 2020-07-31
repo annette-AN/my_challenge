@@ -186,16 +186,16 @@
                 <li></li>
                 <li></li>
                 <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -218,20 +218,44 @@
                 <li></li>
                 <li></li>
                 <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <!-- [D] 
+                  *방문박스 종류 2가지 - 정기방문/일회성방문
+
+                  정기방문(분홍색 박스) : 
+                  .regular_visit > span 태그와 style="height:; line-height:;"을 같은 값으로 추가하면 정기방문 박스가 보여집니다.
+                  
+                  방문박스가 생성되면 그 밑에 30분 비활성 박스(회색)가 함께 생성됩니다.
+                  
+                  list 한 칸(30분단위) : 24px
+                -->
+                <li class="time_available regular_visit" data-time="1030">
+                  <span style="height: 96px; line-height: 96px;">이찬원 <em>정기방문</em></span>
+                </li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <!-- [D] 
+                  *방문박스 종류 2가지 - 정기방문/일회성방문
+                  
+                  일회성방문(초록색 박스) : 
+                  .onetime_visit > span 태그와 style="height:; line-height:;"을 같은 값으로 추가하면 일회성방문 박스가 보여집니다.
+                  
+                  방문박스가 생성되면 그 밑에 30분 비활성 박스(회색)가 함께 생성됩니다.
+                  
+                  list 한 칸(30분단위) : 24px
+                -->
+                <li class="time_available onetime_visit" data-time="1430">
+                  <span style="height: 48px; line-height: 48px;">정동원</span>
+                </li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -255,23 +279,23 @@
                 <li></li>
                 <li></li>
                 <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li class="time_available" data-time="0930"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -503,15 +527,17 @@
             }
           } else if (direction == 'horizon') {
             e.preventDefault();
-            dragY = 0;
           } else if (direction === 'vertical') {
             dragX = 0;
           }
-        }).on('touchend', function () {
+        }).on('touchend', function (e) {
           var moveRight = positionX - visibleBoxWt;
           var moveLeft = positionX + visibleBoxWt;
 
+          console.log(direction)
+
           if (direction == 'horizon') {
+            e.preventDefault()
             if (dragX < -50) {
               if (positionX == totalWt - visibleBoxWt) return; // 박스가 마지막 슬라이드에 있으면 리턴
 
@@ -525,10 +551,12 @@
             }
           }
           direction = ''
+          $(document).off('toushstart touchmove');
         });
       });
     }
     swipeVisitTimeTable();
+
 
   })
 </script>
