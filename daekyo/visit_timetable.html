@@ -467,7 +467,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     // 공통 gnb 열기/닫기
-    $('.gnb_open').on('click', function (e) {
+    $('.gnb_open').on('click', function(e) {
       e.stopPropagation();
       handleGndClose();
 
@@ -481,12 +481,12 @@
       // gnd 닫기
       function handleGndClose() {
         // gnb에서 클릭 시 버블링 막기
-        $('#gnb').on('click', function (e) {
+        $('#gnb').on('click', function(e) {
           e.stopPropagation();
         })
 
         // gnb를 제외한 body를 클릭
-        $('body').on('click', function (e) {
+        $('body').on('click', function(e) {
           if ($('#header').hasClass('gnb_backdrop')) {
             $('#gnb').removeClass('on');
             setTimeout(function () {
@@ -508,7 +508,7 @@
       $('.schedule_box').css({'width': totalWt + 'px'})
       $('.schedule_box ul').css({'width': targetWt + 'px'})
 
-      $('.schedule_box').on('touchstart', function (e) {
+      $('.schedule_box').on('touchstart', function(e) {
         var startX = e.originalEvent.touches[0].clientX;
         var startY = e.originalEvent.touches[0].clientY;
         var dragX = 0;
@@ -517,7 +517,7 @@
         var direction = ''
 
         // console.log({startX, positionX})
-        $(document).on('touchmove', function (e) {
+        $(document).on('touchmove', function(e) {
           dragX = e.originalEvent.touches[0].clientX - startX;
           dragY = e.originalEvent.touches[0].clientY - startY;
 
@@ -534,7 +534,7 @@
           } else if (direction === 'vertical') {
             dragX = 0;
           }
-        }).on('touchend', function (e) {
+        }).on('touchend', function(e) {
           var moveRight = positionX - visibleBoxWt;
           var moveLeft = positionX + visibleBoxWt;
 
@@ -560,7 +560,6 @@
       });
     }
 
-
     function swipeVisitTimeTable() {
       // Wt = width
       // Lct = location
@@ -575,7 +574,7 @@
       $('.schedule_box').css({'width': totalWt + 'px'})
       $('.schedule_box ul').css({'width': targetWt + 'px'})
 
-      $('.schedule_box').on('touchstart', function (e) {
+      $('.schedule_box').on('touchstart', function(e) {
         var startX = e.originalEvent.touches[0].clientX;
         var startY = e.originalEvent.touches[0].clientY;
         var dragX = 0;
@@ -584,15 +583,16 @@
         var direction = ''
 
         function handleBodyScroll(e){
-          // console.log(direction)
+          console.log(direction)
           if (direction === 'horizontal') {
             e.preventDefault();
-            // console.log('preventH')
+            console.log('preventH')
           }
         }
-        $(document).on('scroll', handleBodyScroll);
 
-        $(document).on('touchmove', function (e) {
+        document.body.addEventListener('touchmove', handleBodyScroll, { passive: false })
+        
+        $(document).on('touchmove', function(e) {
           dragX = e.originalEvent.touches[0].clientX - startX;
           dragY = e.originalEvent.touches[0].clientY - startY;
           // console.log(dragX)
@@ -602,7 +602,7 @@
           } else {
             direction = 'vertical'
           }
-        }).on('touchend', function (e) {
+        }).on('touchend', function(e) {
           if (direction == 'horizontal') {
             var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 :  page += 0;
             var move = (-page * visibleBoxWt)
@@ -615,7 +615,7 @@
             }
           }
           $(document).off('touchmove touchend');
-          $(document).off('scroll', handleBodyScroll);
+          document.body.removeEventListener('touchmove', handleBodyScroll);
         });
       });
     }
