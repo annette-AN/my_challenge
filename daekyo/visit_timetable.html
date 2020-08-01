@@ -590,7 +590,7 @@
             // console.log('preventH')
           }
         }
-        $(window).on('scroll', handleBodyScroll);
+        $(document).on('scroll', handleBodyScroll);
 
         $(document).on('touchmove', function (e) {
           dragX = e.originalEvent.touches[0].clientX - startX;
@@ -615,7 +615,7 @@
             }
           }
           $(document).off('touchmove touchend');
-          $(window).off('scoll', handleBodyScroll);
+          $(document).off('scroll', handleBodyScroll);
         });
       });
     }
