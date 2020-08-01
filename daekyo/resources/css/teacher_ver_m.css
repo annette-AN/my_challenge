@@ -146,18 +146,12 @@ body.lyr_backdrop #wrap {overflow: hidden;}
 .visit_table .time_schedule .schedule .time_available {background: #f4f6f8;}
 .visit_table .time_schedule .schedule .time_available span, .visit_table .time_schedule .schedule .time_available em {line-height: 24px;}
 
-.visit_table .time_schedule .schedule .regular_visit span {position: relative; display: block; height: 100%; border-bottom: 1px solid #fb7ec1; background: #fb7ec1; font-weight: 800; color: #fff;}
-/* .visit_table .time_schedule .schedule .regular_visit span:before {content: '정기방문'; display: block; position: absolute; bottom: 100%; left: 0; width: 100%; height: 12px; line-height: 12px; border-radius: 5px 5px 0 0; font-size: 10px; font-weight: 500; text-align: center; background: rgba(251,126,193,0.7);} */
-.visit_table .time_schedule .schedule .regular_visit span:after {content: ''; display: block; position: absolute; top: 100%; left: 0; width: 100%; height: 24px; background: #a8b0bc; z-index: 1;}
-.visit_table .time_schedule .schedule .regular_visit span em {font-weight: 800; color: #fff;}
+.visit_table .time_schedule .schedule .student_info {position: relative; display: block; height: 100%; border-bottom: 1px solid #666; background: #666; font-weight: 800;}
+.visit_table .time_schedule .schedule .student_info:after {content: ''; display: block; position: absolute; top: 100%; left: 0; width: 100%; height: 24px; background: #a8b0bc; z-index: 1;}
+.visit_table .time_schedule .schedule .student_info span {position: absolute; top: 50%; left: 0; transform: translate(0, -50%); width: 100%; line-height: 24px; font-weight: 800; color: #fff;}
 
-.visit_table .time_schedule .schedule .onetime_visit span {position: relative; display: block; height: 100%; border-bottom: 1px solid #fb7ec1; background: #8ed559; font-weight: 800; color: #fff;}
-/* .visit_table .time_schedule .schedule .onetime_visit span:before {content: '일회방문'; display: block; position: absolute; bottom: 100%; left: 0; width: 100%; height: 12px; line-height: 12px; border-radius: 5px 5px 0 0; font-size: 10px; font-weight: 500; text-align: center; background: rgba(142, 213, 89,0.7);} */
-.visit_table .time_schedule .schedule .onetime_visit span:after {content: ''; display: block; position: absolute; top: 100%; left: 0; width: 100%; height: 24px; background: #a8b0bc; z-index: 1;}
-
-/* .visit_table .time_schedule .schedule .regular_visit:before {content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 48px; border-bottom: 1px solid #fb7ec1; background: #fb7ec1; z-index: 1;} */
-/* .visit_table .time_schedule .schedule .regular_visit:after {content: ''; display: block; position: absolute; top: 100%; left: 0; width: 100%; height: 100%; border-bottom: 1px solid #a8b0bc; background: #a8b0bc; z-index: 1;} */
-
+.visit_table .time_schedule .schedule .regular_visit .student_info {border-bottom: 1px solid #fb7ec1; background: #fb7ec1;}
+.visit_table .time_schedule .schedule .onetime_visit .student_info {border-bottom: 1px solid #8ed559; background: #8ed559;}
 
 @media screen and (max-height: 600px) {
   /* login page */

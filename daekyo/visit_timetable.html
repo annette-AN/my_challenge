@@ -225,14 +225,16 @@
                   *방문박스 종류 2가지 - 정기방문/일회성방문
 
                   정기방문(분홍색 박스) : 
-                  .regular_visit > span 태그와 style="height:; line-height:;"을 같은 값으로 추가하면 정기방문 박스가 보여집니다.
+                  .regular_visit > div.student_info 태그와 style="height"을 추가하면 정기방문 박스가 보여집니다.
                   
                   방문박스가 생성되면 그 밑에 30분 비활성 박스(회색)가 함께 생성됩니다.
                   
                   list 한 칸(30분단위) : 24px
                 -->
                 <li class="time_available regular_visit" data-time="1030">
-                  <span style="height: 96px; line-height: 96px;">이찬원 <em>정기방문</em></span>
+                  <div class="student_info" style="height: 96px;">
+                    <span>이찬원<br>정기방문</span>
+                  </div>
                 </li>
                 <li class="time_available"></li>
                 <li class="time_available"></li>
@@ -245,14 +247,16 @@
                   *방문박스 종류 2가지 - 정기방문/일회성방문
                   
                   일회성방문(초록색 박스) : 
-                  .onetime_visit > span 태그와 style="height:; line-height:;"을 같은 값으로 추가하면 일회성방문 박스가 보여집니다.
+                  .onetime_visit > div.student_info 태그와 style="height"을 추가하면 일회성방문 박스가 보여집니다.
                   
                   방문박스가 생성되면 그 밑에 30분 비활성 박스(회색)가 함께 생성됩니다.
                   
                   list 한 칸(30분단위) : 24px
                 -->
                 <li class="time_available onetime_visit" data-time="1430">
-                  <span style="height: 48px; line-height: 48px;">정동원</span>
+                  <div class="student_info" style="height: 48px;">
+                    <span>정동원</span>
+                  </div>
                 </li>
                 <li class="time_available"></li>
                 <li class="time_available"></li>
