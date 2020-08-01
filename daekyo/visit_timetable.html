@@ -498,7 +498,7 @@
       }
     });
 
-    function swipeVisitTimeTable() {
+    false && function swipeVisitTimeTable() {
       // Wt = width
       // Lct = location
       var visibleBoxWt = $('.schedule').innerWidth();
@@ -553,6 +553,61 @@
               $('.schedule_box').css({ 'left': moveLeft + 'px' });
               return;
             }
+          }
+          direction = ''
+          $(document).off('toushstart touchmove');
+        });
+      });
+    }
+
+
+    function swipeVisitTimeTable() {
+      // Wt = width
+      // Lct = location
+      var visibleBoxWt = $('.schedule').innerWidth();
+      var targetWt = visibleBoxWt / 3;
+      var page = 0;
+      var maxPage = 2; //3페이지
+      var totalWt = visibleBoxWt * (maxPage+1);
+
+      console.log()
+
+      $('.schedule_box').css({'width': totalWt + 'px'})
+      $('.schedule_box ul').css({'width': targetWt + 'px'})
+
+      $('.schedule_box').on('touchstart', function (e) {
+        var startX = e.originalEvent.touches[0].clientX;
+        var dragX = 0;
+        var positionX = $(this).position().left;
+        var direction = ''
+        console.log({page})
+
+
+        // console.log({startX, positionX})
+        $(document).on('touchmove', function (e) {
+          dragX = e.originalEvent.touches[0].clientX - startX;
+          console.log(dragX)
+
+          if (direction == '') {
+            if (Math.abs(dragX) > 5) {
+              e.preventDefault();
+              direction = 'horizon';
+            }
+          }
+          console.log(direction)
+
+        }).on('touchend', function (e) {
+          if (direction == 'horizon') {
+            var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 :  page += 0;
+            var move = (-page * visibleBoxWt)
+
+            if ( page < 0 || page > maxPage ) {
+              if ( page < 0 ) page = 0
+              else if ( page > maxPage ) page = maxPage
+            } else {
+              $('.schedule_box').css({ 'left': move + 'px' });
+            } 
+            console.log({page})
           }
           direction = ''
           $(document).off('toushstart touchmove');
