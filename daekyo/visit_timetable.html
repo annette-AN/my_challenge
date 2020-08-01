@@ -584,24 +584,24 @@
         var direction = ''
 
         function handleBodyScroll(e){
+          // console.log(direction)
           if (direction === 'horizontal') {
             e.preventDefault();
+            // console.log('preventH')
           }
         }
-        $(document.body).on('scoll', handleBodyScroll);
+        $(window).on('scroll', handleBodyScroll);
 
         $(document).on('touchmove', function (e) {
           dragX = e.originalEvent.touches[0].clientX - startX;
           dragY = e.originalEvent.touches[0].clientY - startY;
-          console.log(dragX)
+          // console.log(dragX)
 
           if (Math.abs(dragX) > Math.abs(dragY)) {
-            e.preventDefault();
             direction = 'horizontal'
           } else {
             direction = 'vertical'
           }
-
         }).on('touchend', function (e) {
           if (direction == 'horizontal') {
             var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 :  page += 0;
@@ -615,7 +615,7 @@
             }
           }
           $(document).off('touchmove touchend');
-          $(document.body).off('scoll', handleBodyScroll);
+          $(window).off('scoll', handleBodyScroll);
         });
       });
     }
