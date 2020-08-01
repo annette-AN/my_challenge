@@ -583,6 +583,13 @@
         var positionX = $(this).position().left;
         var direction = ''
 
+        function handleBodyScroll(e){
+          if (direction === 'horizontal') {
+            e.preventDefault();
+          }
+        }
+        $(document.body).on('scoll', handleBodyScroll);
+
         $(document).on('touchmove', function (e) {
           dragX = e.originalEvent.touches[0].clientX - startX;
           dragY = e.originalEvent.touches[0].clientY - startY;
@@ -608,6 +615,7 @@
             }
           }
           $(document).off('touchmove touchend');
+          $(document.body).off('scoll', handleBodyScroll);
         });
       });
     }
