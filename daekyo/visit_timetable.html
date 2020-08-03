@@ -249,7 +249,7 @@
                   일회성방문(초록색 박스) : 
                   .onetime_visit > div.student_info 태그와 style="height"을 추가하면 일회성방문 박스가 보여집니다.
                   
-                  방문박스가 생성되면 그 밑에 30분 비활성 박스(회색)가 함께 생성됩니다.
+                  방문박스가 생성되면 그 밑에 30분 비활성 박스(회색)가 함께 생성됩니다. 
                   
                   list 한 칸(30분단위) : 24px
                 -->
@@ -498,69 +498,7 @@
       }
     });
 
-    false && function swipeVisitTimeTable() {
-      // Wt = width
-      // Lct = location
-      var visibleBoxWt = $('.schedule').innerWidth();
-      var targetWt = visibleBoxWt / 3;
-      var totalWt = targetWt * 7;
-
-      $('.schedule_box').css({'width': totalWt + 'px'})
-      $('.schedule_box ul').css({'width': targetWt + 'px'})
-
-      $('.schedule_box').on('touchstart', function(e) {
-        var startX = e.originalEvent.touches[0].clientX;
-        var startY = e.originalEvent.touches[0].clientY;
-        var dragX = 0;
-        var dragY = 0;
-        var positionX = $(this).position().left;
-        var direction = ''
-
-        // console.log({startX, positionX})
-        $(document).on('touchmove', function(e) {
-          dragX = e.originalEvent.touches[0].clientX - startX;
-          dragY = e.originalEvent.touches[0].clientY - startY;
-
-          console.log(dragX, dragY)
-
-          if (direction == '') {
-            if (Math.abs(dragX) > 5) {
-              direction = 'horizon';
-            } else if (Math.abs(dragY) > 5) {
-              direction = 'vertical';
-            }
-          } else if (direction == 'horizon') {
-            e.preventDefault();
-          } else if (direction === 'vertical') {
-            dragX = 0;
-          }
-        }).on('touchend', function(e) {
-          var moveRight = positionX - visibleBoxWt;
-          var moveLeft = positionX + visibleBoxWt;
-
-          console.log(direction)
-
-          if (direction == 'horizon') {
-            e.preventDefault()
-            if (dragX < -50) {
-              if (positionX == totalWt - visibleBoxWt) return; // 박스가 마지막 슬라이드에 있으면 리턴
-
-              $('.schedule_box').css({ 'left': moveRight + 'px' });
-              return;
-            } else if (dragX > 50) {
-              if (positionX == 0) return; // 박스가 첫번째 슬라이드에 있으면 리턴
-
-              $('.schedule_box').css({ 'left': moveLeft + 'px' });
-              return;
-            }
-          }
-          direction = ''
-          $(document).off('toushstart touchmove');
-        });
-      });
-    }
-
-    function swipeVisitTimeTable() {
+    function timeTableSwipe() {
       // Wt = width
       // Lct = location
       var visibleBoxWt = $('.schedule').innerWidth();
@@ -569,8 +507,6 @@
       var maxPage = 2; //3페이지
       var totalWt = visibleBoxWt * (maxPage+1);
 
-      console.log()
-
       $('.schedule_box').css({'width': totalWt + 'px'})
       $('.schedule_box ul').css({'width': targetWt + 'px'})
 
@@ -582,46 +518,47 @@
         var positionX = $(this).position().left;
         var direction = ''
 
-        function handleBodyScroll(e){
-          console.log(direction)
-          if (direction === 'horizontal') {
+        document.addEventListener('touchmove', timeTableTouchMove, {passive: false})
+        document.addEventListener('touchend', timeTableTouchEnd)
+        
+        function timeTableTouchMove(e) {
+          dragX = e.touches[0].clientX - startX;
+          dragY = e.touches[0].clientY - startY;
+          var move = positionX + dragX;
+
+
+          if (direction == '') {
+            if (Math.abs(dragX) > 5) {
+              direction = 'horizontal';
+            } else {
+              direction = 'vertical';
+            }
+          } 
+          
+          if (direction == 'horizontal') {
             e.preventDefault();
-            console.log('preventH')
+            $('.schedule_box').css({ 'left': move + 'px' });
           }
         }
 
-        document.body.addEventListener('touchmove', handleBodyScroll, { passive: false })
-        
-        $(document).on('touchmove', function(e) {
-          dragX = e.originalEvent.touches[0].clientX - startX;
-          dragY = e.originalEvent.touches[0].clientY - startY;
-          // console.log(dragX)
-
-          if (Math.abs(dragX) > Math.abs(dragY)) {
-            direction = 'horizontal'
-          } else {
-            direction = 'vertical'
-          }
-        }).on('touchend', function(e) {
+        function timeTableTouchEnd(e) {
           if (direction == 'horizontal') {
-            var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 :  page += 0;
+            var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 : page += 0;
             var move = (-page * visibleBoxWt)
 
-            if ( page < 0 || page > maxPage ) {
-              if ( page < 0 ) page = 0
-              else if ( page > maxPage ) page = maxPage
+            if (page < 0 || page > maxPage) {
+              if (page < 0) page = 0
+              else if (page > maxPage) page = maxPage
             } else {
               $('.schedule_box').css({ 'left': move + 'px' });
             }
           }
-          $(document).off('touchmove touchend');
-          document.body.removeEventListener('touchmove', handleBodyScroll);
-        });
+
+          document.removeEventListener('touchmove', timeTableTouchMove, {passive: true});
+        }
       });
     }
-    swipeVisitTimeTable();
-
-
+    timeTableSwipe();
   })
 </script>
 </body>
