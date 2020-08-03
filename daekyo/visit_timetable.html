@@ -27,7 +27,7 @@
     <div id="header">
       <div class="header_bar">
         <div class="fl">
-          <!-- [D] class="hide"를 붙히면 display: none이 됩니다 -->
+          <!-- [D] .btn_prev 뒤로가기 버튼에 class="hide"를 붙히면 display: none이 됩니다 -->
           <button type="button" class="btn_prev">
             <img src="resources/images/ico_back.svg" alt="뒤로가기">
           </button>
@@ -524,8 +524,6 @@
         function timeTableTouchMove(e) {
           dragX = e.touches[0].clientX - startX;
           dragY = e.touches[0].clientY - startY;
-          var move = positionX + dragX;
-
 
           if (direction == '') {
             if (Math.abs(dragX) > 5) {
@@ -537,7 +535,6 @@
           
           if (direction == 'horizontal') {
             e.preventDefault();
-            $('.schedule_box').css({ 'left': move + 'px' });
           }
         }
 
