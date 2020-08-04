@@ -522,7 +522,7 @@
           console.log('스크롤 막기')
         }
 
-        document.addEventListener('touchforcechange', timeTablePreventDefault)
+        // document.addEventListener('touchforcechange', timeTablePreventDefault)
         document.addEventListener('touchmove', timeTableTouchMove, {passive: false})
         document.addEventListener('touchend', timeTableTouchEnd)
         
@@ -557,6 +557,7 @@
           }
 
           document.removeEventListener('touchmove', timeTableTouchMove, {passive: true});
+          document.removeEventListener('touchend', timeTableTouchEnd)
         }
       }, {passive: false});
 

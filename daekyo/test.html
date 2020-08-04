@@ -522,10 +522,13 @@
         var dragY = 0;
         var positionX = $(this).position().left;
         var direction = '';
-        var changes = touchEvent.changedTouches;
+        var changes = e.changedTouches;
 
         console.log('touchstart',{changes})
 
+        document.body.ontouchmove(function(){
+          console.log('ontouchmove')
+        })
         document.addEventListener('touchmove', timeTableTouchMove, { passive: false })
         document.addEventListener('touchforcechange', timeTablePreventDefault, {passive: false})
         document.addEventListener('touchend', timeTableTouchEnd)
