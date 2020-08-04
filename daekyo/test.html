@@ -512,7 +512,7 @@
 
       function timeTablePreventDefault(e) {
         e.preventDefault();
-        console.log('스크롤막음')
+        console.log('touchchange')
       }
 
       document.querySelector('.schedule_box').addEventListener('touchstart', function (e) {
@@ -523,6 +523,8 @@
         var positionX = $(this).position().left;
         var direction = '';
 
+        console.log('touchstart')
+
         document.addEventListener('touchmove', timeTableTouchMove, { passive: false })
         document.addEventListener('touchforcechange', timeTablePreventDefault, {passive: false})
         document.addEventListener('touchend', timeTableTouchEnd)
@@ -530,6 +532,8 @@
         function timeTableTouchMove(e) {
           dragX = e.touches[0].clientX - startX;
           dragY = e.touches[0].clientY - startY;
+
+          console.log('touchmove')
 
           if (direction == '') {
             if (Math.abs(dragX) > 5) {
@@ -548,6 +552,8 @@
           if (direction == 'horizontal') {
             var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 : page += 0;
             var move = (-page * visibleBoxWt)
+
+            console.log('touchend')
 
             if (page < 0 || page > maxPage) {
               if (page < 0) page = 0
