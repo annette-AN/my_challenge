@@ -471,7 +471,7 @@
       e.stopPropagation();
       handleGndClose();
 
-      $('#header').addClass('gnb_backdrop');
+      $('body').addClass('gnb_backdrop');
       $('#gnb').addClass('show');
 
       setTimeout(function () {
@@ -487,11 +487,11 @@
 
         // gnb를 제외한 body를 클릭
         $('body').on('click', function(e) {
-          if ($('#header').hasClass('gnb_backdrop')) {
+          if ($('body').hasClass('gnb_backdrop')) {
             $('#gnb').removeClass('on');
             setTimeout(function () {
               $('#gnb').removeClass('show');
-              $('#header').removeClass('gnb_backdrop');
+              $('body').removeClass('gnb_backdrop');
             }, 200);
           }
         })
@@ -499,8 +499,7 @@
     });
 
     function timeTableSwipe() {
-      // Wt = width
-      // Lct = location
+      // 축약어 Wt = width
       var visibleBoxWt = $('.schedule').innerWidth();
       var targetWt = visibleBoxWt / 3;
       var page = 0;
@@ -510,13 +509,14 @@
       $('.schedule_box').css({'width': totalWt + 'px'})
       $('.schedule_box ul').css({'width': targetWt + 'px'})
 
-      $('.schedule_box').on('touchstart', function(e) {
-        var startX = e.originalEvent.touches[0].clientX;
-        var startY = e.originalEvent.touches[0].clientY;
+      document.querySelector('.schedule_box').addEventListener('touchstart', function(e) {
+        var startX = e.touches[0].clientX;
+        var startY = e.touches[0].clientY;
         var dragX = 0;
         var dragY = 0;
         var positionX = $(this).position().left;
         var direction = ''
+
 
         document.addEventListener('touchmove', timeTableTouchMove, {passive: false})
         document.addEventListener('touchend', timeTableTouchEnd)
@@ -551,9 +551,14 @@
             }
           }
 
+          document.querySelector('.schedule_box').removeEventListener("webkitmouseforcechanged", function(e){
+           e.preventDefault();
+          }, false);
           document.removeEventListener('touchmove', timeTableTouchMove, {passive: true});
+          document.querySelector('.schedule_box').removeEventListener('touchstart', {passive: true});
         }
-      });
+      }, {passive: false});
+
     }
     timeTableSwipe();
   })
