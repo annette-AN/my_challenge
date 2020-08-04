@@ -522,8 +522,9 @@
         var dragY = 0;
         var positionX = $(this).position().left;
         var direction = '';
+        var changes = touchEvent.changedTouches;
 
-        console.log('touchstart')
+        console.log('touchstart',{changes})
 
         document.addEventListener('touchmove', timeTableTouchMove, { passive: false })
         document.addEventListener('touchforcechange', timeTablePreventDefault, {passive: false})
@@ -533,7 +534,7 @@
           dragX = e.touches[0].clientX - startX;
           dragY = e.touches[0].clientY - startY;
 
-          console.log('touchmove')
+          console.log('touchmove',{changes})
 
           if (direction == '') {
             if (Math.abs(dragX) > 5) {
@@ -553,7 +554,7 @@
             var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 : page += 0;
             var move = (-page * visibleBoxWt)
 
-            console.log('touchend')
+            console.log('touchend',{changes})
 
             if (page < 0 || page > maxPage) {
               if (page < 0) page = 0
@@ -567,7 +568,8 @@
           document.querySelector('.schedule_box').removeEventListener('touchstart', { passive: true });
         }
 
-        document.querySelector('.schedule_box').removeEventListener("webkitmouseforcechanged", timeTablePreventDefault, false);
+        // document.querySelector('.schedule_box').removeEventListener("webkitmouseforcechanged", timeTablePreventDefault, false);
+        document.removeEventListener('touchend', timeTableTouchEnd);
       }, { passive: false });
 
     }
