@@ -12,22 +12,17 @@
   <link rel="stylesheet" href="resources/css/teacher_ver_m.css">
   <!-- js -->
   <script type="text/javascript" src="resources/js/jquery-1.11.2.min.js"></script>
-
-  <style>
-    .bg_test {
-      background:rgba(0,128,0,0.2)!important;
-    }
-  </style>
-
   <title>방문시간표</title>
 </head>
 
 <body>
   <div id="wrap">
+    <!-- header -->
     <div id="header">
+      <!-- header_bar -->
       <div class="header_bar">
         <div class="fl">
-          <!-- [D] .btn_prev 뒤로가기 버튼에 class="hide"를 붙히면 display: none이 됩니다 -->
+          <!-- [D] .btn_prev 페이지 뒤로가기 버튼에 class="hide"를 붙히면 display: none이 됩니다 -->
           <button type="button" class="btn_prev">
             <img src="resources/images/ico_back.svg" alt="뒤로가기">
           </button>
@@ -41,6 +36,9 @@
           </button>
         </div>
       </div>
+      <!-- //header_bar -->
+
+      <!-- gnb -->
       <div id="gnb">
         <div class="gnb_box gnb_logo">
           <div class="img_box">
@@ -122,7 +120,11 @@
           </a>
         </div>
       </div>
+      <!-- //gnb -->
     </div>
+    <!-- //header -->
+
+    <!-- m_container -->
     <div id="m_container">
       <div class="visit_table">
         <h2 class="page_title">방문시간표</h2>
@@ -134,7 +136,7 @@
 
         <!-- time_schedule -->
         <div class="time_schedule">
-          <!-- time_list -->
+          <!-- time_list 왼쪽에 고정된 시간입니다 -->
           <div class="time_list">
             <ul>
               <li class="title_month">8월</li>
@@ -171,12 +173,12 @@
           </div>
           <!-- //time_list -->
 
-          <!-- schedule -->
+          <!-- schedule 오른쪽 table 입니다 -->
           <div class="schedule">
             <div class="schedule_box">
               <!-- [D] 
                 오늘부터 D+92일까지 (총 93일)이 표시됩니다
-                스케줄은 3일 단위로 볼 수 있습니다
+                스케줄은 3일 단위로 보여집니다
 
                 ul 하나 : 하루
                 li.time_available : 선생님이 수업가능한 시간
@@ -229,7 +231,7 @@
                 <li class="time_available"></li>
                 <li class="time_available"></li>
                 <!-- [D] 
-                  *방문박스 종류 2가지 - 정기방문/일회성방문
+                  *방문박스 종류 2가지 - 정기방문/일회성방문 (정기방문만 정기방문 문구가 표시됩니다)
 
                   정기방문(분홍색 박스) : 
                   .regular_visit > div.student_info 태그와 style="height"을 추가하면 정기방문 박스가 보여집니다.
@@ -251,7 +253,7 @@
                 <li class="time_available"></li>
                 <li class="time_available"></li>
                 <!-- [D] 
-                  *방문박스 종류 2가지 - 정기방문/일회성방문
+                  *방문박스 종류 2가지 - 정기방문/일회성방문 (정기방문만 정기방문 문구가 표시됩니다)
                   
                   일회성방문(초록색 박스) : 
                   .onetime_visit > div.student_info 태그와 style="height"을 추가하면 일회성방문 박스가 보여집니다.
@@ -549,6 +551,7 @@
 
       </div>
     </div>
+    <!-- //m_container -->
   </div>
 
 <script type="text/javascript">
@@ -585,22 +588,22 @@
       }
     });
 
-    // AMR
+    // AMR 방문시간표 swipe event
     function timeTableSwipe() {
-      // 축약어 Wt = width , 한 페이지에 3일씩 보여짐
-      var visibleBoxWt = $('.schedule').innerWidth(); // 한 페이지 길이
-      var targetWt = visibleBoxWt / 3; // 하루 길이
-      var days = $('.schedule_box ul').length; // 총 몇일이 있는지 구함
+      // 축약어 Wt = width , 한 페이지에 3일씩 보여집니다
+      var visibleBoxWt = $('.schedule').innerWidth(); // 한 페이지 가로길이
+      var targetWt = visibleBoxWt / 3; // 하루 가로길이
+      var days = $('.schedule_box ul').length; // 총 일 수 구함
       var page = 0;
-      var pages = days / 3; // 총 몇페이지인지 구함
-      var maxPage = pages - 1; // 총 몇페이지인지 인덱스 
-      var totalWt = visibleBoxWt * pages; // 총 페이지 길이
-      console.log({days, pages, maxPage})
+      var pages = days / 3; // 총 페이지 수 구함
+      var maxPage = pages - 1; // 총 페이지 인덱스 구함
+      var totalWt = visibleBoxWt * pages; // 총 페이지 가로길이
 
-      $('.schedule_box').css({'width': totalWt + 'px'})
-      $('.schedule_box ul').css({'width': targetWt + 'px'})
+      $('.schedule_box').css({ 'width': totalWt + 'px' })
+      $('.schedule_box ul').css({ 'width': targetWt + 'px' })
 
-     $('.schedule_box').on('touchstart', function (e) {
+      // 방문시간표 테이블에서의 터치이벤트
+      $('.schedule_box').on('touchstart', function (e) {
         var startX = e.originalEvent.touches[0].clientX;
         var startY = e.originalEvent.touches[0].clientY;
         var dragX = 0;
@@ -611,6 +614,7 @@
         $(document).on('touchmove', timeTableTouchMove);
         $(document).on('touchend', timeTableTouchEnd);
 
+        // touch move e
         function timeTableTouchMove(e) {
           dragX = e.originalEvent.touches[0].clientX - startX;
           dragY = e.originalEvent.touches[0].clientY - startY;
@@ -624,7 +628,7 @@
           if (direction === 'horizontal') {
             dragY = 0
             $('.schedule_box').css({
-              'transition' : 'none',
+              'transition': 'none',
               'transform': 'translateX(' + (positionX + dragX) + 'px)'
             });
           }
@@ -634,19 +638,16 @@
           }
         }
 
+        // touch end e
         function timeTableTouchEnd(e) {
           if (direction == 'horizontal') {
             var directionOffset = dragX < -20 ? page += 1 : dragX > 20 ? page += -1 : page += 0;
-
-            console.log('1',{page})
 
             if (page < 0) {
               page = 0;
             } else if (page > maxPage) {
               page = maxPage;
-            } 
-
-            console.log('2',{page})
+            }
 
             var move = (-page * visibleBoxWt)
             $('.schedule_box').css({
@@ -656,13 +657,10 @@
             $('body').removeClass('prevent_scroll')
           }
 
-          console.log('3',{page})
-
           $(document).off('touchmove', timeTableTouchMove);
           $(document).off('touchend', timeTableTouchEnd);
         }
       });
-
     }
     timeTableSwipe();
   })
