@@ -587,12 +587,15 @@
 
     // AMR
     function timeTableSwipe() {
-      // 축약어 Wt = width
-      var visibleBoxWt = $('.schedule').innerWidth();
-      var targetWt = visibleBoxWt / 3;
+      // 축약어 Wt = width , 한 페이지에 3일씩 보여짐
+      var visibleBoxWt = $('.schedule').innerWidth(); // 한 페이지 길이
+      var targetWt = visibleBoxWt / 3; // 하루 길이
+      var days = $('.schedule_box ul').length; // 총 몇일이 있는지 구함
       var page = 0;
-      var maxPage = 2; //3페이지
-      var totalWt = visibleBoxWt * (maxPage + 1);
+      var pages = days / 3; // 총 몇페이지인지 구함
+      var maxPage = pages - 1; // 총 몇페이지인지 인덱스 
+      var totalWt = visibleBoxWt * pages; // 총 페이지 길이
+      console.log({days, pages, maxPage})
 
       $('.schedule_box').css({'width': totalWt + 'px'})
       $('.schedule_box ul').css({'width': targetWt + 'px'})
@@ -622,7 +625,7 @@
             dragY = 0
             $('.schedule_box').css({
               'transition' : 'none',
-              'left': positionX + dragX + 'px'
+              'transform': 'translateX(' + (positionX + dragX) + 'px)'
             });
           }
           if (direction === 'vertical') {
@@ -635,19 +638,25 @@
           if (direction == 'horizontal') {
             var directionOffset = dragX < -20 ? page += 1 : dragX > 20 ? page += -1 : page += 0;
 
+            console.log('1',{page})
+
             if (page < 0) {
               page = 0;
             } else if (page > maxPage) {
               page = maxPage;
             } 
 
+            console.log('2',{page})
+
             var move = (-page * visibleBoxWt)
             $('.schedule_box').css({
-              'transition': 'left .1s',
-              'left': move + 'px'
+              'transition': 'transform .1s',
+              'transform': 'translateX(' + move + 'px)'
             });
             $('body').removeClass('prevent_scroll')
           }
+
+          console.log('3',{page})
 
           $(document).off('touchmove', timeTableTouchMove);
           $(document).off('touchend', timeTableTouchEnd);
