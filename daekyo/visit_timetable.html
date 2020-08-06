@@ -19,10 +19,10 @@
     }
   </style>
 
-  <title>visit timetable</title>
+  <title>방문시간표</title>
 </head>
 
-<body style="-webkit-overflow-scrolling: touch;">
+<body>
   <div id="wrap">
     <div id="header">
       <div class="header_bar">
@@ -128,7 +128,7 @@
         <h2 class="page_title">방문시간표</h2>
         <div class="notice">
           <div class="notice_bg">
-            <span class="notice_text">시간표를 좌우로 움직여 방문일정을 확인해보세요!</span>
+            <span class="notice_text">시간표를 좌우로 밀어 방문일정을 확인해보세요!</span>
           </div>
         </div>
 
@@ -137,7 +137,7 @@
           <!-- time_list -->
           <div class="time_list">
             <ul>
-              <li class="title">8월</li>
+              <li class="title_month">8월</li>
               <li>08:00</li>
               <li>08:30</li>
               <li>09:00</li>
@@ -174,8 +174,15 @@
           <!-- schedule -->
           <div class="schedule">
             <div class="schedule_box">
+              <!-- [D] 
+                오늘부터 D+92일까지 (총 93일)이 표시됩니다
+                스케줄은 3일 단위로 볼 수 있습니다
+
+                ul 하나 : 하루
+                li.time_available : 선생님이 수업가능한 시간
+              -->
               <ul>
-                <li class="title">
+                <li class="title_date">
                   <span class="day">21</span>  
                   <span class="dayweek">월</span>
                 </li>
@@ -211,7 +218,7 @@
                 <li></li>
               </ul>
               <ul>
-                <li class="title">
+                <li class="title_date">
                   <span class="day">22</span>  
                   <span class="dayweek">화</span>
                 </li>
@@ -275,7 +282,7 @@
                 <li></li>
               </ul>
               <ul>
-                <li class="title">
+                <li class="title_date">
                   <span class="day">23</span>  
                   <span class="dayweek">수</span>
                 </li>
@@ -311,7 +318,7 @@
                 <li></li>
               </ul>
               <ul>
-                <li class="title">
+                <li class="title_date">
                   <span class="day">24</span>  
                   <span class="dayweek">목</span>
                 </li>
@@ -347,7 +354,7 @@
                 <li></li>
               </ul>
               <ul>
-                <li class="title">
+                <li class="title_date">
                   <span class="day">25</span>  
                   <span class="dayweek">금</span>
                 </li>
@@ -383,7 +390,7 @@
                 <li></li>
               </ul>
               <ul>
-                <li class="title saturday">
+                <li class="title_date saturday">
                   <span class="day">26</span>  
                   <span class="dayweek">토</span>
                 </li>
@@ -419,7 +426,7 @@
                 <li></li>
               </ul>
               <ul>
-                <li class="title sunday">
+                <li class="title_date sunday">
                   <span class="day">27</span>  
                   <span class="dayweek">일</span>
                 </li>
@@ -454,6 +461,86 @@
                 <li></li>
                 <li></li>
               </ul>
+              <ul>
+                <li class="title_date">
+                  <span class="day">28</span>  
+                  <span class="dayweek">월</span>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <ul>
+                <li class="title_date">
+                  <span class="day">29</span>  
+                  <span class="dayweek">화</span>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available regular_visit" data-time="1030">
+                  <div class="student_info" style="height: 96px;">
+                    <span>이찬원<br>정기방문</span>
+                  </div>
+                </li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li class="time_available onetime_visit" data-time="1430">
+                  <div class="student_info" style="height: 48px;">
+                    <span>정동원</span>
+                  </div>
+                </li>
+                <li class="time_available"></li>
+                <li class="time_available"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
             </div>
           </div>
           <!-- //schedule -->
@@ -466,7 +553,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    // 공통 gnb 열기/닫기
+    // 공통 AMR gnb 열기/닫기
     $('.gnb_open').on('click', function(e) {
       e.stopPropagation();
       handleGndClose();
@@ -498,68 +585,74 @@
       }
     });
 
+    // AMR
     function timeTableSwipe() {
       // 축약어 Wt = width
       var visibleBoxWt = $('.schedule').innerWidth();
       var targetWt = visibleBoxWt / 3;
       var page = 0;
       var maxPage = 2; //3페이지
-      var totalWt = visibleBoxWt * (maxPage+1);
+      var totalWt = visibleBoxWt * (maxPage + 1);
 
       $('.schedule_box').css({'width': totalWt + 'px'})
       $('.schedule_box ul').css({'width': targetWt + 'px'})
 
-      document.querySelector('.schedule_box').addEventListener('touchstart', function(e) {
-        var startX = e.touches[0].clientX;
-        var startY = e.touches[0].clientY;
+     $('.schedule_box').on('touchstart', function (e) {
+        var startX = e.originalEvent.touches[0].clientX;
+        var startY = e.originalEvent.touches[0].clientY;
         var dragX = 0;
         var dragY = 0;
         var positionX = $(this).position().left;
-        var direction = ''
+        var direction = '';
 
-        function timeTablePreventDefault(e) {
-          e.preventDefault()
-          console.log('스크롤 막기')
-        }
+        $(document).on('touchmove', timeTableTouchMove);
+        $(document).on('touchend', timeTableTouchEnd);
 
-        // document.addEventListener('touchforcechange', timeTablePreventDefault)
-        document.addEventListener('touchmove', timeTableTouchMove, {passive: false})
-        document.addEventListener('touchend', timeTableTouchEnd)
-        
         function timeTableTouchMove(e) {
-          dragX = e.touches[0].clientX - startX;
-          dragY = e.touches[0].clientY - startY;
+          dragX = e.originalEvent.touches[0].clientX - startX;
+          dragY = e.originalEvent.touches[0].clientY - startY;
 
+          $('body').addClass('prevent_scroll')
           if (direction == '') {
-            if (Math.abs(dragX) > 5) {
-              direction = 'horizontal';
-            } else {
-              direction = 'vertical';
-            }
-          } 
-          
-          if (direction == 'horizontal') {
-            e.preventDefault();
+            if (Math.abs(dragX) > Math.abs(dragY)) direction = 'horizontal';
+            if (Math.abs(dragY) > Math.abs(dragX)) direction = 'vertical';
+          }
+
+          if (direction === 'horizontal') {
+            dragY = 0
+            $('.schedule_box').css({
+              'transition' : 'none',
+              'left': positionX + dragX + 'px'
+            });
+          }
+          if (direction === 'vertical') {
+            dragX = 0
+            $('body').removeClass('prevent_scroll')
           }
         }
 
         function timeTableTouchEnd(e) {
           if (direction == 'horizontal') {
-            var directionOffset = dragX < -50 ? page += 1 : dragX >= 50 ? page += -1 : page += 0;
-            var move = (-page * visibleBoxWt)
+            var directionOffset = dragX < -20 ? page += 1 : dragX > 20 ? page += -1 : page += 0;
 
-            if (page < 0 || page > maxPage) {
-              if (page < 0) page = 0
-              else if (page > maxPage) page = maxPage
-            } else {
-              $('.schedule_box').css({ 'left': move + 'px' });
-            }
+            if (page < 0) {
+              page = 0;
+            } else if (page > maxPage) {
+              page = maxPage;
+            } 
+
+            var move = (-page * visibleBoxWt)
+            $('.schedule_box').css({
+              'transition': 'left .1s',
+              'left': move + 'px'
+            });
+            $('body').removeClass('prevent_scroll')
           }
 
-          document.removeEventListener('touchmove', timeTableTouchMove, {passive: true});
-          document.removeEventListener('touchend', timeTableTouchEnd)
+          $(document).off('touchmove', timeTableTouchMove);
+          $(document).off('touchend', timeTableTouchEnd);
         }
-      }, {passive: false});
+      });
 
     }
     timeTableSwipe();
