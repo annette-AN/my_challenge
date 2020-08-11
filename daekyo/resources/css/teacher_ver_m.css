@@ -138,6 +138,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .alert_box .lyr_btm button {width: 100%; height: 100%; border-radius: 0 0 4px 4px; background: #e60462; color: #fff; font-weight: 700;}
 .alert_box .lyr_btm .dual_box {height: 100%;}
 .alert_box .lyr_btm .dual_box button {border-radius: 0;}
+.alert_box .lyr_btm .dual_box > div {height: 100%;}
 .alert_box .lyr_btm .dual_box > div:first-child button {background: #c9d0d8;}
 
 /* 추가 AMR 200810 */
