@@ -150,7 +150,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .alert_box .lyr_cont .input_area .input_box_icon.ico_clock:before {background: url(../images/ico_clock_g.svg) no-repeat center; background-size: 16px auto;}
 
 .alert_box .lyr_cont .input_area .input_box_icon input[type="text"] {width: 100%; height: 100%; line-height: 32px; padding: 2px 0 0 46px; border: 1px solid #e3e8eb; border-radius: 4px; font-weight: 700; font-size: 14px;}
-.alert_box .lyr_cont .input_area .input_box_icon select {height: 100%; line-height: 32px; padding: 0 20px; border: 1px solid #e3e8eb; border-radius: 4px; font-size: 14px; font-weight: 700;}
+.alert_box .lyr_cont .input_area .input_box_icon select {height: 100%; line-height: 32px; padding: 0 20px; border: 1px solid #e3e8eb; border-radius: 4px; font-size: 14px; font-weight: 700; background: #fff;}
 .alert_box .lyr_cont .input_area .input_box_icon select option {font-weight: 700;}
 
 
