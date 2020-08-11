@@ -45,5 +45,5 @@ input:focus{outline:none;}
 select:focus{outline:none;}
 
 /* Select box 스타일 초기화 */ 
-select {-webkit-appearance:none; -moz-appearance:none; appearance:none;}
+select {-webkit-appearance:none; -moz-appearance:none; appearance:none; border:none;}
 
