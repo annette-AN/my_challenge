@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* 공통 */
-body {position: relative; text-align: center;}
+body {position: relative; min-height: 100vh; text-align: center;}
 #wrap {overflow: hidden; display: inline-block; min-width: 320px; width: 100%; text-align: left; vertical-align: bottom;}
 
 body.prevent_scroll {overflow: hidden;}
@@ -88,6 +88,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .info_text {font-weight: 700;}
 .primary_text_xs {font-size: 10px!important; line-height: 14px;}
 .primary_text_xs a {font-size: 10px!important;}
+.primary_text_xs em {font-size: 10px!important; font-weight: 700;}
 .primary_text_s {font-size: 12px;}
 .primary_text_s em {font-size: 12px; font-weight: 700;}
 .primary_text {color: #616c78;}
@@ -134,6 +135,13 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .alert_box .lyr_cont .cont_box .cont_desc {display: block; font-size: 12px;}
 .alert_box .lyr_cont .cont_box .cont_desc + .cont_desc {margin: 14px 0 0;}
 .alert_box .lyr_cont .cont_box .cont_desc strong {font-size: 12px; font-weight: 700;}
+/* 추가 AMR 200813 */
+.alert_box .lyr_cont .content {margin: 24px 0 0 0; text-align: left;}
+
+.alert_box .lyr_cont input[type="text"] {width: 100%; height: 36px; padding: 0 12px; border-radius: 4px; border: 1px solid #c9d0d8; font-size: 12px;}
+.alert_box .lyr_cont input[type="text"]::placeholder {color: #a8b0bc;}
+.alert_box .lyr_cont textarea {width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #c9d0d8; line-height: 16px; font-size: 12px;}
+.alert_box .lyr_cont textarea::placeholder {color: #a8b0bc;}
 .alert_box .lyr_btm {width: 100%; height: 36px; margin: 0;}
 .alert_box .lyr_btm button {width: 100%; height: 100%; border-radius: 0 0 4px 4px; background: #e60462; color: #fff; font-weight: 700;}
 .alert_box .lyr_btm .dual_box {height: 100%;}
@@ -177,9 +185,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #scdl_reset .lyr_btm button {float: left; width: 50%;}
 #scdl_reset .lyr_btm button:nth-child(1) {border-radius: 0 0 0 4px; background: #c9d0d8;}
 #scdl_reset .lyr_btm button:nth-child(2) {border-radius: 0 0 4px 0;}
-
 #scdl_activate .lyr_cont .cont_box em {display: block; margin: 14px 0 0; font-size: 12px; font-weight: 700;}
-
 #scdl_disable_ipsb .lyr_cont .cont_box em {display: block; margin: 14px 0 0; font-size: 12px; font-weight: 700;}
 
 #change_date_time .lesson_time {display: block; margin: 12px 0 0 0;}
@@ -190,9 +196,18 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #change_date_time .input_area .input_box_icon span[name="modify_time_end"] {display: inline-block; height: 100%; line-height: 32px; padding: 0 20px; border: 1px solid #f4f6f8; border-radius: 4px; background: #f4f6f8; font-size: 14px; font-weight: 700;}
 #change_date_time .input_area .input_box_icon .connect {line-height: 32px; color: #a8b0bc;}
 
-#change_date {display: none; position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0); width: 100%; padding: 20px 5px; background: #f6f6f6; z-index: 50;}
-#change_date .fc-day-disabled {position: relative;}
-#change_date .fc-day-disabled:before {content: ''; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 4px; height: 4px; border-radius: 50%; background: #e2e3e4;}
+#change_date {display: none; position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0); width: 100%; padding: 20px 5px; background: #f8f8f8; z-index: 50;}
+#change_date .fc-day.fc-day-disabled {position: relative;}
+#change_date .fc-day.fc-day-disabled:before {content: ''; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 4px; height: 4px; border-radius: 50%; background: #e2e3e4;}
+@-moz-document url-prefix() {
+  #change_date .fc-day {position: relative; vertical-align: middle;}
+  #change_date .fc-day:before {content: ''; display: none; position: absolute; top: 4px; left: 4px; width: calc(100% - 8px); height: calc(100% - 8px); border-radius: 50%; background: #e60462; color: #fff !important;}
+  #change_date .fc-day.on:before {display: block;}
+}
+
+#teacher_review .primary_text_xs {line-height: 14px;}
+#teacher_review .primary_text_xs em {display: block;}
+#teacher_review textarea {margin: 12px 0 0 0;}
 
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}
@@ -242,36 +257,47 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 /* visit management page */
 .visit_management {margin: 24px 0;}
 
-.visit_management .visit_card {padding: 16px; border-radius: 10px; border: 1px solid #e3e8eb; font-size: 12px;}
+.visit_management .visit_card {padding: 16px; border-radius: 10px; border: 1px solid #e3e8eb; font-size: 12px; transition: box-shadow .2s ease-in-out, border .4s;}
 .visit_management .visit_card + .visit_card {margin: 12px 0 0 0;}
-.visit_management .visit_card span {font-size: 12px;}
+.visit_management .visit_card dt,
+.visit_management .visit_card dd {line-height: 16px; font-size: 12px;}
+.visit_management .visit_card span,
 .visit_management .visit_card em {font-size: 12px;}
-.visit_management .visit_card button {line-height: 12px; font-size: 12px;}
+.visit_management .visit_card button {line-height: 11px; font-size: 12px;}
 .visit_management .visit_card a {line-height: 12px; font-size: 12px;}
 .visit_management .visit_card .card_on_show {display: none;}
 
+.visit_management .visit_card.on_effect {border: 1px solid #c4c4c4;}
 .visit_management .visit_card.on .card_on_hidden {display: none;}
 .visit_management .visit_card.on .card_on_show {display: block;}
 .visit_management .visit_card.on .flex_box.card_on_show {display: flex;}
+
 
 .visit_management .visit_card button[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
 .visit_management .visit_card a[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
 
 .visit_management .card_info .requested_time {display: inline-block; line-height: 25px; font-size: 10px; color: #a8b0bc;}
 .visit_management .card_info .status_box {float: right; text-align: right;}
-
+.visit_management .card_info .status_box > button,
+.visit_management .card_info .status_box > a,
+.visit_management .card_info .status_box > span {margin: 0 0 0 10px;}
 .visit_management .card_info .status_box .no_show {padding: 5px 7px; border: 1px solid #fa4730; border-radius: 12px; color: #fff; font-weight: 700; color: #fa4730;}
+.visit_management .card_info .status_box .visit_complete {padding: 5px 7px; border: 1px solid #9c74e1; border-radius: 12px; color: #fff; font-weight: 700; color: #9c74e1;}
+.visit_management .card_info .status_box .visit_complete[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
+.visit_management .card_info .status_box .visit_note {padding: 5px 7px; border: 1px solid #00be99; border-radius: 12px; color: #fff; font-weight: 700; color: #00be99;}
+
 .visit_management .card_info .status_box .in_progress {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(56,135,225,1.0); box-shadow: 0 3px 3px 0 rgba(56,135,225,0.16); font-weight: 700; color: #fff;}
 .visit_management .card_info .status_box .complete {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(254,184,23,1.0); box-shadow: 0 3px 3px 0 rgba(254,184,23,0.16); font-weight: 700; color: #fff;}
-.visit_management .card_info .status_box .scheduled {margin: 0 0 0 10px; padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(230,2,98,1.0); box-shadow: 0 3px 3px 0 rgba(230,2,98,0.16); font-weight: 700; color: #fff;}
+.visit_management .card_info .status_box .scheduled {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(230,2,98,1.0); box-shadow: 0 3px 3px 0 rgba(230,2,98,0.16); font-weight: 700; color: #fff;}
 
 .visit_management .profile {margin: 6px 0 0 0;}
 .visit_management .profile .visit_type {padding: 2px 8px; border-radius: 8px; background: #999; font-size: 10px; font-weight: 700; color: #fff; vertical-align: middle;}
 .visit_management .profile .visit_type.onetime {background: #8ed559;}
 .visit_management .profile .visit_type.regular {background: #fb7ec1;}
 .visit_management .profile .name {font-size: 16px; font-weight: 700; vertical-align: middle;}
-.visit_management .profile .other {line-height: 14px; color: #616c78; vertical-align: bottom;}
-.visit_management .profile .other span {line-height: 14px; color: #616c78; vertical-align: bottom;}
+.visit_management .profile .other {display: inline-block; color: #616c78; vertical-align: bottom;}
+.visit_management .profile .other span {line-height: 16px; color: #616c78; vertical-align: bottom;}
+.visit_management .profile .other .birth {font-size: 11px;}
 
 .visit_management .profile .visit_time {display: inline-block; margin: 12px 0 0 0; font-weight: 700;}
 .visit_management .profile .visit_time span {font-weight: 500;}
@@ -290,7 +316,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .visit_management .profile .check_info span {display: block; margin: 2px 0 0 10px; line-height: 16px;}
 
 .visit_management .profile .btn_box {margin: 16px 0 0 0;}
-.visit_management .profile .btn_box > div {min-width: 72px; width: 30%;}
+.visit_management .profile .btn_box > div {min-width: 75px; width: 30%;}
 .visit_management .profile .btn_box button {width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a;}
 .visit_management .profile .btn_box button.on {background: #4b2c7a; color: #fff;}
 .visit_management .profile .btn_box a {display: inline-block; width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a; text-align: center;}
@@ -298,6 +324,10 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 .visit_management .profile .btn_card_close {width: 100%; margin: 16px 0 0 0; padding: 12px 0; border: 1px solid #c9d0d8; border-radius: 4px; color: #a8b0bc;}
 .visit_management .profile .btn_card_close.on {background: #c9d0d8; color: #fff;}
+
+.visit_management .user_review {margin: 16px 0 0 0; padding: 16px 0 0 0; border-top: 1px solid #e3e8eb;}
+.visit_management .user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
+.visit_management .user_review dd {margin: 8px 0 0 0; color: #616c78;}
 
 .requested_visit .profile .btn_box > div:last-child button {border: 1px solid #f80055; color: #e60662;}
 .requested_visit .profile .btn_box > div:last-child button.on {background: #e60662; color: #fff;}
@@ -367,7 +397,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .fc-daygrid-day-events {display: none;}
 .fc-day-disabled {background: none !important; pointer-events: none;}
 .slt_disable {width: 100%; color: #e2e3e4 !important; text-align: center;}
-
 
 /* max width로 바꿔야함 */
 /* @media screen and (max-height: 600px) */
