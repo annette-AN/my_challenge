@@ -139,11 +139,11 @@
         </ul>
 
         <div class="set_board">
-          <div class="visit_management requested_visit">
-            <!-- visit_card 
+          <div class="card_list requested_visit">
+            <!-- card 
               카드정렬기준 : 방문예정일(.visit_time)
             -->
-            <div class="visit_card">
+            <div class="card">
               <!-- card_info -->
               <div class="card_info">
                 <span class="requested_time">2020-06-05 10:18</span>
@@ -231,10 +231,10 @@
               <!-- //profile -->
 
             </div>
-            <!-- //visit_card -->
+            <!-- //card -->
 
-            <!-- visit_card -->
-            <div class="visit_card">
+            <!-- card -->
+            <div class="card">
               <!-- card_info -->
               <div class="card_info">
                 <span class="requested_time">2020-06-05 10:18</span>
@@ -304,13 +304,13 @@
               <!-- //profile -->
 
             </div>
-            <!-- //visit_card -->
+            <!-- //card -->
           </div>
 
           <!-- 진행중 방문 -->
-          <div class="visit_management advanced_visit">
-            <!-- visit_card -->
-            <div class="visit_card">
+          <div class="card_list advanced_visit">
+            <!-- card -->
+            <div class="card">
               <!-- card_info -->
               <div class="card_info">
                 <span class="requested_time">2020-06-05 10:18</span>
@@ -420,10 +420,10 @@
               <!-- //profile -->
 
             </div>
-            <!-- //visit_card -->
+            <!-- //card -->
 
-            <!-- visit_card -->
-            <div class="visit_card">
+            <!-- card -->
+            <div class="card">
               <!-- card_info -->
               <div class="card_info">
                 <span class="requested_time">2020-06-05 10:18</span>
@@ -534,10 +534,10 @@
               <!-- //profile -->
 
             </div>
-            <!-- //visit_card -->
+            <!-- //card -->
 
-            <!-- visit_card -->
-            <div class="visit_card">
+            <!-- card -->
+            <div class="card">
               <!-- card_info -->
               <div class="card_info">
                 <span class="requested_time">2020-06-05 10:18</span>
@@ -647,13 +647,13 @@
               <!-- //profile -->
 
             </div>
-            <!-- //visit_card -->
+            <!-- //card -->
           </div>
-          <div class="visit_management completed_visit">
-            <!-- visit_card 
+          <div class="card_list completed_visit">
+            <!-- card 
               카드정렬기준 : 방문예정일(.visit_time)
             -->
-            <div class="visit_card">
+            <div class="card">
               <!-- card_info -->
               <div class="card_info">
                 <span class="requested_time">2020-06-05 10:18</span>
@@ -746,10 +746,10 @@
               <!-- //profile -->
 
             </div>
-            <!-- //visit_card -->
+            <!-- //card -->
 
-            <!-- visit_card -->
-            <div class="visit_card">
+            <!-- card -->
+            <div class="card">
               <!-- card_info -->
               <div class="card_info">
                 <span class="requested_time">2020-06-05 10:18</span>
@@ -836,7 +836,7 @@
               <!-- //profile -->
 
             </div>
-            <!-- //visit_card -->
+            <!-- //card -->
           </div>
         </div>
 
@@ -1154,17 +1154,17 @@
     $('.btn_card_open').on('click', function () {
 
       var $this = $(this);
-      $this.parents('.visit_card').addClass('on on_effect');
+      $this.parents('.card').addClass('on on_effect');
       setTimeout(function(){
-        $this.parents('.visit_card').removeClass('on_effect');
+        $this.parents('.card').removeClass('on_effect');
       },500)
     });
     $('.btn_card_close').on('click', function () {
       var $this = $(this);
-      $this.parents('.visit_card').addClass('on_effect').removeClass('on');
-      $this.parents('.visit_card').removeClass('on');
+      $this.parents('.card').addClass('on_effect').removeClass('on');
+      $this.parents('.card').removeClass('on');
       setTimeout(function(){
-        $this.parents('.visit_card').removeClass('on_effect');
+        $this.parents('.card').removeClass('on_effect');
       },600)
     });
 

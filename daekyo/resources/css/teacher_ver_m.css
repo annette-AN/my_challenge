@@ -60,7 +60,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .flex_box.btn_box > div {margin: 0 5px 0 0;}
 .flex_box.btn_box > div:last-child {margin: 0;}
 
-
 /* 공통 input */
 .input_text {width: 100%; height: 36px; padding: 8px 16px; border: 1px solid #e3e8eb; border-radius: 4px; font-size: 12px;}
 .input_text::placeholder {color: #a8b0bc;}
@@ -114,6 +113,75 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 .set_board > div {width: 100%; padding: 0 22px;}
 
+/* 공통 card */
+.card_list {margin: 24px 0;}
+.card_list dt,
+.card_list dd {line-height: 16px; font-size: 12px;}
+.card_list span,
+.card_list em {font-size: 12px;}
+.card_list button {line-height: 11px; font-size: 12px;}
+.card_list a {line-height: 12px; font-size: 12px;}
+.card_list .card_on_show {display: none;}
+
+.card_list button[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
+.card_list a[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
+.card_list span[disabled] {border-color: #e3e8eb!important; background: #f4f6f8!important; color: #fff!important;}
+
+.card_list .card {padding: 16px; border-radius: 10px; border: 1px solid #e3e8eb; font-size: 12px; transition: box-shadow .2s ease-in-out, border .4s;}
+.card_list .card + .card {margin: 12px 0 0 0;}
+
+.card_list .card.on_effect {border: 1px solid #999;}
+.card_list .card.on .card_on_hidden {display: none;}
+.card_list .card.on .card_on_show {display: block;}
+.card_list .card.on .flex_box.card_on_show {display: flex;}
+
+.card_list .requested_time {display: inline-block; line-height: 25px; font-size: 10px; color: #a8b0bc;}
+.card_list .status_box {float: right; text-align: right;}
+.card_list .status_box > button,
+.card_list .status_box > a,
+.card_list .status_box > span {margin: 0 0 0 10px;}
+.card_list .status_box .no_show {padding: 5px 7px; border: 1px solid #fa4730; border-radius: 12px; color: #fff; font-weight: 700; color: #fa4730;}
+.card_list .status_box .visit_complete {padding: 5px 7px; border: 1px solid #9c74e1; border-radius: 12px; color: #fff; font-weight: 700; color: #9c74e1;}
+.card_list .status_box .visit_complete[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
+.card_list .status_box .visit_note {padding: 5px 7px; border: 1px solid #00be99; border-radius: 12px; color: #fff; font-weight: 700; color: #00be99;}
+.card_list .status_box .in_progress {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(56,135,225,1.0); box-shadow: 0 3px 3px 0 rgba(56,135,225,0.16); font-weight: 700; color: #fff;}
+.card_list .status_box .complete {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(254,184,23,1.0); box-shadow: 0 3px 3px 0 rgba(254,184,23,0.16); font-weight: 700; color: #fff;}
+.card_list .status_box .scheduled {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(230,2,98,1.0); box-shadow: 0 3px 3px 0 rgba(230,2,98,0.16); font-weight: 700; color: #fff;}
+.card_list .status_box .readed {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(142,213,89,1.0); box-shadow: 0 3px 3px 0 rgba(142,213,89,0.16); font-weight: 700; color: #fff;}
+
+.card_list .profile {margin: 6px 0 0 0;}
+.card_list .profile .visit_type {padding: 2px 8px; border-radius: 8px; background: #999; font-size: 10px; font-weight: 700; color: #fff; vertical-align: middle;}
+.card_list .profile .visit_type.onetime {background: #8ed559;}
+.card_list .profile .visit_type.regular {background: #fb7ec1;}
+.card_list .profile .name {font-size: 16px; font-weight: 700; vertical-align: middle;}
+.card_list .profile .other {display: inline-block; color: #616c78; vertical-align: bottom;}
+.card_list .profile .other span {line-height: 16px; color: #616c78; vertical-align: bottom;}
+.card_list .profile .other .birth {font-size: 11px;}
+.card_list .profile .visit_time {display: inline-block; margin: 12px 0 0 0; font-weight: 700;}
+.card_list .profile .visit_time span {font-weight: 500;}
+.card_list .profile .visit_time_info {color: #e60262;}
+.card_list .profile .full_address span {line-height: 16px; font-weight: 700;}
+.card_list .profile .tel {margin: 6px 0 0 0; line-height: 12px; font-weight: 700; color: #e60262;}
+.card_list .profile .detail_info .title {display: block; margin: 14px 0 0 0; font-weight: 700; color: #616c78;}
+.card_list .profile .detail_info .detail span {display: inline-block; margin: 6px 10px 0 0; padding: 4px 10px; border-radius: 16px; font-weight: 700; background: #f4f6f8;}
+.card_list .profile .detail_info .detail .notice_to {overflow: auto; display: block; width: 100%; height: 124px; margin: 6px 0 0 0; padding: 11px 12px; border: none; border-radius: 4px; background: #f4f6f8;}
+.card_list .profile .detail_info .detail .notice_to > em {color: #a8b0bc;}
+.card_list .profile .check_info {margin: 16px 0 0 0;}
+.card_list .profile .check_info em {font-weight: 700;}
+.card_list .profile .check_info span {display: block; margin: 2px 0 0 10px; line-height: 16px;}
+.card_list .profile .btn_box {margin: 16px 0 0 0;}
+.card_list .profile .btn_box > div {min-width: 75px; width: 30%;}
+.card_list .profile .btn_box button {width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a;}
+.card_list .profile .btn_box button.on {background: #4b2c7a; color: #fff;}
+.card_list .profile .btn_box a {display: inline-block; width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a; text-align: center;}
+.card_list .profile .btn_box a.on {background: #4b2c7a; color: #fff;}
+.card_list .profile .btn_card_close {width: 100%; margin: 16px 0 0 0; padding: 12px 0; border: 1px solid #c9d0d8; border-radius: 4px; color: #a8b0bc;}
+.card_list .profile .btn_card_close.on {background: #c9d0d8; color: #fff;}
+
+.card_list .user_review {margin: 16px 0 0 0; padding: 16px 0 0 0; border-top: 1px solid #e3e8eb;}
+.card_list .user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
+.card_list .user_review dd {margin: 8px 0 0 0; color: #616c78;}
+
 /* 공통 layer */
 .lyr_box {position: relative; width: 100%; padding: 36px; border-radius: 20px 20px 0 0; background: #fff; z-index: 40; text-align: left;}
 .lyr_box .lyr_cont .title_box .title {display: block; font-size: 16px; font-weight: 800;}
@@ -149,7 +217,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .alert_box .lyr_btm .dual_box button {border-radius: 0;}
 .alert_box .lyr_btm .dual_box > div {height: 100%;}
 .alert_box .lyr_btm .dual_box > div:first-child button {background: #c9d0d8;}
-
 /* 추가 AMR 200810 */
 .alert_box .lyr_cont .input_area {text-align: left;}
 .alert_box .lyr_cont .input_area .input_title {display: block; margin: 16px 0 0 0; font-size: 12px; word-break: keep-all;}
@@ -162,7 +229,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .alert_box .lyr_cont .input_area .input_box_icon input[type="text"] {width: 100%; height: 100%; line-height: 32px; padding: 2px 0 0 46px; border: 1px solid #e3e8eb; border-radius: 4px; font-weight: 700; font-size: 14px;}
 .alert_box .lyr_cont .input_area .input_box_icon select {height: 100%; line-height: 32px; padding: 0 20px; border: 1px solid #e3e8eb; border-radius: 4px; font-size: 14px; font-weight: 700; background: #fff;}
 .alert_box .lyr_cont .input_area .input_box_icon select option {font-weight: 700;}
-
 
 /* 공통 layer 효과 */
 .lyr_slide {display: none; position: fixed; top: 100%; left: 0; max-height: 100%; -webkit-animation-duration: .2s; animation-duration: .2s; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-transform: translate(0, 0); transform: translate(0, 0); -webkit-transition: -webkit-transform 0.2s; transition: -webkit-transform 0.2s; transition: transform 0.2s; transition: transform 0.2s, -webkit-transform 0.2s;}
@@ -296,80 +362,14 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .schedule_set_area .week_lst li.on a {background: #e60262; color: #fff;}
 
 /* visit management page */
-.card_list {margin: 24px 0;}
-.card_list dt,
-.card_list dd {line-height: 16px; font-size: 12px;}
-.card_list span,
-.card_list em {font-size: 12px;}
-.card_list button {line-height: 11px; font-size: 12px;}
-.card_list a {line-height: 12px; font-size: 12px;}
-.card_list .card_on_show {display: none;}
-
-.card_list button[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
-.card_list a[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
-
-.card_list .card {padding: 16px; border-radius: 10px; border: 1px solid #e3e8eb; font-size: 12px; transition: box-shadow .2s ease-in-out, border .4s;}
-.card_list .card + .card {margin: 12px 0 0 0;}
-
-.card_list .card.on_effect {border: 1px solid #999;}
-.card_list .card.on .card_on_hidden {display: none;}
-.card_list .card.on .card_on_show {display: block;}
-.card_list .card.on .flex_box.card_on_show {display: flex;}
-
-.card_list .requested_time {display: inline-block; line-height: 25px; font-size: 10px; color: #a8b0bc;}
-.card_list .status_box {float: right; text-align: right;}
-.card_list .status_box > button,
-.card_list .status_box > a,
-.card_list .status_box > span {margin: 0 0 0 10px;}
-.card_list .status_box .no_show {padding: 5px 7px; border: 1px solid #fa4730; border-radius: 12px; color: #fff; font-weight: 700; color: #fa4730;}
-.card_list .status_box .visit_complete {padding: 5px 7px; border: 1px solid #9c74e1; border-radius: 12px; color: #fff; font-weight: 700; color: #9c74e1;}
-.card_list .status_box .visit_complete[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
-.card_list .status_box .visit_note {padding: 5px 7px; border: 1px solid #00be99; border-radius: 12px; color: #fff; font-weight: 700; color: #00be99;}
-.card_list .status_box .in_progress {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(56,135,225,1.0); box-shadow: 0 3px 3px 0 rgba(56,135,225,0.16); font-weight: 700; color: #fff;}
-.card_list .status_box .complete {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(254,184,23,1.0); box-shadow: 0 3px 3px 0 rgba(254,184,23,0.16); font-weight: 700; color: #fff;}
-.card_list .status_box .scheduled {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(230,2,98,1.0); box-shadow: 0 3px 3px 0 rgba(230,2,98,0.16); font-weight: 700; color: #fff;}
-
-.card_list .profile {margin: 6px 0 0 0;}
-.card_list .profile .visit_type {padding: 2px 8px; border-radius: 8px; background: #999; font-size: 10px; font-weight: 700; color: #fff; vertical-align: middle;}
-.card_list .profile .visit_type.onetime {background: #8ed559;}
-.card_list .profile .visit_type.regular {background: #fb7ec1;}
-.card_list .profile .name {font-size: 16px; font-weight: 700; vertical-align: middle;}
-.card_list .profile .other {display: inline-block; color: #616c78; vertical-align: bottom;}
-.card_list .profile .other span {line-height: 16px; color: #616c78; vertical-align: bottom;}
-.card_list .profile .other .birth {font-size: 11px;}
-.card_list .profile .visit_time {display: inline-block; margin: 12px 0 0 0; font-weight: 700;}
-.card_list .profile .visit_time span {font-weight: 500;}
-.card_list .profile .visit_time_info {color: #e60262;}
-.card_list .profile .full_address span {line-height: 16px; font-weight: 700;}
-.card_list .profile .tel {margin: 6px 0 0 0; line-height: 12px; font-weight: 700; color: #e60262;}
-.card_list .profile .detail_info .title {display: block; margin: 14px 0 0 0; font-weight: 700; color: #616c78;}
-.card_list .profile .detail_info .detail span {display: inline-block; margin: 6px 10px 0 0; padding: 4px 10px; border-radius: 16px; font-weight: 700; background: #f4f6f8;}
-.card_list .profile .detail_info .detail .notice_to {overflow: auto; display: block; width: 100%; height: 124px; margin: 6px 0 0 0; padding: 11px 12px; border: none; border-radius: 4px; background: #f4f6f8;}
-.card_list .profile .detail_info .detail .notice_to > em {color: #a8b0bc;}
-.card_list .profile .check_info {margin: 16px 0 0 0;}
-.card_list .profile .check_info em {font-weight: 700;}
-.card_list .profile .check_info span {display: block; margin: 2px 0 0 10px; line-height: 16px;}
-.card_list .profile .btn_box {margin: 16px 0 0 0;}
-.card_list .profile .btn_box > div {min-width: 75px; width: 30%;}
-.card_list .profile .btn_box button {width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a;}
-.card_list .profile .btn_box button.on {background: #4b2c7a; color: #fff;}
-.card_list .profile .btn_box a {display: inline-block; width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a; text-align: center;}
-.card_list .profile .btn_box a.on {background: #4b2c7a; color: #fff;}
-.card_list .profile .btn_card_close {width: 100%; margin: 16px 0 0 0; padding: 12px 0; border: 1px solid #c9d0d8; border-radius: 4px; color: #a8b0bc;}
-.card_list .profile .btn_card_close.on {background: #c9d0d8; color: #fff;}
 .requested_visit .profile .btn_box > div:last-child button {border: 1px solid #f80055; color: #e60662;}
 .requested_visit .profile .btn_box > div:last-child button.on {background: #e60662; color: #fff;}
 .requested_visit .profile .btn_box > div:last-child a {border: 1px solid #f80055; color: #e60662;}
 .requested_visit .profile .btn_box > div:last-child a.on {background: #e60662; color: #fff;}
 
-.card_list .user_review {margin: 16px 0 0 0; padding: 16px 0 0 0; border-top: 1px solid #e3e8eb;}
-.card_list .user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
-.card_list .user_review dd {margin: 8px 0 0 0; color: #616c78;}
-
 /* view_bookshelf page */
 .view_book .srch_book {margin: 24px 0 0 0; padding: 0 22px;}
 .view_book .card_list {padding: 0 22px;}
-
 
 /* NBR fullcalendar */
 .schedule_set_area .calendar_box {margin: 24px 0 12px;}
