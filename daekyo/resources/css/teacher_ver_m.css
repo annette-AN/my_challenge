@@ -62,14 +62,14 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 
 /* 공통 input */
-.input_txt {display: inline-block; width: 100%; height: 48px; padding: 0 16px; border-bottom: 1px solid #c9d0d8; font-weight: 700;}
-.input_txt::-webkit-input-placeholder {font-size: 14px; color: #c9d0d8;}
-.input_txt:-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
-.input_txt::-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
-.input_txt::placeholder {font-size: 14px; color: #c9d0d8;}
-.input_link {display: inline-block; padding: 0 16px; margin: 16px 0; font-size: 12px; font-weight: 700; color: #4b2c7a;}
+.input_text {width: 100%; height: 36px; padding: 8px 16px; border: 1px solid #e3e8eb; border-radius: 4px; font-size: 12px;}
+.input_text::placeholder {color: #a8b0bc;}
+
 
 /* 공통 checkbox option design */
+.btn_option_group {height: 48px; margin: 12px 0; text-align: center;}
+.btn_option_group .btn_option {float: left; position: relative; width: 50%; height: 100%;}
+
 .btn_option {display: inline-block; position: relative;}
 .btn_option input[type="checkbox"] {position: absolute; overflow: hidden; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); border: 0;}
 .btn_option input[type="checkbox"] + label {display: inline-block; position: relative; padding: 0 55px 0 0; font-size: 14px; font-weight: 700; line-height: 48px; cursor: pointer;}
@@ -80,6 +80,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 /* 공통 title */
 .page_title {border-bottom: 1px solid #F4F6F8; color: #414853; font-size: 14px; font-weight: 800; line-height: 47px; text-align: center;}
+.page_title > em {font-weight: 800;}
 
 /* 공통 text */
 .t_warning {color: #fa4730 !important;}
@@ -174,9 +175,19 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 /* 개별 layer */
 #srch_id .lyr_btm .dual_box > div:first-child {width: 70%; padding: 0 8px 0 0;}
 #srch_id .lyr_btm .dual_box > div:nth-child(2) {padding: 0 0 0 8px;}
+#srch_id .input_txt {display: inline-block; width: 100%; height: 48px; padding: 0 16px; border-bottom: 1px solid #c9d0d8; font-weight: 700;}
+#srch_id .input_txt::-webkit-input-placeholder {font-size: 14px; color: #c9d0d8;}
+#srch_id .input_txt:-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
+#srch_id .input_txt::-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
+#srch_id .input_txt::placeholder {font-size: 14px; color: #c9d0d8;}
 
 #srch_password .lyr_btm .dual_box > div:first-child {width: 70%; padding: 0 8px 0 0;}
 #srch_password .lyr_btm .dual_box > div:nth-child(2) {padding: 0 0 0 8px;}
+#srch_password .input_txt {display: inline-block; width: 100%; height: 48px; padding: 0 16px; border-bottom: 1px solid #c9d0d8; font-weight: 700;}
+#srch_password .input_txt::-webkit-input-placeholder {font-size: 14px; color: #c9d0d8;}
+#srch_password .input_txt:-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
+#srch_password .input_txt::-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
+#srch_password .input_txt::placeholder {font-size: 14px; color: #c9d0d8;}
 
 #scdl_reset .lyr_cont .cont_box .cont_desc {display: block; font-size: 12px; word-break: keep-all;}
 #scdl_reset .lyr_cont .cont_box .cont_desc + .cont_desc {margin: 14px 0 0;}
@@ -212,16 +223,23 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}
 #fixed_login .visual .visual_logo {width: 170px;}
-#fixed_login .login_area {position: relative; padding: 0 42px; line-height: 18px;}
-#fixed_login .login_area .title {display: block; font-size: 16px; font-weight: 800;}
-#fixed_login .login_area .user_check {margin: 30px 0 0 0;}
+.login_area {position: relative; padding: 0 42px; line-height: 18px;}
+.login_area .title {display: block; font-size: 16px; font-weight: 800;}
+.login_area .user_check {margin: 30px 0 0 0;}
 
-#fixed_login .login_area.set_pass {margin: 10px 0 0 0;}
-#fixed_login .login_area.set_pass input[type="password"] {margin-top: 24px;}
-#fixed_login .login_area.set_pass input[type="password"] + input[type="password"] {margin-top: 30px;}
-#fixed_login .login_area.set_pass .user_check {margin: 16px 0 0 0;}
+.login_area.set_pass {margin: 10px 0 0 0;}
+.login_area.set_pass input[type="password"] {margin-top: 24px;}
+.login_area.set_pass input[type="password"] + input[type="password"] {margin-top: 30px;}
+.login_area.set_pass .user_check {margin: 16px 0 0 0;}
 #btn_login {position: relative; display: block; float: right; width: 180px; height: 70px; margin: 50px 0 0 0; padding: 4px 0 0 0; border-radius: 40px 0 0 0; font-size: 20px; color: #fff; background: #4b2c7a; text-align: center;}
 #btn_login:after {content: ''; display: block; position: absolute; top: 23px; right: 22px; width: 24px; height: 24px; background: url(../images/arr_move_right.svg) no-repeat 0 0; background-size: cover;}
+
+.login_area .input_txt {display: inline-block; width: 100%; height: 48px; padding: 0 16px; border-bottom: 1px solid #c9d0d8; font-weight: 700;}
+.login_area .input_txt::-webkit-input-placeholder {font-size: 14px; color: #c9d0d8;}
+.login_area .input_txt:-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
+.login_area .input_txt::-ms-input-placeholder {font-size: 14px; color: #c9d0d8;}
+.login_area .input_txt::placeholder {font-size: 14px; color: #c9d0d8;}
+.login_area .input_link {display: inline-block; padding: 0 16px; margin: 16px 0; font-size: 12px; font-weight: 700; color: #4b2c7a;}
 
 /* visit timetable page */
 .visit_table .notice {margin: 25px 0 0 0;}
@@ -254,95 +272,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .visit_table .time_schedule .schedule .regular_visit .student_info {border-bottom: 1px solid #fb7ec1; background: #fb7ec1;}
 .visit_table .time_schedule .schedule .onetime_visit .student_info {border-bottom: 1px solid #8ed559; background: #8ed559;}
 
-/* visit management page */
-.visit_management {margin: 24px 0;}
-
-.visit_management .visit_card {padding: 16px; border-radius: 10px; border: 1px solid #e3e8eb; font-size: 12px; transition: box-shadow .2s ease-in-out, border .4s;}
-.visit_management .visit_card + .visit_card {margin: 12px 0 0 0;}
-.visit_management .visit_card dt,
-.visit_management .visit_card dd {line-height: 16px; font-size: 12px;}
-.visit_management .visit_card span,
-.visit_management .visit_card em {font-size: 12px;}
-.visit_management .visit_card button {line-height: 11px; font-size: 12px;}
-.visit_management .visit_card a {line-height: 12px; font-size: 12px;}
-.visit_management .visit_card .card_on_show {display: none;}
-
-.visit_management .visit_card.on_effect {border: 1px solid #c4c4c4;}
-.visit_management .visit_card.on .card_on_hidden {display: none;}
-.visit_management .visit_card.on .card_on_show {display: block;}
-.visit_management .visit_card.on .flex_box.card_on_show {display: flex;}
-
-
-.visit_management .visit_card button[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
-.visit_management .visit_card a[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
-
-.visit_management .card_info .requested_time {display: inline-block; line-height: 25px; font-size: 10px; color: #a8b0bc;}
-.visit_management .card_info .status_box {float: right; text-align: right;}
-.visit_management .card_info .status_box > button,
-.visit_management .card_info .status_box > a,
-.visit_management .card_info .status_box > span {margin: 0 0 0 10px;}
-.visit_management .card_info .status_box .no_show {padding: 5px 7px; border: 1px solid #fa4730; border-radius: 12px; color: #fff; font-weight: 700; color: #fa4730;}
-.visit_management .card_info .status_box .visit_complete {padding: 5px 7px; border: 1px solid #9c74e1; border-radius: 12px; color: #fff; font-weight: 700; color: #9c74e1;}
-.visit_management .card_info .status_box .visit_complete[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
-.visit_management .card_info .status_box .visit_note {padding: 5px 7px; border: 1px solid #00be99; border-radius: 12px; color: #fff; font-weight: 700; color: #00be99;}
-
-.visit_management .card_info .status_box .in_progress {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(56,135,225,1.0); box-shadow: 0 3px 3px 0 rgba(56,135,225,0.16); font-weight: 700; color: #fff;}
-.visit_management .card_info .status_box .complete {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(254,184,23,1.0); box-shadow: 0 3px 3px 0 rgba(254,184,23,0.16); font-weight: 700; color: #fff;}
-.visit_management .card_info .status_box .scheduled {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(230,2,98,1.0); box-shadow: 0 3px 3px 0 rgba(230,2,98,0.16); font-weight: 700; color: #fff;}
-
-.visit_management .profile {margin: 6px 0 0 0;}
-.visit_management .profile .visit_type {padding: 2px 8px; border-radius: 8px; background: #999; font-size: 10px; font-weight: 700; color: #fff; vertical-align: middle;}
-.visit_management .profile .visit_type.onetime {background: #8ed559;}
-.visit_management .profile .visit_type.regular {background: #fb7ec1;}
-.visit_management .profile .name {font-size: 16px; font-weight: 700; vertical-align: middle;}
-.visit_management .profile .other {display: inline-block; color: #616c78; vertical-align: bottom;}
-.visit_management .profile .other span {line-height: 16px; color: #616c78; vertical-align: bottom;}
-.visit_management .profile .other .birth {font-size: 11px;}
-
-.visit_management .profile .visit_time {display: inline-block; margin: 12px 0 0 0; font-weight: 700;}
-.visit_management .profile .visit_time span {font-weight: 500;}
-.visit_management .profile .visit_time_info {color: #e60262;}
-
-.visit_management .profile .full_address span {line-height: 16px; font-weight: 700;}
-.visit_management .profile .tel {margin: 6px 0 0 0; line-height: 12px; font-weight: 700; color: #e60262;}
-
-.visit_management .profile .detail_info .title {display: block; margin: 14px 0 0 0; font-weight: 700; color: #616c78;}
-.visit_management .profile .detail_info .detail span {display: inline-block; margin: 6px 10px 0 0; padding: 4px 10px; border-radius: 16px; font-weight: 700; background: #f4f6f8;}
-.visit_management .profile .detail_info .detail .notice_to {overflow: auto; display: block; width: 100%; height: 124px; margin: 6px 0 0 0; padding: 11px 12px; border: none; border-radius: 4px; background: #f4f6f8;}
-.visit_management .profile .detail_info .detail .notice_to > em {color: #a8b0bc;}
-
-.visit_management .profile .check_info {margin: 16px 0 0 0;}
-.visit_management .profile .check_info em {font-weight: 700;}
-.visit_management .profile .check_info span {display: block; margin: 2px 0 0 10px; line-height: 16px;}
-
-.visit_management .profile .btn_box {margin: 16px 0 0 0;}
-.visit_management .profile .btn_box > div {min-width: 75px; width: 30%;}
-.visit_management .profile .btn_box button {width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a;}
-.visit_management .profile .btn_box button.on {background: #4b2c7a; color: #fff;}
-.visit_management .profile .btn_box a {display: inline-block; width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a; text-align: center;}
-.visit_management .profile .btn_box a.on {background: #4b2c7a; color: #fff;}
-
-.visit_management .profile .btn_card_close {width: 100%; margin: 16px 0 0 0; padding: 12px 0; border: 1px solid #c9d0d8; border-radius: 4px; color: #a8b0bc;}
-.visit_management .profile .btn_card_close.on {background: #c9d0d8; color: #fff;}
-
-.visit_management .user_review {margin: 16px 0 0 0; padding: 16px 0 0 0; border-top: 1px solid #e3e8eb;}
-.visit_management .user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
-.visit_management .user_review dd {margin: 8px 0 0 0; color: #616c78;}
-
-.requested_visit .profile .btn_box > div:last-child button {border: 1px solid #f80055; color: #e60662;}
-.requested_visit .profile .btn_box > div:last-child button.on {background: #e60662; color: #fff;}
-.requested_visit .profile .btn_box > div:last-child a {border: 1px solid #f80055; color: #e60662;}
-.requested_visit .profile .btn_box > div:last-child a.on {background: #e60662; color: #fff;}
-
-  /* cont_slt_time */
-.btn_option_group {height: 48px; margin: 12px 0; text-align: center;}
-.btn_option_group .btn_option {float: left; position: relative; width: 50%; height: 100%;}
-.lst_group {overflow: hidden; width: 100%; text-align: center;}
-.week_lst {width: 100%; height: 44px; padding: 4px 0;}
-.week_lst li {display: inline-block; width: calc((100% - 18px) / 7);}
-.week_lst li a {display: inline-block; width: 36px; border-radius: 50px; font-weight: 700; line-height: 36px;}
-.week_lst li.on a {background: #e60262; color: #fff;}
-
 /* 추가 NBR 200807 schedule setting page */
 .schedule_set_area {width: 100%;}
 .schedule_set_area .set_board > div {width: 100%; padding: 0 22px;}
@@ -360,7 +289,89 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .schedule_set_area .btm_box button.on {background-color: #e60262; color: #fff;}
 .schedule_set_area .btm_box button.on span {color: #fff;}
 
-/* fullcalendar */
+.schedule_set_area .lst_group {overflow: hidden; width: 100%; text-align: center;}
+.schedule_set_area .week_lst {width: 100%; height: 44px; padding: 4px 0;}
+.schedule_set_area .week_lst li {display: inline-block; width: calc((100% - 18px) / 7);}
+.schedule_set_area .week_lst li a {display: inline-block; width: 36px; border-radius: 50px; font-weight: 700; line-height: 36px;}
+.schedule_set_area .week_lst li.on a {background: #e60262; color: #fff;}
+
+/* visit management page */
+.card_list {margin: 24px 0;}
+.card_list dt,
+.card_list dd {line-height: 16px; font-size: 12px;}
+.card_list span,
+.card_list em {font-size: 12px;}
+.card_list button {line-height: 11px; font-size: 12px;}
+.card_list a {line-height: 12px; font-size: 12px;}
+.card_list .card_on_show {display: none;}
+
+.card_list button[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
+.card_list a[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
+
+.card_list .card {padding: 16px; border-radius: 10px; border: 1px solid #e3e8eb; font-size: 12px; transition: box-shadow .2s ease-in-out, border .4s;}
+.card_list .card + .card {margin: 12px 0 0 0;}
+
+.card_list .card.on_effect {border: 1px solid #999;}
+.card_list .card.on .card_on_hidden {display: none;}
+.card_list .card.on .card_on_show {display: block;}
+.card_list .card.on .flex_box.card_on_show {display: flex;}
+
+.card_list .requested_time {display: inline-block; line-height: 25px; font-size: 10px; color: #a8b0bc;}
+.card_list .status_box {float: right; text-align: right;}
+.card_list .status_box > button,
+.card_list .status_box > a,
+.card_list .status_box > span {margin: 0 0 0 10px;}
+.card_list .status_box .no_show {padding: 5px 7px; border: 1px solid #fa4730; border-radius: 12px; color: #fff; font-weight: 700; color: #fa4730;}
+.card_list .status_box .visit_complete {padding: 5px 7px; border: 1px solid #9c74e1; border-radius: 12px; color: #fff; font-weight: 700; color: #9c74e1;}
+.card_list .status_box .visit_complete[disabled] {border-color: #e3e8eb!important; background: #fff!important; color: #e3e8eb!important;}
+.card_list .status_box .visit_note {padding: 5px 7px; border: 1px solid #00be99; border-radius: 12px; color: #fff; font-weight: 700; color: #00be99;}
+.card_list .status_box .in_progress {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(56,135,225,1.0); box-shadow: 0 3px 3px 0 rgba(56,135,225,0.16); font-weight: 700; color: #fff;}
+.card_list .status_box .complete {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(254,184,23,1.0); box-shadow: 0 3px 3px 0 rgba(254,184,23,0.16); font-weight: 700; color: #fff;}
+.card_list .status_box .scheduled {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(230,2,98,1.0); box-shadow: 0 3px 3px 0 rgba(230,2,98,0.16); font-weight: 700; color: #fff;}
+
+.card_list .profile {margin: 6px 0 0 0;}
+.card_list .profile .visit_type {padding: 2px 8px; border-radius: 8px; background: #999; font-size: 10px; font-weight: 700; color: #fff; vertical-align: middle;}
+.card_list .profile .visit_type.onetime {background: #8ed559;}
+.card_list .profile .visit_type.regular {background: #fb7ec1;}
+.card_list .profile .name {font-size: 16px; font-weight: 700; vertical-align: middle;}
+.card_list .profile .other {display: inline-block; color: #616c78; vertical-align: bottom;}
+.card_list .profile .other span {line-height: 16px; color: #616c78; vertical-align: bottom;}
+.card_list .profile .other .birth {font-size: 11px;}
+.card_list .profile .visit_time {display: inline-block; margin: 12px 0 0 0; font-weight: 700;}
+.card_list .profile .visit_time span {font-weight: 500;}
+.card_list .profile .visit_time_info {color: #e60262;}
+.card_list .profile .full_address span {line-height: 16px; font-weight: 700;}
+.card_list .profile .tel {margin: 6px 0 0 0; line-height: 12px; font-weight: 700; color: #e60262;}
+.card_list .profile .detail_info .title {display: block; margin: 14px 0 0 0; font-weight: 700; color: #616c78;}
+.card_list .profile .detail_info .detail span {display: inline-block; margin: 6px 10px 0 0; padding: 4px 10px; border-radius: 16px; font-weight: 700; background: #f4f6f8;}
+.card_list .profile .detail_info .detail .notice_to {overflow: auto; display: block; width: 100%; height: 124px; margin: 6px 0 0 0; padding: 11px 12px; border: none; border-radius: 4px; background: #f4f6f8;}
+.card_list .profile .detail_info .detail .notice_to > em {color: #a8b0bc;}
+.card_list .profile .check_info {margin: 16px 0 0 0;}
+.card_list .profile .check_info em {font-weight: 700;}
+.card_list .profile .check_info span {display: block; margin: 2px 0 0 10px; line-height: 16px;}
+.card_list .profile .btn_box {margin: 16px 0 0 0;}
+.card_list .profile .btn_box > div {min-width: 75px; width: 30%;}
+.card_list .profile .btn_box button {width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a;}
+.card_list .profile .btn_box button.on {background: #4b2c7a; color: #fff;}
+.card_list .profile .btn_box a {display: inline-block; width: 100%; padding: 10px 0; border: 1px solid #4b2c7a; border-radius: 4px; font-weight: 700; color: #4b2c7a; text-align: center;}
+.card_list .profile .btn_box a.on {background: #4b2c7a; color: #fff;}
+.card_list .profile .btn_card_close {width: 100%; margin: 16px 0 0 0; padding: 12px 0; border: 1px solid #c9d0d8; border-radius: 4px; color: #a8b0bc;}
+.card_list .profile .btn_card_close.on {background: #c9d0d8; color: #fff;}
+.requested_visit .profile .btn_box > div:last-child button {border: 1px solid #f80055; color: #e60662;}
+.requested_visit .profile .btn_box > div:last-child button.on {background: #e60662; color: #fff;}
+.requested_visit .profile .btn_box > div:last-child a {border: 1px solid #f80055; color: #e60662;}
+.requested_visit .profile .btn_box > div:last-child a.on {background: #e60662; color: #fff;}
+
+.card_list .user_review {margin: 16px 0 0 0; padding: 16px 0 0 0; border-top: 1px solid #e3e8eb;}
+.card_list .user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
+.card_list .user_review dd {margin: 8px 0 0 0; color: #616c78;}
+
+/* view_bookshelf page */
+.view_book .srch_book {margin: 24px 0 0 0; padding: 0 22px;}
+.view_book .card_list {padding: 0 22px;}
+
+
+/* NBR fullcalendar */
 .schedule_set_area .calendar_box {margin: 24px 0 12px;}
 .fc-toolbar-title {display: none;}
 .fc-toolbar-chunk strong {margin: 0 6px 0 14px; color: #e60462; font-size: 24px; font-weight: 800;}
@@ -412,6 +423,5 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
   body.body_fixed #btn_login:after {top: 20px;}
   #fixed_login .visual {padding: 35px 0 20px 50px; background-size: 200px auto; background-position: top -70px right -90px;}
   #fixed_login .visual .visual_logo {width: 130px;}
-  #fixed_login .login_area .user_check {margin: 0;}
   /* //login page */
 }

@@ -17,7 +17,7 @@ a {text-decoration:none; cursor:pointer; -webkit-tap-highlight-color:transparent
 a:link,a:visited {text-decoration:none;}
 a:hover,a:active,a:focus {text-decoration:none;}
 a[disabled] {pointer-events: none!important;}
-textarea {overflow:auto; resize: none;} 
+textarea {overflow:auto; resize: none; -webkit-appearance:none; -moz-appearance:none; appearance:none;} 
 html:first-child select {min-height:20px;} /* opera 9 & below fix */ 
 option {padding-right:6px;} /* firefox fix */
 legend {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0; line-height:0;} /* for screen reader */ 
