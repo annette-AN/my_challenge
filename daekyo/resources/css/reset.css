@@ -43,7 +43,7 @@ input:-webkit-autofill{box-shadow: 0 0 0 30px none inset; -webkit-text-fill-colo
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active{transition:background-color 5000s ease-in-out 0s; }
 input:focus{outline:none;}
 select:focus, select:active{outline:none;}
+select::-ms-expand {display:none;}
 
 /* Select box 스타일 초기화 */ 
-select {-webkit-appearance:none; -moz-appearance:none; appearance:none; border:none;}
-
+select {-webkit-appearance:none; -moz-appearance:none; appearance:none;}

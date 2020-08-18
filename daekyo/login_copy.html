@@ -6,10 +6,6 @@
   <!-- (safari) 전화번호 형태로 된 문자열을 전화로 자동호출하지 못하게 함 -->
   <meta name="format-detection" content="telephone=no">
 
-  <!-- favicon mobile -->
-  <link rel="apple-touch-icon" sizes="180x180" href="resources/images/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="resources/images/favicon/site.webmanifest">
-
   <!-- css -->
   <link rel="stylesheet" href="resources/css/font.css">
   <link rel="stylesheet" href="resources/css/reset.css">
@@ -121,6 +117,7 @@ $(document).ready(function(){
   // 공통 200723 AMR 레이어 열기/닫기
   $('.lyr_open').on('click', function(e){
     var thisHref = $(this).attr('href');
+    console.log('open')
 
     e.stopPropagation();
     handleLyrClose(); //레이어 닫기
@@ -143,9 +140,11 @@ $(document).ready(function(){
     // 레이어 닫기버튼 클릭
     $('.lyr_close').on('click', function(){
       $('.lyr_box').removeClass('on');
+      console.log('close')
 
       setTimeout(function(){
         $('body').removeClass('lyr_backdrop');
+        $('.lyr_close').off('click')
       }, 200);
     })
 
@@ -156,6 +155,7 @@ $(document).ready(function(){
 
         setTimeout(function () {
           $('body').removeClass('lyr_backdrop');
+          $('.lyr_close').off('click')
         }, 200);
       }
     })
