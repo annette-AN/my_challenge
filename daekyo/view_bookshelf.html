@@ -429,10 +429,10 @@
       $('.upload_list button').on('click', function(){
         if ( $(this).parent().hasClass('image_file') ) {
           $('.input_file_image').val('')
-          $('.input_file_image').siblings('label').removeClass('on')
+          $('.input_file_image').next('label').removeClass('on')
         } else if ( $(this).parent().hasClass('voice_file') ) {
           $('.input_file_voice').val('')
-          $('.input_file_voice').siblings('label').removeClass('on')
+          $('.input_file_voice').next('label').removeClass('on')
         }
         $(this).parent().html('')
       })
