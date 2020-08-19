@@ -409,15 +409,15 @@
     //   });
     // }
 
-    $('input, textarea').focus(function () {
+    $('input').focus(function () {
       handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
       handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
     });
 
-    // $('textarea').focus(function(e){
-    //   handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
-    //   handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
-    // })
+    $('textarea').focus(function(e){
+      handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
+      handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
+    })
 
     function handleInputKeyboard(touchStartEl, touchEndEl) {
       touchStartEl.on('touchstart', function (e) {
