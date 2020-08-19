@@ -409,26 +409,25 @@
     //   });
     // }
 
-    $('input').focus(function () {
-      console.log('focus')
+    $('input, textarea').focus(function () {
       handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
       handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
     });
 
-    $('textarea').focus(function(e){
-      e.stopPropagation();
-      handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
-      handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
-    })
+    // $('textarea').focus(function(e){
+    //   handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
+    //   handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
+    // })
 
     function handleInputKeyboard(touchStartEl, touchEndEl) {
+      $('textarea').on('touchstart', function(e){
+        e.stopPropagation();
+      })
+
       touchStartEl.on('touchstart', function (e) {
-        console.log('touchstart')
         touchEndEl.on('touchmove touchend', function (e) {
-          console.log('touch')
           touchEndEl.off('touchmove touchend');
           $('input').blur();
-          console.log('blur')
         });
       });
     }
