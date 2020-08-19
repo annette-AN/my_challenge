@@ -398,9 +398,12 @@
         var $this = $(this);
 
         touchStartEl.on('touchstart', function (e) {
+          console.log('touchstart')
           touchEndEl.on('touchmove touchend', function (e) {
+            console.log('touch')
             touchEndEl.off('touchmove touchend');
             $this.blur();
+            console.log('blur')
           });
         });
       });
