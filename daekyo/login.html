@@ -161,23 +161,17 @@ $(document).ready(function(){
     })
   }
 
-  // 공통 200728 AMR input이 focus되어 있을 때 input이 아닌 영역에 touch를 하거나, 스크롤을 하면 가상키보드가 닫힘
-
-  // document에서 일어나는 touch 이벤트
-  handleInputKeyboard($('#m_container'), $(document));
-
-  // lyer에서 일어나는 touch 이벤트
-  handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
+  // 공통 수정 200819 AMR input이 focus되어 있을 때 스크롤을 하면 가상키보드가 닫힘
+  $('input').focus(function () {
+    handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
+    handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
+  });
 
   function handleInputKeyboard(touchStartEl, touchEndEl) {
-    $('input').focus(function () {
-      var $this = $(this);
-
-      touchStartEl.on('touchstart', function (e) {
-        touchEndEl.on('touchmove touchend', function (e) {
-          touchEndEl.off('touchmove touchend');
-          $this.blur();
-        });
+    touchStartEl.on('touchstart', function (e) {
+      touchEndEl.on('touchmove touchend', function (e) {
+        touchEndEl.off('touchmove touchend');
+        $('input').blur();
       });
     });
   }
