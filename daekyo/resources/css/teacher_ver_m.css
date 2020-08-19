@@ -479,5 +479,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
   /* view_bookshelf page */
   .view_book .set_btn_box li {min-width: auto;}
+  #register_after_reading {overflow: auto; max-height: 80%;}
   /* //view_bookshelf page */
 }
