@@ -394,8 +394,9 @@
     handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
 
     function handleInputKeyboard(touchStartEl, touchEndEl) {
-      $('input textarea').focus(function () {
+      $('input').focus(function () {
         var $this = $(this);
+        console.log('focus')
 
         touchStartEl.on('touchstart', function (e) {
           console.log('touchstart')
