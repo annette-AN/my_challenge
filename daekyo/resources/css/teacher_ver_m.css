@@ -62,7 +62,9 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .flex_box.btn_box > div {margin: 0 5px 0 0;}
 .flex_box.btn_box > div:last-child {margin: 0;}
 
-.srch_box .input_text {padding-right: 42px; background: url(../images/ico_search.svg) no-repeat right 6px center; background-size: contain;}
+.srch_box {position: relative;}
+.srch_box .input_text {padding-right: 42px;}
+.srch_box button {position: absolute; top: 0; right: 6px; width: 36px; height: 36px; background: url(../images/ico_search.svg) no-repeat 0% 50%; background-size: contain;}
 
 /* 공통 input */
 .input_text {width: 100%; height: 36px; padding: 8px 16px; border: 1px solid #e3e8eb; border-radius: 4px; font-size: 12px;}
