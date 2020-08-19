@@ -390,8 +390,8 @@
     // document에서 일어나는 touch 이벤트
     handleInputKeyboard($('#m_container'), $(document));
 
-    // lyer에서 일어나는 touch 이벤트
-    handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
+    // alert lyr에서 일어나는 touch 이벤트
+    handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
 
     function handleInputKeyboard(touchStartEl, touchEndEl) {
       $('input textarea').focus(function () {
