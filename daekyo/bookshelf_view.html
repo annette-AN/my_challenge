@@ -291,12 +291,15 @@
 
         <div class="upload_box">
           <div class="upload_file">
-            <!-- [D] 파일을 선택하면 label class에 'off' 가 추가되면서 비활성화 디자인이 됩니다 -->
+            <!-- [D] 파일을 선택하면 label class에 'on' 이 추가되면서 비활성화 디자인이 됩니다 
+              파일은 총 2개 (이미지파일 1개 오디오파일 1개) 만 추가 가능합니다.
+              파일을 추가하면 .upload_list에 표시됩니다.
+            -->
             <input type="file" accept="image/*" id="file1" class="invisible input_file_image">
             <label for="file1"><span class="text_invisible">갤러리에서 사진고르기</span></label>
             <input type="file" accept="image/*" capture="camera" id="file2" class="invisible input_file_image">
             <label for="file2"><span class="text_invisible">카메라로 사진찍기</span></label>
-            <input type="file" accept="image/*" capture="microphone" id="file3" class="invisible input_file_voice">
+            <input type="file" accept="audio/*" capture="microphone" id="file3" class="invisible input_file_voice">
             <label for="file3"><span class="text_invisible">녹음하기</span></label>
           </div>
 
