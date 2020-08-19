@@ -420,10 +420,6 @@
     // })
 
     function handleInputKeyboard(touchStartEl, touchEndEl) {
-      $('textarea').on('touchstart', function(e){
-        e.stopPropagation();
-      })
-
       touchStartEl.on('touchstart', function (e) {
         touchEndEl.on('touchmove touchend', function (e) {
           touchEndEl.off('touchmove touchend');
