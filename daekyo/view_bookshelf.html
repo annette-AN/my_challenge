@@ -139,6 +139,7 @@
           <input type="text" placeholder="찾고싶은 책 이름을 입력하세요." class="input_text">
         </div>
 
+        <!-- [D] a > span 이 들어가야 체크이미지가 보여집니다 -->
         <ul class="set_btn_box">
           <li class="on"><a href="#none"><span>전체보기</span></a></li>
           <li><a href="#none"><span>읽은 책 보기</span></a></li>
@@ -171,13 +172,41 @@
                   <div><a href="#register_after_reading" class="alert_open bg_effect btn_line_primary">독후활동 등록</a></div>
                   <div><a href="#none" class="bg_effect btn_line_primary">독후활동 보기</a></div>
                 </div>
-
-                <button type="button" class="card_on_show btn_line_cancel bg_effect btn_card_close">닫기</button>
               </div>
               <!-- //card -->
 
               <!-- card -->
+              <!-- [D] 읽지 않은 책은 card[disabled] & .btn_box a[disabled] 를 해야합니다  -->
               <div class="card" disabled>
+                <!-- card_info -->
+                <div class="card_info">
+                  <span class="read_ico">읽은날짜</span>
+                  <span class="requested_date">-</span>
+                  <div class="status_box">
+                    <span class="readed">읽었어요</span>
+                  </div>
+                </div>
+                <!-- //card_info -->
+
+                <!-- book_info -->
+                <div class="book_info">
+                  <span class="book_title">무엇이 세상에서 가장 클까요?</span>
+                  <span>대교 소빅스</span>
+                </div>
+                <!-- //book_info -->
+  
+                <div class="flex_box btn_box card_on_hidden">
+                  <div><a href="#register_after_reading" class="alert_open bg_effect btn_line_primary" disabled>독후활동 등록</a></div>
+                  <div><a href="#none" class="bg_effect btn_line_primary" disabled>독후활동 보기</a></div>
+                </div>
+              </div>
+              <!-- //card -->
+            </div>
+          </div>
+          <div>
+            <div class="card_list">
+              <!-- card -->
+              <div class="card">
                 <!-- card_info -->
                 <div class="card_info">
                   <span class="read_ico">읽은날짜</span>
@@ -196,17 +225,42 @@
                 <!-- //book_info -->
   
                 <div class="flex_box btn_box card_on_hidden">
-                  <div><a href="#register_after_reading" class="alert_open bg_effect btn_line_primary" disabled>독후활동 등록</a></div>
-                  <div><a href="#none" class="bg_effect btn_line_primary" disabled>독후활동 보기</a></div>
+                  <div><a href="#register_after_reading" class="alert_open bg_effect btn_line_primary">독후활동 등록</a></div>
+                  <div><a href="#none" class="bg_effect btn_line_primary">독후활동 보기</a></div>
                 </div>
-
-                <button type="button" class="card_on_show btn_line_cancel bg_effect btn_card_close">닫기</button>
               </div>
               <!-- //card -->
             </div>
           </div>
-          <div>두번째</div>
-          <div>세번째</div>
+          <div>
+            <div class="card_list">
+              <!-- card -->
+              <div class="card" disabled>
+                <!-- card_info -->
+                <div class="card_info">
+                  <span class="read_ico">읽은날짜</span>
+                  <span class="requested_date">-</span>
+                  <div class="status_box">
+                    <span class="readed">읽었어요</span>
+                  </div>
+                </div>
+                <!-- //card_info -->
+
+                <!-- book_info -->
+                <div class="book_info">
+                  <span class="book_title">무엇이 세상에서 가장 클까요?</span>
+                  <span>대교 소빅스</span>
+                </div>
+                <!-- //book_info -->
+  
+                <div class="flex_box btn_box card_on_hidden">
+                  <div><a href="#register_after_reading" class="alert_open bg_effect btn_line_primary" disabled>독후활동 등록</a></div>
+                  <div><a href="#none" class="bg_effect btn_line_primary" disabled>독후활동 보기</a></div>
+                </div>
+              </div>
+              <!-- //card -->
+            </div>
+          </div>
         </div>
 
 
@@ -218,7 +272,7 @@
 
   <!-- layer alert -->
   <!-- 독후활동등록 -->
-  <div id="register_after_reading" class="alert_box alert_pop on" style="display: block; box-shadow: 0 0 0 100px rgba(0,0,0,0.45);">
+  <div id="register_after_reading" class="alert_box alert_pop">
     <div class="lyr_cont">
       <div class="title_box">
         <span class="title">독후활동 작성하기</span>
@@ -236,17 +290,18 @@
 
         <div class="upload_box">
           <div class="upload_file">
-            <input type="file" accept="image/*" id="file1" class="invisible">
+            <!-- [D] 파일을 선택하면 label class에 'off' 가 추가되면서 비활성화 디자인이 됩니다 -->
+            <input type="file" accept="image/*" id="file1" class="invisible input_file_image">
             <label for="file1"><span class="text_invisible">갤러리에서 사진고르기</span></label>
-            <input type="file" accept="image/*" capture="camera" id="file2" class="invisible">
+            <input type="file" accept="image/*" capture="camera" id="file2" class="invisible input_file_image">
             <label for="file2"><span class="text_invisible">카메라로 사진찍기</span></label>
-            <input type="file" accept="audio/*" capture="microphone" id="file3" class="invisible">
+            <input type="file" accept="image/*" capture="microphone" id="file3" class="invisible input_file_voice">
             <label for="file3"><span class="text_invisible">녹음하기</span></label>
           </div>
 
           <div class="upload_list">
-
-
+            <div class="image_file"></div>
+            <div class="voice_file"></div>
           </div>
         </div>
 
@@ -352,12 +407,35 @@
       $(this).toggleClass('on');
     });
 
-    //선택한 파일이름을 label에 치환
+    //AMR 선택한 파일을 .upload_list에 입력 및 디자인 effect add
     $('.upload_file input[type="file"]').change(function (e) {
       var fileName = e.target.files[0].name;
-      // $(this).next('label').text(fileName);
-      // console.log(fileName)
-      $('.upload_list').append('<span>' + fileName + '</span>')
+
+      if ( $(this).hasClass('input_file_image') ) {
+        $('.input_file_image').next('label').addClass('on')
+        $('.upload_list .image_file').html(
+          '<span>'+ fileName +'</span>\n' +
+          '<button type="button"><span class="text_invisible">파일 삭제</span></button>\n'
+        )
+      } else if ( $(this).hasClass('input_file_voice') ) {
+        $('.input_file_voice').next('label').addClass('on')
+        $('.upload_list .voice_file').html(
+          '<span>'+ fileName +'</span>\n' +
+          '<button type="button"><span class="text_invisible">파일 삭제</span></button>\n'
+        )
+      }
+
+      //AMR 파일 x 버튼을 누르면 파일 삭제 및 디자인 effect remove
+      $('.upload_list button').on('click', function(){
+        if ( $(this).parent().hasClass('image_file') ) {
+          $('.input_file_image').val('')
+          $('.input_file_image').siblings('label').removeClass('on')
+        } else if ( $(this).parent().hasClass('voice_file') ) {
+          $('.input_file_voice').val('')
+          $('.input_file_voice').siblings('label').removeClass('on')
+        }
+        $(this).parent().html('')
+      })
     });
 
   })

@@ -46,7 +46,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .show {display: block !important;}
 .hide {display: none !important;}
 .invisible {overflow: hidden; position: absolute; top: 0; left: 0; width: 0; height: 0; margin: 0; padding: 0; line-height: 0;}
-.text_invisible {position: absolute; top: 0; left: 0; line-height: 0; font-size: 0;}
+.text_invisible {position: absolute; top: 0; left: 0; line-height: 0!important; font-size: 0!important;}
 
 /* 공통 box type */
 .fl {float: left;}
@@ -388,6 +388,18 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .upload_box .upload_file label {width: 36px; height: 36px; margin: 0 0 0 10px; border: 1px solid #c9d0d8; border-radius: 4px; background: url(../images/ico_camera.svg) no-repeat 50% 50%;}
 .upload_box .upload_file label:first-of-type {margin: 0; background: url(../images/ico_gallery.svg) no-repeat 50% 50%;}
 .upload_box .upload_file label:last-of-type {background: url(../images/ico_mic.svg) no-repeat 50% 50%;}
+.upload_box .upload_file label.on {background: url(../images/ico_camera_g.svg) no-repeat 50% 50%;}
+.upload_box .upload_file label:first-of-type.on {background: url(../images/ico_gallery_g.svg) no-repeat 50% 50%;}
+.upload_box .upload_file label:last-of-type.on {background: url(../images/ico_mic_g.svg) no-repeat 50% 50%;}
+
+.upload_box .upload_list > div {margin: 12px 0 0 0;}
+.upload_box .upload_list > div:empty {margin: 0;}
+.upload_box .upload_list span {font-size: 12px; color: #616c78; vertical-align: middle;}
+.upload_box .upload_list button {width: 24px; height: 24px; margin: 0 0 0 10px; border: 1px solid #c9d0d8; border-radius: 4px; background: #f4f6f8 url(../images/ico_x.svg) no-repeat 50% 50%; vertical-align: middle;}
+
+/* <img src="resources/images/ico_x.svg" alt="닫기"> */
+
+
 
 .view_book .srch_box {margin: 24px 22px 0 22px;}
 .view_book .set_btn_box {margin: 12px 0 0 0;}
@@ -408,8 +420,10 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #register_after_reading .cont_box {text-align: left;}
 #register_after_reading .book_info span {padding: 0; font-size: 12px;}
 #register_after_reading .book_info .book_title {background: none; font-size: 14px;}
-#register_after_reading input[type="text"] {margin: 12px 0 0 0;}
-#register_after_reading textarea {margin: 12px 0 0 0;}
+#register_after_reading input[type="text"] {margin: 12px 0 0 0; font-size: 14px;}
+#register_after_reading input[type="text"]::placeholder {font-size: 12px;}
+#register_after_reading textarea {margin: 12px 0 0 0; line-height: 20px; font-size: 14px;}
+#register_after_reading textarea::placeholder {font-size: 12px;}
 
 /* NBR fullcalendar */
 .schedule_set_area .calendar_box {margin: 24px 0 12px;}
@@ -449,8 +463,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .fc-day-disabled {background: none !important; pointer-events: none;}
 .slt_disable {width: 100%; color: #e2e3e4 !important; text-align: center;}
 
-/* max width로 바꿔야함 */
-/* @media screen and (max-height: 600px) */
 @media all and (max-width: 350px) {
   /* 공통 */
   .btn_option input[type="checkbox"] + label {position: absolute; top: 50%; left: 50%; line-height: 16px; word-break: keep-all; transform: translate(-50%, -50%);}
@@ -464,4 +476,9 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
   #fixed_login .visual {padding: 35px 0 20px 50px; background-size: 200px auto; background-position: top -70px right -90px;}
   #fixed_login .visual .visual_logo {width: 130px;}
   /* //login page */
+
+  /* view_bookshelf page */
+  .view_book .set_btn_box {width: calc(100% - 20px); margin: 12px 10px 0 10px;}
+  .view_book .set_btn_box li a {text-align: left;}
+  /* //view_bookshelf page */
 }
