@@ -388,39 +388,41 @@
 
     // 공통 200728 AMR input이 focus되어 있을 때 input이 아닌 영역에 touch를 하거나, 스크롤을 하면 가상키보드가 닫힘
     // document에서 일어나는 touch 이벤트
-    handleInputKeyboard($('.lyr_backdrop'), $('.lyr_backdrop'));
-    // alert lyr에서 일어나는 touch 이벤트
-    handleInputKeyboard($('.alert_box'), $('.alert_box'));
+    // handleInputKeyboard($('.lyr_backdrop'), $('.lyr_backdrop'));
+    // // alert lyr에서 일어나는 touch 이벤트
+    // handleInputKeyboard($('.alert_box'), $('.alert_box'));
+
+    // function handleInputKeyboard(touchStartEl, touchEndEl) {
+    //   $('input').focus(function () {
+    //     var $this = $(this);
+    //     console.log('focus')
+
+    //     touchStartEl.on('touchstart', function (e) {
+    //       console.log('touchstart')
+    //       touchEndEl.on('touchmove touchend', function (e) {
+    //         console.log('touch')
+    //         touchEndEl.off('touchmove touchend');
+    //         $this.blur();
+    //         console.log('blur')
+    //       });
+    //     });
+    //   });
+    // }
+
+    $('input').focus(function () {
+        console.log('focus')
+        handleInputKeyboard($('.alert_box, .lyr_backdrop'), $('.alert_box, .lyr_backdrop'));
+        handleInputKeyboard($('.lyr_box, .lyr_backdrop'), $('.lyr_box, .lyr_backdrop'));
+    });
 
     function handleInputKeyboard(touchStartEl, touchEndEl) {
-      $('input').focus(function () {
-        var $this = $(this);
-        console.log('focus')
-
-        touchStartEl.on('touchstart', function (e) {
-          console.log('touchstart')
-          touchEndEl.on('touchmove touchend', function (e) {
-            console.log('touch')
-            touchEndEl.off('touchmove touchend');
-            $this.blur();
-            console.log('blur')
-          });
-        });
-      });
-
-      $('textarea').focus(function (e) {
-        e.preventDefault();
-        var $this = $(this);
-        console.log('focus')
-
-        touchStartEl.on('touchstart', function (e) {
-          console.log('touchstart')
-          touchEndEl.on('touchmove touchend', function (e) {
-            console.log('touch')
-            touchEndEl.off('touchmove touchend');
-            $this.blur();
-            console.log('blur')
-          });
+      touchStartEl.on('touchstart', function (e) {
+        console.log('touchstart')
+        touchEndEl.on('touchmove touchend', function (e) {
+          console.log('touch')
+          touchEndEl.off('touchmove touchend');
+          $('input').blur();
+          console.log('blur')
         });
       });
     }
