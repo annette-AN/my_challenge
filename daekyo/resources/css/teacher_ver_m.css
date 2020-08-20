@@ -104,6 +104,9 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .notice .notice_text {position: relative; display: inline-block; padding: 0 10px; font-size: 10px; color: #a8b0bc;}
 .notice .notice_bg {display: inline-block; background: #f4f6f8; border-radius: 10px;}
 
+/* 공통 ellipsis */
+.ellipsis_box {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
 /* 공통 btn */
 .btn_primary {border-radius: 4px; background: #e60662; color: #fff;}
 .btn_secondary {border-radius: 4px; background: #4b2c7a; color: #fff;}
@@ -304,6 +307,28 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #teacher_review .primary_text_xs em {display: block;}
 #teacher_review textarea {margin: 12px 0 0 0;}
 
+#register_after_reading .cont_box {text-align: left;}
+#register_after_reading .book_info span {padding: 0; font-size: 12px;}
+#register_after_reading .book_info .book_title {background: none; font-size: 14px;}
+#register_after_reading input[type="text"] {margin: 12px 0 0 0; font-size: 14px;}
+#register_after_reading input[type="text"]::placeholder {font-size: 12px;}
+#register_after_reading textarea {margin: 12px 0 0 0; line-height: 20px; font-size: 14px;}
+#register_after_reading textarea::placeholder {font-size: 12px;}
+
+#view_after_reading {overflow: auto; max-height: 80%;}
+#view_after_reading .cont_box {text-align: left;}
+#view_after_reading .audio_player {height: 24px; margin: 5px 0 0 0; border-radius: 4px; background: #f4f6f8;}
+#view_after_reading .img_box {overflow: hidden; height: 152px;}
+#view_after_reading .book {margin: 12px 0 0 0;}
+#view_after_reading .book .desc {padding: 12px 0;}
+#view_after_reading .book .desc .desc_title {font-size: 12px; font-weight: 700;}
+#view_after_reading .book .desc p {overflow: hidden; margin: 6px 0 0 0; line-height: 16px; font-size: 12px;}
+#view_after_reading .book .like {margin: 6px 0 0 0; line-height: 12px; text-align: right;}
+#view_after_reading .book .like > span {display: inline-block; padding: 0 0 0 16px; font-size: 10px; background: url(../images/ico_favorite.svg) no-repeat 0 0; background-size: contain;}
+#view_after_reading .book .like .info span {display: inline-block; margin: 0 4px 0 0; font-size: 10px; font-weight: 700;}
+#view_after_reading .book .like .info em {font-size: 10px; color: #616c78;}
+#view_after_reading .book a {display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}
 #fixed_login .visual .visual_logo {width: 170px;}
@@ -417,13 +442,17 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .view_book .card_list .card[disabled] .status_box .readed {background: #f4f6f8; box-shadow: 0 3px 3px 0 rgba(227,232,235,0.16); color: #fff;}
 .view_book .card_list .card[disabled] .book_info .book_title {background: url(../images/ico_favorite_off.svg) no-repeat 0 0;}
 
-#register_after_reading .cont_box {text-align: left;}
-#register_after_reading .book_info span {padding: 0; font-size: 12px;}
-#register_after_reading .book_info .book_title {background: none; font-size: 14px;}
-#register_after_reading input[type="text"] {margin: 12px 0 0 0; font-size: 14px;}
-#register_after_reading input[type="text"]::placeholder {font-size: 12px;}
-#register_after_reading textarea {margin: 12px 0 0 0; line-height: 20px; font-size: 14px;}
-#register_after_reading textarea::placeholder {font-size: 12px;}
+/* bookshelf after page */
+.reading_after {text-align: center;}
+.reading_after .book_list {display: inline-flex; flex-wrap: wrap; justify-content: space-between; width: calc(100% - 48px); max-width: 320px; margin: 8px 24px 0 24px; text-align: left;}
+.reading_after .book_list .book {overflow: hidden; position: relative; width: 48%; margin: 16px 0 0 0; border-radius: 4px; border: 1px solid #e3e8eb;}
+.reading_after .book .img_box {overflow: hidden; height: 88px;}
+.reading_after .book .desc {padding: 10px;}
+.reading_after .book .desc .desc_title {overflow: hidden; display: block; max-height: 32px; line-height: 16px; font-size: 12px; font-weight: 700;}
+.reading_after .book .like {margin: 6px 0 0 0; line-height: 12px; text-align: right;}
+.reading_after .book .like > span {display: inline-block; padding: 0 0 0 16px; font-size: 10px; background: url(../images/ico_favorite.svg) no-repeat 0 0; background-size: contain;}
+.reading_after .book a {display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+/* //bookshelf after page */
 
 /* NBR fullcalendar */
 .schedule_set_area .calendar_box {margin: 24px 0 12px;}
@@ -479,6 +508,9 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
   /* view_bookshelf page */
   .view_book .set_btn_box li {min-width: auto;}
-  #register_after_reading {overflow: auto; max-height: 80%;}
   /* //view_bookshelf page */
+
+  /* layer */
+  #register_after_reading {overflow: auto; max-height: 80%;}
+  /* //layer */
 }

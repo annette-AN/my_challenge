@@ -18,7 +18,7 @@
   <script type="text/javascript" src="resources/js/fullCalendar.js"></script>
   <script type="text/javascript" src="resources/js/fullCalendar_locale_ko.js"></script>
   <script type="text/javascript" src="resources/js/moment.min.js"></script>
-  <title>책장보기</title>
+  <title>독후활동보기</title>
 </head>
 
 <body>
@@ -132,62 +132,118 @@
 
     <!-- m_container -->
     <div id="m_container">
+      <div class="reading_after">
+        <h2 class="page_title">독후활동 보기</h2>
 
+        <ul class="book_list">
+          <li class="book">
+            <div class="img_box">
+              <img src="resources/images/img_book_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
+            </div>
+            <div class="desc">
+              <span class="desc_title">무엇이 세상에서 가장 클까요? 아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요.</span>
+              <div class="like">
+                <span>9999</span>
+              </div>
+            </div>
+            <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
+          </li>
+
+          <li class="book">
+            <div class="img_box">
+              <img src="resources/images/img_book_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
+            </div>
+            <div class="desc">
+              <span class="desc_title">아이들의 호기심과 상상력을 자극하는 책이에요 무</span>
+              <div class="like">
+                <span>9999</span>
+              </div>
+            </div>
+            <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
+          </li>
+
+          <li class="book">
+            <div class="img_box">
+              <img src="resources/images/img_book_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
+            </div>
+            <div class="desc">
+              <span class="desc_title">아이들의 호기심과 상상력을 자극하는 책이에요 무</span>
+              <div class="like">
+                <span>9999</span>
+              </div>
+            </div>
+            <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
+          </li>
+
+          <li class="book">
+            <div class="img_box">
+              <img src="resources/images/img_book_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
+            </div>
+            <div class="desc">
+              <span class="desc_title">아이들의 호기심과 상상력을 자극하는 책이에요 무</span>
+              <div class="like">
+                <span>9999</span>
+              </div>
+            </div>
+            <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
+          </li>
+
+          <li class="book">
+            <div class="img_box">
+              <img src="resources/images/img_book_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
+            </div>
+            <div class="desc">
+              <span class="desc_title">아이들의 호기심과 상상력을 자극하는 책이에요 무</span>
+              <div class="like">
+                <span>9999</span>
+              </div>
+            </div>
+            <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
+          </li>
+        </ul>
+      </div>
     </div>
     <!-- //m_container -->
   </div>
   <!-- //wrap -->
 
   <!-- layer alert -->
-  <!-- 독후활동등록 -->
-  <div id="" class="alert_box alert_pop">
+  <!-- 독후활동상세보기 -->
+  <div id="view_after_reading" class="alert_box alert_pop">
     <div class="lyr_cont">
       <div class="title_box">
-        <span class="title">독후활동 작성하기</span>
+        <span class="title">독후활동 상세보기</span>
       </div>
 
       <div class="cont_box">
-        <!-- book_info -->
-        <div class="book_info">
-          <span class="book_title">무엇이 세상에서 가장 클까요?</span>
-          <span>대교 소빅스</span>
-        </div>
-        <!-- //book_info -->
-        <input type="text" placeholder="독후활동 제목을 입력하세요.">
-        <textarea name="" id="" cols="10" rows="7" placeholder="독후활동 내용을 입력하세요."></textarea>
-
-        <div class="upload_box">
-          <div class="upload_file">
-            <!-- [D] 파일을 선택하면 label class에 'off' 가 추가되면서 비활성화 디자인이 됩니다 -->
-            <input type="file" accept="image/*" id="file1" class="invisible input_file_image">
-            <label for="file1"><span class="text_invisible">갤러리에서 사진고르기</span></label>
-            <input type="file" accept="image/*" capture="camera" id="file2" class="invisible input_file_image">
-            <label for="file2"><span class="text_invisible">카메라로 사진찍기</span></label>
-            <input type="file" accept="image/*" capture="microphone" id="file3" class="invisible input_file_voice">
-            <label for="file3"><span class="text_invisible">녹음하기</span></label>
-          </div>
-
-          <div class="upload_list">
-            <div class="image_file"></div>
-            <div class="voice_file"></div>
-          </div>
+        <div class="img_box">
+          <img src="resources/images/img_book_d2.png" alt="">
         </div>
 
+        <div class="audio_player">오디오 플레이어</div>
+
+        <div class="book">
+          <div class="like">
+            <div class="fl info">
+              <span>상상키즈다은이</span>
+              <em>2020.08.08</em>
+            </div>
+            <span>9999</span>
+          </div>
+
+          <div class="desc">
+            <div class="ellipsis_box"><span class="desc_title">아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요.</span></div>
+            <p>무엇이 세상에서 가장 클까요? 아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요. 처음에는 흰긴수염고래의 꼬리지느러미에서 시작돼요. 무엇이 세상에서 가장 클까요? 아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요. 처음에는 흰긴수염고래의 꼬리지느러미에서 시작돼요.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="lyr_btm">
-      <div class="dual_box">
-        <div>
-          <button type="button" class="alert_close">취소</button>
-        </div>
-        <div>
-          <button type="button" class="alert_close">등록</button>
-        </div>
-      </div>
+      <button type="button" class="alert_close">닫기</button>
     </div>
   </div>
-  <!-- //독후활동등록 -->
+  <!-- //독후활동상세보기 -->
   <!-- //layer alert -->
 
 <script type="text/javascript">
