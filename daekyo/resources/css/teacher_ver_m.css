@@ -16,10 +16,10 @@ body.body_fixed #btn_login {margin: 0;}
 
 /* 공통 body backdrop */
 body.lyr_backdrop {overflow: hidden;}
-body.lyr_backdrop:after {content: ''; display: block; position: fixed; top: 0; left: 0; right: 0; left: 0; background: rgba(0, 0, 0, 0.45); z-index: 30;}
+body.lyr_backdrop:after {content: ''; display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.45); z-index: 30;}
 
 body.gnb_backdrop {overflow: hidden;}
-body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; top: 0; left: 0; right: 0; left: 0; background: rgba(0,0,0,0.45);}
+body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45);}
 
 /* 공통 header */
 #header {position: relative; text-align: center; height: 60px; z-index: 10;}
