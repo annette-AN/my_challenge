@@ -227,11 +227,6 @@
               <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
             </audio>
 
-            <script type="text/javascript">
-
-            </script>
-
-
             <!-- <audio id="music" class="music" preload="auto" controls style="height: 24px;">
               <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
             </audio> -->
@@ -246,7 +241,7 @@
             <div id="slider" class="slider">
               <div id="elapsed" class="elapsed"></div>
             </div>
-            <span class="timer_endtime">0&colon;04</span>
+            <span id="timer_endtime" class="timer_endtime">0&colon;04</span>
           </div>
         </div>
 
@@ -374,6 +369,41 @@ $(document).ready(function(){
     $(this).toggleClass('on');
   });
 })
+</script>
+
+<!-- audio 시작 -->
+<script type="text/javascript">
+$(document).ready(function () {
+  var audioElement = document.getElementById('music');
+
+  audioElement.addEventListener('ended', function () {
+    this.play();
+  }, false);
+
+  audioElement.addEventListener("canplay", function () {
+    var audioDuration = audioElement.duration;
+    var audioRoundDuration = Math.round(audioDuration)
+    $("#timer_endtime").text(audioRoundDuration);
+  });
+
+  audioElement.addEventListener("timeupdate", function () {
+    var audioCurrentTime = audioElement.currentTime
+    var audioParseCurrentTime = Math.floor(audioCurrentTime)
+    $("#timer").text(audioParseCurrentTime);
+  });
+
+  $('#play').click(function () {
+    $(this).css({'display': 'none'});
+    $('#pause').css({'display': 'block'});
+    audioElement.play();
+  });
+
+  $('#pause').click(function () {
+    $(this).css({'display': 'none'});
+    $('#play').css({'display': 'block'});
+    audioElement.pause();
+  });
+});
 </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* 공통 */
-body {position: relative; min-height: 100vh; text-align: center;}
+html {height: 100%;}
+body {position: relative; height: 100%; text-align: center;}
 #wrap {overflow: hidden; display: inline-block; min-width: 320px; width: 100%; text-align: left; vertical-align: bottom;}
 
 body.prevent_scroll {overflow: hidden;}
@@ -209,6 +210,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .audio_player .button-items > * {margin: 0 10px 0 0; vertical-align: middle;}
 .audio_player .controls {display: inline-block; width: 24px; height: 24px;}
 .audio_player .controls button {width: 100%; height: 100%; background: url(../images/ico_play_triangle.svg) no-repeat 50% 50%; background-size: 12px;}
+.audio_player .controls .pause {background: url(../images/ico_pause.svg) no-repeat 50% 50%; background-size: 12px;}
 .audio_player .timer,
 .audio_player .timer_endtime {width: 20px; font-size: 10px;}
 .audio_player .timer_endtime {margin: 0 6px 0 0;}
