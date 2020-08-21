@@ -209,7 +209,7 @@
 
   <!-- layer alert -->
   <!-- 독후활동상세보기 -->
-  <div id="view_after_reading" class="alert_box alert_pop">
+  <div id="view_after_reading" class="alert_box alert_pop on" style="display: block; box-shadow: 0 0 0 100px rgba(0,0,0,0.45);">
     <div class="lyr_cont">
       <div class="title_box">
         <span class="title">독후활동 상세보기</span>
@@ -220,26 +220,56 @@
           <img src="resources/images/img_book2x_d2.png" alt="">
         </div>
 
-        <div class="audio_player">오디오 플레이어</div>
-        <!-- <div class="player audio_player">
+        <!-- <div class="audio_player">오디오 플레이어</div> -->
+        <div class="player audio_player">
           <div class="button-items">
-            <audio id="music" class="music" preload="auto" onended="audioEnded($(this))">
-              <source src="https://www.google-analytics.com/aiaas/kr/audio/voicefilter/voice_ref.wav">
+            <!-- <audio id="music" class="music" preload="auto" onended="audioEnded($(this))">
+              <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
               <p>Alas, your browser doesn't support html5 audio.</p>
+            </audio> -->
+
+            <audio id="music" class="music" preload="auto" controls style="height: 24px;">
+              <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
+              <!-- <p>Alas, your browser doesn't support html5 audio.</p> -->
             </audio>
+
+            <!-- <div class="controls">
+              <button type="button" id="play" class="play sample_play" style="display: block;">
+              </button>
+              <button type="button" id="pause" class="pause" style="display: none;">
+              </button>
+            </div>
+            <span id="timer" class="timer">0&colon;01</span>
             <div id="slider" class="slider">
               <div id="elapsed" class="elapsed"></div>
             </div>
-            <p id="timer" class="timer">0:01</p>
-            <p class="timer_fr">0:04</p>
-            <div class="controls">
-              <div id="play" class="play sample_play" style="display: block;">
-              </div>
-              <div id="pause" class="pause" style="display: none;">
-              </div>
-            </div>
+            <span class="timer_endtime">0&colon;04</span> -->
           </div>
-        </div> -->
+        </div>
+
+        <!-- <script type="text/javascript">
+          var timelineWidth = $('#slider').get(0).offsetWidth;
+          var sample1File;
+          var sample2File;
+          var sample1SrcUrl;
+          var sample2SrcUrl;
+
+          // Set audio duration
+          $('.music').each(function(){
+            $(this).on("canplay", function () {
+              var $parent = $(this).parent();
+              var dur = this.duration;
+              var fl_dur = Math.floor(dur);
+              var endTime = toTimeFormat(fl_dur+"");
+              $parent.children('.timer_fr').text(endTime);
+              // if (fl_dur <= 9) {
+              // 	$parent.children('.timer_fr').text("0:0" + fl_dur);
+              // } else {
+              // 	$parent.children('.timer_fr').text("0:" + fl_dur);
+              // }
+            });
+          });
+        </script> -->
 
         <div class="book">
           <div class="like">

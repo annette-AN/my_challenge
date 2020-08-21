@@ -203,6 +203,22 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .card_list .user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
 .card_list .user_review dd {margin: 8px 0 0 0; color: #616c78;}
 
+/* 공통 audio player */
+.audio_player {height: 24px; margin: 5px 0 0 0; padding: 0 12px; border-radius: 4px; line-height: 24px; background: #f4f6f8;}
+.audio_player .button-items {display: flex; justify-content: space-between;}
+.audio_player .button-items > * {margin: 0 10px 0 0; vertical-align: middle;}
+.audio_player .controls {display: inline-block; width: 24px; height: 24px;}
+.audio_player .controls button {width: 100%; height: 100%; background: url(../images/ico_play_triangle.svg) no-repeat 50% 50%; background-size: 12px;}
+.audio_player .timer,
+.audio_player .timer_endtime {width: 20px; font-size: 10px;}
+.audio_player .timer_endtime {margin: 0 6px 0 0;}
+.audio_player .slider {position: relative; display: inline-block; width: calc(100% - 100px); height: 2px; margin-top: 11px; background: #e3e8eb;}
+.audio_player .elapsed {position: absolute; top: 0; left: 0; width: 70%; height: 100%; background: #e60662;}
+.audio_player .elapsed:after {content: ''; display: block; position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border-radius: 4px; background: #e60662; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);}
+
+
+
+
 /* 공통 layer */
 .lyr_box {position: relative; width: 100%; padding: 36px; border-radius: 20px 20px 0 0; background: #fff; z-index: 40; text-align: left;}
 .lyr_box .lyr_cont .title_box .title {display: block; font-size: 16px; font-weight: 800;}
@@ -318,7 +334,6 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #view_after_reading {height: 80%;}
 #view_after_reading .lyr_cont {overflow: auto; height: calc(100% - 36px);}
 #view_after_reading .cont_box {text-align: left;}
-#view_after_reading .audio_player {height: 24px; margin: 5px 0 0 0; border-radius: 4px; background: #f4f6f8;}
 #view_after_reading .img_box {overflow: hidden; height: 152px;}
 #view_after_reading .book {margin: 12px 0 0 0;}
 #view_after_reading .book .desc {padding: 12px 0 0 0;}
@@ -512,7 +527,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
   /* //view_bookshelf page */
 
   /* bookshelf_after page */
-  .reading_after .book .img_box img {height: 100%;}
+  .reading_after .book .img_box img {min-height: 100%;}
   /* //bookshelf_after page */
   
   /* layer */
