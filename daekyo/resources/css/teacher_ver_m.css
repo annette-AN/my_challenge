@@ -23,7 +23,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 /* 공통 header */
 #header {position: relative; text-align: center; height: 60px; z-index: 10;}
 #header .header_bar {position: fixed; top: 0; left: 0; width: 100%; height: 60px; padding: 10px 14px; background: #fff;}
-#header .header_bar h1 {display: inline-block; width: 50px; padding: 4px 0 0 0;}
+#header .header_bar h1 {display: inline-block; width: 52px; padding: 8px 0 0 0;}
 #header .header_bar .btn_prev, #header .header_bar .gnb_open {padding: 8px;}
 
 #gnb {display: none; overflow: auto; position: fixed; top: 0; left: 100%; width: 260px; height: 100%; transform: translate(0, 0); transition: transform 0.2s; z-index: 20; background: #f4f6f8;}
