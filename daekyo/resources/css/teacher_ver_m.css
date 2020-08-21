@@ -16,7 +16,7 @@ body.body_fixed #btn_login {margin: 0;}
 
 /* 공통 body backdrop */
 body.lyr_backdrop {overflow: hidden;}
-body.lyr_backdrop:after {content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 30;}
+body.lyr_backdrop:after {content: ''; display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 30;}
 
 body.gnb_backdrop {overflow: hidden;}
 body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.45);}
