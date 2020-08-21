@@ -460,7 +460,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 /* bookshelf after page */
 .reading_after {text-align: center;}
-.reading_after .book_list {display: inline-flex; flex-wrap: wrap; justify-content: space-between; width: calc(100% - 48px); max-width: 320px; margin: 8px 24px 0 24px; text-align: left;}
+.reading_after .book_list {display: inline-flex; flex-wrap: wrap; justify-content: space-between; width: calc(100% - 48px); max-width: 320px; margin: 8px 24px 24px 24px; text-align: left;}
 .reading_after .book_list .book {overflow: hidden; position: relative; width: 48%; margin: 16px 0 0 0; border-radius: 4px; border: 1px solid #e3e8eb;}
 .reading_after .book .img_box {overflow: hidden; height: 88px;}
 .reading_after .book .desc {padding: 10px;}
