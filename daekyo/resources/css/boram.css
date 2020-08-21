@@ -44,7 +44,7 @@
 /* .use_info_lst li .info_detail {display: none; height: 0; padding: 16px; color: #616c78; font-size: 12px; line-height: 16px; word-break: keep-all;} */
 .use_info_lst li .info_detail {overflow: hidden; height: 0; margin: 0 16px; color: #616c78; font-size: 12px; line-height: 16px; word-break: keep-all; transition: height .3s, padding .3s}
 
-.use_info_lst li .info_title.on ~ .info_detail {height: 100px; padding: 16px 0;}
+.use_info_lst li .info_title.on ~ .info_detail {height: 100px;}
 
 @media all and (max-width: 350px) {
     .notice_lst > li {height: 102px;}
