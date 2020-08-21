@@ -209,7 +209,7 @@
 
   <!-- layer alert -->
   <!-- 독후활동상세보기 -->
-  <div id="view_after_reading" class="alert_box alert_pop">
+  <div id="view_after_reading" class="alert_box alert_pop on" style="display: block; box-shadow: 0 0 0 100px rgba(0,0,0,.45);">
     <div class="lyr_cont">
       <div class="title_box">
         <span class="title">독후활동 상세보기</span>
@@ -223,13 +223,9 @@
         <!-- <div class="audio_player">오디오 플레이어</div> -->
         <div class="player audio_player">
           <div class="button-items">
-            <audio id="music" class="music" preload="auto" onended="audioEnded($(this))">
+            <audio id="music" class="music" preload="auto">
               <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
             </audio>
-
-            <!-- <audio id="music" class="music" preload="auto" controls style="height: 24px;">
-              <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
-            </audio> -->
 
             <div class="controls">
               <button type="button" id="play" class="play sample_play" style="display: block;">
@@ -237,7 +233,10 @@
               <button type="button" id="pause" class="pause" style="display: none;">
               </button>
             </div>
-            <span id="timer" class="timer">0&colon;01</span>
+            <div class="audio_start">
+              <div class="audio_loading"><span class="text_invisible">로딩중</span></div>
+              <span id="timer" class="timer">0&colon;00</span>
+            </div>
             <div id="slider" class="slider">
               <div id="elapsed" class="elapsed"></div>
             </div>
@@ -380,6 +379,13 @@ $(document).ready(function () {
     this.play();
   }, false);
 
+  $('#play').click(function () {
+    $(this).css({'display': 'none'});
+    $('#pause').css({'display': 'block'});
+    $('.audio_start').addClass('loading');
+    audioElement.play();
+  });
+
   audioElement.addEventListener("canplay", function () {
     var audioDuration = audioElement.duration;
     var audioRoundDuration = Math.round(audioDuration)
@@ -389,14 +395,11 @@ $(document).ready(function () {
   audioElement.addEventListener("timeupdate", function () {
     var audioCurrentTime = audioElement.currentTime
     var audioParseCurrentTime = Math.floor(audioCurrentTime)
+    $('.audio_start').removeClass('loading');
     $("#timer").text(audioParseCurrentTime);
   });
 
-  $('#play').click(function () {
-    $(this).css({'display': 'none'});
-    $('#pause').css({'display': 'block'});
-    audioElement.play();
-  });
+
 
   $('#pause').click(function () {
     $(this).css({'display': 'none'});

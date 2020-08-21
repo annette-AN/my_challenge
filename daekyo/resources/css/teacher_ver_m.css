@@ -16,10 +16,10 @@ body.body_fixed #btn_login {margin: 0;}
 
 /* 공통 body backdrop */
 body.lyr_backdrop {overflow: hidden;}
-body.lyr_backdrop:after {content: ''; display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 30;}
+body.lyr_backdrop:after {content: ''; display: block; position: fixed; top: 0; left: 0; right: 0; left: 0; background: rgba(0, 0, 0, 0.45); z-index: 30;}
 
 body.gnb_backdrop {overflow: hidden;}
-body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.45);}
+body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; top: 0; left: 0; right: 0; left: 0; background: rgba(0,0,0,0.45);}
 
 /* 공통 header */
 #header {position: relative; text-align: center; height: 60px; z-index: 10;}
@@ -211,6 +211,17 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .audio_player .controls {display: inline-block; width: 24px; height: 24px;}
 .audio_player .controls button {width: 100%; height: 100%; background: url(../images/ico_play_triangle.svg) no-repeat 50% 50%; background-size: 12px;}
 .audio_player .controls .pause {background: url(../images/ico_pause.svg) no-repeat 50% 50%; background-size: 12px;}
+.audio_player .audio_start {width: 20px;}
+.audio_player .audio_start.loading .audio_loading {display: block;}
+.audio_player .audio_start.loading .timer {display: none;}
+.audio_player .audio_loading {display: none; overflow: hidden; position: relative; width: 16px; height: 16px; margin: 4px 0 0 0; border-radius: 10px;}
+.audio_player .audio_start.loading .audio_loading {animation-name: rotate; animation-duration: 1s; animation-iteration-count: infinite;}
+.audio_player .audio_loading:before {content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 8px solid rgba(0,0,0,0.1); border-top: 8px solid transparent; box-sizing: border-box;}
+.audio_player .audio_loading:after {content: ''; display: block; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 12px; background: #f4f6f8;}
+@keyframes rotate {
+  from {transform: rotate(0);}
+  to {transform: rotate(360deg);}
+}
 .audio_player .timer,
 .audio_player .timer_endtime {width: 20px; font-size: 10px;}
 .audio_player .timer_endtime {margin: 0 6px 0 0;}
