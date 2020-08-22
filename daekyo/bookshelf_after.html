@@ -268,6 +268,7 @@
   <!-- //독후활동상세보기 -->
   <!-- //layer alert -->
 
+<!-- 공통 script -->
 <script type="text/javascript">
 $(document).ready(function(){
   // 공통 AMR gnb 열기/닫기
@@ -369,42 +370,49 @@ $(document).ready(function(){
   });
 })
 </script>
+<!-- //공통 script -->
 
-<!-- audio 시작 -->
+<!-- 개별 페이지 script -->
 <script type="text/javascript">
 $(document).ready(function () {
-  var audioElement = document.getElementById('music');
+  // AMR 오디오
+  function handleAudio(){
+    var audioElement = document.getElementById('music');
 
-  audioElement.addEventListener('ended', function () {
-    this.play();
-  }, false);
+    audioElement.addEventListener('ended', function () {
+      this.play();
+    }, false);
 
-  $('#play').click(function () {
-    $(this).css({'display': 'none'});
-    $('#pause').css({'display': 'block'});
-    $('.audio_start').addClass('loading');
-    audioElement.play();
-  });
+    $('#play').click(function () {
+      $(this).css({'display': 'none'});
+      $('#pause').css({'display': 'block'});
+      $('.audio_start').addClass('loading');
+      audioElement.play();
+    });
 
-  audioElement.addEventListener("canplay", function () {
-    var audioDuration = audioElement.duration;
-    var audioRoundDuration = Math.round(audioDuration)
-    $("#timer_endtime").text(audioRoundDuration);
-  });
+    audioElement.addEventListener("canplay", function () {
+      var audioDuration = audioElement.duration;
+      var audioRoundDuration = Math.round(audioDuration)
+      $("#timer_endtime").text(audioRoundDuration);
+    });
 
-  audioElement.addEventListener("timeupdate", function () {
-    var audioCurrentTime = audioElement.currentTime
-    var audioParseCurrentTime = Math.floor(audioCurrentTime)
-    $('.audio_start').removeClass('loading');
-    $("#timer").text(audioParseCurrentTime);
-  });
+    audioElement.addEventListener("timeupdate", function () {
+      var audioCurrentTime = audioElement.currentTime
+      var audioParseCurrentTime = Math.floor(audioCurrentTime)
+      $('.audio_start').removeClass('loading');
+      $("#timer").text(audioParseCurrentTime);
+    });
 
-  $('#pause').click(function () {
-    $(this).css({'display': 'none'});
-    $('#play').css({'display': 'block'});
-    audioElement.pause();
-  });
+    $('#pause').click(function () {
+      $(this).css({'display': 'none'});
+      $('#play').css({'display': 'block'});
+      audioElement.pause();
+    });
+  }
+  handleAudio();
+  
 });
 </script>
+<!-- 개별 페이지 script -->
 </body>
 </html>
