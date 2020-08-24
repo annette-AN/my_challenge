@@ -215,27 +215,24 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .audio_player .button-items > * {margin: 0 10px 0 0; vertical-align: middle;}
 .audio_player .controls {display: inline-block; width: 24px; height: 24px;}
 .audio_player .controls button {width: 100%; height: 100%; background: url(../images/ico_play_triangle.svg) no-repeat 50% 50%; background-size: 12px;}
-.audio_player .controls .pause {background: url(../images/ico_pause.svg) no-repeat 50% 50%; background-size: 12px;}
-.audio_player .audio_start {width: 20px;}
-.audio_player .audio_start.loading .audio_loading {display: block;}
-.audio_player .audio_start.loading .timer {display: none;}
+.audio_player .controls #pause {background: url(../images/ico_pause.svg) no-repeat 50% 50%; background-size: 12px;}
+.audio_player .audio_timer {width: 20px;}
+.audio_player .audio_timer.loading .audio_loading {display: block;}
+.audio_player .audio_timer.loading #timer {display: none;}
 .audio_player .audio_loading {display: none; overflow: hidden; position: relative; width: 16px; height: 16px; margin: 4px 0 0 0; border-radius: 10px;}
-.audio_player .audio_start.loading .audio_loading {animation-name: rotate; animation-duration: 1s; animation-iteration-count: infinite;}
+.audio_player .audio_timer.loading .audio_loading {animation-name: rotate; animation-duration: 1s; animation-iteration-count: infinite;}
 .audio_player .audio_loading:before {content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 8px solid rgba(0,0,0,0.1); border-top: 8px solid transparent; box-sizing: border-box;}
 .audio_player .audio_loading:after {content: ''; display: block; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 12px; background: #f4f6f8;}
 @keyframes rotate {
   from {transform: rotate(0);}
   to {transform: rotate(360deg);}
 }
-.audio_player .timer,
-.audio_player .timer_endtime {width: 20px; font-size: 10px;}
-.audio_player .timer_endtime {margin: 0 6px 0 0;}
+.audio_player #timer,
+.audio_player #timer_endtime {width: 20px; font-size: 10px;}
+.audio_player #timer_endtime {margin: 0 6px 0 0;}
 .audio_player .slider {position: relative; display: inline-block; width: calc(100% - 100px); height: 2px; margin-top: 11px; background: #e3e8eb;}
 .audio_player .elapsed {position: absolute; top: 0; left: 0; width: 70%; height: 100%; background: #e60662;}
 .audio_player .elapsed:after {content: ''; display: block; position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border-radius: 4px; background: #e60662; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);}
-
-
-
 
 /* 공통 layer */
 .lyr_box {position: relative; width: 100%; padding: 36px; border-radius: 20px 20px 0 0; background: #fff; z-index: 40; text-align: left;}

@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
   <!-- (safari) 전화번호 형태로 된 문자열을 전화로 자동호출하지 못하게 함 -->
   <meta name="format-detection" content="telephone=no">
   <!-- favicon mobile -->
@@ -132,12 +132,23 @@
 
     <!-- m_container -->
     <div id="m_container">
+      <!-- reading_after -->
       <div class="reading_after">
         <h2 class="page_title">독후활동 보기</h2>
 
+        <!-- book_list -->
         <ul class="book_list">
+          <!-- book -->
           <li class="book">
             <div class="img_box">
+              <!-- [D] 
+                이미지 미등록 시 보여지는 기본이미지
+                img_book2x_d1.png
+                
+                이미지 등록 시에는 아래 두군데 모두 같은 이미지로 바뀌어야 합니다.
+                .book_list > .book > .img_box > img
+                #view_after_reading > cont_box > img_box > img
+              -->
               <img src="resources/images/img_book2x_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
             </div>
             <div class="desc">
@@ -148,7 +159,9 @@
             </div>
             <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
           </li>
+          <!-- //book -->
 
+          <!-- book -->
           <li class="book">
             <div class="img_box">
               <img src="resources/images/img_book2x_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
@@ -161,7 +174,9 @@
             </div>
             <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
           </li>
+          <!-- //book -->
 
+          <!-- book -->
           <li class="book">
             <div class="img_box">
               <img src="resources/images/img_book2x_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
@@ -174,7 +189,9 @@
             </div>
             <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
           </li>
+          <!-- //book -->
 
+          <!-- book -->
           <li class="book">
             <div class="img_box">
               <img src="resources/images/img_book2x_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
@@ -187,7 +204,9 @@
             </div>
             <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
           </li>
+          <!-- //book -->
 
+          <!-- book -->
           <li class="book">
             <div class="img_box">
               <img src="resources/images/img_book2x_d1.png" alt="독서하는 처음 습관, 대교 소빅스가 잡아드립니다.">
@@ -200,8 +219,11 @@
             </div>
             <a href="#view_after_reading" class="alert_open"><span class="text_invisible">독후활동 상세보기</span></a>
           </li>
+          <!-- //book -->
         </ul>
+        <!-- //book_list -->
       </div>
+      <!-- //reading_after -->
     </div>
     <!-- //m_container -->
   </div>
@@ -217,33 +239,43 @@
 
       <div class="cont_box">
         <div class="img_box">
-          <img src="resources/images/img_book2x_d2.png" alt="">
+          <!-- [D] 
+            이미지 미등록 시 보여지는 기본이미지
+            img_book2x_d2.png
+            
+            이미지 등록 시에는 아래 두군데 모두 같은 이미지로 바뀌어야 합니다.
+            .book_list > .book > .img_box > img
+            #view_after_reading > cont_box > img_box > img
+          -->
+          <img src="resources/images/img_book2x_d2.png" alt="대교 소빅스, 우리 아이가 꿈꾸는 스토리의 모든 것">
         </div>
 
-        <!-- <div class="audio_player">오디오 플레이어</div> -->
-        <div class="player audio_player">
+        <!-- audio_player -->
+        <div class="audio_player">
           <div class="button-items">
-            <audio id="music" class="music" preload="auto">
+            <audio id="sound" preload="auto">
               <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
             </audio>
 
             <div class="controls">
-              <button type="button" id="play" class="play sample_play" style="display: block;">
+              <button type="button" id="play" style="display: block;">
               </button>
-              <button type="button" id="pause" class="pause" style="display: none;">
+              <button type="button" id="pause" style="display: none;">
               </button>
             </div>
-            <div class="audio_start">
+            <div class="audio_timer">
               <div class="audio_loading"><span class="text_invisible">로딩중</span></div>
-              <span id="timer" class="timer">0&colon;00</span>
+              <span id="timer">0&colon;00</span>
             </div>
             <div id="slider" class="slider">
               <div id="elapsed" class="elapsed"></div>
             </div>
-            <span id="timer_endtime" class="timer_endtime">0&colon;04</span>
+            <span id="timer_endtime">0&colon;04</span>
           </div>
         </div>
+        <!-- //audio_player -->
 
+        <!-- book -->
         <div class="book">
           <div class="like">
             <div class="fl info">
@@ -258,6 +290,7 @@
             <p>무엇이 세상에서 가장 클까요? 아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요. 처음에는 흰긴수염고래의 꼬리지느러미에서 시작돼요. 무엇이 세상에서 가장 클까요? 아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요. 처음에는 흰긴수염고래의 꼬리지느러미에서 시작돼요.</p>
           </div>
         </div>
+        <!-- ///book -->
       </div>
     </div>
 
@@ -375,42 +408,63 @@ $(document).ready(function(){
 <!-- 개별 페이지 script -->
 <script type="text/javascript">
 $(document).ready(function () {
-  // AMR 오디오
+  // AMR 200824 래아어 오픈시 오디오 함수 실행
+  $('.alert_open').on('click', function(){
+    handleAudio();
+  })
+
+  // AMR 200824 오디오 파일의 총시간/진행된시간 표시, 레이어 닫을 때 오디오 상태 변경 함수
   function handleAudio(){
-    var audioElement = document.getElementById('music');
+    var audioElement = document.getElementById('sound');
+    var audioDuration = audioElement.duration;
+    var audioRoundDuration = Math.ceil(audioDuration)
 
-    audioElement.addEventListener('ended', function () {
-      this.play();
-    }, false);
+    $("#timer_endtime").text(createAudioTimeFormat(audioRoundDuration));//오디오의 총 시간표시
 
+    audioElement.addEventListener("timeupdate", function () {//오디오의 진행된 시간표시
+      var audioCurrentTime = audioElement.currentTime;
+      var audioParseCurrentTime = Math.ceil(audioCurrentTime)
+      $('.audio_timer').removeClass('loading');
+      $("#timer").text(createAudioTimeFormat(audioParseCurrentTime));
+    });
+
+    audioElement.addEventListener('ended', function () {//오디오가 끝나면 처음 시간으로 돌아감
+      audioElement.currentTime = 0
+    });
+
+    //오디오 총시간/진행된시간 포맷팅
+    function createAudioTimeFormat(sec){
+      var minutes = Math.floor(sec/60);
+      var second = String(sec%60)
+      if ( second.length === 1 ) {
+        second = '0' + second;
+      }
+      return minutes + ':' + second
+    }
+
+    // play 버튼 이벤트
     $('#play').click(function () {
       $(this).css({'display': 'none'});
       $('#pause').css({'display': 'block'});
-      $('.audio_start').addClass('loading');
+      $('.audio_timer').addClass('loading');
       audioElement.play();
     });
 
-    audioElement.addEventListener("canplay", function () {
-      var audioDuration = audioElement.duration;
-      var audioRoundDuration = Math.round(audioDuration)
-      $("#timer_endtime").text(audioRoundDuration);
-    });
-
-    audioElement.addEventListener("timeupdate", function () {
-      var audioCurrentTime = audioElement.currentTime
-      var audioParseCurrentTime = Math.floor(audioCurrentTime)
-      $('.audio_start').removeClass('loading');
-      $("#timer").text(audioParseCurrentTime);
-    });
-
+    // pause 일시정지 버튼 이벤트
     $('#pause').click(function () {
       $(this).css({'display': 'none'});
       $('#play').css({'display': 'block'});
       audioElement.pause();
     });
+
+    // 얼럿레이어를 닫으면 오디오 세팅 초기화
+    $('.alert_close').on('click', function(){
+      audioElement.pause();
+      audioElement.currentTime = 0
+      $('#play').css({'display': 'block'});
+      $('#pause').css({'display': 'none'});
+    })
   }
-  handleAudio();
-  
 });
 </script>
 <!-- 개별 페이지 script -->
