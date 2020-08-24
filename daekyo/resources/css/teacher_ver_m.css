@@ -504,7 +504,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .notice_page .notice_lst > li.new .post_title {width: calc(100% - 43px) !important;}
 /* //notice page */
 
-/* notice_view page */
+/* NBR notice_view page */
 .notice_view .post_box .title_box {padding: 16px 22px; background: #f4f6f8;}
 .notice_view .post_box .title_box .post_title {margin: 0 0 12px;}
 .notice_view .post_box .title_box .post_info {margin: 0;}
@@ -517,7 +517,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .notice_view .post_box .btm_box a:last-child {float: right;}
 /* //notice_view page */
 
-/* use information page */
+/* NBR use information page */
 .accordion_lst li {position: relative; width: 100%; border-bottom: 1px solid #F4F6F8;}
 .accordion_lst li .accordion_title {position: relative; height: 60px; background: url('../images/ico_arw_btm_g.svg')100% 50% no-repeat; cursor: pointer;}
 .accordion_lst li .accordion_title.on {height: auto; min-height: 60px; background: url('../images/ico_arw_top_g.svg')100% 50% no-repeat;}
@@ -526,6 +526,47 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .accordion_lst li .accordion_detail {overflow: hidden; height: 0; color: #616c78; font-size: 12px; line-height: 16px; word-break: keep-all; transform-origin: 0 0; transform: scaleY(0); transition: transform 0.2s ease-out;}
 .accordion_lst li .accordion_title.on ~ .accordion_detail {height: auto; padding: 16px; transform: scaleY(1);}
 /* //use information page */
+
+/* profile page */
+.icon_text {display: inline-block; padding: 0 0 0 16px; background-size: 12px; font-weight: 700;}
+.icon_text.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_text.star {background: url(../images/ico_star_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_text.bubble {background: url(../images/ico_bubble_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_text.awards {background: url(../images/ico_awards_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_text.keyword {background: url(../images/ico_keyword_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_text.baby {background: url(../images/ico_baby_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_text.pin {background: url(../images/ico_pin_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_text.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
+
+.user_profile .set_board > div {padding: 0 24px 24px 24px;}
+.user_profile .set_board .bg_box {margin: 24px 0 0 0; line-height: 0; background: url(../images/bg_profile.svg) no-repeat 50% 50%; background-size: contain; text-align: center;}
+.user_profile .set_board .img_box {overflow: hidden; display: inline-block; width: 64px; height: 64px; margin: 8px; border-radius: 4px;}
+.user_profile .set_board .img_box:empty {background: #e3e8eb url(../images/ico_avatar.svg) no-repeat 50% 50%;}
+.user_profile .set_board h3 {margin: 10px 0 0 0; font-weight: 700; text-align: center; letter-spacing: 0;}
+.user_profile .set_board h3 span {font-weight: 700; color: #4b2c7a; letter-spacing: 0;}
+.user_profile .basic_box {position: relative; margin: 12px 0 0 0; padding: 18px 16px; border-radius: 4px; border: 1px solid #e3e8eb;}
+.user_profile .basic_box.narrow {padding: 12px 16px;}
+.user_profile .basic_box * {line-height: 12px; font-size: 10px; color: #a8b0bc;}
+.user_profile .basic_box .icon_text {line-height: 14px; color: #616c78;}
+.user_profile .basic_box .btn_edit_profile {position: absolute; top: 13px; right: 16px; min-width: 36px; height: 24px; padding: 5px 7px; border-radius: 12px; border: 1px solid #e60462; font-size: 12px; color: #e60462; box-sizing: border-box;}
+.user_profile .set_board .flex_box.two > div {width: 100%;}
+.user_profile .set_board .flex_box.two > div:first-child {width: 85px; padding: 0 17px 0 0; border-right: 1px solid #e3e8eb;}
+.user_profile .set_board .flex_box.two > div:last-child {padding: 0 0 0 17px;}
+.user_profile .set_board .flex_box.three .basic_box {width: 30%; padding: 12px 0; text-align: center;}
+.user_profile .set_board .flex_box.three .basic_box .icon_text {vertical-align: top;}
+.user_profile .icon_text + .mark {margin: 5px 0 0 0;}
+.user_profile .icon_text + .mark em {font-size: 12px; font-weight: 700; color: #414853;}
+.user_profile .icon_text + .mark span {font-size: 12px; color: #616c78;}
+.user_profile .basic_box .title {padding: 0 0 17px 0; border-bottom: 1px solid #e3e8eb;}
+.user_profile .basic_box .title .icon_text {font-size: 12px;}
+.user_profile .basic_box .awards_list p {line-height: 16px; color: #414853;}
+
+
+
+.icon_text_check {display: inline-block; padding: 0 0 0 18px; background-size: 12px;}
+.icon_text_check.on {background-size: 12px;}
+
+/* profile page */
 
 /* NBR fullcalendar */
 .schedule_set_area .calendar_box {margin: 24px 0 12px;}
