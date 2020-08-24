@@ -33,7 +33,7 @@
                     </button>
                 </div>
                 <h1 class="img_box">
-                    <img src="resources/images/logo_daekyo_kids.svg" alt="대교 상상 키즈 로고">
+                    <img src="resources/images/logo_daekyo.svg" alt="대교 상상 키즈 로고">
                 </h1>
                 <div class="fr">
                     <button type="button" class="gnb_open">
@@ -42,6 +42,7 @@
                 </div>
             </div>
             <!-- //header_bar -->
+        
             <!-- gnb -->
             <div id="gnb">
                 <div class="gnb_box gnb_logo">
@@ -49,68 +50,78 @@
                         <img src="resources/images/logo_daekyo_kids.svg" alt="대교 상상 키즈 로고">
                     </div>
                 </div>
+        
                 <div class="gnb_box gnb_card">
                     <a href="visit_timetable.html" class="card">
                         <img src="resources/images/ico_clock.svg" alt="방문시간표">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             방문시간표
                         </span>
                     </a>
+        
                     <a href="visit_management.html" class="card">
                         <img src="resources/images/ico_schedule.svg" alt="방문관리">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             방문관리
                         </span>
                     </a>
+        
                     <a href="schedule_set.html" class="card">
                         <img src="resources/images/ico_calendar.svg" alt="스케줄 설정">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             스케줄 설정
                         </span>
                     </a>
+        
                     <a href="#none" class="card">
                         <img src="resources/images/ico_folder.svg" alt="정산내역">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             정산내역
                         </span>
                     </a>
+        
                     <a href="#none" class="card">
                         <img src="resources/images/ico_list.svg" alt="공지사항">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             공지사항
                         </span>
                     </a>
+        
                     <a href="#none" class="card">
                         <img src="resources/images/ico_page.svg" alt="자주묻는 질문">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             자주묻는 질문
                         </span>
                     </a>
                 </div>
+        
                 <div class="gnb_box gnb_card">
                     <a href="#none" class="card">
                         <img src="resources/images/ico_profile.svg" alt="My 프로필">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             My&nbsp;&nbsp;프로필
                         </span>
                     </a>
+        
                     <a href="#none" class="card">
                         <img src="resources/images/ico_key.svg" alt="비밀번호 변경">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             비밀번호 변경
                         </span>
                     </a>
+        
                     <a href="#none" class="card">
                         <img src="resources/images/ico_logout.svg" alt="로그아웃">
-                        <span class="primary_text primary_text_xs">
+                        <span class="primary_text primary_text_s">
                             로그아웃
                         </span>
                     </a>
                 </div>
+        
                 <div class="gnb_box">
                     <a href="resources/video/sample_video.mp4" class="btn_movie">
                         <img src="resources/images/ico_play.svg" alt="영상 바로가기">
-                        <span class="primary_text primary_text_xs">우동선생님, 이렇게 활동하세요!</span>
+                        <span class="primary_text primary_text_s">우동선생님, 이렇게 활동하세요!</span>
                     </a>
                 </div>
             </div>
@@ -133,6 +144,7 @@
                     </select>
     
                     <!-- [D] 공지사항 목록 (.notice_lst li) - 클릭 시 공지사항 보기 화면으로 넘어감 / 신규작성 글은 addClass('.new')해주면 new 아이콘과 목록 오른쪽 화살표 아이콘 추가됨  -->
+                    <!-- [D] 리스트는 하단으로 무한로딩 시켜줘야함 -->
                     <!-- [D] 타이틀은 2줄 이상 말줄임 처리됨 -->
                     <ul class="notice_lst">
                         <li class="new">
@@ -256,7 +268,7 @@
             // NBR 신규 공지사항 타이틀에 class="new"여부 확인하여 new 아이콘 추가
             $('.notice_lst li').each(function(){
                 if( $(this).hasClass('new') ){
-                    $(this).find('.post_title').append('<img src="resources/images/ico_new.svg" alt="new 아이콘">')
+                    $(this).find('.post_title').append('<img src="resources/images/ico_new.png" alt="new 아이콘">')
                 }
             });
         });
