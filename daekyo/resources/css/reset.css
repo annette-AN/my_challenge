@@ -4,7 +4,7 @@
 /* [reset css] */
 * {font-family:"NanumSquareRound", sans-serif; font-size:14px; font-weight: 400;color: #414853; box-sizing: border-box; letter-spacing: -0.5px;}
 html,body {margin:0; padding:0; line-height:20px; background:none;}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,legend,em,span,button {margin:0; padding:0;} 
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,label,textarea,p,blockquote,th,td,legend,em,span,button {margin:0; padding:0;} 
 table {border-spacing:0; border-collapse:collapse;}
 th, td {word-break:break-all;}
 form,fieldset {display:block;}
@@ -42,8 +42,11 @@ input {filter:none;}
 input:-webkit-autofill{box-shadow: 0 0 0 30px none inset; -webkit-text-fill-color:#000;} 
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active{transition:background-color 5000s ease-in-out 0s; }
 input:focus{outline:none;}
-select:focus, select:active{outline:none;}
-select::-ms-expand {display:none;}
+input[type="checkbox"] {position: absolute; top: 0; left: 0; width: 0; height: 0; line-height: 0;}
+
+input[readonly] + label {pointer-events: none;}
 
 /* Select box 스타일 초기화 */ 
 select {-webkit-appearance:none; -moz-appearance:none; appearance:none;}
+select:focus, select:active{outline:none;}
+select::-ms-expand {display:none;}
