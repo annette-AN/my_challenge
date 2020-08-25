@@ -205,9 +205,10 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .card_list .profile .btn_box a {display: inline-block; width: 100%; text-align: center;}
 .card_list .profile .btn_card_close {width: 100%; margin: 16px 0 0 0; padding: 12px 0;}
 
-.card_list .user_review {margin: 16px 0 0 0; padding: 16px 0 0 0; border-top: 1px solid #e3e8eb;}
-.card_list .user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
-.card_list .user_review dd {margin: 8px 0 0 0; color: #616c78;}
+/* 공통 부모님리뷰 */
+.user_review {margin: 16px 0 0 0; padding: 16px 0 0 0; border-top: 1px solid #e3e8eb;}
+.user_review dt {padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_review.svg) no-repeat 0 0; background: contain;}
+.user_review dd {margin: 8px 0 0 0; color: #616c78;}
 
 /* 공통 audio player */
 .audio_player {height: 24px; margin: 5px 0 0 0; padding: 0 12px; border-radius: 4px; line-height: 24px; background: #f4f6f8;}
@@ -528,43 +529,73 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 /* //use information page */
 
 /* profile page */
-.icon_text {display: inline-block; padding: 0 0 0 16px; background-size: 12px; font-weight: 700;}
-.icon_text.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_text.star {background: url(../images/ico_star_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_text.bubble {background: url(../images/ico_bubble_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_text.awards {background: url(../images/ico_awards_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_text.keyword {background: url(../images/ico_keyword_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_text.baby {background: url(../images/ico_baby_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_text.pin {background: url(../images/ico_pin_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_text.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title {display: inline-block; padding: 0 0 0 16px; background-size: 12px; font-weight: 700;}
+.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.star {background: url(../images/ico_star_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.bubble {background: url(../images/ico_bubble_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.awards {background: url(../images/ico_awards_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.keyword {background: url(../images/ico_keyword_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.baby {background: url(../images/ico_baby_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.pin {background: url(../images/ico_pin_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
+
+.icon_title.baby_color {background: url(../images/ico_baby.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
+
+.icon_text_check {display: inline-block; padding: 0 0 0 18px; background-size: 12px;}
+.icon_text_check.on {background-size: 12px;}
 
 .user_profile .set_board > div {padding: 0 24px 24px 24px;}
 .user_profile .set_board .bg_box {margin: 24px 0 0 0; line-height: 0; background: url(../images/bg_profile.svg) no-repeat 50% 50%; background-size: contain; text-align: center;}
 .user_profile .set_board .img_box {overflow: hidden; display: inline-block; width: 64px; height: 64px; margin: 8px; border-radius: 4px;}
 .user_profile .set_board .img_box:empty {background: #e3e8eb url(../images/ico_avatar.svg) no-repeat 50% 50%;}
+.user_profile .basic_table .img_box {margin: 0;}
+
 .user_profile .set_board h3 {margin: 10px 0 0 0; font-weight: 700; text-align: center; letter-spacing: 0;}
 .user_profile .set_board h3 span {font-weight: 700; color: #4b2c7a; letter-spacing: 0;}
-.user_profile .basic_box {position: relative; margin: 12px 0 0 0; padding: 18px 16px; border-radius: 4px; border: 1px solid #e3e8eb;}
-.user_profile .basic_box.narrow {padding: 12px 16px;}
-.user_profile .basic_box * {line-height: 12px; font-size: 10px; color: #a8b0bc;}
-.user_profile .basic_box .icon_text {line-height: 14px; color: #616c78;}
-.user_profile .basic_box .btn_edit_profile {position: absolute; top: 13px; right: 16px; min-width: 36px; height: 24px; padding: 5px 7px; border-radius: 12px; border: 1px solid #e60462; font-size: 12px; color: #e60462; box-sizing: border-box;}
+.basic_box {position: relative; margin: 12px 0 0 0; padding: 18px 16px; border-radius: 4px; border: 1px solid #e3e8eb;}
+
+.user_profile .setting .basic_box * {line-height: 12px; font-size: 10px; color: #a8b0bc;}
+.user_profile .setting .basic_box.on * {line-height: 12px; font-size: 10px; color: #414853;}
+.user_profile .setting .basic_box .icon_title {line-height: 14px; color: #616c78;}
+.user_profile .setting .basic_box .btn_edit_profile {font-size: 12px; color: #e60462;}
+.user_profile .setting .notice {margin: 12px 0 0 0;}
+.user_profile .setting .notice .notice_text {font-size: 8px; color: #616c78;}
+.user_profile .setting .notice .notice_text em {font-size: 8px; font-weight: 700; color: #616c78;}
+
+.user_profile .review .basic_box * {line-height: 16px; font-size: 12px;}
+.user_profile .review .basic_box .icon_title {padding: 4px 0 0 22px; background-position: bottom 0 left 0; line-height: 12px; background-size: 16px;}
+.user_profile .review .basic_box span + p {margin: 10px 0 0 0;}
+
+
+.basic_box .btn_edit_profile {position: absolute; top: 13px; right: 16px; min-width: 36px; height: 24px; padding: 5px 7px; border-radius: 12px; border: 1px solid #e60462; font-size: 12px; color: #e60462; box-sizing: border-box;}
 .user_profile .set_board .flex_box.two > div {width: 100%;}
-.user_profile .set_board .flex_box.two > div:first-child {width: 85px; padding: 0 17px 0 0; border-right: 1px solid #e3e8eb;}
+.user_profile .set_board .flex_box.two > div:first-child {width: 95px; padding: 0 17px 0 0; border-right: 1px solid #e3e8eb;}
 .user_profile .set_board .flex_box.two > div:last-child {padding: 0 0 0 17px;}
 .user_profile .set_board .flex_box.three .basic_box {width: 30%; padding: 12px 0; text-align: center;}
-.user_profile .set_board .flex_box.three .basic_box .icon_text {vertical-align: top;}
-.user_profile .icon_text + .mark {margin: 5px 0 0 0;}
-.user_profile .icon_text + .mark em {font-size: 12px; font-weight: 700; color: #414853;}
-.user_profile .icon_text + .mark span {font-size: 12px; color: #616c78;}
+.user_profile .set_board .flex_box.three .basic_box .icon_title {vertical-align: top;}
+.user_profile .icon_title + .mark {margin: 5px 0 0 0;}
+.user_profile .icon_title + .mark em {font-size: 12px; font-weight: 700; color: #414853;}
+.user_profile .icon_title + .mark span {font-size: 12px; color: #616c78;}
 .user_profile .basic_box .title {padding: 0 0 17px 0; border-bottom: 1px solid #e3e8eb;}
-.user_profile .basic_box .title .icon_text {font-size: 12px;}
+.user_profile .basic_box .title .icon_title {font-size: 12px;}
 .user_profile .basic_box .awards_list p {line-height: 16px; color: #414853;}
 
+.user_profile .basic_box.narrow {padding: 12px 16px;}
+.user_profile .basic_box.narrow p {line-height: 12px; font-size: 10px;}
 
-
-.icon_text_check {display: inline-block; padding: 0 0 0 18px; background-size: 12px;}
-.icon_text_check.on {background-size: 12px;}
+.basic_table .btn_edit_profile {position: absolute; top: 12px; right: 16px; min-width: 36px; height: 24px; padding: 5px 7px; border-radius: 12px; border: 1px solid #e60462; font-size: 12px; color: #e60462; box-sizing: border-box;}
+.basic_table {table-layout: fixed; width: 100%; margin: 12px 0 0 0; border-radius: 4px; border: 1px solid #e3e8eb;}
+.basic_table th {background: #f4f6f8;}
+.basic_table th,
+.basic_table td {position: relative; padding: 8px 8px 8px 16px ; line-height: 16px; vertical-align: top; font-size: 12px; font-weight: 700; color: #616c78;}
+.basic_table tr:first-child th,
+.basic_table tr:first-child td {padding-top: 16px;}
+.basic_table tr:last-child th,
+.basic_table tr:last-child td {padding-bottom: 16px;}
+.basic_table th > span {display: inline-block; padding: 0 0 0 2px; color: #e60662;}
+.basic_table.modify {}
 
 /* profile page */
 

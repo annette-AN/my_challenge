@@ -19,6 +19,13 @@
   <script type="text/javascript" src="resources/js/fullCalendar_locale_ko.js"></script>
   <script type="text/javascript" src="resources/js/moment.min.js"></script>
   <title>마이 프로필</title>
+
+  <style>
+    /* .set_board > div {display: none;}
+    .set_board > div:nth-child(1) {display: block;} */
+    /* .set_board > div:nth-child(2) {display: block;} */
+    /* .set_board > div:nth-child(3) {display: block;} */
+  </style>
 </head>
 
 <body>
@@ -142,36 +149,35 @@
         </ul>
 
         <div class="set_board">
-          <div>
+          <!-- 첫번째 -->
+          <div class="setting">
             <div class="bg_box">
               <!-- [D] image를 등록하면 img_box에 img를 넣어주세요. -->
               <!-- <img src="resources/images/sample/user_profile.png" alt="사용자 이미지"> -->
               <div class="img_box"></div>
             </div>
-
             <h3 class="primary_text"><span>김제니</span>선생님</h3>
 
-            <div class="basic_box narrow">
-              <p>나를 설명하는 키워드로 한 줄 소개를 해주세요.</p>
-              <p>(공백 포함 40자 이내)</p>
+            <div class="basic_box narrow modify">
+              <p>나를 설명하는 키워드로 한 줄 소개를 해주세요.<br>(공백 포함 40자 이내)</p>
               <button type="button" class="btn_edit_profile">수정</button>
             </div>
 
             <div class="flex_box three">
               <div class="basic_box">
-                <span class="icon_text clock">활동시간</span>
+                <span class="icon_title clock">활동시간</span>
                 <div class="mark">
                   <em>12</em><span>h</span>
                 </div>
               </div>
               <div class="basic_box">
-                <span class="icon_text star">별점</span>
+                <span class="icon_title star">별점</span>
                 <div class="mark">
                   <em>4.5</em><span>/5</span>
                 </div>
               </div>
               <div class="basic_box">
-                <span class="icon_text bubble">리뷰</span>
+                <span class="icon_title bubble">리뷰</span>
                 <div class="mark">
                   <em>5</em>
                 </div>
@@ -180,7 +186,7 @@
 
             <div class="basic_box flex_box two">
               <div>
-                <span class="icon_text awards">활동관련<br>자격증</span>
+                <span class="icon_title awards">활동관련<br>자격증</span>
               </div>
               <div class="awards_list">
                 <p>- 유아 독서놀이 지도사</p>
@@ -188,37 +194,212 @@
               </div>
             </div>
 
-            <div class="basic_box">
+            <div class="basic_box modify">
               <div class="title">
-                <span class="icon_text keyword">활동 키워드</span>
+                <span class="icon_title keyword">활동 키워드</span>
+              </div>
+
+              <div class="notice">
+                <span class="notice_text">“자신있는 활동과 나의 성향을 모두 선택해주세요.”</span>
+              </div>
+              <button type="button" class="btn_edit_profile">수정</button>
+            </div>
+
+            <div class="basic_box modify">
+              <div class="title">
+                <span class="icon_title baby">선호 아이 연령</span>
+              </div>
+
+              <div class="notice">
+                <span class="notice_text">“내가 선호하는 아이의 연령을 모두 선택해주세요.”</span>
+              </div>
+              <button type="button" class="btn_edit_profile">수정</button>
+            </div>
+
+            <div class="basic_box modify">
+              <div class="title">
+                <span class="icon_title pin">활동가능 지역</span>
+              </div>
+
+              <div class="notice">
+                <span class="notice_text">“<em>활동가능지역 추가하기</em> 버튼을 눌러 지역을 <em>최대 3개까지 설정</em>하세요.”</span>
               </div>
               <button type="button" class="btn_edit_profile">수정</button>
             </div>
 
             <div class="basic_box">
               <div class="title">
-                <span class="icon_text baby">선호 아이 연령</span>
+                <span class="icon_title clock">활동가능 시간</span>
               </div>
-              <button type="button" class="btn_edit_profile">수정</button>
-            </div>
 
-            <div class="basic_box">
-              <div class="title">
-                <span class="icon_text pin">활동가능 지역</span>
-              </div>
-              <button type="button" class="btn_edit_profile">수정</button>
-            </div>
-
-            <div class="basic_box">
-              <div class="title">
-                <span class="icon_text clock">활동가능 시간</span>
+              <div class="notice">
+                <span class="notice_text">“스케줄설정 메뉴에서 활동가능일정을 설정해주세요”</span>
               </div>
               <button type="button" class="btn_edit_profile">스케줄설정</button>
             </div>
 
           </div>
-          <div>2</div>
-          <div>3</div>
+          <!-- //첫번째 -->
+
+          <!-- 두번째 -->
+          <div class="review">
+            <div class="bg_box">
+              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요. -->
+              <!-- <img src="resources/images/sample/user_profile.png" alt="사용자 이미지"> -->
+              <div class="img_box"></div>
+            </div>
+            <h3 class="primary_text"><span>김제니</span>선생님</h3>
+
+            <div class="basic_box narrow">
+              <p>아이들이 스스로 마음을 움직여 자신들만의 꿈을 실현하도록 하고싶습니다.</p>
+            </div>
+
+            <div class="basic_box on">
+              <span class="icon_title baby_color">선생님 방문일지</span>
+              <span>13년생/남아/2시간</span>
+              <p>첫 시간인 만큼 연우에 대해 알아보는 시간을 가졌습니다. 연우는 현재 코딩 학원과 미술 학원을 다니며 교과과목 학원은 다니지 않는다고 하였습니다. 그래서 앞으로 과학과 영어 방문을 가볍게 하며 학교 시험이나 퀴즈를 대비해 주려고 합니다. 또한 연우가 미술을 좋아하기 때문에 앞으로 독후감을 쓸 때 책에 대한 이미지를 그림으로 그려보기로 했습니다. 이번 시간에는 연우가 좋아하는 과목, 취미 등을 알아보았고 나머지 한 시간은 Monster Mistake라는 책을 읽고 독후감을 써보았습니다.</p>
+
+              <dl class="user_review">
+                <dt>부모님 리뷰</dt>
+                <dd>아이가 매우 좋아하고 또 만나고 싶어하네요. 선생님 인상도 좋으시고 베테랑이셔서 아이 맡겼는데, 결과적으로 아이가 너무 좋아하네요. 감사합니다!</dd>
+              </dl>
+            </div>
+
+            <div class="basic_box">
+              <span class="icon_title baby_color">선생님 방문일지</span>
+              <span>15년생/여아/2시간</span>
+              <p>오늘 다은이와 책으로 탑을 쌓으며 책놀이를 진행했습니다. 내가 살고 싶은 집의 모양을 상상하며 책을 쌓았는데, 다은이는 5층까지 높이 쌓았습니다. 오늘 다은이와 책으로 탑을 쌓으며 책놀이를 진행했습니다. 내가 살고 싶은 집의 모양을 상상하며 책을 쌓았는데, 다은이는 5층까지 높이 쌓았습니다.</p>
+            </div>
+          </div>
+          <!-- //두번째 -->
+
+          <div class="info">
+            <div class="bg_box">
+              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요. -->
+              <!-- <img src="resources/images/sample/user_profile.png" alt="사용자 이미지"> -->
+              <div class="img_box"></div>
+            </div>
+            <h3 class="primary_text"><span>김제니</span>선생님</h3>
+
+            <div class="basic_box narrow">
+              <p>아이들이 스스로 마음을 움직여 자신들만의 꿈을 실현하도록 하고싶습니다.</p>
+            </div>
+
+            <table class="basic_table">
+              <colgroup>
+                <col style="width: 92px;"><col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>이름<span>&ast;</span>
+                  </th>
+                  <td>김제니</td>
+                </tr>
+                <tr>
+                  <th>생년월일<span>&ast;</span>
+                  </th>
+                  <td>1996년 1월 16일</td>
+                </tr>
+                <tr>
+                  <th>성별<span>&ast;</span></th>
+                  <td>여</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <table class="basic_table modify">
+              <colgroup>
+                <col style="width: 92px;"><col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th style="padding-bottom: 16px; color: #414853;">수정가능정보</th>
+                  <td>
+                    <button type="button" class="btn_edit_profile">수정</button>
+                  </td>
+                </tr>
+                <tr>
+                  <th>휴대폰 번호<span>&ast;</span>
+                  </th>
+                  <td>
+                    <span>010-0000-0000</span>
+                    <input type="text">
+                  </td>
+                </tr>
+                <tr>
+                  <th>주소<span>&ast;</span>
+                  </th>
+                  <td>
+                    <span>경기도 성남시 분당구 대왕판교로 644번길 49, 다산타워 5층</span>
+                    <input type="text">
+                  </td>
+                </tr>
+                <tr>
+                  <th>연락처<span>&ast;</span></th>
+                  <td>
+                    <span>031-000-0000</span>
+                    <input type="text">
+                  </td>
+                </tr>
+                <tr>
+                  <th>이메일<span>&ast;</span></th>
+                  <td>
+                    <span>user@gmail.com</span>
+                    <input type="text">
+                  </td>
+                </tr>
+                <tr>
+                  <th>사진<span>&ast;</span></th>
+                  <td>
+                    <div class="img_box"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="basic_table">
+              <colgroup>
+                <col style="width: 92px;"><col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>최종학력<span>&ast;</span>
+                  </th>
+                  <td>학사(4년제)</td>
+                </tr>
+                <tr>
+                  <th>대학교<span>&ast;</span>
+                  </th>
+                  <td>대교대학교 유아교육학과</td>
+                </tr>
+                <tr>
+                  <th>대학원</th>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th>경력사항</th>
+                  <td>
+                    <p>자란다 새싹 선생님</p>
+                    <p>대교 어린이집 보육교사 1년</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>자격증</th>
+                  <td>
+                    <p>독서지도사 1급</p>
+                    <p>2020.08.07 한국자격평생교육원</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>외국어</th>
+                  <td>
+                    <p>TOEIC 985점</p>
+                    <p>2019.05.30 YBM</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
