@@ -19,13 +19,6 @@
   <script type="text/javascript" src="resources/js/fullCalendar_locale_ko.js"></script>
   <script type="text/javascript" src="resources/js/moment.min.js"></script>
   <title>마이 프로필</title>
-
-  <style>
-    /* .set_board > div {display: none;}
-    .set_board > div:nth-child(1) {display: block;} */
-    /* .set_board > div:nth-child(2) {display: block;} */
-    /* .set_board > div:nth-child(3) {display: block;} */
-  </style>
 </head>
 
 <body>
@@ -152,8 +145,10 @@
           <!-- 첫번째 -->
           <div class="setting">
             <div class="bg_box">
-              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요. -->
-              <!-- <img src="resources/images/sample/user_profile.png" alt="사용자 이미지"> -->
+              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요.
+                img_box에 img가 없으면 자동으로 기본이미지가 보여집니다.
+                <img src="" alt="사용자 이미지">
+              -->
               <div class="img_box"></div>
               <div class="type">
                 <span class="icon_text_check on">책읽기</span>
@@ -163,14 +158,17 @@
             <h3 class="primary_text"><span>김제니</span>선생님</h3>
 
             <div class="basic_box narrow modify">
-              <textarea name="" id="" cols="30" rows="2" readonly></textarea>
-              <p class="textarea_placeholder">나를 설명하는 키워드로 한 줄 소개를 해주세요.<br>(공백 포함 40자 이내)</p>
+              <textarea name="" id="intro_profile" cols="30" rows="2" readonly></textarea>
+              <p class="placeholder">나를 설명하는 키워드로 한 줄 소개를 해주세요.<br>(공백 포함 40자 이내)</p>
+
+              <!-- [D] text length check가 되어야합니다 -->
+              <p class="length_check">&lpar;<span>0</span>&sol;40&rpar;</p>
               <button type="button" class="btn_edit_profile">수정</button>
             </div>
 
             <div class="flex_box three">
               <div class="basic_box">
-                <!-- [D] 활동시간, 별점, 리뷰 모두 초기값은 0입니다. -->
+                <!-- [D] 활동시간, 별점, 리뷰 모두 초기값은 0입니다. <em>0</em> -->
                 <span class="icon_title clock">활동시간</span>
                 <div class="mark">
                   <em>12</em><span>h</span>
@@ -293,6 +291,295 @@
                 <span class="notice_text">“스케줄설정 메뉴에서 활동가능일정을 설정해주세요”</span>
               </div>
               <a href="schedule_set.html" class="btn_designed">스케줄설정</a>
+
+              <div class="time_schedule">
+                <!-- time_list 왼쪽에 고정된 시간입니다 -->
+                <div class="time_list">
+                  <ul>
+                    <li></li>
+                    <li>08:00</li>
+                    <li>10:00</li>
+                    <li>12:00</li>
+                    <li>14:00</li>
+                    <li>16:00</li>
+                    <li>18:00</li>
+                    <li>20:00</li>
+                    <li>22:00</li>
+                  </ul>
+                </div>
+                <!-- //time_list -->
+      
+                <!-- schedule 오른쪽 table 입니다 -->
+                <div class="schedule">
+                  <div class="schedule_box">
+                    <!-- [D] 
+                      ul 하나 : 하루
+                      li.time_available : 선생님이 수업가능한 시간
+                      list 한 칸(30분) : 8px
+                    -->
+                    <ul>
+                      <li class="title_date">
+                        <span class="dayweek">월</span>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li class="time_available" data-time="0800"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul>
+                      <li class="title_date">
+                        <span class="dayweek">화</span>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul>
+                      <li class="title_date">
+                        <span class="dayweek">수</span>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul>
+                      <li class="title_date">
+                        <span class="dayweek">목</span>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul>
+                      <li class="title_date">
+                        <span class="dayweek">금</span>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul>
+                      <li class="title_date saturday">
+                        <span class="dayweek">토</span>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul>
+                      <li class="title_date sunday">
+                        <span class="dayweek">일</span>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li class="time_available"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- //schedule -->
+              </div>
             </div>
 
           </div>
@@ -301,8 +588,10 @@
           <!-- 두번째 -->
           <div class="review">
             <div class="bg_box">
-              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요. -->
-              <!-- <img src="resources/images/sample/user_profile.png" alt="사용자 이미지"> -->
+              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요.
+                img_box에 img가 없으면 자동으로 기본이미지가 보여집니다.
+                <img src="" alt="사용자 이미지">
+              -->
               <div class="img_box"></div>
               <div class="type">
                 <span class="icon_text_check on">책읽기</span>
@@ -336,8 +625,10 @@
 
           <div class="info">
             <div class="bg_box">
-              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요. -->
-              <!-- <img src="resources/images/sample/user_profile.png" alt="사용자 이미지"> -->
+              <!-- [D] image를 등록하면 img_box에 img를 넣어주세요.
+                img_box에 img가 없으면 자동으로 기본이미지가 보여집니다.
+                <img src="" alt="사용자 이미지">
+              -->
               <div class="img_box"></div>
               <div class="type">
                 <span class="icon_text_check on">책읽기</span>
@@ -387,36 +678,37 @@
                   <th>휴대폰 번호<span>&ast;</span>
                   </th>
                   <td>
-                    <span>010-0000-0000</span>
-                    <input type="text" readonly>
+                    <input type="tel" readonly>
                   </td>
                 </tr>
                 <tr>
                   <th>주소<span>&ast;</span>
                   </th>
                   <td>
-                    <span>경기도 성남시 분당구 대왕판교로 644번길 49, 다산타워 5층</span>
-                    <input type="text" readonly>
+                    <textarea name="" id="" cols="30" rows="2" readonly></textarea>
                   </td>
                 </tr>
                 <tr>
                   <th>연락처<span>&ast;</span></th>
                   <td>
-                    <span>031-000-0000</span>
-                    <input type="text" readonly>
+                    <input type="tel" readonly>
                   </td>
                 </tr>
                 <tr>
                   <th>이메일<span>&ast;</span></th>
                   <td>
-                    <span>user@gmail.com</span>
-                    <input type="text" readonly>
+                    <input type="email" readonly>
                   </td>
                 </tr>
                 <tr>
                   <th>사진<span>&ast;</span></th>
                   <td>
+                    <!-- [D] image를 등록하면 img_box에 img를 넣어주세요.
+                      img_box에 img가 없으면 자동으로 기본이미지가 보여집니다.
+                      <img src="" alt="사용자 이미지">
+                    -->
                     <div class="img_box"></div>
+                    <input type="file" accept="image/*" id="image_file" class="invisible" readonly><label for="image_file" class="add_image">등록하기</label>
                   </td>
                 </tr>
               </tbody>
@@ -444,22 +736,20 @@
                 <tr>
                   <th>경력사항</th>
                   <td>
-                    <p>자란다 새싹 선생님</p>
-                    <p>대교 어린이집 보육교사 1년</p>
+                    <p>자란다 새싹 선생님<br>대교 어린이집 보육교사 1년</p>
                   </td>
                 </tr>
                 <tr>
                   <th>자격증</th>
                   <td>
-                    <p>독서지도사 1급</p>
-                    <p>2020.08.07 한국자격평생교육원</p>
+                    <p>독서지도사 1급<br><span>2020.08.07 한국자격평생교육원</span></p>
                   </td>
                 </tr>
                 <tr>
                   <th>외국어</th>
                   <td>
-                    <p>TOEIC 985점</p>
-                    <p>2019.05.30 YBM</p>
+                    <p>TOEIC 985점<br><span>2019.05.30 YBM</span></p>
+                    <p>아무언어 1급<br><span>2020.02.20 Etc</span></p>
                   </td>
                 </tr>
               </tbody>
@@ -662,6 +952,19 @@ $(document).ready(function () {
     $(this).addClass('save').text('저장');
     thisParentBox.addClass('on');
     thisParentBox.find('input, textarea').prop('readonly', false);
+  });
+
+  // AMR 프로필 본인 소개 textarea 이벤트
+  // #intro_profile 에 값이 없으면 p.placeholder가 보여지고, 값이 있으면 가려집니다
+  $('#intro_profile').on('change', function(){
+    var thisVal = $('#intro_profile').val()
+
+    if ( thisVal.trim() === '' ) {
+      $(this).removeClass('on');
+      $(this).val('');
+      return;
+    }
+    $(this).addClass('on');
   });
 
   // AMR available_area 리스트 삭제
