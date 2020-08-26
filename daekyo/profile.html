@@ -140,7 +140,7 @@
     <!-- m_container -->
     <div id="m_container">
       <div class="user_profile">
-        <h2 class="page_title">독후활동 보기</h2>
+        <h2 class="page_title">My 프로필</h2>
 
         <ul class="set_btn_box">
           <li class="on"><a href="#none">선생님 소개</a></li>
@@ -163,7 +163,8 @@
             <h3 class="primary_text"><span>김제니</span>선생님</h3>
 
             <div class="basic_box narrow modify">
-              <textarea name="" id="" cols="30" rows="2" placeholder="나를 설명하는 키워드로 한 줄 소개를 해주세요.(공백 포함 40자 이내)" readonly></textarea>
+              <textarea name="" id="" cols="30" rows="2" readonly></textarea>
+              <p class="textarea_placeholder">나를 설명하는 키워드로 한 줄 소개를 해주세요.<br>(공백 포함 40자 이내)</p>
               <button type="button" class="btn_edit_profile">수정</button>
             </div>
 
@@ -269,15 +270,17 @@
               </div>
 
               <div class="center_cont">
-                <div>
-                  <div>서울시 관악구 보라매동
-                    <button type="button"><span class="text_invisible">삭제하기</span></button>
-                  </div>
-                  <div>서울시 관악구 봉천동
-                    <button type="button"><span class="text_invisible">삭제하기</span></button>
-                  </div>
-                  <a href="#none">활동가능 지역 추가하기</a>
-                </div>
+                <!-- [D] 활동가능지역 3개까지 설정되어야 합니다. -->
+                <ul class="available_area">
+                  <li class="list">서울시 관악구 보라매동
+                    <button type="button" class="fr area_delete"><span class="text_invisible">삭제하기</span></button>
+                  </li>
+                  <li>서울시 관악구 봉천동
+                    <button type="button" class="fr area_delete"><span class="text_invisible">삭제하기</span></button>
+                  </li>
+                </ul>
+                <!-- [D] #add_available_area 레이어에서 적용버튼 클릭 시 .available_area 에 리스트가 추가되어야 합니다. -->
+                <a href="#add_available_area" class="add_area alert_open">활동가능 지역 추가하기</a>
               </div>
             </div>
 
@@ -312,7 +315,7 @@
               <p>아이들이 스스로 마음을 움직여 자신들만의 꿈을 실현하도록 하고싶습니다.</p>
             </div>
 
-            <div class="basic_box on">
+            <div class="basic_box">
               <span class="icon_title baby_color">선생님 방문일지</span>
               <span>13년생/남아/2시간</span>
               <p>첫 시간인 만큼 연우에 대해 알아보는 시간을 가졌습니다. 연우는 현재 코딩 학원과 미술 학원을 다니며 교과과목 학원은 다니지 않는다고 하였습니다. 그래서 앞으로 과학과 영어 방문을 가볍게 하며 학교 시험이나 퀴즈를 대비해 주려고 합니다. 또한 연우가 미술을 좋아하기 때문에 앞으로 독후감을 쓸 때 책에 대한 이미지를 그림으로 그려보기로 했습니다. 이번 시간에는 연우가 좋아하는 과목, 취미 등을 알아보았고 나머지 한 시간은 Monster Mistake라는 책을 읽고 독후감을 써보았습니다.</p>
@@ -470,75 +473,72 @@
   <!-- //wrap -->
 
   <!-- layer alert -->
-  <!-- 독후활동상세보기 -->
-  <div id="view_after_reading" class="alert_box alert_pop">
+  <!-- 활동가능지역 추가 -->
+  <div id="add_available_area" class="alert_box alert_pop">
     <div class="lyr_cont">
       <div class="title_box">
-        <span class="title">독후활동 상세보기</span>
+        <span class="title">지역을 선택하세요</span>
       </div>
 
+      <!-- cont_box -->
       <div class="cont_box">
-        <div class="img_box">
-          <!-- [D] 
-            이미지 미등록 시 보여지는 기본이미지
-            img_book2x_d2.png
-            
-            이미지 등록 시에는 아래 두군데 모두 같은 이미지로 바뀌어야 합니다.
-            .book_list > .book > .img_box > img
-            #view_after_reading > cont_box > img_box > img
-          -->
-          <img src="resources/images/img_book2x_d2.png" alt="대교 소빅스, 우리 아이가 꿈꾸는 스토리의 모든 것">
+        <div class="flex_box">
+          <!-- [D] 주소
+            .dosi : 도, 시
+            .gu : 구
+            .dong : 동
+           -->
+          <ul class="area_list dosi">
+            <li>도시도</li>
+            <li>도시도넷</li>
+            <li>도시도다섯</li>
+            <li>도시도시여섯</li>
+            <li>도시도시도일곱</li>
+            <li>도시도시도시여덟</li>
+          </ul>
+          <ul class="area_list gu">
+            <li>구구구</li>
+            <li>구구구넷</li>
+            <li>구구구다섯</li>
+            <li>구구구구여섯</li>
+            <li>구구구구구일곱</li>
+            <li>구구구구구구여덟</li>
+          </ul>
+          <ul class="area_list dong">
+            <li>동동동</li>
+            <li>동동동넷</li>
+            <li>동동동다섯</li>
+            <li>동동동동여섯</li>
+            <li>동동동동동일곱</li>
+            <li>동동동동동동여덟</li>
+            <li>동동동</li>
+            <li>동동동</li>
+            <li>동동동</li>
+            <li>동동동</li>
+            <li>동동동</li>
+            <li>동동동</li>
+            <li>동동동</li>
+          </ul>
         </div>
 
-        <!-- audio_player -->
-        <div class="audio_player">
-          <div class="button-items">
-            <audio id="sound" preload="auto">
-              <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
-            </audio>
-
-            <div class="controls">
-              <button type="button" id="play" style="display: block;">
-              </button>
-              <button type="button" id="pause" style="display: none;">
-              </button>
-            </div>
-            <div class="audio_timer">
-              <div class="audio_loading"><span class="text_invisible">로딩중</span></div>
-              <span id="timer">0&colon;00</span>
-            </div>
-            <div id="slider" class="slider">
-              <div id="elapsed" class="elapsed"></div>
-            </div>
-            <span id="timer_endtime">0&colon;04</span>
-          </div>
-        </div>
-        <!-- //audio_player -->
-
-        <!-- book -->
-        <div class="book">
-          <div class="like">
-            <div class="fl info">
-              <span>상상키즈다은이</span>
-              <em>2020.08.08</em>
-            </div>
-            <span>9999</span>
-          </div>
-
-          <div class="desc">
-            <span class="desc_title">아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요.</span>
-            <p>무엇이 세상에서 가장 클까요? 아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요. 처음에는 흰긴수염고래의 꼬리지느러미에서 시작돼요. 무엇이 세상에서 가장 클까요? 아이들의 호기심과 상상력을 자극하는 책이에요. 크기를 단순히 단위로 나타내어 표현하지 않고, 비교를 통해 알려줘요. 처음에는 흰긴수염고래의 꼬리지느러미에서 시작돼요.</p>
-          </div>
-        </div>
-        <!-- ///book -->
+        <input type="text" id="pick_area" readonly>
       </div>
+      <!-- //cont_box -->
     </div>
 
     <div class="lyr_btm">
-      <button type="button" class="alert_close">닫기</button>
+      <div class="dual_box">
+        <div>
+          <button type="button" class="alert_close">취소</button>
+        </div>
+        <div>
+          <!-- [D] 적용버튼 클릭 시 .available_area 에 리스트가 추가되어야 합니다. -->
+          <button type="button" class="alert_close">적용</button>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- //독후활동상세보기 -->
+  <!-- //활동가능지역 추가 -->
   <!-- //layer alert -->
 
 <!-- 공통 script -->
@@ -648,7 +648,7 @@ $(document).ready(function(){
 <!-- 개별 페이지 script -->
 <script type="text/javascript">
 $(document).ready(function () {
-  // AMR 
+  // AMR profile 수정모드 : input available, 저장 : input readonly 처리
   $('.btn_edit_profile').on('click', function(){
     var thisParentBox =  $(this).parents('.basic_box, .basic_table');
 
@@ -663,6 +663,56 @@ $(document).ready(function () {
     thisParentBox.addClass('on');
     thisParentBox.find('input, textarea').prop('readonly', false);
   });
+
+  // AMR available_area 리스트 삭제
+  $('.available_area .area_delete').on('click', function(){
+    $(this).parent('li').remove()
+  })
+
+  // AMR add_available_area 레이어 이벤트
+  $('a[href="#add_available_area"]').on('click', function(){
+    // 주소선택 디자인 효과
+    $('#add_available_area li').on('click', function(){
+      var thisParent = $(this).parent('.area_list');
+
+      if ( thisParent.hasClass('dosi') ) {
+        thisParent.siblings('ul').removeClass('on')
+        thisParent.next('ul').find('li').removeClass('on')
+        thisParent.next('ul').addClass('on')
+      } else if ( thisParent.hasClass('gu') ) {
+        thisParent.siblings('ul').removeClass('on')
+        thisParent.next('ul').find('li').removeClass('on')
+        thisParent.next('ul').addClass('on')
+      }
+
+      thisParent.find('li').removeClass('on');
+      $(this).addClass('on');
+      $('#pick_area').val(createAreaFormat); // input에 선택한 주소표시
+
+      // 선택한 주소 표현식
+      function createAreaFormat() {
+        var dosi = $('#add_available_area .dosi li.on').text();
+        var gu = $('#add_available_area .gu li.on').text();
+        var dong = $('#add_available_area .dong li.on').text();
+        var create = dosi + ' > ' + gu + ' > ' + dong
+        
+        if ( gu === '' ) {
+          create = dosi
+        } else if ( dong === '' ) {
+          create = dosi + ' > ' + gu
+        }
+        return create;
+      }
+    });
+
+    // 레이어를 닫으면 모든 선택 초기화
+    $('#add_available_area .alert_close').on('click', function(){
+      $('#add_available_area ul').removeClass('on')
+      $('#add_available_area li').removeClass('on')
+      $('#add_available_area #pick_area').val('')
+    });
+  });
+
 });
 </script>
 <!-- 개별 페이지 script -->

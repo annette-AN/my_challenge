@@ -361,6 +361,22 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #view_after_reading .book .like .info em {font-size: 10px; color: #616c78;}
 #view_after_reading .book a {display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
 #view_after_reading .lyr_btm {position: fixed; left: 0; bottom: 0;}
+
+#add_available_area {width: 80%; min-width: 272px;}
+#add_available_area .title_box .title {font-size: 12px;}
+#add_available_area .flex_box {margin: 0 0 6px 0;}
+#add_available_area .cont_box {text-align: left;}
+#add_available_area .cont_box ul {overflow: auto; width: 38%; max-height: 280px; visibility: hidden;}
+#add_available_area .cont_box ul:first-child {visibility: visible;}
+#add_available_area .cont_box ul:last-child {width: 24%;}
+#add_available_area .cont_box ul.on {visibility: visible;}
+
+#add_available_area .cont_box ul li {padding: 10px 25px 10px 0; line-height: 14px; font-size: 12px; font-weight: 700;}
+#add_available_area .cont_box ul li.on {color: #e60462; background: url(../images/ico_arw_right_b.svg) no-repeat top 50% right 5px; background-size: auto 24px;}
+#add_available_area .cont_box ul:last-child li.on {color: #e60462; background: none;}
+#add_available_area .cont_box ul:last-child li {padding: 10px 0 10px 0;}
+#add_available_area input[type="text"] {height: 24px; font-size: 10px;}
+
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}
 #fixed_login .visual .visual_logo {width: 170px;}
@@ -598,6 +614,9 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .user_profile .setting .basic_box .icon_title {line-height: 14px; color: #616c78;}
 .user_profile .setting .basic_box textarea {width: calc(100% - 45px); border: none; vertical-align: bottom; color: #414853;}
 .user_profile .setting .basic_box textarea::placeholder {color: #a8b0bc;}
+.user_profile .setting .basic_box textarea + .textarea_placeholder {position: absolute; top: 12px; left: 16px;}
+.user_profile .setting .basic_box.on textarea + .textarea_placeholder {display: none;}
+
 .user_profile .setting .notice {margin: 12px 0 0 0;}
 .user_profile .setting .notice .notice_text {font-size: 8px; color: #616c78;}
 .user_profile .setting .notice .notice_text em {font-size: 8px; font-weight: 700; color: #616c78;}
@@ -608,6 +627,12 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .user_profile .setting .dl_checkbox dt {font-weight: 700; color: #414853;}
 .user_profile .setting .dl_checkbox dd {margin: 6px 0 0 0;}
 .user_profile .setting .dl_checkbox .icon_checkbox label {line-height: 24px;}
+
+.user_profile .setting .available_area {display: inline-block; text-align: center;}
+.user_profile .setting .available_area li {width: fit-content; margin: 12px auto 0 auto; padding: 6px 12px; border-radius: 4px; border: 1px solid #c9d0d8; background: #f4f6f8; color: #414853;}
+.user_profile .setting .available_area li:first-child {margin: 0;}
+.user_profile .setting .available_area li button {width: 12px; height: 12px; margin: 0 0 0 13px; background: url(../images/ico_x.svg) no-repeat 50% 50%; background-size: contain; vertical-align: middle;}
+.user_profile .setting .available_area + .add_area {display: block; width: fit-content; margin: 12px auto 0 auto; padding: 6px 12px; border-radius: 4px; border: 1px solid #c9d0d8; background: #f4f6f8; color: #414853;}
 
 .user_profile .review .basic_box * {line-height: 16px; font-size: 12px;}
 .user_profile .review .basic_box .icon_title {padding: 4px 0 0 22px; background-position: bottom 0 left 0; line-height: 12px; background-size: 16px;}
