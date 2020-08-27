@@ -551,6 +551,7 @@
         </div>
         <!-- //time_schedule -->
 
+        <button id="go_today" type="button">오늘</button>
       </div>
     </div>
     <!-- //m_container -->
@@ -662,6 +663,11 @@
           $(document).off('touchmove', timeTableTouchMove);
           $(document).off('touchend', timeTableTouchEnd);
         }
+
+        $('#go_today').on('click', function(){
+          $('.schedule_box').css({'transform': 'translateX(' + 0 + 'px)'});
+          page = 0;
+        });
       });
     }
     timeTableSwipe();
