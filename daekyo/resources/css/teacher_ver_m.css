@@ -546,7 +546,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 /* //use information page */
 
 /* profile page */
-.icon_title {display: inline-block; padding: 0 0 0 16px; background-size: 12px; font-weight: 700;}
+.icon_title {display: inline-block; padding: 0 0 0 18px; background-size: 12px; font-weight: 700;}
 .icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
 .icon_title.star {background: url(../images/ico_star_l.svg) no-repeat 0 50%; background-size: 12px;}
 .icon_title.bubble {background: url(../images/ico_bubble_l.svg) no-repeat 0 50%; background-size: 12px;}
