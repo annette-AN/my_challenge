@@ -557,8 +557,8 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 14px;}
 .icon_title.baby_color {background: url(../images/ico_baby.svg) no-repeat 0 50%; background-size: 14px;}
 
-.icon_text_check {display: inline-block; padding: 0 0 0 18px; line-height: 12px; font-size: 10px; background: url(../images/ico_check_g.svg) no-repeat 0 50%; background-size: 12px; color: #a8b0bc;}
-.icon_text_check.on {background: url(../images/ico_check.svg) no-repeat 0 50%; background-size: 12px; color: #414853;}
+.icon_text_check {display: inline-block; padding: 0 0 0 18px; line-height: 12px; font-size: 10px; background: url(../images/ico_check_g.svg) no-repeat 0 50%; background-size: 14px; color: #a8b0bc;}
+.icon_text_check.on {background: url(../images/ico_check.svg) no-repeat 0 50%; background-size: 14px; color: #414853;}
 
 .user_profile .icon_title + .mark {margin: 5px 0 0 0;}
 .user_profile .icon_title + .mark em {font-size: 14px; font-weight: 700; color: #414853;}
@@ -569,7 +569,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .user_profile .set_board .img_box {overflow: hidden; display: inline-block; width: 64px; height: 64px; margin: 8px; border-radius: 4px;}
 .user_profile .set_board .img_box:empty {background: #e3e8eb url(../images/ico_avatar.svg) no-repeat 50% 50%;}
 .user_profile .set_board .bg_box .type {position: absolute; top: 0; right: 0; text-align: left;}
-.user_profile .set_board .bg_box .type span {display: block;}
+.user_profile .set_board .bg_box .type span {display: block; font-weight: 700;}
 .user_profile .set_board .bg_box .type span + span {margin: 6px 0 0 0;}
 .user_profile .set_board h3 {margin: 10px 0 0 0; font-weight: 700; text-align: center; letter-spacing: 0;}
 .user_profile .set_board h3 span {font-weight: 700; color: #4b2c7a; letter-spacing: 0;}
@@ -614,7 +614,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .user_profile .basic_table .btn_edit_profile {position: absolute; top: 12px; right: 16px; min-width: 36px; height: 24px; padding: 5px 7px; border-radius: 12px; border: 1px solid #e60462; line-height: 12px; color: #e60462; box-sizing: border-box;}
 .user_profile .basic_table .btn_edit_profile.save {border-color: #4b2c7a!important; color: #4b2c7a!important;}
 
-.user_profile .icon_checkbox label {display: inline-block; margin: 0 0 0 35px; padding: 0 0 0 18px; line-height: 24px; background: url(../images/ico_check_g.svg) no-repeat 0 50%; background-size: 12px;}
+.user_profile .icon_checkbox label {display: inline-block; margin: 0 0 0 30px; padding: 0 0 0 22px; line-height: 24px; background: url(../images/ico_check_g.svg) no-repeat 0 50%; background-size: 14px;}
 .user_profile .icon_checkbox label:first-of-type {margin: 0;}
 .user_profile .icon_checkbox input[type="checkbox"]:checked + label {font-weight: 700; color: #414853; background-image: url(../images/ico_check.svg);}
 .hashtag_checkbox label {display: block; margin: 6px 0 0 0;}
