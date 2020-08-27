@@ -551,6 +551,7 @@
         </div>
         <!-- //time_schedule -->
 
+        <!-- 추가 AMR 200827 -->
         <button id="go_today" type="button">오늘</button>
       </div>
     </div>
@@ -664,6 +665,7 @@
           $(document).off('touchend', timeTableTouchEnd);
         }
 
+        // 추가 AMR 200827 오늘 날짜로 돌아가기
         $('#go_today').on('click', function(){
           $('.schedule_box').css({'transform': 'translateX(' + 0 + 'px)'});
           page = 0;
