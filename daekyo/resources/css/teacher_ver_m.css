@@ -546,16 +546,16 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 /* //use information page */
 
 /* profile page */
-.icon_title {display: inline-block; padding: 0 0 0 18px; background-size: 12px; font-weight: 700;}
-.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.star {background: url(../images/ico_star_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.bubble {background: url(../images/ico_bubble_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.awards {background: url(../images/ico_awards_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.keyword {background: url(../images/ico_keyword_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.baby {background: url(../images/ico_baby_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.pin {background: url(../images/ico_pin_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 12px;}
-.icon_title.baby_color {background: url(../images/ico_baby.svg) no-repeat 0 50%; background-size: 12px;}
+.icon_title {display: inline-block; padding: 0 0 0 18px; background-size: 14px; font-weight: 700;}
+.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.star {background: url(../images/ico_star_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.bubble {background: url(../images/ico_bubble_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.awards {background: url(../images/ico_awards_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.keyword {background: url(../images/ico_keyword_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.baby {background: url(../images/ico_baby_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.pin {background: url(../images/ico_pin_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 14px;}
+.icon_title.baby_color {background: url(../images/ico_baby.svg) no-repeat 0 50%; background-size: 14px;}
 
 .icon_text_check {display: inline-block; padding: 0 0 0 18px; line-height: 12px; font-size: 10px; background: url(../images/ico_check_g.svg) no-repeat 0 50%; background-size: 12px; color: #a8b0bc;}
 .icon_text_check.on {background: url(../images/ico_check.svg) no-repeat 0 50%; background-size: 12px; color: #414853;}
