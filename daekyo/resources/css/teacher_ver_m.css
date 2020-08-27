@@ -375,7 +375,8 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #add_available_area .cont_box ul li.on {color: #e60462; background: url(../images/ico_arw_right_b.svg) no-repeat top 50% right 5px; background-size: auto 24px;}
 #add_available_area .cont_box ul:last-child li.on {color: #e60462; background: none;}
 #add_available_area .cont_box ul:last-child li {padding: 10px 0 10px 0;}
-#add_available_area input[type="text"] {height: 24px; font-size: 10px;}
+#add_available_area input[type="text"] {height: 24px; line-height: 24px; font-size: 10px;}
+#add_available_area input[type="text"]::placeholder {line-height: 24px;}
 
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}
