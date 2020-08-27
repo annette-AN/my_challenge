@@ -585,7 +585,8 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .user_profile .basic_box .title {padding: 0 0 17px 0; border-bottom: 1px solid #e3e8eb;}
 .user_profile .basic_box .awards_list p {color: #414853;}
 .user_profile .basic_box.narrow {padding: 12px 16px;}
-.user_profile .basic_box.narrow p {line-height: 12px; font-size: 10px;}
+.user_profile .basic_box.narrow p,
+.user_profile .basic_box.narrow span {line-height: 12px; font-size: 10px;}
 
 .user_profile .basic_table * {line-height: 16px; font-size: 12px;}
 .user_profile .basic_table {overflow: hidden; table-layout: fixed; width: 100%; margin: 12px 0 0 0; border-radius: 4px; border: 1px solid #e3e8eb; border-collapse: initial;}
