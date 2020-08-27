@@ -670,7 +670,7 @@
                 <tr>
                   <th style="padding-bottom: 16px; color: #414853;">수정가능정보</th>
                   <td>
-                    <button type="button" class="btn_edit_profile">수정</button>
+                    <button type="button" class="btn_edit_profile calc_row">수정</button>
                   </td>
                 </tr>
                 <tr>
@@ -684,7 +684,8 @@
                   <th>주소<span>&ast;</span>
                   </th>
                   <td>
-                    <textarea name="" id="" cols="30" rows="2" readonly></textarea>
+                    <!-- [D] attr 'initial-row' 는 수정모드일 때 사용하는 값입니다. -->
+                    <textarea name="" id="" cols="30" rows="2" initial-row="2" readonly></textarea>
                   </td>
                 </tr>
                 <tr>
@@ -696,7 +697,7 @@
                 <tr>
                   <th>이메일<span>&ast;</span></th>
                   <td>
-                    <input type="email" readonly>
+                    <textarea name="" id="" cols="30" rows="10" initial-row="1" readonly></textarea>
                   </td>
                 </tr>
                 <tr>
@@ -926,11 +927,6 @@ $(document).ready(function(){
     });
   }
   handleTapList();
-
-  // 공통 AMR 200810 bg_effect를 가진 button과 a가 active되면 background 디자인 적용
-  $('button.bg_effect, a.bg_effect').on('touchstart touchend', function () {
-    $(this).toggleClass('on');
-  });
 })
 </script>
 <!-- //공통 script -->
@@ -938,20 +934,50 @@ $(document).ready(function(){
 <!-- 개별 페이지 script -->
 <script type="text/javascript">
 $(document).ready(function () {
-  // AMR profile 수정모드 : input available, 저장 : input readonly 처리
-  $('.btn_edit_profile').on('click', function(){
-    var thisParentBox =  $(this).parents('.basic_box, .basic_table');
+  // AMR profile 수정모드 : input[abled], 뷰모드 : input[readonly]
+  $('.user_profile .btn_edit_profile').on('click', function(){
+    var $thisBtn = $(this);
+    var $thisBtnParentBox =  $(this).parents('.basic_box, .basic_table');
 
-    if( $(this).hasClass('save') ) {
-      $(this).removeClass('save').text('수정');
-      thisParentBox.removeClass('on')
-      thisParentBox.find('input, textarea').prop('readonly', true);
-      return;
+    if ( $thisBtn.hasClass('calc_row modify') ) {
+      // 뷰모드로 바뀔 때 textarea row 계산
+      $thisBtnParentBox.find('textarea').each(function(){
+        $(this).attr('rows', calcTextareaRow($(this)));
+      })
+    } else if ($thisBtn.hasClass('calc_row')) {
+      // 수정모드로 일 때 초기 row 값으로 고정
+      $thisBtnParentBox.find('textarea').each(function(){
+        var initialRow = $(this).attr('initial-row');
+        $(this).attr('rows', initialRow) // 초기값인 initial-row로 고정
+      })
     }
 
-    $(this).addClass('save').text('저장');
-    thisParentBox.addClass('on');
-    thisParentBox.find('input, textarea').prop('readonly', false);
+    if( $thisBtn.hasClass('modify') ) {
+      viewMode();
+      return;
+    }
+    modifyMode();
+
+    function modifyMode() {
+      $thisBtn.addClass('modify').text('저장');
+      $thisBtnParentBox.addClass('on');
+      $thisBtnParentBox.find('input, textarea').prop('readonly', false);
+    }
+
+    function viewMode() {
+      $thisBtn.removeClass('modify').text('수정');
+      $thisBtnParentBox.removeClass('on')
+      $thisBtnParentBox.find('input, textarea').prop('readonly', true);
+    }
+
+    // AMR textarea가 뷰모드일 때 row 계산
+    function calcTextareaRow(selector) {
+      var scrollHeight = selector.prop('scrollHeight');
+      var lineHeightProperty = selector.css('line-height');
+      var lineHeight = Number(lineHeightProperty.replace('px', ''))
+      var rows = Math.floor(scrollHeight/lineHeight); //line-height로 나누어 몇 줄인지 계산
+      return rows
+    }
   });
 
   // AMR 프로필 본인 소개 textarea 이벤트
