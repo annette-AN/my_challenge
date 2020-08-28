@@ -639,6 +639,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .user_profile .setting .basic_box textarea.on + .placeholder {display: none;}
 .user_profile .setting .basic_box .length_check {display: none; position: absolute; bottom: 12px; right: 60px; font-size: 8px;}
 .user_profile .setting .basic_box.on .length_check {display: block;}
+.user_profile .setting .basic_box .length_check span {font-size: 8px;}
 
 .user_profile .setting .notice {margin: 14px 0 0 0;}
 .user_profile .setting .notice .notice_text {font-size: 10px; color: #616c78;}
