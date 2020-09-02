@@ -677,7 +677,14 @@
                   <th>휴대폰 번호<span>&ast;</span>
                   </th>
                   <td>
-                    <input type="tel" readonly>
+                    <div class="flex_box">
+                      <div>
+                        <input type="tel" readonly>
+                      </div>
+                      <div>
+                        <a href="#certification_cellphone" class="btn_certification alert_open">인증받기</a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -691,7 +698,14 @@
                 <tr>
                   <th>연락처<span>&ast;</span></th>
                   <td>
-                    <input type="tel" readonly>
+                    <div class="flex_box">
+                      <div>
+                        <input type="tel" readonly>
+                      </div>
+                      <div>
+                        <a href="#certification_email" class="btn_certification alert_open" disabled>인증완료</a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -830,6 +844,77 @@
     </div>
   </div>
   <!-- //활동가능지역 추가 -->
+
+  <!-- 휴대폰번호 수정 -->
+  <div id="certification_cellphone" class="alert_box alert_pop">
+    <div class="lyr_cont">
+      <div class="title_box">
+        <span class="title">휴대폰 인증</span>
+      </div>
+
+      <!-- cont_box -->
+      <div class="cont_box">
+        <span class="cont_desc">휴대폰 문자메시지로 전송된 <strong>숫자 6자리</strong>를 정확하게 입력해주세요.</span>
+
+        <div class="flex_box">
+          <div>
+            <input type="text">
+          </div>
+          <div>
+            <button type="button" class="btn_resend">재전송</button>
+          </div>
+        </div>
+
+        <!-- [D] p 태그에 'on' 클래스를 떼면 display: none 이 됩니다  -->
+        <p class="t_warning primary_text_s on">
+          인증번호가 일치하지 않습니다.<br>
+          다시한번 정확하게 입력해주세요.
+        </p>
+
+        <!-- [D] p 태그에 'on' 클래스를 떼면 display: none 이 됩니다  -->
+        <p class="t_warning primary_text_s on">
+          <em>입력시간이 초과</em>되었습니다.<br>
+          <em>재전송</em>을 눌러 인증번호를 다시 받아주세요.
+        </p>
+      </div>
+      <!-- //cont_box -->
+    </div>
+
+    <div class="lyr_btm">
+      <div class="dual_box">
+        <div>
+          <button type="button" class="alert_close">취소</button>
+        </div>
+        <div>
+          <!-- [D] 적용버튼 클릭 시 .available_area 에 리스트가 추가되어야 합니다. -->
+          <button type="button" class="alert_close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //휴대폰번호 수정 -->
+
+  <!-- 이메일 수정 -->
+  <div id="certification_email" class="alert_box alert_pop">
+    <div class="lyr_cont">
+      <div class="title_box">
+        <span class="title">이메일 인증</span>
+      </div>
+
+      <!-- cont_box -->
+      <div class="cont_box">
+        <p class="cont_desc">인증 메일이 <strong>Jennie00@gmail.com</strong>(으)로 전송되었습니다. 받으신 이메일을 열어 인증버튼을 클릭하시면 인증이 완료됩니다.</p>
+
+        <p class="cont_desc">메일이 도착하지 않는다면 <strong>스팸편지함을 확인</strong>하시거나, <strong>다시한번 인증</strong>을 시도해주세요.</p>
+      </div>
+      <!-- //cont_box -->
+    </div>
+
+    <div class="lyr_btm">
+      <button type="button" class="alert_close">확인</button>
+    </div>
+  </div>
+  <!-- //이메일 수정 -->
   <!-- //layer alert -->
 
 <!-- 공통 script -->

@@ -376,7 +376,11 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #add_available_area .cont_box ul:last-child li.on {color: #e60462; background: none;}
 #add_available_area .cont_box ul:last-child li {padding: 10px 0 10px 0;}
 #add_available_area textarea {height: auto; padding: 5px 12px; line-height: 14px; font-size: 10px;}
-#add_available_area textarea::placeholder {}
+
+#certification_cellphone input[type="text"] {height: 32px;}
+#certification_cellphone .flex_box {margin: 16px 0 0 0;}
+#certification_cellphone .t_warning {margin: 16px 0 0 0;}
+
 
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}
@@ -432,7 +436,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 .visit_table #go_today {position: fixed; top: 70%; right: 16px; width: 48px; height: 48px; border-radius: 24px; background: #fff; box-shadow: 0 6px 6px 0px rgba(0, 0, 0, 0.16); font-size: 12px; font-weight: 700; color: #616c78; z-index: 5;}
 
-/* 추가 NBR 200807 schedule setting page */
+/* NBR 200807 schedule setting page */
 .schedule_set_area {width: 100%;}
 .schedule_set_area .set_board > div {width: 100%; padding: 0 22px;}
 
@@ -547,6 +551,53 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .accordion_lst li .accordion_title.on ~ .accordion_detail {height: auto; padding: 16px; transform: scaleY(1);}
 /* //use information page */
 
+/*  income details page - 200824 NBR */
+.month_nav {height: 48px; line-height: 48px; text-align: center;}
+.month_nav button {width: 24px; height: 24px; margin: 12px 0; border: 1px solid #e3e8eb; border-radius: 4px;}
+.month_nav button.btn_disabled {border-color: #f4f6f8;}
+.month_nav .btn_prev {float: left; background: url('../images/ico_arw_left_b.svg')50% 50% no-repeat;}
+.month_nav .btn_prev.btn_disabled {float: left; background: url('../images/ico_arw_left_g.svg')50% 50% no-repeat;}
+.month_nav .btn_next {float: right; background: url('../images/ico_arw_right_b.svg')50% 50% no-repeat;}
+.month_nav .btn_next.btn_disabled {float: right; background: url('../images/ico_arw_right_g.svg')50% 50% no-repeat;}
+.month_nav .month {color: #e60462; font-size: 24px; font-weight: 900;}
+.month_nav .year {color: #e60462;}
+.info_box {margin: 23px 0 24px; padding: 12px; border: 1px solid #f4f6f8}
+.info_box h3 {margin: 0 0 12px; font-size: 12px; font-weight: 800; line-height: 13px; text-align: center;}
+.info_box .info_lst li {color: #616c78; font-size: 10px; line-height: 16px;}
+.info_box .info_lst li ul {margin: 0 0 0 10px;}
+.info_box .info_lst li strong {color: #616c78; font-size: 10px; font-weight: 800;}
+.total_income {height: 48px; margin: 0 0 25px; padding:  0 24px; border: 2px solid #e3e8eb; border-radius: 24px; line-height: 44px;}
+.total_income > em {float: left; color: #616c78; font-size: 10px; font-weight: 800;}
+.total_income > em em,
+.total_income > em span {color: #616c78; font-size: 10px; font-weight: 800;}
+.total_income > em.fix span {display: none;}
+.total_income > span {float: right; color: #e60662; font-size: 12px;}
+.total_income > span strong {color: #e60662; font-size: 16px; font-weight: 800;}
+.income_lst {border-top: 1px solid #e3e8eb;}
+.income_lst li {border-bottom: 1px solid #e3e8eb;}
+.income_lst li .income_date {height: 36px; padding: 0 52px 0 0;}
+.income_lst li .income_date.on {height: 36px; min-height: inherit;}
+.income_lst li .income_date.on ~ .income_detail {padding: 12px 24px;}
+.income_lst li .income_date > span {display: inline-block; left: 12px; width: auto;}
+.income_lst li .income_date > span em {font-size: 12px; font-weight: 800;}
+.income_lst li .income_date > em {float: right; padding: 9px 0 0; font-size: 10px;}
+.income_lst li .income_date > em strong {font-size: 14px; font-weight: 800; vertical-align: middle;}
+.income_lst li .income_detail {width: 100%;}
+.income_lst li .income_detail .detail_lst li {border: none; color: #616c78; font-size: 12px; line-height: 16px;}
+.income_lst li .income_detail .detail_lst li span {color: #616c78; font-size: 12px;}
+.income_lst li .income_detail .detail_lst li span em {color: #616c78; font-size: 12px;}
+.income_lst li .income_detail .detail_lst li > em {float: right; color: #616c78; font-size: 10px;}
+.income_lst li .income_detail .detail_lst li > em strong {color: #616c78; font-size: 12px;}
+.income_lst li.exception .income_date > span,
+.income_lst li.exception .income_date > em,
+.income_lst li.exception .income_date > em strong {color: #fa4730;}
+.income_lst li.exception .income_date > em strong,
+.income_lst li.exception .income_date > em strong {position: relative;}
+.income_lst li.exception .income_detail .detail_lst li > em {color: #616c78; font-size: 12px;}
+.income_lst li.reward .income_date > em strong:before {content: '+'; position: absolute; left: -8px;}
+.income_lst li.penalty .income_date > em strong:before {content: '-'; position: absolute; left: -8px;}
+/* // income details page */
+
 /* profile page */
 .icon_title {display: inline-block; padding: 0 0 0 18px; background-size: 14px; font-weight: 700;}
 .icon_title.clock {background: url(../images/ico_clock_l.svg) no-repeat 0 50%; background-size: 14px;}
@@ -657,7 +708,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .user_profile .setting .available_area li:first-child {margin: 0;}
 .user_profile .setting .available_area li button {position: absolute; top: 50%; right: 12px; transform: translate(0, -50%); width: 12px; height: 12px; background: url(../images/ico_x.svg) no-repeat 50% 50%; background-size: contain; vertical-align: middle;}
 .user_profile .setting .available_area + .add_area {display: block; width: 140px; margin: 12px auto 0 auto; padding: 6px 0; border-radius: 4px; border: 1px solid #c9d0d8; background: #f4f6f8; color: #414853;}
-/* timeschedule */
+
 .user_profile .setting .time_schedule {position: relative; display: flex; margin: 16px 0 0 0; border-top: 2px solid #e3e8eb; border-bottom: 2px solid #e3e8eb; text-align: center;}
 
 .user_profile .setting .time_schedule .time_list {width: 55px; pointer-events: none;}
@@ -683,6 +734,16 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 .user_profile .review .basic_box .icon_title {padding: 4px 0 0 22px; background-position: bottom 0 left 0; line-height: 12px; background-size: 16px;}
 .user_profile .review .basic_box span + p {margin: 10px 0 0 0;}
+
+.user_profile .info .btn_certification {display: none; height: 24px; padding: 7px 8px 0 8px; border-radius: 4px; background: #4b2c7a; line-height: 10px; font-size: 10px; font-weight: 700; color: #fff; text-align: center;}
+.user_profile .info .btn_certification[disabled] {pointer-events: none; border-color: #e3e8eb!important; background: #c9d0d8!important; color: #fff!important;}
+
+.user_profile .info .basic_table .flex_box div:first-child {width: 100%;}
+.user_profile .info .basic_table .flex_box div:nth-child(2) {display: none;}
+
+.user_profile .info .basic_table.on .flex_box div:first-child {width: calc(100% - 62px); margin: 0 10px 0 0;}
+.user_profile .info .basic_table.on .flex_box div:nth-child(2) {display: block; width: 52px;}
+.user_profile .info .basic_table.on .btn_certification {display: block;}
 /* profile page */
 
 /* NBR fullcalendar */
