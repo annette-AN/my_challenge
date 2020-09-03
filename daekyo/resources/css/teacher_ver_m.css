@@ -386,7 +386,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #certification_cellphone .t_warning {margin: 16px 0 0 0;}
 #certification_cellphone .btn_resend {position: relative; width: 100%; height: 100%; font-weight: 700;}
 #certification_cellphone .btn_resend:before {content: ''; display: block; position: absolute; bottom: 7px; left: 50%; transform: translate(-50%, 0); width: 42px; height: 1px; background: #414853;}
-#certification_cellphone .time {position: absolute; top: 8px; right: 8px; font-weight: 700; color: #616c78; letter-spacing: 0;}
+#certification_cellphone .time {position: absolute; top: 9px; right: 8px; font-weight: 700; color: #616c78; letter-spacing: 0;}
 
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}
