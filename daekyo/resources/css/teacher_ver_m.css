@@ -262,6 +262,8 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 
 .alert_box .lyr_cont input[type="text"] {width: 100%; height: 36px; padding: 0 12px; border-radius: 4px; border: 1px solid #c9d0d8; font-size: 12px;}
 .alert_box .lyr_cont input[type="text"]::placeholder {color: #a8b0bc;}
+.alert_box .lyr_cont input[type="number"] {width: 100%; height: 36px; padding: 0 12px; border-radius: 4px; border: 1px solid #c9d0d8; font-size: 12px;}
+.alert_box .lyr_cont input[type="number"]::placeholder {color: #a8b0bc;}
 .alert_box .lyr_cont textarea {width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #c9d0d8; line-height: 16px; font-size: 12px;}
 .alert_box .lyr_cont textarea::placeholder {color: #a8b0bc;}
 .alert_box .lyr_btm {width: 100%; height: 36px; margin: 0;}
@@ -377,10 +379,14 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #add_available_area .cont_box ul:last-child li {padding: 10px 0 10px 0;}
 #add_available_area textarea {height: auto; padding: 5px 12px; line-height: 14px; font-size: 10px;}
 
-#certification_cellphone input[type="text"] {height: 32px;}
+#certification_cellphone input[type="number"] {height: 32px; padding-right: 52px;}
 #certification_cellphone .flex_box {margin: 16px 0 0 0;}
+#certification_cellphone .flex_box div:first-child {position: relative; width: calc(100% - 66px); margin: 0 10px 0 0;}
+#certification_cellphone .flex_box div:nth-child(2) {width: 56px;}
 #certification_cellphone .t_warning {margin: 16px 0 0 0;}
-
+#certification_cellphone .btn_resend {position: relative; width: 100%; height: 100%; font-weight: 700;}
+#certification_cellphone .btn_resend:before {content: ''; display: block; position: absolute; bottom: 7px; left: 50%; transform: translate(-50%, 0); width: 42px; height: 1px; background: #414853;}
+#certification_cellphone .time {position: absolute; top: 8px; right: 8px; font-weight: 700; color: #616c78; letter-spacing: 0;}
 
 /* login page */
 #fixed_login .visual {padding: 70px 0 50px 50px; background: url(../images/bg_visual.svg) no-repeat top -120px right -150px;}

@@ -682,6 +682,8 @@
                         <input type="tel" readonly>
                       </div>
                       <div>
+                        <!-- [D] 인증완료 시 attr:disabled, text:인증완료 가 되어야 합니다. -->
+                        <!-- <a href="#certification_cellphone" class="btn_certification alert_open" disabled>인증완료</a> -->
                         <a href="#certification_cellphone" class="btn_certification alert_open">인증받기</a>
                       </div>
                     </div>
@@ -698,20 +700,22 @@
                 <tr>
                   <th>연락처<span>&ast;</span></th>
                   <td>
-                    <div class="flex_box">
-                      <div>
-                        <input type="tel" readonly>
-                      </div>
-                      <div>
-                        <a href="#certification_email" class="btn_certification alert_open" disabled>인증완료</a>
-                      </div>
-                    </div>
+                    <input type="tel" readonly>
                   </td>
                 </tr>
                 <tr>
                   <th>이메일<span>&ast;</span></th>
                   <td>
-                    <textarea name="" id="" cols="30" rows="1" initial-row="1" readonly></textarea>
+                    <div class="flex_box">
+                      <div>
+                        <textarea name="" id="" cols="30" rows="1" initial-row="1" readonly></textarea>
+                      </div>
+                      <div>
+                        <!-- [D] 인증완료 시 attr:disabled, text:인증완료 가 되어야 합니다. -->
+                        <!-- <a href="#certification_email" class="btn_certification alert_open" disabled>인증완료</a> -->
+                        <a href="#certification_email" class="btn_certification alert_open">인증받기</a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -858,7 +862,8 @@
 
         <div class="flex_box">
           <div>
-            <input type="text">
+            <input type="number">
+            <span class="time">03:00</span>
           </div>
           <div>
             <button type="button" class="btn_resend">재전송</button>
