@@ -54,13 +54,15 @@
           </div>
         </div>
         <div class="gnb_box gnb_card">
-          <a href="visit_timetable.html" class="card">
+          <!-- 추가 AMR 200908 스케줄 비활성 input.scd_disable on일 경우
+            gnb 메뉴 비활성 : 방문시간표, 방문관리, 정산내역 -->
+          <a href="visit_timetable.html" class="card" disabled>
             <img src="resources/images/ico_clock.svg" alt="방문시간표">
             <span class="primary_text primary_text_s">
               방문시간표
             </span>
           </a>
-          <a href="visit_management.html" class="card">
+          <a href="visit_management.html" class="card" disabled>
             <img src="resources/images/ico_schedule.svg" alt="방문관리">
             <span class="primary_text primary_text_s">
               방문관리
@@ -72,7 +74,7 @@
               스케줄 설정
             </span>
           </a>
-          <a href="#none" class="card">
+          <a href="#none" class="card" disabled>
             <img src="resources/images/ico_folder.svg" alt="정산내역">
             <span class="primary_text primary_text_s">
               정산내역
@@ -142,7 +144,11 @@
           <div class="cont_slt_time">
             <div class="btn_option_group">
               <!-- [D] 체크 시 (#scdl_disable) 팝업 등장 / 해제 시 (#scdl_activate) 팝업 등장 
-                                스케줄을 비활성화 할 수 없는 경우: 매칭완료 및 활동 중인 방문이 있는 경우 (#scdl_disable_ipsb) 팝업 등장-->
+                스케줄을 비활성화 할 수 없는 경우: 매칭완료 및 활동 중인 방문이 있는 경우 (#scdl_disable_ipsb) 팝업 등장
+
+                추가 AMR 200908 스케줄 비활성 input.scd_disable on일 경우
+                gnb 메뉴 비활성 : 방문시간표, 방문관리, 정산내역
+              -->
               <div class="btn_scdl_disable btn_option">
                 <input type="checkbox" id="scd_disable">
                 <label for="scd_disable">스케줄 비활성화</label>
@@ -612,8 +618,8 @@
           },
         },
         validRange: {
-          start: moment().add("3", "d").format("YYYY-MM-DD"),
-          end: moment().add("100", "d").format("YYYY-MM-DD"),
+          start: moment().add("4", "d").format("YYYY-MM-DD"),
+          end: moment().add("93", "d").format("YYYY-MM-DD"),
         }
       });
       calendar.render();
