@@ -31,6 +31,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #gnb {display: none; overflow: auto; position: fixed; top: 0; left: 100%; width: 260px; height: 100%; transform: translate(0, 0); transition: transform 0.2s; z-index: 100; background: #f4f6f8;}
 #gnb.on {transform: translate(-100%, 0);}
 
+#gnb a[disabled] {opacity: 0.15;}
 #gnb .gnb_box {margin: 12px 0 0 0; background: #fff;}
 #gnb .gnb_box:first-child {margin: 0;}
 #gnb .gnb_box .primary_text {font-weight: 800;}
