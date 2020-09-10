@@ -148,7 +148,9 @@
             <div class="card">
               <!-- card_info -->
               <div class="card_info">
+                <!-- 추가 AMR 200910 매칭상태가 매칭진행중 일 때만 신청시간을 제공한다 -->
                 <span class="requested_time">2020-06-05 10:18</span>
+
                 <!-- [D] 매칭상태
                   (신청된방문) 매칭상태표시 종류 1가지
                   1. in_progress : 매칭진행중
@@ -232,7 +234,8 @@
 
                 <div class="flex_box btn_box card_on_hidden">
                   <div><button type="button" class="btn_card_open bg_effect btn_line_primary">신청내용</button></div>
-                  <div><a href="bookshelf_view.html" class="bg_effect btn_line_primary">책장보기</a></div>
+                  <!-- 추가 AMR 200910 신청된 방문에서는 책장보기가 비활성화 된다 -->
+                  <div><a href="bookshelf_view.html" class="bg_effect btn_line_primary" disabled>책장보기</a></div>
                   <div><button type="button" class="bg_effect btn_line_secondary">신청수락</button></div>
                 </div>
 
@@ -269,7 +272,7 @@
 
                 <div>
                   <span class="visit_time">
-                    2020.6.19 &lpar;금&rpar; 14:00~16:00
+                    2020.6.19~2020.7.2 매주 &lpar;금&rpar; 14:00~16:00
                     <span>&lpar;2시간&rpar;</span>
                   </span>
                   <span class="visit_time_info card_on_show">선생님과 다른 일정으로 조율이 가능해요!</span>
@@ -303,7 +306,7 @@
 
                 <div class="flex_box btn_box card_on_hidden">
                   <div><button type="button" class="btn_card_open bg_effect btn_line_primary">신청내용</button></div>
-                  <div><a href="bookshelf_view.html" class="bg_effect btn_line_primary">책장보기</a></div>
+                  <div><a href="bookshelf_view.html" class="bg_effect btn_line_primary" disabled>책장보기</a></div>
                   <div><button type="button" class="bg_effect btn_line_secondary">신청수락</button></div>
                 </div>
 
@@ -321,7 +324,6 @@
             <div class="card">
               <!-- card_info -->
               <div class="card_info">
-                <span class="requested_time">2020-06-05 10:18</span>
                 <!-- [D] 매칭상태
                   (신청된방문) 매칭상태표시 종류 1가지
                   1. in_progress : 매칭진행중
@@ -444,7 +446,6 @@
             <div class="card">
               <!-- card_info -->
               <div class="card_info">
-                <span class="requested_time">2020-06-05 10:18</span>
                 <div class="status_box">
                   <a href="#register_noshow" class="no_show alert_open" disabled>노-쇼등록</a>
                   <span class="scheduled">방문예정</span>
@@ -524,7 +525,6 @@
             <div class="card">
               <!-- card_info -->
               <div class="card_info">
-                <span class="requested_time">2020-06-05 10:18</span>
                 <div class="status_box">
                   <a href="#register_noshow" class="no_show alert_open">노-쇼등록</a>
                   <span class="scheduled">방문예정</span>
@@ -608,7 +608,6 @@
             <div class="card">
               <!-- card_info -->
               <div class="card_info">
-                <span class="requested_time">2020-06-05 10:18</span>
                 <!-- [D] 매칭상태
                   (신청된방문) 매칭상태표시 종류 1가지
                   1. in_progress : 매칭진행중
@@ -724,7 +723,6 @@
             <div class="card">
               <!-- card_info -->
               <div class="card_info">
-                <span class="requested_time">2020-06-05 10:18</span>
                 <div class="status_box">
                   <button type="button" class="visit_complete" disabled>방문완료</button>
                   <a href="#teacher_review" class="visit_note alert_open" disabled>방문일지</a>
@@ -1033,7 +1031,7 @@
       },
       validRange: {
         start: moment().add("1", "d").format("YYYY-MM-DD"),
-        end: moment().add("93", "d").format("YYYY-MM-DD"),
+        end: moment().add("90", "d").format("YYYY-MM-DD"),
       }
     });
 
