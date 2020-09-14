@@ -202,6 +202,13 @@
                 </div>
               </div>
               <!-- //card -->
+
+              <!-- card -->
+              <!-- [D] 추가 AMR 200914 card -->
+              <div class="card">
+                <p><em>'무엇'</em>을(를) 포함한 제목의 책이 없습니다.</p>
+              </div>
+              <!-- //card -->
             </div>
           </div>
           <div>
@@ -229,6 +236,13 @@
                   <div><a href="#register_after_reading" class="alert_open bg_effect btn_line_primary">독후활동 등록</a></div>
                   <div><a href="bookshelf_after.html" class="bg_effect btn_line_primary">독후활동 보기</a></div>
                 </div>
+              </div>
+              <!-- //card -->
+
+              <!-- card -->
+              <!-- [D] 추가 AMR 200914 card -->
+              <div class="card">
+                <p>읽은 책이 없습니다.</p>
               </div>
               <!-- //card -->
             </div>
@@ -260,6 +274,13 @@
                 </div>
               </div>
               <!-- //card -->
+
+              <!-- card -->
+              <!-- [D] 추가 AMR 200914 card -->
+              <div class="card">
+                <p>읽지 않은 책이 없습니다.</p>
+              </div>
+              <!-- //card -->
             </div>
           </div>
         </div>
@@ -287,9 +308,13 @@
         </div>
         <!-- //book_info -->
         <input type="text" placeholder="독후활동 제목을 입력하세요.">
-        <textarea name="" id="" cols="10" rows="7" placeholder="독후활동 내용을 입력하세요."></textarea>
+        
+        <!-- [D] 추가 AMR 200914 1000자 체크가 되어야 합니다. -->
+        <textarea name="" id="" cols="10" rows="7" placeholder="독후활동 내용을 띄어쓰기 포함 1000자 이내로 입력하세요."></textarea>
 
         <div class="upload_box">
+          <!-- [D] 추가 AMR 200914 업로드 안내 문구 -->
+          <p class="upload_info">음성파일 등록 시<br>5MB이하로 제한</p>
           <div class="upload_file">
             <!-- [D] 파일을 선택하면 label class에 'on' 이 추가되면서 비활성화 디자인이 됩니다 
               파일은 총 2개 (이미지파일 1개 오디오파일 1개) 만 추가 가능합니다.
@@ -307,6 +332,9 @@
             <div class="image_file"></div>
             <div class="voice_file"></div>
           </div>
+
+          <!-- [D] 추가 AMR 200914 'hide' class를 추가하면 dispaly: none 이 됩니다. -->
+          <p class="primary_text_s t_warning"><em>5MB</em>이내의 음성파일을 등록해주세요.</p>
         </div>
 
       </div>

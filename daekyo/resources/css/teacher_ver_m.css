@@ -165,6 +165,9 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .card_list .card.on .card_on_show {display: block;}
 .card_list .card.on .flex_box.card_on_show {display: flex;}
 
+.card_list .card > p {padding: 26px 0; font-size: 14px; color: #a8b0bc; text-align: center;}
+.card_list .card > p em {font-size: 14px; font-weight: 700; color: #a8b0bc;}
+
 .card_list .read_ico {display: inline-block; padding: 0 0 0 22px; font-weight: 700; background: url(../images/ico_book_open.svg) no-repeat 0 0;}
 .card_list .requested_time {display: inline-block; line-height: 25px; font-size: 10px; color: #a8b0bc;}
 .card_list .status_box {float: right; text-align: right;}
@@ -363,6 +366,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 #view_after_reading .book .like > span {display: inline-block; padding: 0 0 0 16px; font-size: 10px; background: url(../images/ico_favorite.svg) no-repeat 0 0; background-size: contain;}
 #view_after_reading .book .like .info span {display: inline-block; margin: 0 4px 0 0; font-size: 10px; font-weight: 700;}
 #view_after_reading .book .like .info em {font-size: 10px; color: #616c78;}
+#view_after_reading .book .like .info em + span {color: #a8b0bc;}
 #view_after_reading .book a {display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
 #view_after_reading .lyr_btm {position: fixed; left: 0; bottom: 0;}
 
@@ -472,7 +476,11 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .book_info span {display: block; margin: 6px 0 0 0; padding: 0 0 0 22px; font-weight: 700; color: #616c78;}
 .book_info .book_title {background: url(../images/ico_favorite.svg) no-repeat 0 0; font-size: 14px; font-weight: 700; color: #414853;}
 
-.upload_box {margin: 10px 0 0 0;}
+.upload_box {position: relative; margin: 10px 0 0 0;}
+.upload_box .upload_info {position: relative; float: left; margin: 5px 10px 0 0; line-height: 14px; font-size: 10px; color: #616c78;}
+.upload_box .upload_info:before {content: '*'; display: block; position: absolute; top: 0; left: -7px;}
+.upload_box .t_warning {margin: 12px 0 0 0; text-align: center;}
+
 .upload_box .upload_file {display: inline-flex;}
 .upload_box .upload_file label {width: 36px; height: 36px; margin: 0 0 0 10px; border: 1px solid #c9d0d8; border-radius: 4px; background: url(../images/ico_camera.svg) no-repeat 50% 50%;}
 .upload_box .upload_file label:first-of-type {margin: 0; background: url(../images/ico_gallery.svg) no-repeat 50% 50%;}
