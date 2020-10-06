@@ -1,0 +1,54 @@
+html, body {height: 100%;}
+body {font-size: 16px; text-align: center;}
+table {width: 100%; table-layout: fixed; text-align: center;}
+
+#wrap {display: inline-block; max-width: 1600px; width: 100%; min-width: 1024px; height: 100%; padding: 0 32px; text-align: left; background: #fff;}
+
+.fl {float: left;}
+.fr {float: right;}
+.elipsis {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+.text_hide {line-height: 0!important; font-size: 0!important; text-indent: -999px!important;}
+.notice_soft {color: #a8b0bc;}
+
+#header {width: 100%; margin: 20px 0 0 0; background: #fff;}
+#header .logo {display: inline-block; width: auto; height: 80px; vertical-align: middle;}
+#header .logo img {height: 100%;}
+#header h1 {display: inline-block; margin: 0 0 0 10px; vertical-align: middle; font-size: 20px; font-weight: 800; color: #4b2c7a;}
+#header h1 span {font-size: 20px; font-weight: 800; color: #e60062;}
+
+#container {min-height: calc(100% - 148px);}
+
+#footer {padding: 18px 0; background: #fff;}
+#footer .copyright {line-height: 12px; font-size: 12px; text-align: center;}
+
+.no_show * {font-size: 16px;}
+.no_show .content {padding: 48px 0 0 0;}
+.no_show .no_show_top {overflow: hidden;}
+.no_show .search {position: relative; width: 320px; padding: 8px 24px; border-radius: 24px; background: #f4f6f8;}
+.no_show .search input[type=text] {width: 222px; background: #f4f6f8; line-height: 32px; font-weight: 700;}
+.no_show .search input[type=text]::placeholder {color: #c9d0d8;}
+.no_show .search .btn_search {overflow: hidden; position: absolute; top: 0; right: 0; width: 50px; height: 48px; border-radius: 0 24px 24px 0; background: url(../images/ico_search.svg) no-repeat 50% 50%;}
+.no_show .guide_info p {line-height: 16px; font-size: 12px; letter-spacing: -0.5px;}
+.no_show .table_wrap {margin: 24px 0 0 0; border-top: 2px solid #c9d0d8;}
+.no_show table thead th,
+.no_show table tbody td {padding: 0 10px;}
+.no_show table thead th {border-bottom: 2px solid #e3e8eb; letter-spacing: -0.7px; font-weight: 700;}
+.no_show table thead tr:first-child th {height: 48px;}
+.no_show table thead tr:last-child th {height: 60px;}
+.no_show table thead .notice_soft {border-width: 1px; font-size: 14px;}
+
+.no_show table tbody td {height: 80px;}
+.no_show table tbody td .name {font-weight: 700;}
+.no_show table tbody tr td:nth-child(4) {text-align: left; letter-spacing: -0.7px; cursor: pointer;}/*주소*/
+.no_show table tbody tr td:nth-child(8) {font-weight: 700;}/*노쇼요청*/
+
+.no_show .btn_complete {min-width: 80px; height: 36px; border-radius: 4px; background: #e60062; color: #fff; transition: box-shadow .2s;}
+.no_show .btn_complete:hover {box-shadow: 0 6px 6px 0 rgba(230, 0, 98, 0.25);}
+.no_show .btn_complete:disabled {background: #f4f6f8; color: #a8b0bc;}
+.no_show .btn_complete:disabled:hover {box-shadow: none;}
+.no_show .check_no_show button {width: 36px; height: 36px; border-radius: 4px; border: 1px solid #c9d0d8; font-weight: 700; transition: background-color .2s;}
+.no_show .check_no_show button:hover {background-color: #f4f6f8;}
+.no_show .check_no_show button:disabled {border-color: #f4f6f8; background-color: #f4f6f8; color: #a8b0bc;}
+.no_show .check_no_show button.active {background-color: #4b2c7a; color: #fff;}
+.no_show .check_no_show button:first-child {margin: 0 10px 0 0;}

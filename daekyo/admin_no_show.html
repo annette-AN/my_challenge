@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <!-- favicon mobile web 체크 -->
+                <link rel="apple-touch-icon" sizes="180x180" href="resources/images/favicon/apple-touch-icon.png">
+                <link rel="manifest" href="resources/images/favicon/site.webmanifest">
+  <!-- css -->
+  <link rel="stylesheet" href="resources/css/font.css">
+  <link rel="stylesheet" href="resources/css/reset.css">
+  <link rel="stylesheet" href="resources/css/admin_pc.css">
+  <!-- js -->
+  <script type="text/javascript" src="resources/js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="resources/js/fullCalendar.js"></script>
+  <script type="text/javascript" src="resources/js/fullCalendar_locale_ko.js"></script>
+  <script type="text/javascript" src="resources/js/moment.min.js"></script>
+  <title>No-Show Admin</title>
+</head>
+<body>
+  <!-- #wrap -->
+  <div id="wrap" class="no_show">
+    <!-- #header -->
+    <div id="header">
+      <div class="logo">
+        <img src="resources/images/logo_daekyo.svg" alt="대교 상상 키즈 로고">
+      </div>
+      <h1><span>No-Show</span> Admin</h1>
+    </div>
+    <!-- //#header -->
+
+    <!-- container -->
+    <div id="container">
+      <!-- .content -->
+      <div class="content">
+        <div class="no_show_top">
+          <div class="search fl">
+            <input type="text" placeholder="수업 일자 검색 ex)2020.09.09">
+            <button type="button" class="btn_search"><span class="text_hide">검색</span></button>
+          </div>
+          <div class="guide_info fr">
+            <p>&ast; 노쇼요청 &colon; P (부모님 요청) &sol; T (선생님 요청)</p>
+            <p>&ast; 노쇼여부 &colon; N (노쇼아님) &sol; Y(노쇼)</p>
+            <p>&ast; 최종처리 &colon; 노쇼여부(N&sol;Y) 선택 &rsaquo; ‘확인’클릭 &rsaquo; 처리완료</p>
+          </div>
+        </div>
+
+        <!-- .table_wrap -->
+        <div class="table_wrap">
+          <table>
+            <colgroup>
+              <col><col><col><col><col>
+              <col><col><col style="width: 100px;"><col style="width: 110px;"><col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="7" class="notice_soft">서비스 신청 내용</th>
+                <!-- <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th> -->
+                <th rowspan="2">노쇼요청</th>
+                <th rowspan="2">노쇼 여부</th>
+                <th rowspan="2">최종처리</th>
+              </tr>
+              <tr>
+                <th>아이 이름 (나이)</th>
+                <th>수업 일자</th>
+                <th>수업 시간</th>
+                <th>주소</th>
+                <th>부모님 연락처</th>
+                <th>담당 선생님</th>
+                <th>선생님 연락처</th>
+                <!-- <th></th>
+                <th></th>
+                <th></th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="name">김다은</span> (15년생)</td>
+                <td>2020.00.00(금)</td>
+                <td>00:00~00:00(0시간)</td>
+                <td class="elipsis" title="경기 고양시 덕양구 화정로 65">경기 고양시 덕양구 화정로 65</td>
+                <td>010-0000-0000</td>
+                <td>김우동</td>
+                <td>010-0000-0000</td>
+                <td>P</td>
+                <td class="check_no_show">
+                  <!-- [D] 버튼 클릭 시 class "active"가 추가되어야 합니다
+                    최종처리가 처리 완료가 되면 Y,N 버튼 attr에 "disabled"가 추가되어야 합니다 -->
+                  <button type="button" disabled>Y</button>
+                  <button type="button" class="active" disabled>N</button>
+                </td>
+                <td><button type="button" class="btn_complete" disabled>처리완료</button></td>
+              </tr>
+              <tr>
+                <td><span class="name">김소은</span> (17년생)</td>
+                <td>2020.00.00(금)</td>
+                <td>00:00~00:00(0시간)</td>
+                <td class="elipsis" title="경기 성남시 분당구 대왕판교로 다산타워">경기 성남시 분당구 대왕판교로 다산타워</td>
+                <td>010-0000-0000</td>
+                <td>김우동</td>
+                <td>010-0000-0000</td>
+                <td>T</td>
+                <td class="check_no_show">
+                  <button type="button">Y</button>
+                  <button type="button">N</button>
+                </td>
+                <td><button type="button" class="btn_complete">확인</button></td>
+              </tr>
+              <tr>
+                <td><span class="name">김가은</span> (18년생)</td>
+                <td>2020.00.00(금)</td>
+                <td>00:00~00:00(0시간)</td>
+                <td class="elipsis" title="경기 성남시 분당구 대왕판교로">경기 성남시 분당구 대왕판교로</td>
+                <td>010-0000-0000</td>
+                <td>김우동</td>
+                <td>010-0000-0000</td>
+                <td>T</td>
+                <td class="check_no_show">
+                  <button type="button">Y</button>
+                  <button type="button">N</button>
+                </td>
+                <td><button type="button" class="btn_complete">확인</button></td>
+              </tr>
+              <tr>
+                <td><span class="name">김가은</span> (18년생)</td>
+                <td>2020.00.00(금)</td>
+                <td>00:00~00:00(0시간)</td>
+                <td class="elipsis" title="경기 고양시 덕양구 화정로">경기 고양시 덕양구 화정로</td>
+                <td>010-0000-0000</td>
+                <td>김우동</td>
+                <td>010-0000-0000</td>
+                <td>P</td>
+                <td class="check_no_show">
+                  <button type="button">Y</button>
+                  <button type="button">N</button>
+                </td>
+                <td><button type="button" class="btn_complete">확인</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- //.table_wrap -->
+      </div>
+      <!-- //.content -->
+    </div>
+    <!-- //#container -->
+
+    <!-- footer -->
+    <div id="footer">
+      <p class="copyright">&copy;DAEKYO co, LTD.</p>
+    </div>
+    <!-- //#footer -->
+  </div>
+  <!-- //#wrap -->
+</body>
+</html>
