@@ -176,6 +176,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .card_list .status_box > span {margin: 0 0 0 10px;}
 
 .card_list .status_box .no_show {padding: 5px 7px; border: 1px solid #fa4730; border-radius: 12px; color: #fff; font-weight: 700; color: #fa4730;}
+.card_list .status_box .no_show_progress {padding: 5px 7px; border: 1px solid #a8b0bc; border-radius: 12px; color: #fff; font-weight: 700; color: #a8b0bc;}
 .card_list .status_box .visit_complete {padding: 5px 7px; border: 1px solid #9c74e1; border-radius: 12px; color: #fff; font-weight: 700; color: #9c74e1;}
 .card_list .status_box .visit_note {padding: 4px 7px 5px 7px; border: 1px solid #00be99; border-radius: 12px; font-weight: 700; color: #00be99;}
 .card_list .status_box .in_progress {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(56,135,225,1.0); box-shadow: 0 3px 3px 0 rgba(56,135,225,0.16); font-weight: 700; color: #fff;}
