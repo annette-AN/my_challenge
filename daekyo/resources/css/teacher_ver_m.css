@@ -183,6 +183,7 @@ body.gnb_backdrop #header:after {content: ''; display: block; position: fixed; t
 .card_list .status_box .complete {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(254,184,23,1.0); box-shadow: 0 3px 3px 0 rgba(254,184,23,0.16); font-weight: 700; color: #fff;}
 .card_list .status_box .scheduled {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(230,2,98,1.0); box-shadow: 0 3px 3px 0 rgba(230,2,98,0.16); font-weight: 700; color: #fff;}
 .card_list .status_box .readed {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(142,213,89,1.0); box-shadow: 0 3px 3px 0 rgba(142,213,89,0.16); font-weight: 700; color: #fff;}
+.card_list .status_box .visiting {padding: 6px 10px; border-radius: 12px 12px 0 12px; background: rgba(235,181,140,1.0); box-shadow: 0 3px 3px 0 rgba(235,181,140,0.16); font-weight: 700; color: #fff;}
 
 .card_list .profile {margin: 31px 0 0 0;}
 .card_list:first-child .profile {margin: 6px 0 0 0;}
