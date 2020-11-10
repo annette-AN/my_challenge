@@ -135,8 +135,8 @@
       <div>
         <h2 class="page_title">방문관리</h2>
         <ul class="set_btn_box">
-          <li class="on"><a href="#none">신청된 방문</a></li>
-          <li><a href="#none">진행중 방문</a></li>
+          <li class=""><a href="#none">신청된 방문</a></li>
+          <li class="on"><a href="#none">진행중 방문</a></li>
           <li><a href="#none">완료된 방문</a></li>
         </ul>
 
@@ -512,6 +512,86 @@
                   <div><button type="button" class="btn_card_open bg_effect btn_line_primary">신청내용</button></div>
                   <div><a href="bookshelf_view.html" class="bg_effect btn_line_primary">책장보기</a></div>
                   <div><a href="#change_date_time" class="bg_effect alert_open btn_line_primary" disabled>일정변경</a></div>
+                </div>
+
+                <button type="button" class="card_on_show btn_line_cancel bg_effect btn_card_close">닫기</button>
+              </div>
+              <!-- //profile -->
+            </div>
+            <!-- //card -->
+
+            <!-- card -->
+            <div class="card">
+              <!-- card_info -->
+              <div class="card_info">
+                <div class="status_box">
+                  <!-- [D] 추가 201110 방문취소 버튼 -->
+                  <a href="#teacher_cancel" class="visit_cancel alert_open">방문취소</a>
+                  <span class="scheduled">방문예정</span>
+                </div>
+              </div>
+              <!-- //card_info -->
+
+              <!-- profile -->
+              <div class="profile">
+                <div>
+                  <span class="visit_type regular">정기</span>
+                  <span class="name">김다은</span>
+                  
+                  <div class="other">
+                    <span>(</span><span class="birth">15</span><span>년생 /</span>
+                    <span class="gender">여아</span><span>)</span>
+                  </div>
+                </div>
+
+                <div>
+                  <span class="visit_time">
+                    2020.6.19 (금) 14:00~16:00
+                    <span>(2시간)</span>
+                  </span>
+                  <span class="visit_time_info card_on_show">선생님과 다른 일정으로 조율이 가능해요!</span>
+                </div>
+
+                <div class="full_address">
+                  <span class="address">서울특별시 관악구 보라매로3길 23 (봉천동)</span>
+                  <span class="street_address card_on_show">대교아파트 101동 202호</span>
+                </div>
+
+                <span class="tel card_on_show">010-1234-5678</span>
+
+                <div class="detail_info card_on_show">
+                  <em class="title">선호활동</em>
+                  <div class="detail">
+                    <span>#책놀이</span>
+                    <span>#책읽기</span>
+                    <span>#독후활동</span>
+                  </div>
+                  <em class="title">아이 성향</em>
+                  <div class="detail">
+                    <span>#언어형</span>
+                    <span>#논리형</span>
+                    <span>#창조형</span>
+                    <span>#탐구형</span>
+                    <span>#활동형</span>
+                  </div>
+                  <em class="title">선생님 전달사항</em>
+                  <div class="detail">
+                    <span class="notice_to"><em>요청하신 내용이 없습니다.</em></span>
+                  </div>
+                </div>
+
+                <div class="check_info card_on_show">
+                  <em class="t_warning">*꼭 확인해주세요!</em>
+                  <span>
+                    <em>방문 시작 시간 기준 24시간 이내 취소</em> 할 경우,<br>
+                    <em>1만원의 위약금</em>이 발생합니다.
+                  </span>
+                </div>
+
+                <div class="flex_box btn_box card_on_hidden">
+                  <div><button type="button" class="btn_card_open bg_effect btn_line_primary">신청내용</button></div>
+                  <div><a href="bookshelf_view.html" class="bg_effect btn_line_primary">책장보기</a></div>
+                  <div><a href="#change_date_time" class="bg_effect alert_open btn_line_primary" disabled="">일정변경</a></div>
                 </div>
 
                 <button type="button" class="card_on_show btn_line_cancel bg_effect btn_card_close">닫기</button>
@@ -1086,6 +1166,30 @@
   </div>
   <!-- //방문일지 -->
 
+  <!-- 추가 201110 방문취소 -->
+  <div id="teacher_cancel" class="alert_box alert_pop">
+    <div class="lyr_cont">
+      <div class="title_box">
+        <span class="title">방문취소 사유를 구체적으로 입력해주세요.</span>
+      </div>
+
+      <div class="cont_box">
+        <textarea name="" id="" cols="10" rows="5" placeholder="ex) 교통사고로 병원에 입원중입니다."></textarea>
+        <p class="primary_text_s">
+          &ast; 선생님의 개인 사정으로 방문을 취소하시는 경우, <em>취소 시점에 따라 위약금이 발생</em>될 수 있습니다.
+        </p>
+        <p class="primary_text_s">
+          &ast; 정당한 사유없이 진행중인 방문을 <em>3회 이상 취소한 경우 우동선생님 활동이 제한</em>될 수 있습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="lyr_btm">
+      <button type="button" class="alert_close">확인</button>
+    </div>
+  </div>
+  <!-- //방문취소 -->
+
   <!-- 추가 201006 신청수락 성공 레이어 -->
   <div id="accept_visit" class="alert_box alert_pop">
     <div class="lyr_cont">
@@ -1198,7 +1302,7 @@
       var setBtn = $('.set_btn_box li');
       var setCont = $('.set_board > div');
       setCont.hide();
-      setCont.eq(0).show();
+      setCont.eq(1).show();
       setBtn.on('click', function () {
         var target = $(this);
         var index = target.index();
