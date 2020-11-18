@@ -807,52 +807,41 @@
 
       <!-- cont_box -->
       <div class="cont_box">
-        <div class="flex_box">
+        <ul class="flex_box area_list">
           <!-- [D] 주소
             .dosi : 시, 도
             .gu : 구
             .dong : 동
            -->
-          <ul class="area_list dosi">
-            <li>도시도</li>
-            <li>도시도넷</li>
-            <li>도시도다섯</li>
-            <li>도시도시여섯</li>
-            <li>도시도시도일곱</li>
-            <li>도시도시도시여덟</li>
-            <li>도시작은화면에서는 글자가 짧아도 넘칠수있다</li>
-          </ul>
-          <ul class="area_list gu">
-            <li>구구구</li>
-            <li>구구구넷</li>
-            <li>구구구다섯</li>
-            <li>구구구구여섯</li>
-            <li>구구구구구일곱</li>
-            <li>구구구구구구여덟</li>
-          </ul>
-          <ul class="area_list dong">
-            <li>동동동</li>
-            <li>동동동넷</li>
-            <li>동동동다섯</li>
-            <li>동동동동여섯</li>
-            <li>동동동동동일곱</li>
-            <li>동동동동동동여덟</li>
-            <li>동동동</li>
-            <li>동동동</li>
-            <li>동동동</li>
-            <li>동동동</li>
-            <li>동동동</li>
-            <li>동동동</li>
-            <li>동동동</li>
-          </ul>
+          <li class="on"><span>서울특별시</span></li>
+          <li><span>부산광역시</span></li>
+          <li><span>대구광역시</span></li>
+          <li><span>인천광역시</span></li>
+          <li><span>광주광역시</span></li>
+          <li><span>대전광역시</span></li>
+          <li><span>울산광역시</span></li>
+          <li><span>세종<br>특별자치시</span></li>
+          <li><span>경기도</span></li>
+          <li><span>강원도</span></li>
+          <li><span>충청북도</span></li>
+          <li><span>충청남도</span></li>
+          <li><span>전라북도</span></li>
+          <li><span>전라남도</span></li>
+          <li><span>경상북도</span></li>
+          <li><span>테스트</span></li>
+          <li><span>테스트</span></li>
+          <li><span>테스트</span></li>
+          <li><span>테스트</span></li>
+        </ul>
+
+        <div class="flex_box btn_box">
+          <div><button type="button" class="btn_line_secondary" disabled>이전</button></div>
+          <!-- [D] p 태그에 'on' 클래스를 붙히면 display: block 이 됩니다  -->
+          <div><p class="t_warning primary_text_xs on">행정구역을 선택해주세요.</p></div>
+          <div><button type="button" class="btn_line_secondary">다음</button></div>
         </div>
 
         <textarea name="" id="pick_area" cols="30" rows="1" placeholder="시도 > 시군구 > 동" readonly></textarea>
-
-        <!-- [D] p 태그에 'on' 클래스를 붙히면 display: block 이 됩니다  -->
-        <p class="t_warning primary_text_s on">
-          <em>동</em>까지 선택해주세요
-        </p>
       </div>
       <!-- //cont_box -->
     </div>
@@ -1157,53 +1146,8 @@ $(document).ready(function () {
 
   // AMR available_area 리스트 삭제
   $('.available_area .area_delete').on('click', function(){
-    $(this).parent('li').remove()
+    $(this).parent('li').remove();
   })
-
-  // AMR add_available_area 레이어 이벤트
-  $('a[href="#add_available_area"]').on('click', function(){
-    // 주소선택 디자인 효과
-    $('#add_available_area li').on('click', function(){
-      var thisParent = $(this).parent('.area_list');
-
-      if ( thisParent.hasClass('dosi') ) {
-        thisParent.siblings('ul').removeClass('on')
-        thisParent.next('ul').find('li').removeClass('on')
-        thisParent.next('ul').addClass('on')
-      } else if ( thisParent.hasClass('gu') ) {
-        thisParent.siblings('ul').removeClass('on')
-        thisParent.next('ul').find('li').removeClass('on')
-        thisParent.next('ul').addClass('on')
-      }
-
-      thisParent.find('li').removeClass('on');
-      $(this).addClass('on');
-      $('#pick_area').val(createAreaFormat); // input에 선택한 주소표시
-
-      // 선택한 주소 표현식
-      function createAreaFormat() {
-        var dosi = $('#add_available_area .dosi li.on').text();
-        var gu = $('#add_available_area .gu li.on').text();
-        var dong = $('#add_available_area .dong li.on').text();
-        var create = dosi + ' > ' + gu + ' > ' + dong
-        
-        if ( gu === '' ) {
-          create = dosi
-        } else if ( dong === '' ) {
-          create = dosi + ' > ' + gu
-        }
-        return create;
-      }
-    });
-
-    // 레이어를 닫으면 모든 선택 초기화
-    $('#add_available_area .alert_close').on('click', function(){
-      $('#add_available_area ul').removeClass('on')
-      $('#add_available_area li').removeClass('on')
-      $('#add_available_area #pick_area').val('')
-    });
-  });
-
 });
 </script>
 <!-- 개별 페이지 script -->
