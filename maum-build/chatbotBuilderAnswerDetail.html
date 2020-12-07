@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- cache 지우는 meta 태그 -->
+  <meta http-equiv="Cache-Control" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Pragma" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Expires" content="-1"> <!-- 즉시 캐시만료 -->
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/simplebot.css">
+
+  <script src="js/corejs-3.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/popper-2.5.4.min.js"></script>
+
+  <title>chatbot builder</title>
+</head>
+<body style="overflow: hidden;">
+  <div id="wrap">
+    <div id="header">
+      <h1>chatbot builder</h1>
+    </div>
+
+    <div id="container" class="chatbot_builder">
+      <div class="content">
+        <div class="multipleBoxType">
+          <!-- lot_wrap -->
+          <div class="lot_wrap">
+            <!-- chatbot_list -->
+            <div class="lotBox chatbot_list">
+              <div class="tit">
+                <h3>챗봇목록</h3>
+                <div class="fr">
+                  <button type="button" class="btn_primary">추가</button>
+                </div>
+              </div>
+              <div class="cont">
+                <div class="iptBox">
+                  <!-- [D] 인풋에서 엔터 키 입력 시 btn_search가 클릭됩니다 -->
+                  <input type="text" class="ipt_txt search" autocomplete="off">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+
+                <ul class="common_lst scroll">
+                  <li>
+                    <div>
+                      <span>골든튤립</span>
+                      &lpar;<em>gt_hud</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <!-- [D] 챗봇목록 클릭 시 active class가 추가됩니다 -->
+                  <li class="active">
+                    <div>
+                      <span>메이필드</span>
+                      &lpar;<em>mayfield</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>파티오세븐</span>
+                      &lpar;<em>patio7</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>설리봇</span>
+                      &lpar;<em>sully</em>&rpar;
+                    </div>
+                    <div>
+                      <span>회사소개</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- //chatbot_list -->
+  
+            <!-- chatbot_content -->
+            <div class="lotBox chatbot_content">
+              <div class="tit">
+                <h3>메이필드</h3>
+                <div class="fr">
+                  <!-- [D] 챗봇테스트 버튼 클릭 시 챗봇 테스트 영역이 보여집니다. -->
+                  <button type="button" class="btn_primary btn_test_on">챗봇 테스트</button>
+                </div>
+              </div>
+  
+              <div class="cont">
+                <ul class="menu scroll_x">
+                  <!-- [D] 메뉴 클릭 시 active class가 추가됩니다 -->
+                  <li class="active">답변</li>
+                  <li>의도</li>
+                  <li>설정</li>
+                </ul>
+  
+                <div class="menu_cont">
+                  <div class="srchArea">
+                    <div class="fr iptBox">
+                      <!-- [D] 인풋에서 엔터 키 입력 시 btn_search가 클릭됩니다 -->
+                      <input type="text" class="ipt_txt search" autocomplete="off">
+                      <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                    </div>
+                  </div>
+  
+                  <div class="tbl_box_info">
+                    <div class="fl">
+                      <a href="#chat_answer_upload" class="btn_secondary btn_lyr_open">엑셀 업로드</a>
+                      <button type="button" class="btn_secondary">엑셀 다운로드</button>
+                    </div>
+                    <div class="fr">
+                      <a href="#chat_answer_setting" class="btn_secondary btn_lyr_open">개별 추가</a>
+                    </div>
+                  </div>
+  
+                  <div class="tbl_wrap scroll">
+                    <table class="tbl_box_lst" summary="순번, 태스크, 답변, 상세, 삭제">
+                      <caption class="hide">순번, 태스크, 답변, 상세, 삭제</caption>
+                      <colgroup>
+                        <col style="width: 65px;"><col style="width: 15%"><col><col style="width: 85px;"><col style="width: 85px;">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>순번</th>
+                          <th>태스크</th>
+                          <th>답변</th>
+                          <th><span class="text_hide">상세</span></th>
+                          <th><span class="text_hide">삭제</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- [D] 테이블 내에 있는 버튼을 클릭 시 active class가 추가됩니다 -->
+                        <tr class="active">
+                          <td>1</td>
+                          <td>조식메뉴</td>
+                          <td><span class="text_ellipsis">메뉴는 ~입니다.</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>조식시간</td>
+                          <td><span class="text_ellipsis">시간은 ~입니다.</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>조식가격</td>
+                          <td><span class="text_ellipsis">가격은 ~입니다.</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>긴 답변 예</td>
+                          <td><span class="text_ellipsis">식당에서 식사를 하시려면 예약을 먼저해주셔야 합니다. 예약을 하려면 전화를 해주셔야 합니다. 전화번호는 000-0000-0000입니다. 식당에서 식사를 하시려면 예약을 먼저해주셔야 합니다. 예약을 하려면 전화를 해주셔야 합니다. 전화번호는 000-0000-0000입니다.</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>식당B</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>식당C</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>11</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>13</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>14</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>15</td>
+                          <td>-</td>
+                          <td><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#chat_answer_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="pagination">
+                      <button type="button" class="first"><span>&laquo;</span></button>
+                      <button type="button" class="prev"><span>&lsaquo;</span></button>
+                      <div class="pages">
+                        <!-- [D] 페이지 클릭 시 active class가 추가됩니다 -->
+                        <span class="page active">1</span>
+                        <span class="page">2</span>
+                        <span class="page">3</span>
+                        <span class="page">4</span>
+                        <span class="page">5</span>
+                      </div>
+                      <button type="button" class="next"><span>&rsaquo;</span></button>
+                      <button type="button" class="last"><span>&raquo;</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //chatbot_content -->
+          </div>
+          <!-- //lot_wrap -->
+
+          <!-- chatbot_test -->
+          <div class="lotBox chatbot_test">
+            <div class="tit">
+              <h3>챗봇테스트</h3>
+              <div class="fr">
+                <!-- [D] 닫기 버튼 클릭 시 챗봇 테스트 영역이 사라집니다. -->
+                <button type="button" class="btn_primary btn_test_off">닫기</button>
+              </div>
+            </div>
+            <div class="cont">
+              작업전
+            </div>
+          </div>
+          <!-- //chatbot_test -->
+        </div>
+      </div>
+      <!-- //content -->
+    </div>
+    <!-- //container -->
+  </div>
+  <!-- //wrap -->
+
+<!-- 모달 챗봇 삭제 -->
+<div id="chat_list_delete" class="lyrBox">
+  <div class="lyr_top">
+    <h3>챗봇 삭제</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <p class="infoTxt"><em>선택한 챗봇</em>을(를) 삭제합니다.</p>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //모달 챗봇 삭제 -->
+
+<!-- 모달 답변 파일 업로드 -->
+<div id="chat_answer_upload" class="lyrBox">
+  <div class="lyr_top">
+    <h3>엑셀 파일 업로드</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <dl class="dl_inline">
+      <dt>
+        <div class="iptBox">
+          <!-- [D] input[file] value = input[text] value -->
+          <input type="text" name="excel_file_name" value="선택된 파일 없음" class="ipt_txt ipt_file" disabled>
+        </div>
+      </dt>
+      <dd>
+        <label for="excel_file" class="label_file">찾아보기..</label>
+        <input type="file" name="" id="excel_file" accept=".xls, .xlsx" style="display: none;">
+      </dd>
+    </dl>
+    <p class="info_text">* 파일 업로드 시 태스크 및 답변이 덮어쓰기 됩니다.</p>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //모달 답변 파일 업로드 -->
+
+<!-- 모달 답변 삭제 -->
+<div id="chat_row_delete" class="lyrBox">
+  <div class="lyr_top">
+    <h3>챗봇 답변 삭제</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <p class="infoTxt"><em>선택한 태스크</em>을(를) 삭제합니다.</p>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //모달 답변 삭제 -->
+
+<!-- 모달 개별 추가 및 설정 -->
+<div class="lyrWrap">
+  <div class="lyr_bg"></div>
+  <div id="chat_answer_setting" class="lyrBox">
+    <div class="lyr_top">
+      <h3>챗봇 답변</h3>
+      <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+    </div>
+    <div class="lyr_mid">
+      <!-- [D] 통신이 완료되면 skeleton tag를 지워주세요 -->
+      <div class="skeleton"><img src="images/skeleton_answer.png" alt="백그라운드"></div>
+      <div class="chat_setting answer_preview">
+        <div class="ipt_container">
+          <dl>
+            <dt>태스크 명<div class="help">?<div class="help_desc"><i>답변 이름 ex)조식 가격, 코로나</i></div></div></dt>
+            <dd><input type="text" class="ipt_txt"></dd>
+          </dl>
+          <dl>
+          <dt>답변
+            <div class="help">?
+              <div class="help_desc"><i>작성한 문장을 대답합니다.</i><br>ex)
+                <div class="image"><img src="images/help_img_answer.svg" alt="답변 이미지 예"></div>
+              </div>
+            </div>
+          </dt>
+            <dd>
+              <textarea name="" id="" cols="10" rows="2" class="ipt_txt" oninput="answerPreview(event)"></textarea>
+              <!-- <input type="text" class="ipt_txt" oninput="answerPreview(this)"> -->
+            </dd>
+          </dl>
+          <dl>
+            <dt>캐로셀
+              <div class="help">?
+                <div class="help_desc"><i>선택한 슬라이드를 대답합니다.</i><br>ex)
+                  <div class="image"><img src="images/help_img_slide.svg" alt="슬라이드 이미지 예"></div>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div id="img_slide" class="fast_popper_select" multiple>
+                <p class="select text_ellipsis"></p>
+                <div class="fast_popper_option">
+                  <div class="iptBox">
+                    <input type="text" class="ipt_txt search">
+                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                  </div>
+                  <ul class="select_list scroll"></ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+          <dl>
+            <dt>버튼
+              <div class="help">?
+                <div class="help_desc"><i>선택한 버튼을 대답합니다.</i><br>ex)
+                  <div class="image"><img src="images/help_img_button.svg" alt="버튼 이미지 예"></div>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div id="button" class="fast_popper_select" multiple>
+                <p class="select text_ellipsis"></p>
+                <div class="fast_popper_option">
+                  <div class="iptBox">
+                    <input type="text" class="ipt_txt search">
+                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                  </div>
+                  <ul class="select_list scroll"></ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+          <dl class="dl_dropdown">
+            <dt>이미지 카드<div class="help">?<div class="help_desc"><i>이미지 카드를 만들면 다른 태스크에서 이미지 슬라이드로 사용할 수 있습니다.</i></div></div>
+              <div class="btn_control fr">
+                <div class="fold">
+                  <span>펼치기</span>
+                  <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 1.63966L1.20363 0.0423927L8.39135 5.45873L7.18772 7.056L0 1.63966Z" fill="#97A1AB"/>
+                    <path d="M13.2154 0L14.4191 1.59727L7.23133 7.01361L6.0277 5.41634L13.2154 0Z" fill="#97A1AB"/>
+                  </svg>
+                </div>
+                <div class="unfold">
+                  <span>감추기</span>
+                  <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.4191 5.41634L13.2154 7.01361L6.02772 1.59727L7.23135 9.53674e-07L14.4191 5.41634Z" fill="#97A1AB"/>
+                    <path d="M1.20364 7.056L1.33514e-05 5.45873L7.18773 0.0423937L8.39136 1.63966L1.20364 7.056Z" fill="#97A1AB"/>
+                  </svg>
+                </div>
+              </div>
+            </dt>
+            <dd>
+              <div class="setting_image_card">
+                <div class="card">
+                  <p class="info_text">미리보기</p>
+                  <div class="swiper_item">
+                    <span class="item_img">
+                      <!-- <img src="https://sds.maum.ai:8080/brain-sds-builder/images/booking.png"> -->
+                      <input type="file" id="file02" onchange="changeImageCard(this)" class="hide">
+                      <label for="file02">+</label>
+                    </span>
+                    <span class="item_tit"><input type="text" placeholder="제목"></span>
+                    <span class="item_txt"><textarea name="" id="" cols="30" rows="4" placeholder="내용"></textarea></span>
+                  </div>
+                </div>
+
+                <button type="button" class="btn_secondary" onclick="confirmImageCard(this)">적용 &raquo;</button>
+
+                <div class="card">
+                  <p class="info_text">확정</p>
+                  <div class="swiper_item">
+                    <span class="item_img"><img src=""></span>
+                    <span class="item_tit"></span>
+                    <span class="item_txt"></span>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+          <dl>
+            <dt>태스크 관계
+              <div class="help">?<div class="help_desc" style="width: 600px;">
+                <i>현재 태스크와 연결된 이전 태스크, 의도와의 관계</i>
+                <div class="float_box">
+                  <div class="fl">
+                    <i>ex)<br>"조식"에 대해 문의한 다음, "가격 문의"를 물어보면 "조식 가격"에 대해서 답변한다.<br>현재 태스크 명: 조식 가격 | 이전태스크: 조식 | 의도: 가격 문의</i>
+                  </div>
+                  <div class="image fr"><img src="images/help_img_task.svg" alt="태스크 관계 이미지 예"></div>
+                </div>
+
+                <div class="float_box">
+                  <div class="fl">
+                    <i>ex)<br>이전에 문의한 내용과 상관 없이 "코로나"를 물어보면 "코로나"에 대해서 답변한다.<br>현재 태스크 명: 코로나 | 이전태스크: * | 의도: 코로나</i>
+                  </div>
+                  <div class="image fr"><img src="images/help_img_task01.svg" alt="태스크 관계 이미지 예"></div>
+                </div>
+              </div>
+            </div>
+          </dt>
+            
+            <dd>
+              <div class="tbl_commands">
+                <div class="fr">
+                  <button type="button" class="btn_secondary btn_remove_row">선택 삭제</button>
+                  <button type="button" class="btn_secondary" onclick="addRowChatbotTask(event)">태스크 추가</button>
+                </div>
+              </div>
+              <div class="tbl_wrap scroll">
+                <table id="tblChatbotTask" class="tbl_box_lst">
+                  <colgroup>
+                    <col style="width: 40px;"><col><col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>이전태스크</th>
+                      <th>의도</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label>
+                          <input type="checkbox" class="checkbox">
+                          <span class="label"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <div class="fast_popper_select single_test1">
+                          <p class="select text_ellipsis"></p>
+                          <div class="fast_popper_option">
+                            <div class="iptBox">
+                              <input type="text" class="ipt_txt search">
+                              <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                            </div>
+                            <ul class="select_list scroll"></ul>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fast_popper_select single_test2">
+                          <p class="select text_ellipsis"></p>
+                          <div class="fast_popper_option">
+                            <div class="iptBox">
+                              <input type="text" class="ipt_txt search">
+                              <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                            </div>
+                            <ul class="select_list scroll"></ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <template id="tempChatbotTask">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <label>
+                            <input type="checkbox" class="checkbox">
+                            <span class="label"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <div class="fast_popper_select">
+                            <p class="select text_ellipsis"></p>
+                            <div class="fast_popper_option">
+                              <div class="iptBox">
+                                <input type="text" class="ipt_txt search">
+                                <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                              </div>
+                              <ul class="select_list scroll"></ul>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fast_popper_select">
+                            <p class="select text_ellipsis"></p>
+                            <div class="fast_popper_option">
+                              <div class="iptBox">
+                                <input type="text" class="ipt_txt search">
+                                <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                              </div>
+                              <ul class="select_list scroll"></ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </template>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+  
+      <ul class="chat_preview scroll">
+        <li class="bot botMsg_swiper swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a class="swiper_item">
+                <span class="item_img"><img src="images/sample/sample_swiper01.jpg"></span>
+                <span class="item_tit">객실예약</span>
+                <span class="item_txt">필요하신 객실을 실시간으로 예약하실 수 있습니다.</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a class="swiper_item">
+                <span class="item_img"><img src="images/sample/sample_swiper02.jpg"></span>
+                <span class="item_tit">운항정보</span>
+                <span class="item_txt">실시간 공항 운항정보를 확인하실 수 있습니다.</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a class="swiper_item">
+                <span class="item_img"><img src="images/sample/sample_swiper03.jpg"></span>
+                <span class="item_tit">부대시설</span>
+                <span class="item_txt">호텔에서 제공하는 다양한 부대시설을 확인해보세요.</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a class="swiper_item">
+                <span class="item_img"><img src="images/sample/sample_swiper04.jpg"></span>
+                <span class="item_tit">객실패키지</span>
+                <span class="item_txt">메이필드의 다양한 패키지를 만나보세요.</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a class="swiper_item">
+                <span class="item_img"><img src="images/sample/sample_swiper05.jpg"></span>
+                <span class="item_tit">객실타입</span>
+                <span class="item_txt">다양한 객실타입을 확인해보세요.</span>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </li>
+
+        <li class="bot">
+          <pre id="answerPreview" class="txt">안녕하세요.<br>'메이필드호텔'을 찾아 주셔서 감사합니다. 무엇을 도와드릴까요?</pre>
+        </li>
+
+        <li class="bot">
+          <div class="bot_msg">
+            <div class="btnItem">
+              <ul>
+                <li><a class="intent" href="#" data-display="교통안내" data-intent="교통안내">교통안내</a></li>
+                <li><a class="intent" href="#" data-display="기본정보" data-intent="기본정보">기본정보</a></li>
+                <li><a class="intent" href="#" data-display="레스토랑" data-intent="레스토랑">레스토랑</a></li>
+                <li><a class="intent" href="#" data-display="룸 &amp; 어메니티" data-intent="룸어메니티">룸 &amp; 어메니티</a></li>
+                <li><a class="intent" href="#" data-display="유아편의시설" data-intent="유아편의시설">유아편의시설</a></li>
+                <li><a class="intent btnStart" href="#" data-display="처음으로" data-intent="처음으로">처음으로</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="date">2020.11.12 AM 9:16</div>
+        </li>
+      </ul>
+    </div>
+    <div class="lyr_btm">
+      <div class="btnBox sz_small">
+        <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+        <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //모달 개별 추가 및 설정 -->
+
+<!-- 공통 js -->
+<script>
+  // uuid 생성
+  function generateUUID(pattern){
+    if(!pattern){
+      pattern = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+    }
+    return pattern.replace(/[xy]/g, function(c) {
+      const r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 3) | 8
+      return v.toString(16);
+    })
+  }
+
+  var imgData = [{'label': '프로모션', value:'id-0001'}, {'label': '객실예약', value:'id-0002'}, {'label': '테스트1', value:'id-0003'}, {'label': '테스트2', value:'id-0004'}];
+  var imgSelectedData = [{value:'id-0001'}, {value:'id-0002'}];
+
+  var buttonData = [{'label': '교통안내', value:'id-0011'}, {'label': '기본정보', value:'id-0012'}, {'label': '레스토랑', value:'id-0013'}, {'label': '룸&어메니티', value:'id-0014'}, {'label': '처음으로', value:'id-0015'}, {'label': '버튼1', value:'id-0016'}, {'label': '버튼1', value:'id-0017'}, {'label': '버튼2', value:'id-0018'}, {'label': '버튼3', value:'id-0019'}];
+  var buttonSelectedData = [{value:'id-0011'}, {value:'id-0012'}, {value:'id-0015'}];
+
+  var taskData1 = [{'label': '전체 태스크', value:'id-0031'}, {'label': '기본정보', value:'id-0032'}, {'label': '레스토랑', value:'id-0033'}, {'label': '룸&어메니티', value:'id-0034'}, {'label': '처음으로', value:'id-0035'}, {'label': '버튼1', value:'id-0036'}, {'label': '버튼1', value:'id-0037'}, {'label': '버튼2', value:'id-0038'}, {'label': '버튼3', value:'id-0039'}];
+  var singleSelectedData1 = [{value:'id-0031'}];
+
+  var taskData2 = [{'label': '전체 태스크', value:'id-0041'}, {'label': '기본정보', value:'id-0042'}, {'label': '레스토랑', value:'id-0043'}, {'label': '룸&어메니티', value:'id-0044'}, {'label': '처음으로', value:'id-0045'}, {'label': '버튼1', value:'id-0046'}, {'label': '버튼1', value:'id-0047'}, {'label': '버튼2', value:'id-0048'}, {'label': '버튼3', value:'id-0049'}];
+  var singleSelectedData2 = [{value:'id-0042'}];
+
+  
+  createMultiSelect($('#img_slide'), imgData, imgSelectedData);
+  createMultiSelect($('#button'), buttonData, buttonSelectedData);
+  createMultiSelect($('.single_test1'), taskData1, singleSelectedData1);
+  createMultiSelect($('.single_test2'), taskData2, singleSelectedData2);
+  
+  // AMR 검색기능이 포함된 셀렉트 이벤트
+  false && function createMultiSelect($el, data, selectedData){
+    var $select = $el.find('p.select'); // 셀렉트버튼
+    var $dropdown = $el.find('.fast_popper_option'); // 셀렉트 드롭다운
+    var $dropdownList = $el.find('.select_list'); // 드롭다운 내 리스트
+    
+    var dropdownController = Popper.createPopper($select[0], $dropdown[0], {
+      strategy: 'fixed',
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 5],
+          },
+        },
+      ],
+    });
+
+    setTimeout(function(){
+      $dropdown.appendTo("body"); //ie에서 dropdown 위치를 못잡아서 body appendTo로 해결
+    });
+
+    $el.on('click', function(e){ // 버블링 막기
+      e.stopPropagation();
+    });
+
+    $select.on('click', function(){ // 리스트 열기 닫기
+      if ( $el.parents('.lyrBox') ) { //모달안에 있을 경우 모달 클릭 시 닫힘
+        $('.lyrBox').on('click', function(){
+          $dropdown.removeClass('active');
+        });
+      }
+
+      if ( $dropdown.hasClass('active') ) {
+        $dropdown.removeClass('active');
+        $dropdown.find('input.search').focusout();
+        return;
+      }
+
+      $('.fast_popper_option').removeClass('active');
+      $dropdown.addClass('active');
+      $dropdown.find('input.search').focus();
+
+      $dropdown.width($el.width());
+      dropdownController.forceUpdate();
+    });
+
+    renderMultiSelect(data, selectedData); //셀렉트 리스트 그리기
+    renderSelectLabel($el); //셀렉트 된 label text를 p에 표시
+
+    $dropdownList.find('label').on('click', function(){
+      if ( !$el.attr('multiple') ) {
+        $dropdown.find('input[type="checkbox"]').prop('checked', false);
+        $(this).find('input[type="checkbox"]').prop('checked', true);
+        renderSelectLabel($el);
+
+        value = 'single_value'
+        $el.trigger('change');
+        return;
+      }
+
+      value = 'multiple_value';
+      renderSelectLabel($el);
+      $el.trigger('change');
+    });
+
+    function renderMultiSelect(data, checkData) { //셀렉트 리스트 그리기
+      $dropdownList.empty();
+
+      if ( data.length === 0 ) {
+        var $optionHtml = '<li>\
+          <p>등록된 데이터가 없습니다.</p>\
+        </li>';
+
+        $dropdownList.append($optionHtml);
+        return;
+      }
+
+      for (var i=0, l=data.length; i<l; i++) {
+        var listData = data[i];
+        var dataLabel = listData.label;
+        var dataValue = listData.value;
+        var isChecked = false;
+        var uuid = generateUUID('checkxxxxx');
+
+        for(var ci=0, cl=checkData.length; ci<cl; ci++){
+          var checkValue = checkData[ci].value;
+
+          if(dataValue === checkValue){
+            isChecked = true;
+          }
+        }
+
+        var checkedAttr = isChecked ? 'checked="checked"' : '';
+        var $optionHtml = '<li>\
+            <input type="checkbox" '+ checkedAttr + 'data-value="' + dataValue + '" id="' + uuid + '" class="checkbox">\
+            <label for="' + uuid + '" class="label">' + dataLabel + '</label>\
+          </li>';
+
+        $dropdownList.append($optionHtml);
+      }
+    }
+
+    function renderSelectLabel(element){ //element에서 셀렉트 된 label text를 p에 표시
+      var labelBox = element.find('p.select');
+      var labels = '';
+
+      $dropdown.find('.select_list li').each(function(){
+        var isChecked = $(this).find('input[type="checkbox"]').prop('checked');
+        var label = $(this).find('label').text();
+        if ( isChecked ) {
+          if ( !element.attr('multiple') ) { // 멀티 셀렉트가 아닌 경우
+            labels = label;
+          } else { // 멀티 셀렉트인 경우
+            labels += label + ', ';
+          }
+        }
+      });
+
+      labelBox.empty();
+      labelBox.text(labels);
+    }
+  }
+
+
+      // AMR 검색기능이 포함된 셀렉트 이벤트
+      function createMultiSelect($el, data, selectedData){
+        var $select = $el.find('p.select'); // 셀렉트버튼
+        var $dropdown = $el.find('.fast_popper_option'); // 셀렉트 드롭다운
+        var $dropdownList = $el.find('.select_list'); // 드롭다운 내 리스트
+
+        var dropdownController = Popper.createPopper($select[0], $dropdown[0], {
+            strategy: 'fixed',
+            modifiers: [
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 5],
+                    },
+                },
+            ],
+        });
+
+        setTimeout(function(){
+            $dropdown.appendTo("body"); //ie에서 dropdown 위치를 못잡아서 body appendTo로 해결
+        });
+
+        $el.on('click', function(e){ // 버블링 막기
+            e.stopPropagation();
+        });
+
+        $select.on('click', function(){ // 리스트 열기 닫기
+            if ( $el.parents('.lyrBox') ) { //모달안에 있을 경우 모달 클릭 시 닫힘
+                $('.lyrBox').on('click', function(){
+                    $dropdown.removeClass('active');
+                });
+            }
+
+            if ( $dropdown.hasClass('active') ) {
+                $dropdown.removeClass('active');
+                $dropdown.find('input.search').focusout();
+                return;
+            }
+
+            $('.fast_popper_option').removeClass('active');
+            $dropdown.addClass('active');
+            $dropdown.find('input.search').focus();
+
+            $dropdown.width($el.width());
+            dropdownController.forceUpdate();
+        });
+
+        renderMultiSelect(data, selectedData); //셀렉트 리스트 그리기
+        renderSelectLabel($el); //셀렉트 된 label text를 p에 표시
+
+        $dropdownList.find('label').on('click', function(){
+
+            if ( !$el.attr('multiple') ) {
+                $dropdown.find('input[type="checkbox"]').prop('checked', false);
+                $(this).find('input[type="checkbox"]').prop('checked', true);
+                renderSelectLabel($el);
+
+                value = 'single_value'
+                $el.trigger('change');
+                return;
+            }
+
+            value = 'multiple_value';
+            renderSelectLabel($el);
+            $el.trigger('change');
+        });
+
+        $el.on('change', function(){
+            console.log($el, '내 값이 변했다 확인요망')
+        });
+
+        function renderMultiSelect(data, checkData) { //셀렉트 리스트 그리기
+            $dropdownList.empty();
+            if ( !$el.attr('multiple') ) {
+              $dropdownList.attr('radio', '')
+            }
+
+            if ( data.length === 0 ) {
+                var $optionHtml = '<li>\
+          <p>등록된 데이터가 없습니다.</p>\
+        </li>';
+
+                $dropdownList.append($optionHtml);
+                return;
+            }
+
+            for (var i=0, l=data.length; i<l; i++) {
+                var listData = data[i];
+                var dataLabel = listData.label;
+                var dataValue = listData.value;
+                var isChecked = false;
+
+                for(var ci=0, cl=checkData.length; ci<cl; ci++){
+                    var checkValue = checkData[ci].value;
+
+                    if(dataValue === checkValue){
+                        isChecked = true;
+                    }
+                }
+
+                var checkedAttr = isChecked ? 'checked="checked"' : '';
+                var $optionHtml = '<li>\
+          <label>\
+            <input type="checkbox" '+ checkedAttr + 'data-value="' + dataValue +'" class="checkbox">\
+            <span class="label">' + dataLabel + '</span>\
+          </label>\
+        </li>';
+
+                $dropdownList.append($optionHtml);
+            }
+        }
+
+        function renderSelectLabel(element){ //element에서 셀렉트 된 label text를 p에 표시
+            var labelBox = element.find('p.select');
+            var labels = '';
+
+            $dropdown.find('.select_list li').each(function(){
+                var isChecked = $(this).find('input[type="checkbox"]').prop('checked');
+                var label = $(this).find('label').text();
+                if ( isChecked ) {
+                    if ( !element.attr('multiple') ) { // 멀티 셀렉트가 아닌 경우
+                        labels = label;
+                    } else { // 멀티 셀렉트인 경우
+                        labels += label + ', ';
+                    }
+                }
+            });
+
+            labelBox.empty();
+            labelBox.text(labels);
+        }
+    }
+
+
+
+  $(document).ready(function () {
+    // AMR Layer popup open
+    $('.btn_lyr_open').on('click', function () {
+      var winHeight = $(window).height() * 0.7,
+        hrefId = $(this).attr('href');
+
+      $('body').css('overflow', 'hidden');
+      $('body').find(hrefId).wrap('<div class="lyrWrap"></div>');
+      $('body').find(hrefId).before('<div class="lyr_bg"></div>');
+
+      //대화 UI
+      $('.lyrBox .lyr_mid').each(function () {
+        $(this).css('max-height', Math.floor(winHeight) + 'px');
+      });
+
+      //Layer popup close
+      $('.btn_lyr_close, .lyr_bg').on('click', function () {
+        $('body').css('overflow', '');
+        $('body').find(hrefId).unwrap('<div class="lyrWrap"></div>');
+        $('.lyr_bg').remove();
+      });
+    });
+
+    // AMR 돋보기 아이콘이 있는 검색 영역에서 엔터 시 검색버튼 눌림
+    $('.ipt_txt.search').on('keyup', function(){
+      if (event.keyCode == 13) {
+        $(this).next('.btn_search').trigger('click');
+      }
+    });
+
+    // AMR 테이블 페이지네이션 페이지 active
+    // .page 클릭 시
+    $('.tbl_wrap .pagination .page').on('click', function(){
+      var pages = $('.pagination .pages .page');
+      var thisPage = $(this);
+      pages.removeClass('active');
+      thisPage.addClass('active');
+    });
+    // 버튼 클릭 시
+    $('.tbl_wrap .pagination > button').on('click', function(){
+      var thisButton = $(this);
+      var pages = $('.pagination .pages .page');
+      var activePage = $('.pagination .pages .page.active');
+      var thisPage = pages.index(activePage);
+      var firstPage = 0;
+      var lastPage = pages.length - 1;
+      var prevPage = thisPage - 1;
+      var nextPage = thisPage + 1;
+
+      pages.removeClass('active');
+
+      if (thisButton.hasClass('first')) {
+        pages.eq(firstPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('prev')) {
+        if (thisPage === 0 ) {
+          prevPage = 0;
+        }
+        pages.eq(prevPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('next')) {
+        if (thisPage === lastPage ) {
+          nextPage = lastPage;
+        }
+        pages.eq(nextPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('last')) {
+        pages.eq(lastPage).addClass('active');
+        return
+      }
+    });
+    
+    // AMR 챗봇빌더 목록 active
+    $('.chatbot_builder .chatbot_list li').on('click', function(){
+      var list = $('.chatbot_builder .chatbot_list li');
+      var thisList = $(this);
+      list.removeClass('active');
+      thisList.addClass('active');
+    });
+
+    // AMR 챗봇빌더 메뉴 active
+    $('.chatbot_builder .menu li').on('click', function(){
+      var menu = $('.chatbot_builder .menu li');
+      var thisMenu = $(this);
+      menu.removeClass('active');
+      thisMenu.addClass('active');
+    });
+
+    // 챗봇빌더 답변 테이블 내 상세, 삭제 버튼 클릭 시 해당 col active
+    $('.chatbot_builder table .btn_line_primary, .chatbot_builder table .btn_line_warning').on('click', function(){
+      var table = $(this).parents('table');
+      var tableCol = table.find('tr');
+      var thisCol = $(this).parents('tr');
+      tableCol.removeClass('active');
+      thisCol.addClass('active');
+    });
+    
+    // AMR 챗봇빌더 챗봇 테스트 열기닫기
+    function handleChatbotTestOnOff() {
+      var btnOn = $('.chatbot_builder .btn_test_on');
+      var btnOff = $('.chatbot_builder .btn_test_off');
+
+      btnOn.on('click', function(){
+        $('.chatbot_builder').addClass('test_on');
+        btnOn.addClass('hide');
+      });
+
+      btnOff.on('click', function(){
+        $('.chatbot_builder').removeClass('test_on');
+        btnOn.removeClass('hide');
+      });
+    }
+    handleChatbotTestOnOff();
+
+    // 드롭다운 박스 열기 닫기
+    $('.dl_dropdown dt').on('click', function(){
+      var parent = $(this).parent('.dl_dropdown');
+      parent.toggleClass('active');
+    });
+
+    // tbl_commands 버튼으로 체크한 테이블 로우 지우기
+    $('.btn_remove_row').on('click', function(){
+      var $commands = $(this).parents('.tbl_commands');
+      var $table = $commands.next();
+      var $tr = $table.find('tbody tr');
+
+      $tr.each(function(){
+        $thisTr = $(this);
+        $thisCheckbox = $thisTr.find('td').eq(0).find('input[type="checkbox"]');
+        
+        if ( $thisCheckbox.prop('checked') ) {
+          $thisTr.remove();
+        }
+      });
+    });
+
+  });
+</script>
+
+<!-- 개별 js -->
+<script type="text/javascript">
+  // swiper
+  function applySwiper (selector, option) {
+    var defaultOption = {
+      initialSlide : 0, //처음으로 보여질 슬라이드 index
+      speed : 200,
+      slidesPerView:2,
+      spaceBetween: 10,
+      centeredSlides: false,
+      loop: true,
+      pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+      },
+      navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+      }
+    };
+    return new Swiper(selector, $.extend(defaultOption, option))
+  }
+  applySwiper($('.botMsg_swiper'), {initialSlide : 0}); //처음으로 보여질 슬라이드 index 수정
+
+  // AMR 이미지 카드 미리보기
+  function changeImageCard(input) {
+    var $input = $(event.target);
+
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var imgUrl = e.target.result;
+        var imgHtml = '<img src="' + imgUrl + '" alt="백그라운드 이미지">'
+
+        if ( $input.prev().length === 0 ) {
+          $input.parent().prepend(imgHtml);
+          return;
+        }
+        $input.prev().attr('src', imgUrl);
+      }
+      
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  // AMR 이미지 카드 확정에 미리보기 반영하기
+  function confirmImageCard() {
+    var $this = $(event.target);
+    var $imgCardPreview = $this.prev();
+    var $imgCardConfirm = $this.next();
+
+    var src = $imgCardPreview.find('img').attr('src');
+    var title = $imgCardPreview.find('.item_tit input').val();
+    var text = $imgCardPreview.find('.item_txt textarea').val();
+
+    if ( src == undefined ) {
+      alert('이미지를 선택해주세요')
+      return;
+    } else if ( title, text == '' ) {
+      alert('타이틀과 내용을 작성해주세요')
+      return;
+    }
+
+    $imgCardConfirm.find('img').attr('src', src);
+    $imgCardConfirm.find('.item_tit').text(title);
+    $imgCardConfirm.find('.item_txt').text(text);
+  }
+
+  function answerPreview(e) {
+    $('#answerPreview').text(e.target.value);
+  }
+
+  function addRowChatbotTask() {
+    var tblChatbotTask = document.getElementById('tblChatbotTask');
+    var tableBody = tblChatbotTask.querySelector('tbody');
+    var clonedNode = $($('#tempChatbotTask').html())[0]; //template (ie 호환위해 table부터 작성하고 tr만 가져옴)
+    var $tableRow = $(clonedNode.getElementsByTagName('tr'));
+
+    $tableRow.appendTo(tableBody);
+    
+    createMultiSelect($tableRow.find('.fast_popper_select').eq(0), taskData1, []);
+    createMultiSelect($tableRow.find('.fast_popper_select').eq(1), taskData2, []);
+  }
+</script>
+</body>
+</html>

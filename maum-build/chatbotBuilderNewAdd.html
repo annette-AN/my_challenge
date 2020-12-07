@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+  <!-- cache 지우는 meta 태그 -->
+  <meta http-equiv="Cache-Control" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Pragma" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Expires" content="-1"> <!-- 즉시 캐시만료 -->
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/colpick.css">
+  <link rel="stylesheet" href="css/simplebot.css">
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.form.js"></script>
+  <script src="js/colpick.js"></script>
+
+  <title>chatbot builder</title>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <h1>chatbot builder</h1>
+    </div>
+  
+    <div id="container" class="chatbot_builder">
+      <div class="content">
+        <div class="multipleBoxType">
+          <!-- lot_wrap -->
+          <div class="lot_wrap">
+            <div class="lotBox chatbot_list">
+              <div class="tit">
+                <h3>챗봇목록</h3>
+                <div class="fr">
+                  <button type="button" class="btn_primary">추가</button>
+                </div>
+              </div>
+              <div class="cont">
+                <div class="iptBox">
+                  <!-- [D] 인풋에서 엔터 키 입력 시 btn_search가 클릭됩니다 -->
+                  <input type="text" class="ipt_txt search" autocomplete="off">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+                <ul class="common_lst scroll">
+                  <li>
+                    <div>
+                      <span>골든튤립</span>
+                      &lpar;<em>gt_hud</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li class="active">
+                    <div>
+                      <span>메이필드</span>
+                      &lpar;<em>mayfield</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>파티오세븐</span>
+                      &lpar;<em>patio7</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>설리봇</span>
+                      &lpar;<em>sully</em>&rpar;
+                    </div>
+                    <div>
+                      <span>회사소개</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+  
+            <!-- chatbot_content -->
+            <div class="lotBox chatbot_content">
+              <div class="intro"><button type="button" class="btn_primary" onclick="introRemove()">챗봇 생성하기</button></div>  
+              <div class="tit">
+                <h3>챗봇 추가</h3>
+              </div>
+              
+              <div class="cont">
+                <div class="chatbot_setting scroll">
+                  <div class="setting">
+                    <div class="ipt_container">
+                      <dl>
+                        <dt>카테고리</dt>
+                        <dd>
+                          <select name="" id="" class="select">
+                            <option value="">호텔</option>
+                            <option value="">회사소개</option>
+                            <option value="">옵션1</option>
+                            <option value="">옵션2</option>
+                            <option value="">옵션3</option>
+                          </select>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>챗봇명</dt>
+                        <dd><input type="text" class="ipt_txt"></dd>
+                      </dl>
+                      <dl>
+                        <dt>챗봇 ID<div class="help">?<div class="help_desc"><i>챗봇 고유 ID입니다.<br>ex)minds_chatbot</i></div></div>
+                        </dt>
+                        <dd><input type="text" class="ipt_txt"></dd>
+                      </dl>
+                      <dl>
+                        <dt>Email<div class="help">?<div class="help_desc"><i>챗봇이 전달하는 내용을 받을 이메일 주소입니다.<br>ex)hello@mindslab.ai</i></div></div>
+                        </dt>
+                        <dd><input type="text" class="ipt_txt"></dd>
+                      </dl>
+                      <dl>
+                        <dt>상세설명<div class="help">?<div class="help_desc"><i>챗봇에 대한 설명을 적는 란입니다.<br>ex)마인즈랩 소개 챗봇입니다</i></div></div>
+                        </dt>
+                        <dd><textarea name="" id="" class="ipt_txt" cols="30" rows="2"></textarea></dd>
+                      </dl>
+                      <dl>
+                        <dt>메인 색상<div class="help help_guide main-color">?<div class="help_desc"><i>챗봇에 적용할 색상을 고릅니다.</i></div></div>
+                        </dt>
+                        <dd id="chatbot_color">
+                          <input type="text" id="picker" class="ipt_txt" value="rgb(84,84,84)">
+                          <div class="pick_preview pick_color_bg"></div>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>포인트 글자색상<div class="help help_guide main-text">?<div class="help_desc"><i>챗봇에 적용할 글자 색상을 선택합니다.</i></div></div>
+                        </dt>
+                        <dd class="iptBox">
+                          <input type="radio" name="text-color" id="text_white" class="checkbox" checked>
+                          <label for="text_white" onclick="changeTextColor()">흰색</label>
+                          <input type="radio" name="text-color" id="text_black" class="checkbox">
+                          <label for="text_black" onclick="changeTextColor()">검은색</label>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>로고 이미지<div class="help help_guide main-logo">?<div class="help_desc"><i>챗봇 상단에 적용될 이미지입니다.</i></div></div>
+                        </dt>
+                        <dd>
+                          <div class="iptBox">
+                            <input type="text" class="ipt_txt" readonly>
+                            <input type="file" id="chat_build_logo" class="hide" onchange="changeLogoIcon()">
+                            <label for="chat_build_logo">찾아보기</label>
+                          </div>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>아이콘 이미지<div class="help help_guide main-icon">?<div class="help_desc"><i>챗봇 말풍선과 하단 동그라미에 적용될 이미지입니다.</i></div></div>
+                        </dt>
+                        <dd>
+                          <div class="iptBox">
+                            <input type="text" class="ipt_txt" readonly>
+                            <input type="file" id="chat_build_icon" class="hide" onchange="changeLogoIcon()">
+                            <label for="chat_build_icon">찾아보기</label>
+                          </div>
+                        </dd>
+                      </dl>
+                      <div class="btn_box">
+                        <button type="button" class="btn_primary" onclick="createStyle()">저장</button>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="ipt_container">
+                    <dl>
+                      <dt>챗봇 미리보기<div class="help">?<div class="help_desc"><i>챗봇의 색상, 로고, 아이콘을 적용하면 확인하실 수 있습니다.</i></div></dt>
+                      <dd class="floating_ui">
+                        <div class="chat_preview">
+                          <div class="chatUI_top">
+                            <p class="h1 pick_logo"></p>
+                            <div class="langBox">
+                              <p class="active"><button class="btn_lang" title="언어선택">언어선택</button></p>
+                              <ul class="lst_lang show">
+                                <li><button class="btn_lang ico_ko active pick_color_bg pick_color" data-lang="1">한국어</button></li>
+                                <li><button class="btn_lang ico_en" data-lang="2">English</button></li>
+                                <li><button class="btn_lang ico_ja" data-lang="3">日本語</button></li>
+                                <li><button class="btn_lang ico_zh_cn" data-lang="4">中文(汉语)</button></li>
+                              </ul>
+                            </div>
+                            <div class="btn_chatClose">close</div>
+                          </div>
+                          <div class="chatUI_mid">
+                            <ul class="lst_talk">
+                              <li class="newDate"><span>0000년 00월 00일 o요일</span></li>
+                              <li class="bot">
+                                <div class="pick_icon"></div>
+                                <div class="bot_msg">
+                                  <div class="txt">챗봇의 색상, 로고, 아이콘을 설정해보세요.</div>
+                                  <div class="date">0000.00.00 00:00</div>
+                                </div>
+                              </li>
+                              <li class="user">
+                                <div class="bot_msg">
+                                  <em class="txt pick_color_bg pick_color">네 설정해주세요.</em>
+                                  <div class="date">0000.00.00 00:00</div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="chatUI_btm">
+                            <div class="textArea" disabled rows="1" placeholder="메세지를 입력해 주세요"></div>
+                            <div id="btn_chat" class="btn_chat pick_color_bg">전송</div>
+                          </div>
+                        </div>
+                        <div class="chatGreeting pick_color_bg pick_color">
+                          무엇을 도와드릴까요?<br>How may I help you?
+                        </div>
+                        <button type="button" id="btn_goChat" class="pick_color_bd pick_icon">챗봇</button>
+                        <p class="powered">Powered by
+                          <img src="images/img_tit_redtie.svg" alt="RedTie Butler">
+                        </p>
+                      </dd>
+                    </dl>
+                  </div>
+
+                  <div class="connect_script">
+                    <div class="ipt_container">
+                      <dl>
+                        <dt>연동 스크립트<div class="help">?<div class="help_desc"><i>홈페이지에 입력할 스크립트 코드입니다.</i></div></div>
+                          <div class="fr">
+                            <!-- [D] disabled attr 추가 시 비활성화 디자인이 적용됩니다. -->
+                            <button type="button" class="btn_copy btn_line_primary">내용 복사하기</button>
+                          </div>
+                        </dt>
+                        <dd>
+                          <p class="ipt_txt copy_text" readonly>&lt;script src="https://sds.maum.ai/redtie/js/hotel_patio7"&gt;&lt;/script&gt;<br>
+                            &lt;iframe id="chatbot_iframe" src="https://sds.maum.ai:443/hotel_patio7/" frameborder="0" framespacing="0" marginheight="0" marginwidth="0" scrolling="no" vspace="0"&gt;&lt;/iframe&gt;
+                          </p>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //chatbot_content -->
+          </div>
+          <!-- //lot_wrap -->
+  
+          <!-- chatbot_test -->
+          <div class="lotBox chatbot_test">
+            <div class="tit">
+              <h3>챗봇테스트</h3>
+              <div class="fr">
+                <!-- [D] 닫기 버튼 클릭 시 챗봇 테스트 영역이 사라집니다. -->
+                <button type="button" class="btn_primary btn_test_off">닫기</button>
+              </div>
+            </div>
+            <div class="cont">
+              작업전
+            </div>
+          </div>
+          <!-- //chatbot_test -->
+        </div>
+      </div>
+      <!-- //content -->
+    </div>
+    <!-- //container -->
+  </div>
+  <!-- //wrap -->
+<p id="css">
+  /* MINDsLab. UX/UI Team. AMR. 20201201 */
+  #chatbot {display:block; overflow:hidden; position:fixed; width: 90px; right:0; bottom:55px; height:75px; border-radius:10px; z-index:9999;}
+  #chatbot.chatOpen {width: 370px; height:80%; bottom: 0px;}
+  #chatbot.aside_area {width: 725px;}
+  #chatbot_iframe {position: absolute; right: 0px; bottom: 0px; width:775px;height:100%; border:none;}
+  .chatGreeting:hover .btn_greetClose {opacity: 1;}
+  .chatGreeting {display:block; position:fixed; right:100px; bottom:30px; margin-bottom:0px; padding:10px 35px 10px 10px; line-height: 18px; color:rgba(--main-text-rgb,1.0); font-size:12px; text-align:right; border-radius:7px; background:rgba(--main-color-rgb,1.0); z-index:700; -webkit-animation-duration:1.2s; animation-duration:1.2s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:chatGreeting; animation-name:chatGreeting; animation-delay:0.5s;}
+  /* 200310 AMR animation 경량화 */
+  @-webkit-keyframes chatGreeting {
+      0%   {opacity:0; display:none; transform: translateY(0px);}
+      50%  {opacity:0; display:none; transform: translateY(0px);}
+      100% {opacity:1; display:block; transform: translateY(-30px);}
+  }
+  @keyframes chatGreeting {
+      0%   {opacity:0; display:none; transform: translateY(0px);}
+      50%  {opacity:0; display:none; transform: translateY(0px);}
+      100% {opacity:1; display:block; transform: translateY(-30px);}
+  }
+  .chatGreeting.chatGreeting_hide {animation-delay:0s; -webkit-animation-duration:0.3s; animation-duration:0.3s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:chatGreeting_hide; animation-name:chatGreeting_hide; }
+  @-webkit-keyframes chatGreeting_hide {
+      0%   {opacity:1; display:block; transform: translateY(-30px);}
+      100% {opacity:0; display:none; transform: translateY(0px);}
+  }
+  @keyframes chatGreeting_hide {
+      0%   {opacity:1; display:block; transform: translateY(-30px);}
+      100% {opacity:0; display:none; transform: translateY(0px);}
+  }
+  .powered {display:block; position:fixed; right:20px; bottom:30px; margin-bottom:0; color:#fff; font-size:12px; text-align:right; text-shadow:1px 1px 3px rgba(0, 0, 0, 0.7); z-index:700;}
+  .powered img {height:9px; margin:0 0 1px 4px; vertical-align:middle;}
+  #chatbot.chatOpen ~ .chatGreeting {display:none;}
+  #chatbot.chatOpen ~ .powered {display:none;}
+  .btn_greetClose {overflow: hidden; position:absolute; top: 10px; right: 8px; width: 20px; height: 20px; text-indent:-99px; border:none; border-radius: 50%; cursor:pointer; background-color: rgba(255,255,255,0.7); transition:all 0.3s ease-out;opacity: 0;}
+  .btn_greetClose:before,
+  .btn_greetClose:after {content:''; position:absolute; top:50%; left:4px; width:12px; height:1px; background:rgba(0,0,0,0.9);}
+  .btn_greetClose:before {transform:rotate(-45deg);}
+  .btn_greetClose:after {transform:rotate(45deg);}
+  @media all and (max-width: 768px) {
+      #chatbot {right:0; bottom:40px; width: 75px; height: 55px; border-radius:0; z-index:9999;}
+      #chatbot #btn_goChat {bottom:0; width:55px; margin:0 10px 40px 0; padding:50px 0 0 0;}
+      #chatbot.chatOpen {bottom:0px; width: 100%; height:100%;}
+      .powered {bottom:12px;}
+      .chatGreeting {left:auto; right: 80px; width: auto; margin-bottom: -20px; text-align:left; word-break: keep-all;}
+
+      #chatbot_iframe {width: 100%;}
+
+      .chatGreeting .btn_greetClose {opacity: 1;}
+  }
+  #btn_goChat {border:2px solid rgba(--main-color-rgb,1.0); background:url("--main-icon") 50% 50% no-repeat; background-size:cover;}
+  #chatUI_wrap .chatUI_top h1 {color:rgba(--main-color-rgb,1.0);  background: url("--main-logo") no-repeat 50% 0; background-size: auto 50px;}
+  #chatUI_wrap .chatUI_top h1 img {height: 50px;}
+  #chatUI_wrap .chatUI_top .langBox .lst_lang li button:hover,.chatUI_top .langBox .lst_lang li button:focus {border:1px solid rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_top .langBox .lst_lang li button.active {background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk li.user .bot_msg .txt {background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk li.bot:first-child:before {background:rgba(--main-color-rgb,1.0) url("--main-icon") 50% 50% no-repeat; background-size:cover; }
+  #chatUI_wrap li.user + li.bot:before {background:rgba(--main-color-rgb,1.0) url("--main-icon") 50% 50% no-repeat; background-size:cover;}
+  #chatUI_wrap .chatLoading > em {background-color:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .txt {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .generic .generic_tit a {color:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .generic .generic_tit a:before {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .generic .generic_tit a:after {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .generic .generic_url a {color:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .generic .generic_url a:before {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .generic .generic_url a:after {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li a {color:rgba(--main-color-rgb,1.0); }
+  #chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li a:hover {box-shadow:rgba(--main-color-rgb,1.0) 0 80px 0px 2px inset;}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnLst ul li a.active {background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnLst .btnBox button.btn_point {background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnItem ul li a {color:rgba(--main-color-rgb,1.0); box-shadow:rgba(--main-color-rgb,0) 0 0px 0px 2px inset;}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnItem ul li a:hover {box-shadow:rgba(--main-color-rgb,1.0) 0 80px 0px 2px inset;}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnItem ul li a.btnStart {box-shadow:rgba(--main-color-rgb,1.0) 0 80px 0px 2px inset; background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnItem ul li a.active {background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  #chatUI_wrap li.bot_promotion:before {background: rgba(--main-color-rgb,1.0) url("--main-icon") 50% 50% no-repeat; background-size: cover;}
+  #chatUI_wrap .chatUI_mid .lst_talk .bot_promotion .generic .generic_tit {color: rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk li.botMsg_swiper a.swiper_item:hover {border:1px solid rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .full_preview .swiper-pagination-bullet-active {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .swiper-button-prev, .swiper-container-rtl .swiper-button-next {background:rgba(--main-color-rgb,0.9) url("../images/arw_left_w.png") center center no-repeat;}
+  #chatUI_wrap .swiper-button-next, .swiper-container-rtl .swiper-button-prev {background:rgba(--main-color-rgb,0.9) url("../images/arw_right_w.png") center center no-repeat;}
+  #chatUI_wrap .swiper-pagination-bullet-active {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .full_preview .swiper-pagination-bullets .swiper-pagination-bullet {border: 1px solid rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_btm .textArea:focus {border:1px solid rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_btm .btn_chat {background-color:rgba(--main-color-rgb,1.0);}
+  .chatAside .checkBox input[type="checkbox"]:checked + label:before{border-color:rgba(--main-color-rgb,1.0); background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  .chatAside .radioBox input[type="radio"]:checked + label:before{border-color:rgba(--main-color-rgb,1.0); background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+  .chatAside .chatAside_hd h3 {color:rgba(--main-color-rgb,1.0);}
+  .chatAside .chatAside_bd .btnBox button.btn_point {background:rgba(--main-color-rgb,1.0);}
+  .chatAside .chatAside_bd .stnBox.popup .popup_content .ico_circle {background: rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .txt .txt_btn a {color:rgba(--main-color-rgb,1.0) !important; box-shadow:rgba(--main-color-rgb,0) 0 0px 0px 2px inset;}
+  #chatUI_wrap .txt .txt_btn a:hover {border:1px solid rgba(--main-color-rgb,0) !important; box-shadow:rgba(--main-color-rgb,1.0) 0 80px 0px 2px inset;}
+  #chatUI_wrap .txt .txt_btns a {color:rgba(--main-color-rgb,1.0) !important; box-shadow:rgba(--main-color-rgb,0) 0 0px 0px 2px inset;}
+  #chatUI_wrap .txt .txt_btns a:hover {border:1px solid rgba(--main-color-rgb,0) !important;  box-shadow:rgba(--main-color-rgb,1.0) 0 80px 0px 2px inset;}
+  #chatUI_wrap .mapWrap .mapWrap_cont .btn_mapLoad_detail {background:rgba(--main-color-rgb,1.0);}
+  #chatUI_wrap .chatUI_mid .lst_talk .btnLst .txt.txt_radius {background: rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
+</p>
+
+<!-- 공통 js -->
+<script></script>
+
+<!-- 개별 js -->
+<script>
+  // 고객에게 보여질 defult 값입니다
+  var chatbotBgColor = {r: 84, g: 84, b: 84};
+  var chatbotTextColor = '#fff'; // #fff(white), #403738(black) 두가지 중 선택가능. defult는 #fff(white)
+  var chatbotLogo = '../images/logo_testbot.png';
+  var chatbotIcon = '../images/ico_testbot.png';
+  var customStyleTemp = ''; //css text가 들어가는 변수
+
+  // 색, 이미지 적용 함수
+  function setCustom() {
+    var rgb = 'rgb(' + chatbotBgColor.r + ',' + chatbotBgColor.g + ',' + chatbotBgColor.b + ')';
+
+    $('#picker').val(rgb);
+    $('.pick_color_bg').css({ 'background-color': rgb });
+    $('.pick_color_bd').css({ 'border-color': rgb });
+    $('.pick_color').css({'color': chatbotTextColor});
+    $('.pick_logo').css({ 'background-image': 'url(' + chatbotLogo + ')' });
+    $('.pick_icon').css({ 'background-image': 'url(' + chatbotIcon + ')' });
+  }
+  setCustom();
+
+  // 로고, 아이콘 바꾸기
+  function changeLogoIcon() {
+    var target = event.target;
+    var fileName = target.files[0].name;
+    var $input = $(target);
+    var id = $input.attr('id');
+
+    if (target.files && target.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var imgUrl = e.target.result;
+        $input.prev('input[type="text"]').val(fileName); //input text에 파일이름 입력
+
+        if (id === 'chat_build_logo') {
+          chatbotLogo = imgUrl;
+          setCustom(); // 컬러, 이미지 적용 함수
+          return;
+        }
+
+        if (id === 'chat_build_icon') {
+          chatbotIcon = imgUrl;
+          setCustom(); // 컬러, 이미지 적용 함수
+        }
+      };
+      reader.readAsDataURL(target.files[0]);
+    }
+  }
+
+  // text 색 바꾸기
+  function changeTextColor() {
+    var target = event.target;
+    var targetAttr = $(target).attr('for');
+
+    if ( targetAttr === 'text_white' ) {
+      chatbotTextColor = '#fff'
+      setCustom(); // 컬러, 이미지 적용 함수
+      return;
+    }
+
+    if ( targetAttr === 'text_black' ) {
+      chatbotTextColor = '#403738'
+      setCustom(); // 컬러, 이미지 적용 함수
+    }
+  }
+  
+  // 색상 선택
+  $('#picker').colpick({
+    layout: 'rgbhex', //rgb 값
+    submit: 0,
+    color: chatbotBgColor, //최초에 셋팅될 색
+    onChange: function (hsb, hex, rgb) {
+      chatbotBgColor = {r: rgb.r, g: rgb.g, b: rgb.b}
+      setCustom(); // 컬러, 이미지 적용 함수
+    },
+  })
+  .keyup(function () {
+    $(this).colpickSetColor(this.value);
+  });
+
+  // css text를 만듬
+  function createStyle() {
+    var rgb = chatbotBgColor.r + ',' + chatbotBgColor.g + ',' + chatbotBgColor.b;
+    var styleTemp = $('#css').text();
+    var exChager = styleTemp.replace(/(--main-text-rgb|--main-color-rgb|--main-logo|--main-icon)/g, function(vl){
+      switch(vl){
+        case "--main-text-rgb" : return chatbotTextColor;
+        case "--main-color-rgb" : return rgb;
+        case "--main-logo" : return chatbotLogo;
+        case "--main-icon" : return chatbotIcon;
+      }
+    });
+    customStyleTemp = exChager;
+  }
+
+  // 스크립트 텍스트 복사
+  $('.btn_copy').on('click', function(){
+    var text = $('.copy_text').text();
+    var input = $('<input type="text">');
+    var createInput = $('body').append(input);
+
+    input.val(text).select();
+    document.execCommand('copy');
+    input.remove();
+    alert('복사가 완료되었습니다.');
+  });
+
+  // help 메세지에 help_guide가 있을 경우 챗봇 미리보기에서 해당 영역이 mark됨
+  $('.help_guide').on('mouseenter', function(){
+    var $guideMark = $(this);
+
+    if ( $guideMark.hasClass('main-color') ) {
+      $('.pick_color_bg, .pick_color_bd').addClass('color_on');
+      $('.pick_preview').removeClass('color_on');
+    }
+    if ( $guideMark.hasClass('main-text') ) {
+      $('.pick_color').addClass('on');
+    }
+    if ( $guideMark.hasClass('main-logo') ) {
+      $('.pick_logo').addClass('on');
+    }
+    if ( $guideMark.hasClass('main-icon') ) {
+      $('.pick_icon').addClass('on');
+    }
+  });
+
+  $('.help_guide').on('mouseleave', function(){
+    $('.pick_color_bg, .pick_color_bd').removeClass('color_on');
+    $('.pick_color, .pick_logo, .pick_icon').removeClass('on');
+  });
+
+  function introRemove() {
+    var target = event.target;
+    var $target = $(target)
+    $target.parent().remove();
+  }
+</script>
+</body>
+</html>

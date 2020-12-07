@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+  <!-- cache 지우는 meta 태그 -->
+  <meta http-equiv="Cache-Control" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Pragma" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Expires" content="-1"> <!-- 즉시 캐시만료 -->
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/simplebot.css">
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.form.js"></script>
+
+  <title>chatbot builder</title>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <h1>chatbot builder</h1>
+    </div>
+
+    <div id="container" class="chatbot_builder">
+      <div class="content">
+        <div class="multipleBoxType">
+          <!-- lot_wrap -->
+          <div class="lot_wrap">
+            <div class="lotBox chatbot_list">
+              <div class="tit">
+                <h3>챗봇목록</h3>
+                <div class="fr">
+                  <button type="button" class="btn_primary">추가</button>
+                </div>
+              </div>
+              <div class="cont">
+                <div class="iptBox">
+                  <!-- [D] 인풋에서 엔터 키 입력 시 btn_search가 클릭됩니다 -->
+                  <input type="text" class="ipt_txt search" autocomplete="off">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+                <ul class="common_lst scroll">
+                  <li>
+                    <div>
+                      <span>골든튤립</span>
+                      &lpar;<em>gt_hud</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li class="active">
+                    <div>
+                      <span>메이필드</span>
+                      &lpar;<em>mayfield</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>파티오세븐</span>
+                      &lpar;<em>patio7</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>설리봇</span>
+                      &lpar;<em>sully</em>&rpar;
+                    </div>
+                    <div>
+                      <span>회사소개</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+  
+            <!-- chatbot_content -->
+            <div class="lotBox chatbot_content">
+              <div class="tit">
+                <h3>메이필드</h3>
+                <div class="fr">
+                  <!-- [D] 챗봇테스트 버튼 클릭 시 챗봇 테스트 영역이 보여집니다. -->
+                  <button type="button" class="btn_primary btn_test_on">챗봇 테스트</button>
+                </div>
+              </div>
+  
+              <div class="cont">
+                <ul class="menu scroll_x">
+                  <!-- [D] 메뉴 클릭 시 active class가 추가됩니다 -->
+                  <li>답변</li>
+                  <li class="active">의도</li>
+                  <li>설정</li>
+                </ul>
+  
+                <div class="menu_cont">
+                  <div class="srchArea">
+                    <div class="fr iptBox">
+                      <!-- [D] 인풋에서 엔터 키 입력 시 btn_search가 클릭됩니다 -->
+                      <input type="text" class="ipt_txt search" autocomplete="off">
+                      <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                    </div>
+                  </div>
+  
+                  <div class="tbl_box_info">
+                    <p class="path"><em>의도</em></p>
+                  </div>
+  
+                  <div class="tbl_wrap scroll">
+                    <table class="tbl_box_lst" summary="순번, 의도, 문장, 상세, 삭제">
+                      <caption class="hide">순번, 의도, 문장, 상세, 삭제</caption>
+                      <colgroup>
+                        <col style="width: 65px;"><col style="width: 15%;"><col><col style="width: 85px;"><col style="width: 85px;">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>순번</th>
+                          <th>의도</th>
+                          <th>문장</th>
+                          <th><span class="text_hide">상세</span></th>
+                          <th><span class="text_hide">삭제</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- [D] 기본등록 : 삭제가능 -->
+                        <tr>
+                          <td>1</td>
+                          <td>메뉴</td>
+                          <td><span class="text_ellipsis">메뉴 뭐있어 | 메뉴 알려줘 | 메뉴</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>수영장</td>
+                          <td><span class="text_ellipsis">수영장 있나요 | 수영장 어떻게 이용 | 수영장 몇 시까지 하나요 | 수영장</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>많은 문장 예</td>
+                          <td><span class="text_ellipsis">문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                          <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
+                        </tr>
+
+                        <!-- [D] 고객등록 : 삭제 불가능 -->
+                        <tr>
+                          <td>4</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>11</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>13</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>14</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>15</td>
+                          <td>-</td>
+                          <td colspan="2"><span class="text_ellipsis">-</span></td>
+                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="pagination">
+                      <button type="button" class="first"><span>&laquo;</span></button>
+                      <button type="button" class="prev"><span>&lsaquo;</span></button>
+                      <div class="pages">
+                        <!-- [D] 페이지 클릭 시 active class가 추가됩니다 -->
+                        <span class="page active">1</span>
+                        <span class="page">2</span>
+                        <span class="page">3</span>
+                        <span class="page">4</span>
+                        <span class="page">5</span>
+                      </div>
+                      <button type="button" class="next"><span>&rsaquo;</span></button>
+                      <button type="button" class="last"><span>&raquo;</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //chatbot_content -->
+          </div>
+          <!-- //lot_wrap -->
+          <!-- chatbot_test -->
+          <div class="lotBox chatbot_test">
+            <div class="tit">
+              <h3>챗봇테스트</h3>
+              <div class="fr">
+                <!-- [D] 닫기 버튼 클릭 시 챗봇 테스트 영역이 사라집니다. -->
+                <button type="button" class="btn_primary btn_test_off">닫기</button>
+              </div>
+            </div>
+            <div class="cont">
+              작업전
+            </div>
+          </div>
+          <!-- //chatbot_test -->
+        </div>
+      </div>
+      <!-- //content -->
+    </div>
+    <!-- //container -->
+  </div>
+  <!-- //wrap -->
+
+<!-- 모달 챗봇 삭제 -->
+<div id="chat_list_delete" class="lyrBox">
+  <div class="lyr_top">
+    <h3>챗봇 삭제</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <p class="infoTxt"><em>선택한 챗봇</em>을(를) 삭제합니다.</p>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //모달 챗봇 삭제 -->
+
+<!-- 모달 의도 삭제 -->
+<div id="chat_row_delete" class="lyrBox">
+  <div class="lyr_top">
+    <h3>챗봇 의도 삭제</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <p class="infoTxt"><em>선택한 의도</em>을(를) 삭제합니다.</p>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //모달 의도 삭제 -->
+
+<!-- 공통 js -->
+<script>
+  $(document).ready(function () {
+    // AMR Layer popup open
+    $('.btn_lyr_open').on('click', function () {
+      var winHeight = $(window).height() * 0.7,
+        hrefId = $(this).attr('href');
+
+      $('body').css('overflow', 'hidden');
+      $('body').find(hrefId).wrap('<div class="lyrWrap"></div>');
+      $('body').find(hrefId).before('<div class="lyr_bg"></div>');
+
+      //대화 UI
+      $('.lyrBox .lyr_mid').each(function () {
+        $(this).css('max-height', Math.floor(winHeight) + 'px');
+      });
+
+      //Layer popup close
+      $('.btn_lyr_close, .lyr_bg').on('click', function () {
+        $('body').css('overflow', '');
+        $('body').find(hrefId).unwrap('<div class="lyrWrap"></div>');
+        $('.lyr_bg').remove();
+      });
+    });
+
+    // AMR 돋보기 아이콘이 있는 검색 영역에서 엔터 시 검색버튼 눌림
+    $('.ipt_txt.search').on('keyup', function(){
+      if (event.keyCode == 13) {
+        $(this).next('.btn_search').trigger('click');
+      }
+    });
+
+    // AMR 테이블 페이지네이션 페이지 active
+    // .page 클릭 시
+    $('.tbl_wrap .pagination .page').on('click', function(){
+      var pages = $('.pagination .pages .page');
+      var thisPage = $(this);
+      pages.removeClass('active');
+      thisPage.addClass('active');
+    });
+    // 버튼 클릭 시
+    $('.tbl_wrap .pagination > button').on('click', function(){
+      var thisButton = $(this);
+      var pages = $('.pagination .pages .page');
+      var activePage = $('.pagination .pages .page.active');
+      var thisPage = pages.index(activePage);
+      var firstPage = 0;
+      var lastPage = pages.length - 1;
+      var prevPage = thisPage - 1;
+      var nextPage = thisPage + 1;
+
+      pages.removeClass('active');
+
+      if (thisButton.hasClass('first')) {
+        pages.eq(firstPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('prev')) {
+        if (thisPage === 0 ) {
+          prevPage = 0;
+        }
+        pages.eq(prevPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('next')) {
+        if (thisPage === lastPage ) {
+          nextPage = lastPage;
+        }
+        pages.eq(nextPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('last')) {
+        pages.eq(lastPage).addClass('active');
+        return
+      }
+    });
+    
+    // AMR 챗봇빌더 목록 active
+    $('.chatbot_builder .chatbot_list li').on('click', function(){
+      var list = $('.chatbot_builder .chatbot_list li');
+      var thisList = $(this);
+      list.removeClass('active');
+      thisList.addClass('active');
+    });
+
+    // AMR 챗봇빌더 메뉴 active
+    $('.chatbot_builder .menu li').on('click', function(){
+      var menu = $('.chatbot_builder .menu li');
+      var thisMenu = $(this);
+      menu.removeClass('active');
+      thisMenu.addClass('active');
+    });
+
+    // 챗봇빌더 답변 테이블 내 상세, 삭제 버튼 클릭 시 해당 col active
+    $('.chatbot_builder table .btn_line_primary, .chatbot_builder table .btn_line_warning').on('click', function(){
+      var table = $(this).parents('table');
+      var tableCol = table.find('tr');
+      var thisCol = $(this).parents('tr');
+      tableCol.removeClass('active');
+      thisCol.addClass('active');
+    });
+    
+    // AMR 챗봇빌더 챗봇 테스트 열기닫기
+    function handleChatbotTestOnOff() {
+      var btnOn = $('.chatbot_builder .btn_test_on');
+      var btnOff = $('.chatbot_builder .btn_test_off');
+
+      btnOn.on('click', function(){
+        $('.chatbot_builder').addClass('test_on');
+        btnOn.addClass('hide');
+      });
+
+      btnOff.on('click', function(){
+        $('.chatbot_builder').removeClass('test_on');
+        btnOn.removeClass('hide');
+      });
+    }
+    handleChatbotTestOnOff();
+  });
+</script>
+</body>
+</html>
