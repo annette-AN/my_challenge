@@ -739,8 +739,8 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .answer_preview .swiper_item .item_tit input,
 .answer_preview .swiper_item .item_txt textarea {width: 100%;}
 
-.answer_preview .setting_image_card .item_img label {position: absolute; top: 0; left: 0; display: block; width: 100%; line-height: 100px; font-size: 30px; color: #fff; cursor: pointer;}
-.answer_preview .setting_image_card .item_img label:hover {font-weight: 700; color: #506df5; background: rgba(0,0,0,0.2);}
+.answer_preview .setting_image_card .btn_lyr_open {position: absolute; top: 0; left: 0; display: block; width: 100%; line-height: 100px; font-size: 30px; color: #fff; cursor: pointer;}
+.answer_preview .setting_image_card .btn_lyr_open:hover {font-weight: 700; color: #506df5; background: rgba(0,0,0,0.2);}
 .answer_preview .swiper_item textarea {overflow: hidden;}
 
 /* colpick custom */
