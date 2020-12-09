@@ -711,8 +711,8 @@
     </div>
     <div class="lyr_btm">
       <div class="btnBox sz_small">
-        <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
-        <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+        <button type="button" class="btn_primary btn_lyr_close">확인</button>
+        <button type="button" class="btn_primary btn_lyr_close">취소</button>
       </div>
     </div>
   </div>
@@ -1046,8 +1046,6 @@
       var winHeight = $(window).height() * 0.7,
         hrefId = $(this).attr('href');
         thisLayer = $(hrefId);
-
-        console.log(thisLayer)
 
       if ( thisLayer.hasClass('sub_lyr') ) {
         thisLayer.wrap('<div class="lyrWrap"></div>');
