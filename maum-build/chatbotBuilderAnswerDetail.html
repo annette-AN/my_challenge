@@ -378,7 +378,7 @@
     </div>
     <div class="lyr_mid">
       <!-- [D] 통신이 완료되면 skeleton tag를 지워주세요 -->
-      <div class="skeleton"><img src="images/skeleton_answer.png" alt="백그라운드"></div>
+      <!-- <div class="skeleton"><img src="images/skeleton_answer.png" alt="백그라운드"></div> -->
       <div class="chat_setting answer_preview">
         <div class="ipt_container">
           <dl>
@@ -466,16 +466,17 @@
                   <div class="swiper_item">
                     <span class="item_img">
                       <!-- <img src="https://sds.maum.ai:8080/brain-sds-builder/images/booking.png"> -->
-                      <input type="file" id="file02" onchange="changeImageCard(this)" class="hide">
-                      <label for="file02">+</label>
+                      <!-- <input type="file" id="file02" onchange="changeImageCard(this)" class="hide">
+                      <label for="file02">+</label> -->
+                      <a href="#carousel_image_setting" class="btn_lyr_open">+</a>
                     </span>
                     <span class="item_tit"><input type="text" placeholder="제목"></span>
                     <span class="item_txt"><textarea name="" id="" cols="30" rows="4" placeholder="내용"></textarea></span>
                   </div>
                 </div>
-
+  
                 <button type="button" class="btn_secondary" onclick="confirmImageCard(this)">적용 &raquo;</button>
-
+  
                 <div class="card">
                   <p class="info_text">확정</p>
                   <div class="swiper_item">
@@ -497,7 +498,7 @@
                   </div>
                   <div class="image fr"><img src="images/help_img_task.svg" alt="태스크 관계 이미지 예"></div>
                 </div>
-
+  
                 <div class="float_box">
                   <div class="fl">
                     <i>ex)<br>이전에 문의한 내용과 상관 없이 "코로나"를 물어보면 "코로나"에 대해서 답변한다.<br>현재 태스크 명: 코로나 | 이전태스크: * | 의도: 코로나</i>
@@ -649,11 +650,11 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </li>
-
+  
         <li class="bot">
           <pre id="answerPreview" class="txt">안녕하세요.<br>'메이필드호텔'을 찾아 주셔서 감사합니다. 무엇을 도와드릴까요?</pre>
         </li>
-
+  
         <li class="bot">
           <div class="bot_msg">
             <div class="btnItem">
@@ -681,6 +682,43 @@
 </div>
 <!-- //모달 개별 추가 및 설정 -->
 
+<!-- 서브모달 이미지 키드 이미지 등록 -->
+<div class="lyrWrap">
+  <div class="lyr_bg" style="background: rgba(0,0,0,0.1)"></div>
+  <div id="carousel_image_setting" class="lyrBox sub_lyr">
+    <div class="lyr_top">
+      <h3>이미지 등록</h3>
+      <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+    </div>
+    <div class="lyr_mid">
+      <dl class="dl_inline">
+        <dt>
+          <div class="iptBox">
+            <!-- [D] input[file] value = input[text] value -->
+            <input type="text" name="carousel_image_file" value="선택된 파일 없음" class="ipt_txt ipt_file" disabled="">
+          </div>
+        </dt>
+        <dd>
+          <label for="carousel_image_file" class="label_file">찾아보기..</label>
+          <input type="file" name="" id="carousel_image_file" accept="image/*" onchange="setFileName()" style="display: none;">
+        </dd>
+      </dl>
+      <p class="info_text">* 이미지는 360x300(6:5)이 최적 사이즈입니다.</p>
+      <div class="image_setting"><!-- [D] 이미지 편집을 하는 곳 -->
+        <p class="choose_img">이미지를 선택해주세요.</p><!-- [D] 이미지를 선택하면 p tag를 지워주세요. -->
+        <img src="images/sample/sample_image_crop.png" alt="샘플이미지" style="width: 100%;  height: 100%;"> <!-- [D] 편집 예시 이미지 -->
+      </div>
+    </div>
+    <div class="lyr_btm">
+      <div class="btnBox sz_small">
+        <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+        <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //서브모달 이미지 키드 이미지 등록 -->
+
 <!-- 공통 js -->
 <script>
   // uuid 생성
@@ -689,7 +727,7 @@
       pattern = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
     }
     return pattern.replace(/[xy]/g, function(c) {
-      const r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 3) | 8
+      var r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 3) | 8
       return v.toString(16);
     })
   }
@@ -837,163 +875,223 @@
   }
 
 
-      // AMR 검색기능이 포함된 셀렉트 이벤트
-      function createMultiSelect($el, data, selectedData){
-        var $select = $el.find('p.select'); // 셀렉트버튼
-        var $dropdown = $el.find('.fast_popper_option'); // 셀렉트 드롭다운
-        var $dropdownList = $el.find('.select_list'); // 드롭다운 내 리스트
+  // AMR 검색기능이 포함된 셀렉트 이벤트
+  function createMultiSelect($el, data, selectedData){
+    var $select = $el.find('p.select'); // 셀렉트버튼
+    var $dropdown = $el.find('.fast_popper_option'); // 셀렉트 드롭다운
+    var $dropdownList = $el.find('.select_list'); // 드롭다운 내 리스트
 
-        var dropdownController = Popper.createPopper($select[0], $dropdown[0], {
-            strategy: 'fixed',
-            modifiers: [
-                {
-                    name: 'offset',
-                    options: {
-                        offset: [0, 5],
-                    },
+    var dropdownController = Popper.createPopper($select[0], $dropdown[0], {
+        strategy: 'fixed',
+        modifiers: [
+            {
+                name: 'offset',
+                options: {
+                    offset: [0, 5],
                 },
-            ],
-        });
+            },
+        ],
+    });
 
-        setTimeout(function(){
-            $dropdown.appendTo("body"); //ie에서 dropdown 위치를 못잡아서 body appendTo로 해결
-        });
+    setTimeout(function(){
+        $dropdown.appendTo("body"); //ie에서 dropdown 위치를 못잡아서 body appendTo로 해결
+    });
 
-        $el.on('click', function(e){ // 버블링 막기
-            e.stopPropagation();
-        });
+    $el.on('click', function(e){ // 버블링 막기
+        e.stopPropagation();
+    });
 
-        $select.on('click', function(){ // 리스트 열기 닫기
-            if ( $el.parents('.lyrBox') ) { //모달안에 있을 경우 모달 클릭 시 닫힘
-                $('.lyrBox').on('click', function(){
-                    $dropdown.removeClass('active');
-                });
-            }
-
-            if ( $dropdown.hasClass('active') ) {
+    $select.on('click', function(){ // 리스트 열기 닫기
+        if ( $el.parents('.lyrBox') ) { //모달안에 있을 경우 모달 클릭 시 닫힘
+            $('.lyrBox').on('click', function(){
                 $dropdown.removeClass('active');
-                $dropdown.find('input.search').focusout();
-                return;
-            }
-
-            $('.fast_popper_option').removeClass('active');
-            $dropdown.addClass('active');
-            $dropdown.find('input.search').focus();
-
-            $dropdown.width($el.width());
-            dropdownController.forceUpdate();
-        });
-
-        renderMultiSelect(data, selectedData); //셀렉트 리스트 그리기
-        renderSelectLabel($el); //셀렉트 된 label text를 p에 표시
-
-        $dropdownList.find('label').on('click', function(){
-
-            if ( !$el.attr('multiple') ) {
-                $dropdown.find('input[type="checkbox"]').prop('checked', false);
-                $(this).find('input[type="checkbox"]').prop('checked', true);
-                renderSelectLabel($el);
-
-                value = 'single_value'
-                $el.trigger('change');
-                return;
-            }
-
-            value = 'multiple_value';
-            renderSelectLabel($el);
-            $el.trigger('change');
-        });
-
-        $el.on('change', function(){
-            console.log($el, '내 값이 변했다 확인요망')
-        });
-
-        function renderMultiSelect(data, checkData) { //셀렉트 리스트 그리기
-            $dropdownList.empty();
-            if ( !$el.attr('multiple') ) {
-              $dropdownList.attr('radio', '')
-            }
-
-            if ( data.length === 0 ) {
-                var $optionHtml = '<li>\
-          <p>등록된 데이터가 없습니다.</p>\
-        </li>';
-
-                $dropdownList.append($optionHtml);
-                return;
-            }
-
-            for (var i=0, l=data.length; i<l; i++) {
-                var listData = data[i];
-                var dataLabel = listData.label;
-                var dataValue = listData.value;
-                var isChecked = false;
-
-                for(var ci=0, cl=checkData.length; ci<cl; ci++){
-                    var checkValue = checkData[ci].value;
-
-                    if(dataValue === checkValue){
-                        isChecked = true;
-                    }
-                }
-
-                var checkedAttr = isChecked ? 'checked="checked"' : '';
-                var $optionHtml = '<li>\
-          <label>\
-            <input type="checkbox" '+ checkedAttr + 'data-value="' + dataValue +'" class="checkbox">\
-            <span class="label">' + dataLabel + '</span>\
-          </label>\
-        </li>';
-
-                $dropdownList.append($optionHtml);
-            }
+            });
         }
 
-        function renderSelectLabel(element){ //element에서 셀렉트 된 label text를 p에 표시
-            var labelBox = element.find('p.select');
-            var labels = '';
+        if ( $dropdown.hasClass('active') ) {
+            $dropdown.removeClass('active');
+            $dropdown.find('input.search').focusout();
+            return;
+        }
 
-            $dropdown.find('.select_list li').each(function(){
-                var isChecked = $(this).find('input[type="checkbox"]').prop('checked');
-                var label = $(this).find('label').text();
-                if ( isChecked ) {
-                    if ( !element.attr('multiple') ) { // 멀티 셀렉트가 아닌 경우
-                        labels = label;
-                    } else { // 멀티 셀렉트인 경우
-                        labels += label + ', ';
-                    }
+        $('.fast_popper_option').removeClass('active');
+        $dropdown.addClass('active');
+        $dropdown.find('input.search').focus();
+
+        $dropdown.width($el.width());
+        dropdownController.forceUpdate();
+    });
+
+    renderMultiSelect(data, selectedData); //셀렉트 리스트 그리기
+    renderSelectLabel($el); //셀렉트 된 label text를 p에 표시
+
+    $dropdownList.find('label').on('click', function(){
+
+        if ( !$el.attr('multiple') ) {
+            $dropdown.find('input[type="checkbox"]').prop('checked', false);
+            $(this).find('input[type="checkbox"]').prop('checked', true);
+            renderSelectLabel($el);
+
+            value = 'single_value'
+            $el.trigger('change');
+            return;
+        }
+
+        value = 'multiple_value';
+        renderSelectLabel($el);
+        $el.trigger('change');
+    });
+
+    $el.on('change', function(){
+        console.log($el, '내 값이 변했다 확인요망')
+    });
+
+    function renderMultiSelect(data, checkData) { //셀렉트 리스트 그리기
+        $dropdownList.empty();
+        if ( !$el.attr('multiple') ) {
+          $dropdownList.attr('radio', '')
+        }
+
+        if ( data.length === 0 ) {
+            var $optionHtml = '<li>\
+      <p>등록된 데이터가 없습니다.</p>\
+    </li>';
+
+            $dropdownList.append($optionHtml);
+            return;
+        }
+
+        for (var i=0, l=data.length; i<l; i++) {
+            var listData = data[i];
+            var dataLabel = listData.label;
+            var dataValue = listData.value;
+            var isChecked = false;
+
+            for(var ci=0, cl=checkData.length; ci<cl; ci++){
+                var checkValue = checkData[ci].value;
+
+                if(dataValue === checkValue){
+                    isChecked = true;
                 }
-            });
+            }
 
-            labelBox.empty();
-            labelBox.text(labels);
+            var checkedAttr = isChecked ? 'checked="checked"' : '';
+            var $optionHtml = '<li>\
+      <label>\
+        <input type="checkbox" '+ checkedAttr + 'data-value="' + dataValue +'" class="checkbox">\
+        <span class="label">' + dataLabel + '</span>\
+      </label>\
+    </li>';
+
+            $dropdownList.append($optionHtml);
         }
     }
 
+    function renderSelectLabel(element){ //element에서 셀렉트 된 label text를 p에 표시
+        var labelBox = element.find('p.select');
+        var labels = '';
 
+        $dropdown.find('.select_list li').each(function(){
+            var isChecked = $(this).find('input[type="checkbox"]').prop('checked');
+            var label = $(this).find('label').text();
+            if ( isChecked ) {
+                if ( !element.attr('multiple') ) { // 멀티 셀렉트가 아닌 경우
+                    labels = label;
+                } else { // 멀티 셀렉트인 경우
+                    labels += label + ', ';
+                }
+            }
+        });
+
+        labelBox.empty();
+        labelBox.text(labels);
+    }
+  }
+
+  // 201209 선택한 파일이름을 input value에 치환
+  function setFileName() {
+    var target = event.target;
+    var fileName = target.files[0].name;
+    var targetId = $(target).attr('id');
+    var inputText = $('body').find('input[name="'+ targetId +'"]');
+    inputText.val(fileName); //target id와 같은 name을 가진 input[text]에 적용
+  }
 
   $(document).ready(function () {
+    // // AMR Layer popup open
+    // $('.btn_lyr_open').on('click', function () {
+    //   var winHeight = $(window).height() * 0.7,
+    //     hrefId = $(this).attr('href');
+
+    //   $('body').css('overflow', 'hidden');
+    //   $('body').find(hrefId).wrap('<div class="lyrWrap"></div>');
+    //   $('body').find(hrefId).before('<div class="lyr_bg"></div>');
+
+    //   //대화 UI
+    //   $('.lyrBox .lyr_mid').each(function () {
+    //     $(this).css('max-height', Math.floor(winHeight) + 'px');
+    //   });
+
+    //   //Layer popup close
+    //   $('.btn_lyr_close, .lyr_bg').on('click', function () {
+    //     $('body').css('overflow', '');
+    //     $('body').find(hrefId).unwrap('<div class="lyrWrap"></div>');
+    //     $('.lyr_bg').remove();
+    //   });
+    // });
+
     // AMR Layer popup open
+    // 201208 서브모달 추가
     $('.btn_lyr_open').on('click', function () {
       var winHeight = $(window).height() * 0.7,
         hrefId = $(this).attr('href');
+        thisLayer = $(hrefId);
 
-      $('body').css('overflow', 'hidden');
-      $('body').find(hrefId).wrap('<div class="lyrWrap"></div>');
-      $('body').find(hrefId).before('<div class="lyr_bg"></div>');
+        console.log(thisLayer)
+
+      if ( thisLayer.hasClass('sub_lyr') ) {
+        thisLayer.wrap('<div class="lyrWrap"></div>');
+        thisLayer.before('<div class="lyr_bg"></div>');
+        thisLayer.prev('.lyr_bg').css({'background': 'rgba(0,0,0,0.1)'});
+      } else {
+        $('body').css('overflow', 'hidden');
+        thisLayer.wrap('<div class="lyrWrap"></div>');
+        thisLayer.before('<div class="lyr_bg"></div>');
+      }
 
       //대화 UI
       $('.lyrBox .lyr_mid').each(function () {
         $(this).css('max-height', Math.floor(winHeight) + 'px');
       });
 
-      //Layer popup close
-      $('.btn_lyr_close, .lyr_bg').on('click', function () {
-        $('body').css('overflow', '');
-        $('body').find(hrefId).unwrap('<div class="lyrWrap"></div>');
-        $('.lyr_bg').remove();
+      //Layer popup close lyr_bg click
+      $('.lyr_bg').on('click', function (e) {
+        hrefId = $(this).next('.lyrBox').attr('id');
+        var id = '#' + hrefId;
+        thisLayer = $(id);
+        e.stopPropagation();
+        lyrClose(thisLayer);
       });
     });
+
+    //Layer popup close btn_close click
+    $('.btn_lyr_close').on('click', function (e) {
+      hrefId = $(this).parents('.lyrBox').attr('id');
+      var id = '#' + hrefId;
+      thisLayer = $(id);
+      e.stopPropagation();
+      lyrClose(thisLayer);
+    });
+
+
+    function lyrClose(target) {
+      target.unwrap('<div class="lyrWrap"></div>');
+      target.prev('.lyr_bg').remove();
+
+      if ( !target.hasClass('sub_lyr') ) {
+        $('body').css('overflow', '');
+      } 
+    }
 
     // AMR 돋보기 아이콘이 있는 검색 영역에서 엔터 시 검색버튼 눌림
     $('.ipt_txt.search').on('keyup', function(){
