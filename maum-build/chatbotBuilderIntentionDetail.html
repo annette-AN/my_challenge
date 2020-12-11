@@ -116,7 +116,14 @@
                   </div>
 
                   <div class="tbl_box_info">
-                    <p class="path"><em><a href="chatbotBuilderIntention.html" title="의도로 돌아가기">의도</a></em><span>&colon;</span><em>메뉴</em></p>
+                    <div class="fl">
+                      <p class="path"><em><a href="chatbotBuilderIntention.html" title="의도로 돌아가기">의도</a></em><span>&raquo;</span><em>메뉴</em></p>
+
+                      <div class="btn_switch">
+                        <button type="button" class="primary">정규식</button>
+                        <button type="button" class="primary active">학습문장</button>
+                      </div>
+                    </div>
                   </div>
   
                   <div class="tbl_wrap scroll">
@@ -146,11 +153,11 @@
                         </tr>
                         <tr>
                           <td>4</td>
-                          <td>-</td>
+                          <td></td>
                         </tr>
                         <tr>
                           <td>5</td>
-                          <td>-</td>
+                          <td></td>
                         </tr>
                         <tr>
                           <td>6</td>
@@ -235,51 +242,79 @@
       <!-- //content -->
     </div>
     <!-- //container -->
+
+    <!-- 모달 챗봇 삭제 -->
+    <div id="chat_list_delete" class="lyrBox">
+      <div class="lyr_top">
+        <h3>챗봇 삭제</h3>
+        <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+      </div>
+      <div class="lyr_mid">
+        <p class="infoTxt"><em>선택한 챗봇</em>을(를) 삭제합니다.</p>
+      </div>
+      <div class="lyr_btm">
+        <div class="btnBox sz_small">
+          <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+          <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+        </div>
+      </div>
+    </div>
+    <!-- //모달 챗봇 삭제 -->
+
   </div>
   <!-- //wrap -->
-
-<!-- 모달 챗봇 삭제 -->
-<div id="chat_list_delete" class="lyrBox">
-  <div class="lyr_top">
-    <h3>챗봇 삭제</h3>
-    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
-  </div>
-  <div class="lyr_mid">
-    <p class="infoTxt"><em>선택한 챗봇</em>을(를) 삭제합니다.</p>
-  </div>
-  <div class="lyr_btm">
-    <div class="btnBox sz_small">
-      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
-      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
-    </div>
-  </div>
-</div>
-<!-- //모달 챗봇 삭제 -->
 
 <!-- 공통 js -->
 <script>
   $(document).ready(function () {
-    // AMR Layer popup open
+    // 201208 서브모달 추가
     $('.btn_lyr_open').on('click', function () {
       var winHeight = $(window).height() * 0.7,
         hrefId = $(this).attr('href');
+        thisLayer = $(hrefId);
 
-      $('body').css('overflow', 'hidden');
-      $('body').find(hrefId).wrap('<div class="lyrWrap"></div>');
-      $('body').find(hrefId).before('<div class="lyr_bg"></div>');
+      if ( thisLayer.hasClass('sub_lyr') ) {
+        thisLayer.wrap('<div class="lyrWrap"></div>');
+        thisLayer.before('<div class="lyr_bg"></div>');
+        thisLayer.prev('.lyr_bg').css({'background': 'rgba(0,0,0,0.1)'});
+      } else {
+        $('body').css('overflow', 'hidden');
+        thisLayer.wrap('<div class="lyrWrap"></div>');
+        thisLayer.before('<div class="lyr_bg"></div>');
+      }
 
       //대화 UI
       $('.lyrBox .lyr_mid').each(function () {
         $(this).css('max-height', Math.floor(winHeight) + 'px');
       });
 
-      //Layer popup close
-      $('.btn_lyr_close, .lyr_bg').on('click', function () {
-        $('body').css('overflow', '');
-        $('body').find(hrefId).unwrap('<div class="lyrWrap"></div>');
-        $('.lyr_bg').remove();
+      //Layer popup close lyr_bg click
+      $('.lyr_bg').on('click', function (e) {
+        hrefId = $(this).next('.lyrBox').attr('id');
+        var id = '#' + hrefId;
+        thisLayer = $(id);
+        e.stopPropagation();
+        lyrClose(thisLayer);
       });
     });
+
+    //Layer popup close btn_close click
+    $('.btn_lyr_close').on('click', function (e) {
+      hrefId = $(this).parents('.lyrBox').attr('id');
+      var id = '#' + hrefId;
+      thisLayer = $(id);
+      e.stopPropagation();
+      lyrClose(thisLayer);
+    });
+
+    function lyrClose(target) {
+      target.unwrap('<div class="lyrWrap"></div>');
+      target.prev('.lyr_bg').remove();
+
+      if ( !target.hasClass('sub_lyr') ) {
+        $('body').css('overflow', '');
+      } 
+    }
 
     // AMR 돋보기 아이콘이 있는 검색 영역에서 엔터 시 검색버튼 눌림
     $('.ipt_txt.search').on('keyup', function(){
@@ -378,6 +413,14 @@
     }
     handleChatbotTestOnOff();
   });
+
+  // 추가AMR 스위치 버튼
+  $('.btn_switch button').on('click', function(){
+    var $switch = $(this).parent();
+    $switch.find('button').removeClass('active');
+    $(this).addClass('active');
+  });
+
 </script>
 </body>
 </html>

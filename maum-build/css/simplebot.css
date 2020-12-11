@@ -102,7 +102,7 @@ textarea.ipt_txt:read-only{background:rgba(11,42,74,0.1); opacity:0.6;}
 a.btn_primary {display: inline-block;}
 button.btn_primary {font-size: 12px;}
 
-.btn_secondary {min-width:55px; height:30px; padding:0 10px; box-sizing:border-box; border: 1px solid #8f97b1; border-radius: 3px; background: #8f97b1; line-height: 28px; text-align: center; color:#fff;}
+.btn_secondary {min-width:55px; height:30px; padding:0 10px; box-sizing:border-box; border: 1px solid #8c94b1; border-radius: 3px; background: #8c94b1; line-height: 28px; text-align: center; color:#fff;}
 .btn_secondary:disabled {color:#84879a; border:1px solid rgba(11,42,74,0.02); background:rgba(11,42,74,0.1);}
 .btn_secondary:hover,
 .btn_secondary:active,
@@ -112,11 +112,11 @@ a.btn_secondary {display: inline-block; color: #fff;}
 button.btn_secondary {font-size: 12px;}
 
 /* button line box btn */
-.btn_line_primary {display: inline-block; min-width:55px; height: 25px; padding: 0 15px; box-sizing:border-box; border:1px solid #8f97b1; border-radius: 3px; background:#fff; line-height: 23px; text-align: center; font-weight: 700; color:#8f97b1;}
+.btn_line_primary {display: inline-block; min-width:55px; height: 25px; padding: 0 15px; box-sizing:border-box; border:1px solid #8c94b1; border-radius: 3px; background:#fff; line-height: 23px; text-align: center; font-weight: 700; color:#8c94b1;}
 .btn_line_primary:disabled {border-color: #bec6e3; background: rgba(11,42,74,0.1); color: #bec6e3;}
 .btn_line_primary:hover,
 .btn_line_primary:active,
-.btn_line_primary:focus {color: #8f97b1; text-decoration: underline;}
+.btn_line_primary:focus {color: #8c94b1; text-decoration: underline;}
 .btn_line_primary:disabled:hover {color: #bec6e3; text-decoration: none;}
 
 .btn_line_warning {display: inline-block; min-width:55px; height: 25px; padding: 0 15px; box-sizing:border-box; border:1px solid #ea4f4a; border-radius: 3px; background:#fff; line-height: 23px; text-align: center; font-weight: 700; color:#ea4f4a;}
@@ -149,7 +149,12 @@ button.btn_secondary {font-size: 12px;}
 .btnBox button:disabled:hover, .btnBox button:disabled:focus{text-decoration:none; box-shadow:none;}
 .btnBox button:last-child{margin-right:0;}
 
-.tbl_customTd.scroll .tbl_line_lst tbody td {letter-spacing:-1px;}
+/* button switch */
+.btn_switch {overflow: hidden; display: inline-block; border-radius: 6px; border: 1px solid #7f88a7; vertical-align: middle;}
+.btn_switch button {margin: 0!important;}
+.btn_switch .primary {float: left; display: block; min-width: 75px; padding: 6px 15px; border: none; border-radius: 0; color: #35384d; background: #eff0f4;}
+.btn_switch .primary + .primary {border-left: 1px solid #7f88a7;}
+.btn_switch .primary.active {background: #7f88a7; color: #fff;}
 
 /* Table(List) */
 .tbl_line_lst{width:100%;}
@@ -168,10 +173,11 @@ button.btn_secondary {font-size: 12px;}
 .tbl_line_lst tbody tr.active td {background:rgba(59,54,72,0.07);}
 
 .tbl_line_lst+.paging {display:block; margin:15px 0 0 0;}
+.tbl_customTd.scroll .tbl_line_lst tbody td {letter-spacing:-1px;}
 
 /* 추가 201103 Table(Box design) */
 .tbl_box_lst {width: 100%; table-layout: fixed;}
-.tbl_box_lst thead th {padding: 8px 10px; font-size: 13px;}
+.tbl_box_lst thead th {padding: 8px 10px; font-size: 13px; text-align: left;}
 .tbl_box_lst tbody td {height: 25px; padding: 4px 10px; font-size: 13px;}
 .tbl_box_lst thead tr th:first-child,
 .tbl_box_lst tbody tr td:first-child {text-align: center;}
@@ -190,24 +196,28 @@ button.btn_secondary {font-size: 12px;}
 
 .tbl_box_info {height: 50px; padding: 10px; background:#ced2e8; box-sizing: border-box;}
 .tbl_box_info button + button {margin: 0 0 0 10px;}
+.tbl_box_info .path {display: inline-block; margin: 0 0 0 10px; vertical-align: middle;}
 .tbl_box_info .path span,
 .tbl_box_info .path em {display: inline-block; height: 30px; padding: 0 5px; line-height: 30px; font-size: 15px; font-weight: 700; vertical-align: middle;}
 .tbl_box_info .path em:first-child {padding-left: 0;}
 .tbl_box_info .path a {text-decoration: underline;}
+.tbl_box_info .path + .btn_switch {margin: 0 0 0 20px;}
 
 /* 추가 201104 list(common design) */
 .common_lst {overflow: auto;}
-.common_lst li {position: relative; padding: 10px; border: 1px solid #eaeaec; background: #f3f4f8; cursor: pointer;}
+.common_lst li {position: relative; padding: 10px; border: 1px solid #eaeaec; background: #f3f4f8;}
 .common_lst li + li {border-top: none;}
 .common_lst li:hover {background: #dde3ff;}
 .common_lst li.active {background: #dde3ff;}
 
 .common_lst li > .btn_icon {display: none; position: absolute; top: calc(50% - 10px); right: 10px;}
 .common_lst li > .btn_icon:hover {border: 1px solid #fff;}
-
 .common_lst li:hover > .btn_icon {display: block;}
 
 .iptBox + .common_lst {margin: 20px 0 0 0;}
+
+/* drag_lst */
+.drag_lst li {cursor: grab;}
 
 /* 추가 201104 srchArea */
 .srchArea {overflow: hidden;}
@@ -252,19 +262,20 @@ button.btn_secondary {font-size: 12px;}
 .tbl_box_lst + .pagination {margin-top: 15px;}
 
 /* ipt_container */
+.ipt_container {margin: 0 0 10px 0;}
 .ipt_container dl + dl {margin: 5px 0 0 0;}
 .ipt_container dt {display: block; position: relative; padding: 7px 3px; font-weight: 700; box-sizing: border-box;}
 .ipt_container .ipt_txt {box-sizing: border-box;}
 .ipt_container textarea.ipt_txt {height: 50px}
 .ipt_container .select {width: 100%; padding: 0 25px 0 5px; box-sizing: border-box;}
 .ipt_container .iptBox .ipt_txt,
-.ipt_container .iptBox label {display: table-cell;}
+.ipt_container .iptBox label,
+.ipt_container .iptBox .label {display: table-cell;}
+.ipt_container .iptBox .label {vertical-align: middle; text-align: center;}
 .ipt_container .iptBox input[type="file"] + label {border: 1px solid rgba(11,42,74,0.3); width: 80px; vertical-align: middle; font-weight: 700; text-align: center;}
-.ipt_container .iptBox .ipt_txt {width: calc(100% - 10px);}
 .ipt_container textarea.ipt_txt {height: auto;}
 .ipt_container p.ipt_txt {overflow: auto; height: 48px; background: rgba(11,42,74,0.1); opacity: 0.6;}
 .ipt_container .btn_box {margin: 20px 0 0 0;}
-
 
 .lyrBox .lyr_mid .ipt_container dt {font-size: 12px;}
 .lyrBox .lyr_mid .ipt_container input.ipt_txt {height: 28px;}
@@ -310,7 +321,7 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .tbl_commands {overflow: hidden; margin: 0 0 10px 0;}
 .tbl_commands button {vertical-align: top;}
 
-.btn_box {}
+.btn_box {overflow: hidden;}
 .minus {width: 25px; height: 25px; background: url(../images/ico_minus.svg) no-repeat 50% 50%;}
 .plus {width: 25px; height: 25px; background: url(../images/ico_plus.svg) no-repeat 50% 50%;}
 
@@ -397,7 +408,6 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .lyrBox .lyr_mid .textareaBox {}
 .lyrBox .lyr_mid .textareaBox .textArea {display:block; width:100%; border-radius:3px; box-sizing: border-box;}
 
-/* 추가 200713 */
 .lyrBox .lyr_mid .srchArea {padding: 0 0 20px 0;}
 
 .lyrBox.no_bg {background-color:transparent;}
@@ -405,12 +415,14 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 
 .lyrBox .lyr_btm{display:block; padding:15px; text-align:center; border-top:1px solid #e4e6ef; background:#fff;}
 .lyrBox .lyr_btm .btnBox.sz_small button {height:32px; color:#fff; font-size: 13px; border:none; background:#5f6680;}
+.lyrBox .lyr_btm .btnBox.sz_small button .gradient{height:32px; color:#fff; font-size: 13px; border:none; background:#5f6680;}
 .lyrBox .lyr_btm .btnBox.sz_small button:first-child {background:#506df5;}
+.lyrBox .lyr_btm .btnBox.sz_small button:first-child .gradient{background:#506df5;}
 .lyrBox .massage {display:block; padding:20px; color:#35384d; font-size:16px; font-weight:700; line-height:24px; text-align:center;}
 
 /* 추가 201028 dl inline style */
-.lyrBox .lyr_mid .dl_inline {display: table;}
-.lyrBox .lyr_mid .dl_inline dt, .lyrBox .lyr_mid .dl_inline dd {display: table-cell; vertical-align: bottom;}
+.lyrBox .lyr_mid .dl_inline {display: table; width: 100%;}
+.lyrBox .lyr_mid .dl_inline dt, .lyrBox .lyr_mid .dl_inline dd {display: table-cell;}
 .lyrBox .lyr_mid .dl_inline dt {width: 100px;}
 .lyrBox .lyr_mid .dl_inline dd {padding: 0 0 0 10px;}
 
@@ -587,8 +599,8 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .simplebot .cont_row p.textarea,
 .simplebot .cont_row textarea {overflow: auto; height: 86px; padding: 4px 6px; border: 1px solid #b1b3be; border-radius: 2px; line-height: 18px; font-size: 13px; box-sizing: border-box;}
 .simplebot .cont_row p.textarea span {font-weight: 700; color: #ea1c1c;}
-.simplebot .cont_row p.textarea.ignore em {background: #AEDDFF;}
-.simplebot .cont_row p.textarea.repeat em {background: #FFF2AE;}
+.simplebot .cont_row p.textarea.ignore em.on {background: #AEDDFF;}
+.simplebot .cont_row p.textarea.repeat em.on {background: #FFF2AE;}
 .simplebot .chatbot_user_setting dd > div {margin: 15px 0 0 0;}
 
 .simplebot .chatbot_speech dt select {width: 80px; margin: 0 0 0 20px;}
@@ -673,6 +685,7 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .chatbot_builder .multipleBoxType .lot_wrap {overflow: hidden; float: left; height: 100%; width: 100%; transition: width .2s;}
 .chatbot_builder .multipleBoxType .lotBox {height: 100%; padding: 0 10px;}
 .chatbot_builder .multipleBoxType .chatbot_list {width: 280px;}
+.chatbot_builder .multipleBoxType .chatbot_list .common_lst li {cursor: pointer;}
 .chatbot_builder .multipleBoxType .chatbot_content {width: calc(100% - 350px);}
 .chatbot_builder .multipleBoxType .chatbot_test {position: absolute; top: 20px; right: -340px; width: 320px; height: calc(100% - 60px); transition: right .2s;}
 
@@ -686,6 +699,15 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .chatbot_builder .chatbot_content .tbl_wrap {height: calc(100% - 100px);}
 .chatbot_builder .chatbot_content .intro {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #f3f5f7; z-index: 5;}
 .chatbot_builder .chatbot_content .intro button {position: absolute; top: calc(50% - 15px); left: calc(50% - 58px);}
+
+.regex_type {display: inline-block; border-radius: 2px;}
+.regex_type.include {background: #ffcc85;}
+.regex_type.exclude {background: #d4f397;}
+.regex_type.match {background: #fddafd;}
+.regex_type.start {background: #c4edfc;}
+.regex_type.end {background: #fdec8b;}
+.chatbot_builder span.regex_type {margin: 2px 5px 2px 0; padding: 4px 5px;}
+.chatbot_builder span.btn_switch {margin: 20px 0 0 0;}
 
 .chatbot_builder .chatbot_setting {height: 100%;}
 .chatbot_builder .chatbot_setting > div {display: inline-block; width: auto; margin: 0 50px 0 0; vertical-align: top;}
@@ -728,6 +750,18 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 #carousel_image_setting .image_setting {overflow: hidden; position: relative; height: 400px; margin: 15px 0 0 0;}
 #carousel_image_setting .image_setting .choose_img {position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top: 1px solid #5f6680; background: #f8f8fb; line-height: 400px; text-align: center; font-weight: 700;}
 
+#chat_regex_setting .ipt_container:first-child {margin: 0 0 40px 0;}
+#chat_regex_setting .ipt_container .btn_box {margin: 0 0 10px 0;}
+#chat_regex_setting .matched_mark {height: 20px; margin: 20px 0 0 0; line-height: 20px; color: #fff; text-align: center;}
+#chat_regex_setting .matched_mark.matched {background: #0a840a;}
+#chat_regex_setting .matched_mark.unmatched {background: #bb2828;}
+#chat_regex_setting .regex_test .btn_regex_test {height: 26px; line-height: 26px;}
+#regexList {overflow: auto; height: 180px;}
+#regexList li {padding: 5px 30px 5px 5px;}
+#regexList li .select,
+#regexList li .ipt_txt {width: calc(50% - 10px);}
+#regexList li .ipt_txt {display: inline-block; margin: 0 0 0 15px;}
+#regexList li .btn_icon {right: 5px;}
 
 .answer_preview .swiper_item .item_img {display:block; overflow:hidden; position:relative; width:100%; height: 100px; text-align:center; vertical-align:middle; border-radius:7px 7px 0 0; background:#353c4f;}
 .answer_preview .swiper_item .item_img img {width:100%; min-height: 100%;}
@@ -739,6 +773,8 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .answer_preview .swiper_item .item_tit input,
 .answer_preview .swiper_item .item_txt textarea {width: 100%;}
 
+.answer_preview .setting_image_card .item_img label {position: absolute; top: 0; left: 0; display: block; width: 100%; line-height: 100px; font-size: 30px; color: #fff; cursor: pointer;}
+.answer_preview .setting_image_card .item_img label:hover {font-weight: 700; color: #506df5; background: rgba(0,0,0,0.2);}
 .answer_preview .setting_image_card .btn_lyr_open {position: absolute; top: 0; left: 0; display: block; width: 100%; line-height: 100px; font-size: 30px; color: #fff; cursor: pointer;}
 .answer_preview .setting_image_card .btn_lyr_open:hover {font-weight: 700; color: #506df5; background: rgba(0,0,0,0.2);}
 .answer_preview .swiper_item textarea {overflow: hidden;}
@@ -772,3 +808,5 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
     .multipleBoxType .cont .menu {height: 60px;}
     .chatbot_builder .chatbot_content .tbl_wrap {height: calc(100% - 130px);}
 }
+
+.lyrBox .btn_primary.gradient{background:linear-gradient(120deg,/* Base gradient stops */#5D77FD, #5D77FD, #4BABF9,/* Repeat your base gradient stops */#5D77FD, #5D77FD, #4BABF9,/* Repeat your first gradient stop */#5D77FD); background-size:200% 200%; animation:btn_gradient 2s linear infinite;}
