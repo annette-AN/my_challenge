@@ -144,19 +144,43 @@
                       <dl>
                         <dt>포인트 글자색상<div class="help help_guide main-text">?<div class="help_desc"><i>챗봇에 적용할 글자 색상을 선택합니다.</i></div></div></dt>
                         <dd class="iptBox">
-                          <input type="radio" name="text-color" id="text_white" class="checkbox" checked>
+                          <input type="radio" name="text-color" id="text_white" class="radio" checked>
                           <label for="text_white" onclick="changeTextColor()">흰색</label>
-                          <input type="radio" name="text-color" id="text_black" class="checkbox">
+                          <input type="radio" name="text-color" id="text_black" class="radio">
                           <label for="text_black" onclick="changeTextColor()">검은색</label>
                         </dd>
                       </dl>
                       <dl>
-                        <dt>로고 이미지<div class="help help_guide main-logo">?<div class="help_desc"><i>챗봇 상단에 적용될 이미지입니다.</i></div></div></dt>
+                        <dt>로고 이미지<div class="help help_guide main-logo">?<div class="help_desc"><i>챗봇 상단에 적용될 이미지입니다.<br>크기와 위치 값은 위,아래 방향키로 조절이 가능합니다.</i></div></div></dt>
                         <dd>
                           <div class="iptBox">
                             <input type="text" class="ipt_txt" readonly>
                             <input type="file" id="chat_build_logo" class="hide" onchange="changeLogoIcon()">
                             <label for="chat_build_logo">찾아보기</label>
+                          </div>
+                          <div class="setting_logo">
+                            <div>
+                              <span class="title">크기 (높이 기준)</span>
+                              <input type="number" class="ipt_txt logo_size" onchange="changeLogoSize()"><span>px</span>
+                            </div>
+                            <div class="logo_position">
+                              <input type="hidden" name="horizontal" onchange="changeLogoPosition()">
+                              <span class="title">가로 위치</span>
+                              <input type="radio" name="horizontal_position" id="hor_center" class="radio" checked>
+                              <label for="hor_center">가운데 정렬</label>
+                              <input type="radio" name="horizontal_position" id="hor_input" class="radio">
+                              <label for="hor_input">직접입력</label>
+                              <input type="number" name="horizontal" disabled class="ipt_txt" placeholder="0"><span>px</span>
+                            </div>
+                            <div class="logo_position">
+                              <input type="hidden" name="vertical" onchange="changeLogoPosition()">
+                              <span class="title">세로 위치</span>
+                              <input type="radio" name="vertical_position" id="ver_center" class="radio" checked>
+                              <label for="ver_center">가운데 정렬</label>
+                              <input type="radio" name="vertical_position" id="ver_input" class="radio">
+                              <label for="ver_input">직접입력</label>
+                              <input type="number" name="vertical" disabled class="ipt_txt" placeholder="0"><span>px</span>
+                            </div>
                           </div>
                         </dd>
                       </dl>
@@ -322,7 +346,7 @@
       .chatGreeting .btn_greetClose {opacity: 1;}
   }
   #btn_goChat {border:2px solid rgba(--main-color-rgb,1.0); background:url("--main-icon") 50% 50% no-repeat; background-size:cover;}
-  #chatUI_wrap .chatUI_top h1 {color:rgba(--main-color-rgb,1.0);  background: url("--main-logo") no-repeat 50% 0; background-size: auto 50px;}
+  #chatUI_wrap .chatUI_top h1 {color:rgba(--main-color-rgb,1.0); background: url("--main-logo") no-repeat 50% 0; background-size: auto --logo-size-px; background-position: --logo-left --logo-top;}
   #chatUI_wrap .chatUI_top h1 img {height: 50px;}
   #chatUI_wrap .chatUI_top .langBox .lst_lang li button:hover,.chatUI_top .langBox .lst_lang li button:focus {border:1px solid rgba(--main-color-rgb,1.0);}
   #chatUI_wrap .chatUI_top .langBox .lst_lang li button.active {background:rgba(--main-color-rgb,1.0); color:rgba(--main-text-rgb,1.0);}
@@ -378,18 +402,28 @@
   var chatbotTextColor = '#fff'; // #fff(white), #403738(black) 두가지 중 선택가능. defult는 #fff(white)
   var chatbotLogo = '../images/logo_testbot.png';
   var chatbotIcon = '../images/ico_testbot.png';
+  var chatbotLogoSize = 34;
+  var chatbotLogoTop = 'center'; // 값은 center 또는 숫자
+  var chatbotLogoLeft = 'center'; // 값은 center 또는 숫자
   var customStyleTemp = ''; //css text가 들어가는 변수
 
   // 색, 이미지 적용 함수
   function setCustom() {
     var rgb = 'rgb(' + chatbotBgColor.r + ',' + chatbotBgColor.g + ',' + chatbotBgColor.b + ')';
+    var logoSize = 'auto' + ' ' + chatbotLogoSize + 'px';
 
     $('#picker').val(rgb);
-    $('.pick_color_bg').css({ 'background-color': rgb });
-    $('.pick_color_bd').css({ 'border-color': rgb });
+    $('.logo_size').val(chatbotLogoSize);
+    
+    $('.pick_color_bg').css({'background-color': rgb});
+    $('.pick_color_bd').css({'border-color': rgb});
     $('.pick_color').css({'color': chatbotTextColor});
-    $('.pick_logo').css({ 'background-image': 'url(' + chatbotLogo + ')' });
-    $('.pick_icon').css({ 'background-image': 'url(' + chatbotIcon + ')' });
+    $('.pick_logo').css({
+      'background-image': 'url(' + chatbotLogo + ')',
+      'background-size': logoSize,
+      'background-position': formatLogoPosition(chatbotLogoLeft) + ' ' + formatLogoPosition(chatbotLogoTop)
+    });
+    $('.pick_icon').css({'background-image': 'url(' + chatbotIcon + ')'});
   }
   setCustom();
 
@@ -457,15 +491,19 @@
   function createStyle() {
     var rgb = chatbotBgColor.r + ',' + chatbotBgColor.g + ',' + chatbotBgColor.b;
     var styleTemp = $('#css').text();
-    var exChager = styleTemp.replace(/(--main-text-rgb|--main-color-rgb|--main-logo|--main-icon)/g, function(vl){
+    var exChager = styleTemp.replace(/(--main-text-rgb|--main-color-rgb|--main-logo|--main-icon|--logo-size-|--logo-left|--logo-top)/g, function(vl){
       switch(vl){
         case "--main-text-rgb" : return chatbotTextColor;
         case "--main-color-rgb" : return rgb;
         case "--main-logo" : return chatbotLogo;
         case "--main-icon" : return chatbotIcon;
+        case "--logo-size-" : return chatbotLogoSize;
+        case "--logo-left" : return formatLogoPosition(chatbotLogoLeft);
+        case "--logo-top" : return formatLogoPosition(chatbotLogoTop);
       }
     });
     customStyleTemp = exChager;
+    console.log(customStyleTemp)
   }
 
   // 스크립트 텍스트 복사
@@ -503,6 +541,136 @@
     $('.pick_color_bg, .pick_color_bd').removeClass('color_on');
     $('.pick_color, .pick_logo, .pick_icon').removeClass('on');
   });
+
+  // logo 크기 바꾸기
+  function changeLogoSize() {
+    var target = event.target;
+    var size = $(target).val();
+
+    if ( size > 50 ) {
+      size = 50;
+      $(target).val(size);
+      alert('이미지 크기는 50px 보다 커질 수 없습니다.')
+    } else if ( size < 1 ) {
+      size = 1;
+      $(target).val(size);
+      alert('이미지 크기는 1px 보다 작아질 수 없습니다.')
+    }
+
+    var logoSize = 'auto' + ' ' + size + 'px';
+    $('.pick_logo').css({'background-size': logoSize});
+
+    chatbotLogoSize = size;
+    changeLogoPosition();
+  }
+
+  // logo 위치 바꾸기
+  function changeLogoPosition() {
+    $('.pick_logo').css({
+      'background-position': formatLogoPosition(chatbotLogoLeft) + ' ' + formatLogoPosition(chatbotLogoTop)
+    });
+  }
+
+  // logo 위치 값 format 문자와 숫자 구별
+  function formatLogoPosition(value) { //value는 숫자 또는 'center' 문자만 올 수 있다
+    var val = 0;
+    if ( $.isNumeric( value ) ) { //값이 숫자이면
+      val = value + 'px';
+    } else {
+      val = value;
+    }
+    return val;
+  }
+
+  // 로고 위치 라벨 클릭 이벤트
+  $('.logo_position label').on('click', function(){
+    var $thisLabel = $(this);
+    var id = $thisLabel.attr('for')
+    var $thisPosition = $(this).parent('.logo_position');
+    var radioGroup = $thisPosition.find($('input[type="radio"]'));
+    var val = 0;
+
+    // 직접입력 시 input활성화
+    radioGroup.siblings('.ipt_txt').attr('disabled', '');
+    if ( $thisLabel.next('.ipt_txt') ) {
+      $thisLabel.next('.ipt_txt').removeAttr('disabled');
+    }
+
+    // 가운데 정렬, 직접입력 선택에 따른 값 변화
+    if ( id == 'hor_center' || id == 'ver_center' ) {
+      val = 'center';
+      if ( id == 'hor_center' ) {chatbotLogoLeft = val;}
+      if ( id == 'ver_center' ) {chatbotLogoTop = val;}
+      $thisPosition.find('input[type="hidden"]').val(val).trigger('change');
+    } else if ( id == 'hor_input' || id == 'ver_input' ) {
+      val = $thisLabel.next('input[type="number"]').val();
+      if ( id == 'hor_input' ) {chatbotLogoLeft = val;}
+      if ( id == 'ver_input' ) {chatbotLogoTop = val;}
+      $thisPosition.find('input[type="hidden"]').val(val).trigger('change');
+    }
+  });
+
+  // 로고 위치 number change 이벤트
+  $('.logo_position input[type="number"]').on('change', function(){
+    var $thisPosition = $(this).parent('.logo_position');
+    var targetPosition = $(this).attr('name');
+    var val = $(this).val();
+    
+    if ( val == '' ) {
+      val = 0;
+      $(this).val(val);
+    }
+
+    if ( val < 0 ) {
+      val = 0;
+      $(this).val(val);
+      alert('이미지 위치 값은 0px 보다 작아질 수 없습니다.')
+    }
+
+    // 어느 위치가 change 된 것인지 확인 및 그에 따른 값 변화
+    if ( targetPosition == 'horizontal' ) {
+      chatbotLogoLeft = val;
+    } else if ( targetPosition == 'vertical' ) {
+      chatbotLogoTop = val;
+    }
+
+    // change 된 값을 input hidden에 넘겨줌
+    $thisPosition.find('input[type="hidden"]').val(val).trigger('change');
+  });
+
+  // 로고 크기, 위치 / 엔터, 방향키 조정 이벤트 
+  $('.setting_logo input[type="number"]').on('keyup', function(e){
+    var $input = $(this);
+    var val = Number($input.val());
+
+    if (event.keyCode == 13) { //엔터
+      $input.trigger('change');
+      return;
+    }
+    if (event.keyCode == 38) { //위 방향키
+      val = val + 1;
+      $input.val(val);
+      $input.trigger('change');
+      return;
+    }
+    if (event.keyCode == 40) { //아래 방향키
+      val = val - 1;
+      $input.val(val);
+      $input.trigger('change');
+      return;
+    }
+  });
+
+  // 크롬에서 방향키 조정 시 2씩 증가하는 걸 막는 코드 
+  $('.setting_logo input[type="number"]').on('keydown', function(e) {
+    if (event.keyCode == 38) { //위 방향키
+      e.preventDefault();
+    }
+    if (event.keyCode == 40) { //아래 방향키
+      e.preventDefault();
+    }
+  });
+
 </script>
 </body>
 </html>

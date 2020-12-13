@@ -44,6 +44,8 @@ label.label_file {display:inline-block; width:75px; padding:2px 0; border:1px so
 .ipt_txt{display:block; width: 100%; height:30px; padding:0 5px; color:#403738; font-size:12px; border:1px solid rgba(11,42,74,0.3); border-radius:5px; background:#fff; transition:all 0.3s ease-out;}
 .ipt_txt:focus{border:1px solid rgba(11,42,74,0.6); box-shadow:none; background:#fff; transition:all 0.3s ease-out;}
 .ipt_txt:read-only:focus{border:1px solid rgba(11,42,74,0.3);}
+.ipt_txt:disabled{background:rgba(11,42,74,0.1); opacity:0.6;}
+.ipt_txt:read-only{background:rgba(11,42,74,0.1); opacity:0.6;}
 textarea.ipt_txt {padding: 5px;}
 textarea.ipt_txt:disabled{background:rgba(11,42,74,0.1); opacity:0.6;}
 textarea.ipt_txt:read-only{background:rgba(11,42,74,0.1); opacity:0.6;}
@@ -80,16 +82,22 @@ textarea.ipt_txt:read-only{background:rgba(11,42,74,0.1); opacity:0.6;}
 
 /* checkbox */
 .checkbox {display: none;}
-.checkbox + label, .checkbox + .label {display: block; position: relative; height: 20px; padding: 0 0 0 25px; cursor: pointer;}
+.checkbox + label, .checkbox + .label {display: block; position: relative; height: 20px; padding: 0 0 0 25px; line-height: 20px; cursor: pointer;}
 .checkbox + label:before, .checkbox + .label:before {content: ''; display: block; position: absolute; top: calc(50% - 10px); left: 0; width: 20px; height: 20px; border: 1px solid rgba(11,42,74,0.3); border-radius: 3px; background: #fff; color: #fff; text-align: center; box-sizing: border-box;}
 .checkbox:checked + label:before, .checkbox:checked + .label:before {content: '\2713'; background: #5e77ff;}
+
+/* radio */
+.radio {display: none;}
+.radio + label, .radio + .label {display: block; position: relative; height: 20px; line-height: 20px; padding: 0 0 0 25px; cursor: pointer;}
+.radio + label:before, .radio + .label:before {content: ''; display: block; position: absolute; top: calc(50% - 10px); left: 0; width: 20px; height: 20px; border: 1px solid rgba(11,42,74,0.3); border-radius: 50%; background: #fff; color: #fff; text-align: center; box-sizing: border-box;}
+.radio + label:after, .radio + .label:after {content: ''; display: none; position: absolute; top: 5px; left: 5px; width: 10px; height: 10px; border-radius: 50%; background: #5e77ff;}
+.radio:checked + label:before, .radio:checked + .label:before {border-color: #5e77ff;}
+.radio:checked + label:after, .radio:checked + .label:after {display: block;}
 
 /* Input */
 .iptBox{display:table; position:relative; width:100%;}
 .iptBox .ipt_txt{color:#35384d; border:1px solid rgba(11,42,74,0.3); border-radius:3px; box-sizing:border-box;}
 .iptBox .ipt_txt:focus{border:1px solid rgba(11,42,74,0.6); box-shadow:0 2px 3px rgba(11,42,74,0.1); transition:all 0.3s ease-out;}
-.iptBox .ipt_txt:disabled{background:rgba(11,42,74,0.1); opacity:0.6;}
-.iptBox .ipt_txt:read-only{background:rgba(11,42,74,0.1); opacity:0.6;}
 .iptBox .ipt_txt + span{display:inline-block; margin:0 2px;}
 
 /* button bg box btn */
@@ -297,8 +305,10 @@ button.btn_secondary {font-size: 12px;}
 .fast_popper_option .select_list .label:hover {background: #dde3ff;}
 .fast_popper_option .select_list .checkbox + .label {padding: 5px 10px 5px 35px;}
 .fast_popper_option .select_list .checkbox:checked + .label {background: #dde3ff;}
-.fast_popper_option .select_list[radio] .label:before {border-radius: 50%;}
-.fast_popper_option .select_list[radio] .checkbox:checked + .label:before {content: '\2022'; border-color: #5e77ff; background: #fff; line-height: 9px; font-size: 38px; color: #5e77ff;}
+.fast_popper_option .select_list[radio] .label:before {border-radius: 50%; background: #fff;}
+.fast_popper_option .select_list[radio] .checkbox:checked + .label:before {border-color: #5e77ff;}
+.fast_popper_option .select_list[radio] .checkbox + .label:after {content: ''; display: none; position: absolute; top: 10px; left: 15px; width: 10px; height: 10px; border-radius: 50%; background: #5e77ff;}
+.fast_popper_option .select_list[radio] .checkbox:checked + .label:after {display: block;}
 
 .lyrBox .lyr_mid .tbl_box_lst .multi_select .select {height: 22px; line-height: 22px;}
 
@@ -722,6 +732,20 @@ dl.dl_dropdown.active .btn_control .unfold {display: block;}
 .chatbot_builder .chatbot_setting .chat_preview .chatUI_mid {padding: 45px 0 0 0;}
 .chatbot_builder .chatbot_setting .floating_ui .box {margin: 0 0 20px 0; text-align: left;}
 .chatbot_builder .chatbot_setting .floating_ui .box .dt {overflow: hidden; position: relative; padding: 5px 0; font-weight: 700; box-sizing: border-box;}
+
+.chatbot_builder .chatbot_setting .ipt_container .iptBox .ipt_txt {width: calc(100% - 10px);}
+.chatbot_builder .chatbot_setting .setting_logo {overflow: hidden; margin: 10px 0;}
+.chatbot_builder .chatbot_setting .setting_logo > div {overflow: hidden; margin: 7px 0 0 0;}
+
+.chatbot_builder .chatbot_setting .setting_logo input[type="number"],
+.chatbot_builder .chatbot_setting .setting_logo label,
+.chatbot_builder .chatbot_setting .setting_logo span {display: inline-block;}
+.chatbot_builder .chatbot_setting .setting_logo span {margin: 0 0 0 5px;}
+.chatbot_builder .chatbot_setting .setting_logo .title {width: 110px; box-sizing: border-box; font-size: 12px;}
+.chatbot_builder .chatbot_setting .setting_logo .title + input[type="number"] {margin: 0;}
+.chatbot_builder .chatbot_setting .setting_logo input[type="number"] {width: 35px; height: 26px; margin: 0 0 0 5px; text-align: right;}
+.chatbot_builder .chatbot_setting .setting_logo label + input + label {margin: 0 0 0 10px;}
+
 #btn_script {cursor: pointer;}
 
 .chatbot_builder .chatbot_test .test_result {overflow: auto; height: calc(40% - 5px); padding: 10px; border: 1px solid #c2c3c9; box-sizing: border-box;}
