@@ -15,9 +15,9 @@
 /* 손흔들기 */
 .bot_arm {transform: rotate(0); transition: transform .5s, opacity .3s; transform-origin: bottom; opacity: 1;}
 .bot_arm.static.off {opacity: 0;}
-.bot_arm.wave {opacity: 0;}
-.bot_arm.wave.up {transform: translateY(-235px); opacity: 1;}
-.bot_arm.wave.on {animation: arm_wave 1s ease-in-out 4; animation-direction: alternate;}
+.bot_arm.wave {opacity: 1; transform: translateY(-235px);}
+.bot_arm.wave.down {transform: translateY(0); opacity: 0;}
+.bot_arm.wave.on {animation: arm_wave .5s ease-in-out 4; animation-direction: alternate;}
 @keyframes arm_wave {
     0% {transform: translateY(-235px) rotate(0deg);}
     50% {transform: translateY(-235px) rotate(-3deg);}
