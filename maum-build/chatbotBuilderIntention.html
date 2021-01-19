@@ -52,7 +52,7 @@
                     <div>
                       <span>호텔</span>
                     </div>
-                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                    <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
                   </li>
                   <li class="active">
                     <div>
@@ -62,7 +62,7 @@
                     <div>
                       <span>호텔</span>
                     </div>
-                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                    <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
                   </li>
                   <li>
                     <div>
@@ -72,7 +72,7 @@
                     <div>
                       <span>호텔</span>
                     </div>
-                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                    <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
                   </li>
                   <li>
                     <div>
@@ -82,7 +82,7 @@
                     <div>
                       <span>회사소개</span>
                     </div>
-                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                    <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
                   </li>
                 </ul>
               </div>
@@ -116,30 +116,41 @@
                   </div>
   
                   <div class="tbl_box_info">
-                    <p class="path"><em>의도</em></p>
+                    <div class="fl">
+                      <p class="path"><em>의도</em></p>
+                    </div>
+                    <div class="fr">
+                      <a href="#chat_intention_add" class="btn_secondary btn_lyr_open">추가</a>
+                    </div>
                   </div>
   
                   <div class="tbl_wrap scroll">
                     <table class="tbl_box_lst" summary="순번, 의도, 문장, 상세, 삭제">
                       <caption class="hide">순번, 의도, 문장, 상세, 삭제</caption>
                       <colgroup>
-                        <col style="width: 65px;"><col style="width: 15%;"><col><col style="width: 85px;"><col style="width: 85px;">
+                        <col style="width: 65px;"><col style="width: 15%;"><col><col><col style="width: 85px;">
+                        <col style="width: 85px;">
                       </colgroup>
                       <thead>
                         <tr>
                           <th>순번</th>
                           <th>의도</th>
-                          <th>문장</th>
+                          <th>학습 문장</th>
+                          <th>정규식 문장</th>
                           <th><span class="text_hide">상세</span></th>
                           <th><span class="text_hide">삭제</span></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <!-- [D] 기본등록 : 삭제가능 -->
                         <tr>
                           <td>1</td>
                           <td>메뉴</td>
                           <td><span class="text_ellipsis">메뉴 뭐있어 | 메뉴 알려줘 | 메뉴</span></td>
+                          <td>
+                            <span class="text_ellipsis">
+                              <span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span>
+                            </span>
+                          </td>
                           <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
                           <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
                         </tr>
@@ -147,6 +158,11 @@
                           <td>2</td>
                           <td>수영장</td>
                           <td><span class="text_ellipsis">수영장 있나요 | 수영장 어떻게 이용 | 수영장 몇 시까지 하나요 | 수영장</span></td>
+                          <td>
+                            <span class="text_ellipsis">
+                              <span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span>
+                            </span>
+                          </td>
                           <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
                           <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
                         </tr>
@@ -154,82 +170,13 @@
                           <td>3</td>
                           <td>많은 문장 예</td>
                           <td><span class="text_ellipsis">문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장 | 문장과 문장</span></td>
+                          <td>
+                            <span class="text_ellipsis">
+                              <span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span>
+                            </span>
+                          </td>
                           <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
                           <td class="no_bg"><a href="#chat_row_delete" class="btn_line_warning btn_lyr_open">삭제</a></td>
-                        </tr>
-
-                        <!-- [D] 고객등록 : 삭제 불가능 -->
-                        <tr>
-                          <td>4</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>6</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>7</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>8</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>9</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>10</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>11</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>12</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>13</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>14</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
-                        </tr>
-                        <tr>
-                          <td>15</td>
-                          <td>-</td>
-                          <td colspan="2"><span class="text_ellipsis">-</span></td>
-                          <td class="no_bg"><a href="#none" class="btn_line_primary">상세</a></td>
                         </tr>
                       </tbody>
                     </table>
@@ -278,7 +225,7 @@
   <!-- //wrap -->
 
 <!-- 모달 챗봇 삭제 -->
-<div id="chat_list_delete" class="lyrBox">
+<div id="regex_list_delete" class="lyrBox sub_lyr">
   <div class="lyr_top">
     <h3>챗봇 삭제</h3>
     <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
@@ -312,6 +259,31 @@
   </div>
 </div>
 <!-- //모달 의도 삭제 -->
+
+<!-- 모달 의도 추가 -->
+<div id="chat_intention_add" class="lyrBox">
+  <div class="lyr_top">
+    <h3>챗봇 의도 추가</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <div class="ipt_container">
+      <dl>
+        <dt><label for="label_intention_add">의도명</label></dt>
+        <dd class="iptBox">
+          <input type="text" id="label_intention_add" class="ipt_txt">
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //모달 의도 추가 -->
 
 <!-- 공통 js -->
 <script>

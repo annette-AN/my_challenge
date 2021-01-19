@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+  <!-- cache 지우는 meta 태그 -->
+  <meta http-equiv="Cache-Control" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Pragma" content="no-cache" /> <!-- 캐시가 되지 않도록 정의 -->
+  <meta http-equiv="Expires" content="-1"> <!-- 즉시 캐시만료 -->
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/simplebot.css">
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.form.js"></script>
+  <script src="js/sortable.min.js"></script>
+
+  <title>chatbot builder</title>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <h1>chatbot builder</h1>
+    </div>
+
+    <div id="container" class="chatbot_builder">
+      <div class="content">
+        <div class="multipleBoxType">
+          <!-- lot_wrap -->
+          <div class="lot_wrap">
+            <div class="lotBox chatbot_list">
+              <div class="tit">
+                <h3>챗봇목록</h3>
+                <div class="fr">
+                  <button type="button" class="btn_primary">추가</button>
+                </div>
+              </div>
+              <div class="cont">
+                <div class="iptBox">
+                  <!-- [D] 인풋에서 엔터 키 입력 시 btn_search가 클릭됩니다 -->
+                  <input type="text" class="ipt_txt search" autocomplete="off">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+                <ul class="common_lst scroll">
+                  <li>
+                    <div>
+                      <span>골든튤립</span>
+                      &lpar;<em>gt_hud</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li class="active">
+                    <div>
+                      <span>메이필드</span>
+                      &lpar;<em>mayfield</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>파티오세븐</span>
+                      &lpar;<em>patio7</em>&rpar;
+                    </div>
+                    <div>
+                      <span>호텔</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                  <li>
+                    <div>
+                      <span>설리봇</span>
+                      &lpar;<em>sully</em>&rpar;
+                    </div>
+                    <div>
+                      <span>회사소개</span>
+                    </div>
+                    <a href="#chat_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+  
+            <!-- chatbot_content -->
+            <div class="lotBox chatbot_content">
+              <div class="tit">
+                <h3>메이필드</h3>
+                <div class="fr">
+                  <!-- [D] 챗봇테스트 버튼 클릭 시 챗봇 테스트 영역이 보여집니다. -->
+                  <button type="button" class="btn_primary btn_test_on">챗봇 테스트</button>
+                </div>
+              </div>
+  
+              <div class="cont">
+                <ul class="menu scroll_x">
+                  <!-- [D] 메뉴 클릭 시 active class가 추가됩니다 -->
+                  <li>답변</li>
+                  <li class="active">의도</li>
+                  <li>설정</li>
+                </ul>
+  
+                <div class="menu_cont">
+                  <div class="srchArea">
+                    <div class="fr iptBox">
+                      <!-- [D] 인풋에서 엔터 키 입력 시 btn_search가 클릭됩니다 -->
+                      <input type="text" class="ipt_txt search" autocomplete="off">
+                      <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                    </div>
+                  </div>
+
+                  <div class="tbl_box_info">
+                    <div class="fl">
+                      <p class="path"><em><a href="chatbotBuilderIntention.html" title="의도로 돌아가기">의도</a></em><span>&raquo;</span><em>메뉴</em></p>
+
+                      <div class="btn_switch">
+                        <button type="button" class="primary active">정규식</button>
+                        <button type="button" class="primary">학습문장</button>
+                      </div>
+                    </div>
+                    <div class="fr">
+                      <a href="#chat_regex_setting" class="btn_secondary btn_lyr_open">개별 추가</a>
+                    </div>
+                  </div>
+  
+                  <div class="tbl_wrap scroll">
+                    <table class="tbl_box_lst" summary="순번, 문장">
+                      <caption class="hide">순번, 문장</caption>
+                      <colgroup>
+                        <col style="width: 65px;"><col><col style="width: 85px;">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>순번</th>
+                          <th>문장</th>
+                          <th><span class="text_hide">상세</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span></td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span></td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span></td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <!-- [D] 정규식 테이블에서 쓰이는 text UI 
+                            .regex_type.include : 텍스트에 포함
+                            .regex_type.exclude : 텍스트에 포함하지 않음
+                            .regex_type.match : 텍스트가 정확하게 일치함
+                            .regex_type.start : 시작 텍스트
+                            .regex_type.end : 종료 텍스트
+                          -->
+                          <td><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span></td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span><span class="regex_type include">빛</span><span class="regex_type exclude">파동</span><span class="regex_type match">과학</span><span class="regex_type start">전기|자기</span><span class="regex_type end">물질</span></td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>11</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>13</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>14</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                        <tr>
+                          <td>15</td>
+                          <td>-</td>
+                          <td class="no_bg"><a href="#chat_regex_setting" class="btn_line_primary btn_lyr_open">상세</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="pagination">
+                      <button type="button" class="first"><span>&laquo;</span></button>
+                      <button type="button" class="prev"><span>&lsaquo;</span></button>
+                      <div class="pages">
+                        <!-- [D] 페이지 클릭 시 active class가 추가됩니다 -->
+                        <span class="page active">1</span>
+                        <span class="page">2</span>
+                        <span class="page">3</span>
+                        <span class="page">4</span>
+                        <span class="page">5</span>
+                      </div>
+                      <button type="button" class="next"><span>&rsaquo;</span></button>
+                      <button type="button" class="last"><span>&raquo;</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //chatbot_content -->
+          </div>
+          <!-- //lot_wrap -->
+          <!-- chatbot_test -->
+          <div class="lotBox chatbot_test">
+            <div class="tit">
+              <h3>챗봇테스트</h3>
+              <div class="fr">
+                <!-- [D] 닫기 버튼 클릭 시 챗봇 테스트 영역이 사라집니다. -->
+                <button type="button" class="btn_primary btn_test_off">닫기</button>
+              </div>
+            </div>
+            <div class="cont">
+              작업전
+            </div>
+          </div>
+          <!-- //chatbot_test -->
+        </div>
+      </div>
+      <!-- //content -->
+    </div>
+    <!-- //container -->
+  </div>
+  <!-- //wrap -->
+
+<!-- 모달 챗봇 삭제 -->
+<div id="chat_list_delete" class="lyrBox">
+  <div class="lyr_top">
+    <h3>챗봇 삭제</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <p class="infoTxt"><em>선택한 챗봇</em>을(를) 삭제합니다.</p>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //모달 챗봇 삭제 -->
+
+<!-- 모달 정규식 설정 -->
+<div class="lyrWrap">
+  <div class="lyr_bg"></div>
+  <div id="chat_regex_setting" class="lyrBox">
+    <div class="lyr_top">
+      <h3>의도 정규식 설정</h3>
+      <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+    </div>
+    <div class="lyr_mid">
+      <div class="ipt_container">
+        <dl>
+          <dt>규칙<div class="help">?<div class="help_desc"><i>규칙은 아래 순서를 따릅니다.<br>리스트를 잡고 드래그하면 순서를 바꿀 수 있습니다. </i></div></div></dt>
+          <dd>
+            <div class="btn_box">
+              <div class="fr">
+                <button type="button" class="btn_secondary" onclick="addRegexList(event)">규칙 추가</button>
+              </div>
+            </div>
+            <ul id="regexList" class="drag_lst common_lst scroll">
+              <li>
+                <select name="regex_type" id="" class="select">
+                  <!-- [D] 정규식 옵션 선택 시 옵션에 맞는 bg가 input에 반영되어야 함 
+                    정규식 테이블에서 쓰이는 text UI 의 class와 value를 동일하게함
+                    .include : 텍스트에 포함
+                    .exclude : 텍스트에 포함하지 않음
+                    .match : 텍스트가 정확하게 일치함
+                    .start : 시작 텍스트
+                    .end : 종료 텍스트
+                  -->
+                  <option value="include" selected>텍스트에 포함</option>
+                  <option value="exclude">텍스트에 포함하지 않음</option>
+                  <option value="match">텍스트가 정확하게 일치함</option>
+                  <option value="start">시작 텍스트</option>
+                  <option value="end">종료 텍스트</option>
+                </select>
+                <input type="text" class="ipt_txt regex_type include" placeholder="ex) 메뉴">
+                <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
+              </li>
+              <li>
+                <select name="regex_type" id="" class="select">
+                  <option value="include">텍스트에 포함</option>
+                  <option value="exclude" selected>텍스트에 포함하지 않음</option>
+                  <option value="match">텍스트가 정확하게 일치함</option>
+                  <option value="start">시작 텍스트</option>
+                  <option value="end">종료 텍스트</option>
+                </select>
+                <input type="text" class="ipt_txt regex_type include">
+                <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
+              </li>
+              <li>
+                <select name="regex_type" id="" class="select">
+                  <option value="include">텍스트에 포함</option>
+                  <option value="exclude">텍스트에 포함하지 않음</option>
+                  <option value="match" selected>텍스트가 정확하게 일치함</option>
+                  <option value="start">시작 텍스트</option>
+                  <option value="end">종료 텍스트</option>
+                </select>
+                <input type="text" class="ipt_txt regex_type include">
+                <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
+              </li>
+              <li>
+                <select name="regex_type" id="" class="select">
+                  <option value="include">텍스트에 포함</option>
+                  <option value="exclude">텍스트에 포함하지 않음</option>
+                  <option value="match">텍스트가 정확하게 일치함</option>
+                  <option value="start" selected>시작 텍스트</option>
+                  <option value="end">종료 텍스트</option>
+                </select>
+                <input type="text" class="ipt_txt regex_type include">
+                <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
+              </li>
+              <li>
+                <select name="regex_type" id="" class="select">
+                  <option value="include">텍스트에 포함</option>
+                  <option value="exclude">텍스트에 포함하지 않음</option>
+                  <option value="match">텍스트가 정확하게 일치함</option>
+                  <option value="start">시작 텍스트</option>
+                  <option value="end" selected>종료 텍스트</option>
+                </select>
+                <input type="text" class="ipt_txt regex_type include">
+                <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
+              </li>
+              <template id="tempRegexList">
+                <li>
+                  <select name="regex_type" id="" class="select">
+                    <option value="include" selected>텍스트에 포함</option>
+                    <option value="exclude">텍스트에 포함하지 않음</option>
+                    <option value="match">텍스트가 정확하게 일치함</option>
+                    <option value="start">시작 텍스트</option>
+                    <option value="end">종료 텍스트</option>
+                  </select>
+                  <input type="text" class="ipt_txt regex_type include">
+                  <a href="#regex_list_delete" class="btn_icon delete btn_lyr_open"></a>
+                </li>
+              </template>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+  
+      <div class="ipt_container">
+        <dl class="dl_inline">
+          <dt>결과 정규식</dt>
+          <dd><div class="iptBox"><input type="text" class="ipt_txt" readonly></div></dd>
+        </dl>
+        <dl class="dl_inline regex_test">
+          <dt>테스트 문장</dt>
+          <dd>
+            <div class="iptBox">
+              <input type="text" class="ipt_txt">
+              <div class="label">
+                <button type="button" class="btn_secondary btn_regex_test">테스트</button>
+              </div>
+            </div>
+          </dd>
+        </dl>
+        
+        <!-- [D] MATCHED, UNMATCHED 표시  -->
+        <div class="matched_mark matched">MATCHED</div>
+        <div class="matched_mark unmatched">UNMATCHED</div>
+      </div>
+    </div>
+    <div class="lyr_btm">
+      <div class="btnBox sz_small">
+        <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+        <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //모달 정규식 설정 -->
+
+<!-- 서브모달 정규식 삭제 -->
+<div id="regex_list_delete" class="lyrBox sub_lyr">
+  <div class="lyr_top">
+    <h3>정규식 삭제</h3>
+    <button class="btn_lyr_close"><span class="text_hide">닫기</span></button>
+  </div>
+  <div class="lyr_mid">
+    <p class="infoTxt"><em>선택한 정규식</em>을(를) 삭제합니다.</p>
+  </div>
+  <div class="lyr_btm">
+    <div class="btnBox sz_small">
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">확인</button>
+      <button type="button" class="btn_primary btn_submit btn_lyr_close">취소</button>
+    </div>
+  </div>
+</div>
+<!-- //서브모달 정규식 삭제 -->
+
+<!-- 공통 js -->
+<script>
+  $(document).ready(function () {
+    // 201208 서브모달 추가
+    $('.btn_lyr_open').on('click', function () {
+      var winHeight = $(window).height() * 0.7,
+        hrefId = $(this).attr('href');
+        thisLayer = $(hrefId);
+
+      if ( thisLayer.hasClass('sub_lyr') ) {
+        thisLayer.wrap('<div class="lyrWrap"></div>');
+        thisLayer.before('<div class="lyr_bg"></div>');
+        thisLayer.prev('.lyr_bg').css({'background': 'rgba(0,0,0,0.1)'});
+      } else {
+        $('body').css('overflow', 'hidden');
+        thisLayer.wrap('<div class="lyrWrap"></div>');
+        thisLayer.before('<div class="lyr_bg"></div>');
+      }
+
+      //대화 UI
+      $('.lyrBox .lyr_mid').each(function () {
+        $(this).css('max-height', Math.floor(winHeight) + 'px');
+      });
+
+      //Layer popup close lyr_bg click
+      $('.lyr_bg').on('click', function (e) {
+        hrefId = $(this).next('.lyrBox').attr('id');
+        var id = '#' + hrefId;
+        thisLayer = $(id);
+        e.stopPropagation();
+        lyrClose(thisLayer);
+      });
+    });
+
+    //Layer popup close btn_close click
+    $('.btn_lyr_close').on('click', function (e) {
+      hrefId = $(this).parents('.lyrBox').attr('id');
+      var id = '#' + hrefId;
+      thisLayer = $(id);
+      e.stopPropagation();
+      lyrClose(thisLayer);
+    });
+
+    function lyrClose(target) {
+      target.unwrap('<div class="lyrWrap"></div>');
+      target.prev('.lyr_bg').remove();
+
+      if ( !target.hasClass('sub_lyr') ) {
+        $('body').css('overflow', '');
+      } 
+    }
+
+    // 돋보기 아이콘이 있는 검색 영역에서 엔터 시 검색버튼 눌림
+    $('.ipt_txt.search').on('keyup', function(){
+      if (event.keyCode == 13) {
+        $(this).next('.btn_search').trigger('click');
+      }
+    });
+
+    // 테이블 페이지네이션 페이지 active
+    // .page 클릭 시
+    $('.tbl_wrap .pagination .page').on('click', function(){
+      var pages = $('.pagination .pages .page');
+      var thisPage = $(this);
+      pages.removeClass('active');
+      thisPage.addClass('active');
+    });
+    // 버튼 클릭 시
+    $('.tbl_wrap .pagination > button').on('click', function(){
+      var thisButton = $(this);
+      var pages = $('.pagination .pages .page');
+      var activePage = $('.pagination .pages .page.active');
+      var thisPage = pages.index(activePage);
+      var firstPage = 0;
+      var lastPage = pages.length - 1;
+      var prevPage = thisPage - 1;
+      var nextPage = thisPage + 1;
+
+      pages.removeClass('active');
+
+      if (thisButton.hasClass('first')) {
+        pages.eq(firstPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('prev')) {
+        if (thisPage === 0 ) {
+          prevPage = 0;
+        }
+        pages.eq(prevPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('next')) {
+        if (thisPage === lastPage ) {
+          nextPage = lastPage;
+        }
+        pages.eq(nextPage).addClass('active');
+        return;
+      }
+
+      if (thisButton.hasClass('last')) {
+        pages.eq(lastPage).addClass('active');
+        return
+      }
+    });
+    
+    // 챗봇빌더 목록 active
+    $('.chatbot_builder .chatbot_list li').on('click', function(){
+      var list = $('.chatbot_builder .chatbot_list li');
+      var thisList = $(this);
+      list.removeClass('active');
+      thisList.addClass('active');
+    });
+
+    // 챗봇빌더 메뉴 active
+    $('.chatbot_builder .menu li').on('click', function(){
+      var menu = $('.chatbot_builder .menu li');
+      var thisMenu = $(this);
+      menu.removeClass('active');
+      thisMenu.addClass('active');
+    });
+
+    // 챗봇빌더 답변 테이블 내 상세, 삭제 버튼 클릭 시 해당 col active
+    $('.chatbot_builder table .btn_line_primary, .chatbot_builder table .btn_line_warning').on('click', function(){
+      var table = $(this).parents('table');
+      var tableCol = table.find('tr');
+      var thisCol = $(this).parents('tr');
+      tableCol.removeClass('active');
+      thisCol.addClass('active');
+    });
+    
+    // 챗봇빌더 챗봇 테스트 열기닫기
+    function handleChatbotTestOnOff() {
+      var btnOn = $('.chatbot_builder .btn_test_on');
+      var btnOff = $('.chatbot_builder .btn_test_off');
+
+      btnOn.on('click', function(){
+        $('.chatbot_builder').addClass('test_on');
+        btnOn.addClass('hide');
+      });
+
+      btnOff.on('click', function(){
+        $('.chatbot_builder').removeClass('test_on');
+        btnOn.removeClass('hide');
+      });
+    }
+    handleChatbotTestOnOff();
+  });
+
+  // 스위치 버튼
+  $('.btn_switch button').on('click', function(){
+    var $switch = $(this).parent();
+    $switch.find('button').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  new Sortable(regexList, {
+    animation: 150,
+    ghostClass: 'blue-background-class'
+  });
+
+  function addRegexList() {
+    var target = document.getElementById('regexList');
+    var clonedNode = $($('#tempRegexList').html())[0];
+    var $temp = $(clonedNode);
+    var select = $temp.find('select');
+
+    $temp.appendTo(target);
+    renderRegexSelect(select);
+
+  }
+
+  // 추가AMR 정규식 추가 셀렉트 타입별 UI가 바뀌는 이벤트
+  renderRegexSelect($('select[name="regex_type"]'));
+  function renderRegexSelect(select) {
+    select.each(function(){
+      var $thisSelect = $(this);
+      var $options = $thisSelect.find('option');
+      var allType = ''; //option의 모든 value
+      var selectedType = $thisSelect.val();
+
+      $options.each(function(i){ //option의 모든 value 구하기
+        var value = $(this).attr('value');
+        if ( i == 0 ) {
+          allType += value
+        } else {
+          allType += ' ' + value
+        }
+      });
+
+      setSelected();
+      handleSelecte();
+
+      function handleSelecte() {
+        $thisSelect.on('change', function(){
+          selectedType = $thisSelect.val();
+          setSelected();
+        });
+      }
+
+      function setSelected() {
+        $thisSelect.next('.regex_type').removeClass(allType); //class 초기화
+        $thisSelect.next('.regex_type').addClass(selectedType); //선택된 class만 적용
+      }
+    });
+  }
+</script>
+</body>
+</html>
