@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    h1 {text-align: center;}
+    body {margin: 0; padding: 0; text-align: center;}
+    img {display: inline-block; max-width: 1900px; vertical-align: top;}
+  </style>
+  <title>제 2회 AI x Bookathon 대회</title>
+</head>
+<body>
+  <img src="images/bookathon.jpg" alt="제 2회 성균관대 북커톤 대회 포스터">
+  <!-- <h1>[제 2회 AI x Bookathon 대회]</h1> -->
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+  function handleH1Typing() {
+    var typingTxt = $('h1').text();
+    var eachTypingTime = 150;
+    var delayTime = 3000;
+    var FullTypingTime = function() {
+      return (typingTxt.split('').length * eachTypingTime) + delayTime;
+    }
+
+    h1Typing();
+    setInterval(h1Typing, FullTypingTime());
+
+    function h1Typing() {
+      var typingIdx = 0; 
+      var typingTxt = $('h1').text(); // 타이핑될 텍스트를 가져온다 
+      var typingTxt = typingTxt.split(''); // 한글자씩 자른다. 
+
+      $('h1').empty();
+      setInterval(typing, eachTypingTime);
+      
+      function typing(){ 
+        if(typingIdx<typingTxt.length){ // 타이핑될 텍스트 길이만큼 반복 
+          $('h1').append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+          typingIdx++;
+        }
+      }
+    }
+  }
+  // handleH1Typing();
+
+  </script>
+</body>
+</html>
