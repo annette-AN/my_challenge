@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="124" height="124" viewBox="0 0 124 124">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="mask" fill="#f4f6f8" d="M0 0H124V124H0z" transform="translate(0 .012)"/>
+        </clipPath>
+        <style>
+            .cls-3{fill:#3a556a}.cls-4{fill:#ebf0f3}.cls-5{fill:#e1e6e9}.cls-6{fill:#64798a}
+        </style>
+    </defs>
+    <g id="img-headset-106px" clip-path="url(#clip-path)" transform="translate(0 -.012)">
+        <path id="패스_389" d="M134.614 84.9h-6.764V55.5c0-26.837-22.355-48.671-49.832-48.671S28.187 28.662 28.187 55.5v29.4h-6.764V55.5C21.423 24.9 46.811.012 78.018.012s56.6 24.891 56.6 55.487V84.9z" class="cls-3" transform="translate(-16.018)"/>
+        <path id="패스_390" d="M350.194 242.049v27.435a10.684 10.684 0 0 0 10.642 10.724v-48.883a10.684 10.684 0 0 0-10.642 10.724z" class="cls-4" transform="translate(-261.848 -172.958)"/>
+        <path id="패스_391" d="M392.379 231.325v48.884a10.684 10.684 0 0 0 10.642-10.724v-27.436a10.684 10.684 0 0 0-10.642-10.724z" class="cls-5" transform="translate(-293.39 -172.958)"/>
+        <path id="패스_392" d="M434.564 270.813v28.959a14.48 14.48 0 0 0 0-28.959z" class="cls-6" transform="translate(-324.933 -202.484)"/>
+        <path id="패스_393" d="M109.783 242.049v27.435a10.684 10.684 0 0 1-10.642 10.724v-48.883a10.684 10.684 0 0 1 10.642 10.724z" class="cls-4" transform="translate(-74.13 -172.958)"/>
+        <path id="패스_394" d="M67.6 231.325v48.884a10.684 10.684 0 0 1-10.642-10.724v-27.436A10.684 10.684 0 0 1 67.6 231.325z" class="cls-5" transform="translate(-42.587 -172.958)"/>
+        <path id="패스_395" d="M14.369 270.813v28.959a14.48 14.48 0 0 1 0-28.959z" class="cls-6" transform="translate(0 -202.484)"/>
+        <path id="패스_396" d="M267.71 402.769l-.057-2.272c28.154-.719 42.051-23.966 42.188-24.2l1.944 1.154c-.144.243-14.685 24.568-44.075 25.318z" class="cls-6" transform="translate(-200.13 -281.355)"/>
+        <path id="패스_397" d="M440.942 328.7a4.425 4.425 0 0 0-2.026-5.893 4.361 4.361 0 0 0-5.848 2.041 4.43 4.43 0 0 0 .584 4.749l-3.426 7.112 3.225 1.578 3.426-7.112a4.365 4.365 0 0 0 4.065-2.475z" class="cls-3" transform="translate(-321.689 -241.03)"/>
+        <ellipse id="타원_12" cx="5.8" cy="3.985" class="cls-3" rx="5.8" ry="3.985" transform="translate(59.96 116.036)"/>
+    </g>
+</svg>

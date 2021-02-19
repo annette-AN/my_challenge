@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Cache reset -->		
+  <meta http-equiv="Expires" content="Mon, 06 Jan 2016 00:00:01 GMT">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <!-- css -->
+  <link rel="stylesheet" href="resources/css/font.css">
+  <link rel="stylesheet" href="resources/css/reset.css">
+  <link rel="stylesheet" href="resources/css/ava_landing.css">
+  <!-- js -->
+  <link rel="stylesheet" href="resources/js/swiper.min.js">
+  <title>Main || AVA</title>
+</head>
+<body>
+<!-- .page loading
+  [Developer] 페이지 로딩중 UI
+  document 내부 리소스를 모두 불러온 후에 로딩 UI가 remove 되어야 합니다.
+  script영역에 없어지는 효과를 참고사항으로 작성해놓았습니다. 참고를 부탁드립니다.
+ -->
+<div id="pageldg">
+  <span class="out_bg">
+      <em>
+          <strong>&nbsp;</strong>
+          <strong>&nbsp;</strong>
+          <strong>&nbsp;</strong>
+          <b>&nbsp;</b>
+      </em>
+  </span>    
+</div>
+<!-- //.page loading -->
+
+<div id="wrap">
+  <!-- [D] #header가 브라우저 상단에서 50px까지는 "visual_bg" class를 가지고,
+    50px을 벗어나면 "visual_bg"가 removeClass 되어야합니다.
+    *fixed된 header에 가로스크롤을 적용하기 위한 코드를 script영역에 작성해놓았습니다. 참고를 부탁드립니다.
+  -->
+  <div id="header" class="visual_bg">
+    <div class="header_wrap">
+      <h1 class="text_hide">에이바</h1>
+      <div class="fr">
+        <ul id="gnb">
+          <li><a href="#none">요금안내</a></li>
+          <li><a href="#none">문의하기</a></li>
+          <li><a href="#none">이벤트</a></li>
+          <li><a href="#none" class="btn_primary_bg" id="test">지금 시작하기</a></li>
+          <li>
+            <!-- [D]
+              .btn_switch에 "move" class가 없을 때 (default) : 왼쪽 버튼이 active 된 것처럼 표시
+              .btn_switch에 "move" class가 있을 때 : 오른쪽 버튼이 active 된 것처럼 표시 됩니다.
+            -->
+            <div class="btn_switch move">
+              <div class="switch_bg"></div>
+              <button type="button">KOR</button>
+              <button type="button">ENG</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <div class="visual stn full_bg">
+      <div class="content">
+        <div class="visual_text fl">
+          <span class="text_static">AI로 목소리를 만들어<span class="font_InkLipquid">바!</span></span>
+          <span class="text_large font_InkLipquid">에이바</span>
+          <a href="#none" class="btn_primary_line large">
+            더 알아보기
+            <span class="icon_right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="none" d="M0 0H36V36H0z"/><path class="fill_target" fill="#fff" d="M0 12a12 12 0 1 1 12 12A12.014 12.014 0 0 1 0 12zm1.846 0A10.154 10.154 0 1 0 12 1.846 10.165 10.165 0 0 0 1.846 12zm11.716 4.591a.923.923 0 0 1 0-1.305l2.362-2.363H5.846a.923.923 0 1 1 0-1.846h10.079l-2.363-2.363a.923.923 0 1 1 1.306-1.306l3.938 3.938a.926.926 0 0 1 .152.2l.009.015c.01.018.018.037.027.056l.01.022.016.043v.013c0 .01.007.02.011.031l.009.033v.017c0 .013.007.026.009.039s0 .019 0 .028v.016c0 .015 0 .03.006.046s0 .014 0 .021v.069a.913.913 0 0 1-.015.164v.013c0 .022-.01.046-.018.074v.013c-.007.024-.015.047-.024.07l-.006.016c-.009.022-.019.044-.03.065l-.008.017-.037.064-.008.014c-.015.022-.029.042-.044.061l-.015.025-.014.01-.049.052-3.934 3.934a.925.925 0 0 1-1.306 0z" transform="rotate(90 12 18)"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+        <div class="visual_image fr">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="stn">
+      <div class="content cont01_animation">
+        <div class="cont_image fl">
+          <div class="left"><img src="resources/images/img_sec01_avamain2x.png" alt="아바 데스크탑 화면"></div>
+          <div class="right active"><img src="resources/images/img_sec01_character2x.png" alt="캐릭터 변경 모바일 화면"></div>
+        </div>
+        <div class="cont_text fr">
+          <div class="text_box">
+            <span class="tit">내 마음대로 골라쓰는<br>다양한 보이스!</span>
+            <p class="desc">유명 스트리머 제이킴, 그리고 박수현의 목소리까지!<br>
+              아나운서, 유튜브 등 다양한 콘텐츠에 알맞은 목소리들이 다양하게<br>
+              준비되어 있습니다.
+            </p>
+          </div>
+          <span class="info">&#42; 보이스 폰트는 계속 추가됩니다!</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="cont_image fr">
+
+        </div>
+        <div class="cont_text fl">
+          <div class="text_box">
+            <span class="tit">실제 사람 음성과 똑같은<br>국내 최고 수준의 고음질!</span>
+            <p class="desc">치열한 경쟁을 통하여 우수한 기술을 검증받아<br>
+              국영방송 재난방송 협력사에 선정되었습니다!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="cont_image fl">
+
+        </div>
+        <div class="cont_text fr">
+          <div class="text_box">
+            <span class="tit">가격은 <span class="font_InkLipquid" style="font-size: 80px; color: #d94452;">Down,</span><br>
+              다운로드 글자수는 <span class="font_InkLipquid" style="font-size: 80px; color: #1db6cc;">UP!</span></span>
+            <p class="desc">가격은 착하게! 글자수는 넉넉하게!<br>
+              두 가지 모두 에이바에서 누릴 수 있어요!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stn movie_youtube">
+      <div class="content">
+        <span class="movie_tit">에이바로 달라질 콘텐츠 제작 시간, 미리 만나보세요.</span>
+        <div class="movie">
+          <iframe width="1280" height="720" src="https://www.youtube.com/embed/IDIt7qtIaFg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="stn tutorial">
+      <div class="content">
+        <div class="tutorial_tit">
+          <p class="tit">당신에게 <span class="font_InkLipquid" style="font-size: 80px; letter-spacing: -3.6px;">딱</span> 맞게, 에이바를 사용해보세요.</p>
+          <a href="#none" class="btn_tutorial" title="클릭하면 영상을 볼 수 있습니다.">튜토리얼 영상보기
+            <img src="resources/images/ico_more_right.svg" class="icon_right" alt="화살표">
+          </a>
+        </div>
+
+        <div class="tutorial_cont">
+          <div class="fl">폴더스</div>
+          <div class="fr">gif</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stn full_bg try_ava">
+      <div class="content">
+        <span class="try_tit">에이바를 지금 경험해 보세요&excl;</span>
+        <span class="try_desc">
+          AI를 활용한다면 당신의 콘텐츠 제작 시간이 단축될 거예요.<br>
+          에이바가 만드는 새로운 방식을 지금 바로 만나보세요!
+        </span>
+        <a href="#none" class="btn_primary_line large">지금 시작하기            
+          <span class="icon_right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="none" d="M0 0H36V36H0z"/><path fill="#fff" class="fill_target" d="M0 12a12 12 0 1 1 12 12A12.014 12.014 0 0 1 0 12zm1.846 0A10.154 10.154 0 1 0 12 1.846 10.165 10.165 0 0 0 1.846 12zm11.716 4.591a.923.923 0 0 1 0-1.305l2.362-2.363H5.846a.923.923 0 1 1 0-1.846h10.079l-2.363-2.363a.923.923 0 1 1 1.306-1.306l3.938 3.938a.926.926 0 0 1 .152.2l.009.015c.01.018.018.037.027.056l.01.022.016.043v.013c0 .01.007.02.011.031l.009.033v.017c0 .013.007.026.009.039s0 .019 0 .028v.016c0 .015 0 .03.006.046s0 .014 0 .021v.069a.913.913 0 0 1-.015.164v.013c0 .022-.01.046-.018.074v.013c-.007.024-.015.047-.024.07l-.006.016c-.009.022-.019.044-.03.065l-.008.017-.037.064-.008.014c-.015.022-.029.042-.044.061l-.015.025-.014.01-.049.052-3.934 3.934a.925.925 0 0 1-1.306 0z" transform="translate(6 6)"/></svg>
+          </span>    
+        </a>
+      </div>
+    </div>
+
+    <div class="stn any_questions">
+      <div class="content">
+        <span class="questions_tit">궁금한게 있으신가요?</span>
+        <div class="questions_btns">
+          <div class="btn_banner fl">
+            <p>
+              요금제 및 사용범위 안내는<br>
+              <span>요금제 안내</span>
+            </p>
+            <div class="image_box fr">
+              <img src="resources/images/ico_imac.svg" alt="아이맥">
+            </div>
+            <a href="#none"></a>
+          </div>
+          <div class="btn_banner fr">
+            <p>
+              이용안내 및 FAQ는<br>
+              <span>고객센터</span>
+            </p>
+            <div class="image_box fr">
+              <img src="resources/images/ico_headset.svg" alt="헤드셋">
+            </div>
+            <a href="#none"></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div id="footer">
+    <div class="content">
+      <div class="footer_logo">
+        <img src="" alt="">
+      </div>
+      <div class="footer_cont">
+        <ul class="footer_nav">
+          <li><a href="#none" class="nav_list">이용약관</a></li>
+          <li><a href="#none" class="nav_list">개인정보처리 취급방침</a></li>
+          <li><span class="nav_list">사업자등록번호 341-86-55446</span></li>
+          <li><span class="nav_list">&copy; MINDs Lab.</span></li>
+        </ul>
+        <span class="info_txt">· 본 사이트의 모든 콘텐츠는 저작권법의 보호를 받는 바, 무단 전재, 복사, 배포 등을 금합니다.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- js 퍼블리싱 관련 참고용입니다. 적용 후 지워주셔도 무방합니다. -->
+<script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery-migrate-3.3.1.min.js"></script>
+<script type="text/javascript">
+  $(window).load(function() { 
+    //page loading delete
+    $('#pageldg').addClass('pageldg_hide').delay(300).queue(function() { $(this).remove(); });
+  });
+
+  // fixed된 header에 가로스크롤을 적용하기 위한 코드
+  $(window).scroll(function(){
+    $('#header').css('left', 0-$(this).scrollLeft());
+  })
+
+</script>
+</body>
+</html>
