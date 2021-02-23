@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+    <defs>
+        <clipPath id="jyt0t3zx8a">
+            <path fill="#fff" stroke="#707070" d="M0 0H36V36H0z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#jyt0t3zx8a)">
+        <circle cx="18" cy="18" r="18" fill="#f0f0f0"/>
+        <path fill="#d80027" d="M179.479 173.218c0 1.565-2.8 5.478-6.261 5.478s-6.261-3.913-6.261-5.478a6.261 6.261 0 0 1 12.522 0z" transform="translate(-155.218 -155.218)"/>
+        <path fill="#0052b4" d="M179.479 256a6.261 6.261 0 0 1-12.522 0" transform="translate(-155.218 -238)"/>
+        <path d="M0 0H2.348V1.565H0z" transform="rotate(-45 40.728 -17.976)"/>
+        <path d="M0 0H2.348V1.565H0z" transform="rotate(-45 42.685 -13.253)"/>
+        <path d="M0 0H2.348V1.565H0z" transform="rotate(-45 46.396 -20.325)"/>
+        <path d="M0 0H2.348V1.565H0z" transform="rotate(-45 48.353 -15.601)"/>
+        <path d="M0 0H2.348V1.565H0z" transform="rotate(-45 43.562 -19.151)"/>
+        <path d="M0 0H2.348V1.565H0z" transform="rotate(-45 45.519 -14.428)"/>
+        <path d="M0 0H1.565V6.261H0z" transform="rotate(-45 21.471 -24.39)"/>
+        <path d="M0 0H1.565V2.348H0z" transform="rotate(-45 22.645 -21.555)"/>
+        <path d="M0 0H1.565V2.348H0z" transform="rotate(-45 27.368 -23.511)"/>
+        <path d="M0 0H1.565V2.348H0z" transform="rotate(-45 20.297 -27.221)"/>
+        <path d="M0 0H1.565V2.348H0z" transform="rotate(-45 25.02 -29.179)"/>
+        <path d="M0 0H1.565V6.261H0z" transform="rotate(-45 34.384 6.787)"/>
+        <path d="M0 0H1.565V2.348H0z" transform="rotate(-45 37.933 1.996)"/>
+        <path d="M0 0H1.565V2.348H0z" transform="rotate(-45 33.21 3.953)"/>
+        <path d="M0 0H1.565V6.261H0z" transform="rotate(-45 32.035 1.119)"/>
+        <path d="M0 0H6.261V1.565H0z" transform="rotate(-45 14.344 -1.514)"/>
+        <path d="M0 0H6.261V1.565H0z" transform="rotate(-45 17.178 -2.688)"/>
+        <path d="M0 0H6.261V1.565H0z" transform="rotate(-45 20.013 -3.863)"/>
+    </g>
+</svg>

@@ -13,7 +13,7 @@ address, caption, cite, code, dfn, em, th, var {font-style: normal; font-weight:
 ol, ul, li {list-style: none;}
 abbr, acronym {border: none;}
 hr {display: none;}
-a {color: #000; text-decoration: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif;}
+a {color: #000; text-decoration: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; letter-spacing: normal;}
 a:link, a:visited {text-decoration: none;}
 a:hover, a:active, a:focus {text-decoration: none;}
 textarea {overflow: auto; resize: none;}
