@@ -108,9 +108,8 @@
 #lyr_video_player .btn_lyr_close {display:inline-block; position:absolute; top:-40px; right:0px; width:40px; height:40px;}
 #lyr_video_player .btn_lyr_close .html_code {display: block; height: 100%; line-height: 28px; font-size:56px; color:#fff;}
 
-
 /* wrap */
-#wrap {width: 100%; min-width: 1280px;}
+#wrap {overflow: hidden; position: relative; width: 100%; min-width: 1280px;}
 
 /* header */
 .header {overflow: hidden; position: fixed; top: 0; left: 0; right: 0; width: 100%; min-width: 1280px; height: 80px; border-bottom: 1px solid #707070; padding: 0 30px; background: #fff; z-index: 10; box-sizing: border-box;}
