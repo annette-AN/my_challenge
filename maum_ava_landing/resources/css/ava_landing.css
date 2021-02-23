@@ -113,7 +113,7 @@
 #wrap {width: 100%; min-width: 1280px;}
 
 /* header */
-.header {overflow: hidden; width: 100%; min-width: 1280px; height: 80px; border-bottom: 1px solid #707070; padding: 0 30px; background: #fff; z-index: 10; box-sizing: border-box;}
+.header {overflow: hidden; position: fixed; top: 0; left: 0; right: 0; width: 100%; min-width: 1280px; height: 80px; border-bottom: 1px solid #707070; padding: 0 30px; background: #fff; z-index: 10; box-sizing: border-box;}
 .header .header_wrap {width: calc(100% - 60px); min-width: 1280px; height: 100%; padding: 16px 38px; box-sizing: border-box;}
 .header h1 {display: inline-block; width: 172px; height: 48px; background: url(../images/logo_ava.svg) no-repeat 0 0;}
 #gnb {display: inline-block; margin: 4px 0 0 0;}
