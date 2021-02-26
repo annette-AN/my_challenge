@@ -52,10 +52,11 @@
       <h1 class="text_hide">에이바</h1>
       <div class="fr">
         <ul id="gnb">
-          <li><a href="#none">요금안내</a></li>
-          <li><a href="#none">문의하기</a></li>
-          <li><a href="#none">이벤트</a></li>
-          <li><a href="#none" class="btn_primary_bg start">지금 시작하기</a></li>
+          <!-- [D] 요금안내, 문의하기, 이벤트 페이지가 작업되면 오픈될 예정입니다. -->
+          <!-- <li><a href="#none">요금안내</a></li> -->
+          <!-- <li><a href="#none">문의하기</a></li> -->
+          <!-- <li><a href="#none">이벤트</a></li> -->
+          <li><a href="https://ava.maum.ai/#/users/sign_in" class="btn_primary_bg start">지금 시작하기</a></li>
           <li>
             <!-- [D]
               .btn_switch에 "move" class가 없을 때 (default) : 왼쪽 버튼이 active 된 것처럼 표시
@@ -75,7 +76,7 @@
   <div class="header visual_bg mobile">
     <div class="header_wrap">
       <h1 class="text_hide">에이바</h1>
-      <a href="#none" class="btn_primary_bg start">지금 시작하기</a>
+      <a href="https://ava.maum.ai/#/users/sign_in" class="btn_primary_bg start">지금 시작하기</a>
       <!-- [D] .btn_ham
         1. .btn_ham을 클릭하면 "active" class가 toggle되어야 합니다.
         2. .btn_ham.active 일 때 .header.mobile에 "menu_on" class가 적용되어야 합니다.
@@ -88,11 +89,12 @@
       </div>
       <div class="gnb">
         <div class="gnb_wrap">
-          <ul class="menus">
+          <!-- [D] 요금안내, 문의하기, 이벤트 페이지가 작업되면 오픈될 예정입니다. -->
+          <!-- <ul class="menus">
             <li><a href="#none">요금안내</a></li>
             <li><a href="#none">문의하기</a></li>
             <li><a href="#none">이벤트</a></li>
-          </ul>
+          </ul> -->
           <div class="btn_lang">
             <!-- [D] .btn_lang button에 "active" class가 적용되면 선택된 디자인입니다. -->
             <button type="button" class="fl active">KOR</button>
@@ -118,7 +120,7 @@
           </div>
         </div>
         <div class="visual_btn fl">
-          <a href="#none" class="btn_primary_line large">
+          <a href="#intro" class="btn_primary_line large">
             <span class="text">더 알아보기</span>
             <span class="icon_right">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="none" d="M0 0H36V36H0z"/><path class="fill_target" fill="#fff" d="M0 12a12 12 0 1 1 12 12A12.014 12.014 0 0 1 0 12zm1.846 0A10.154 10.154 0 1 0 12 1.846 10.165 10.165 0 0 0 1.846 12zm11.716 4.591a.923.923 0 0 1 0-1.305l2.362-2.363H5.846a.923.923 0 1 1 0-1.846h10.079l-2.363-2.363a.923.923 0 1 1 1.306-1.306l3.938 3.938a.926.926 0 0 1 .152.2l.009.015c.01.018.018.037.027.056l.01.022.016.043v.013c0 .01.007.02.011.031l.009.033v.017c0 .013.007.026.009.039s0 .019 0 .028v.016c0 .015 0 .03.006.046s0 .014 0 .021v.069a.913.913 0 0 1-.015.164v.013c0 .022-.01.046-.018.074v.013c-.007.024-.015.047-.024.07l-.006.016c-.009.022-.019.044-.03.065l-.008.017-.037.064-.008.014c-.015.022-.029.042-.044.061l-.015.025-.014.01-.049.052-3.934 3.934a.925.925 0 0 1-1.306 0z" transform="rotate(90 12 18)"/>
@@ -129,7 +131,7 @@
       </div>
     </div>
 
-    <div class="stn intro">
+    <div id="intro" class="stn intro">
       <div class="content cont01_animation">
         <div class="cont_text fr">
           <div class="text_box">
@@ -390,7 +392,7 @@
           콘텐츠 제작 시간이 줄어든다면 할 수 있는 일이 더 많아집니다.<br>
           에이바가 만드는 새로운 변화를 만나보세요!
         </span>
-        <a href="#none" class="btn_primary_line large">
+        <a href="https://ava.maum.ai/#/users/sign_in" class="btn_primary_line large">
           <span class="text">지금 시작하기</span>
           <span class="icon_right">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="none" d="M0 0H36V36H0z"/><path fill="#fff" class="fill_target" d="M0 12a12 12 0 1 1 12 12A12.014 12.014 0 0 1 0 12zm1.846 0A10.154 10.154 0 1 0 12 1.846 10.165 10.165 0 0 0 1.846 12zm11.716 4.591a.923.923 0 0 1 0-1.305l2.362-2.363H5.846a.923.923 0 1 1 0-1.846h10.079l-2.363-2.363a.923.923 0 1 1 1.306-1.306l3.938 3.938a.926.926 0 0 1 .152.2l.009.015c.01.018.018.037.027.056l.01.022.016.043v.013c0 .01.007.02.011.031l.009.033v.017c0 .013.007.026.009.039s0 .019 0 .028v.016c0 .015 0 .03.006.046s0 .014 0 .021v.069a.913.913 0 0 1-.015.164v.013c0 .022-.01.046-.018.074v.013c-.007.024-.015.047-.024.07l-.006.016c-.009.022-.019.044-.03.065l-.008.017-.037.064-.008.014c-.015.022-.029.042-.044.061l-.015.025-.014.01-.049.052-3.934 3.934a.925.925 0 0 1-1.306 0z" transform="translate(6 6)"/></svg>
@@ -399,7 +401,8 @@
       </div>
     </div>
 
-    <div class="stn any_questions">
+    <!-- [D] 요금제안내와 문의하기 페이지 작업되면 살려야 하는 섹션입니다. -->
+    <!-- <div class="stn any_questions">
       <div class="content">
         <span class="questions_tit">궁금한게 있으신가요?</span>
         <div class="questions_btns">
@@ -426,7 +429,7 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
 
   </div>
   <div id="footer">
@@ -436,8 +439,8 @@
       </div>
       <div class="footer_cont">
         <ul class="footer_nav">
-          <li><a href="#none" class="nav_list">이용약관</a></li>
-          <li><a href="#none" class="nav_list">개인정보처리 취급방침</a></li>
+          <li><a href="https://ava.maum.ai/#/policy/service" class="nav_list">이용약관</a></li>
+          <li><a href="https://ava.maum.ai/#/policy/privacy" class="nav_list">개인정보처리 취급방침</a></li>
           <li><span class="nav_list">사업자등록번호 341-86-55446</span></li>
           <li><span class="nav_list copyright">&copy; MINDs Lab.</span></li>
         </ul>
@@ -463,13 +466,13 @@
 <script type="text/javascript">
           
   var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-    // init (canvasId, containerId, compositionm, exportRootLib)
-    init('canvas01', 'animation_container01', 'dom_overlay_container01', '1C31416FA5B44ADA9F9C45763ABE03E5', 'lib._1');
-    // init('canvas02', 'animation_container02', 'dom_overlay_container02', 'AD01967357B342E6BB491EB3C583AC2E', 'lib._2');
-    // init('canvas0401', 'animation_container0401', 'dom_overlay_container0401', 'FB92E386857F4460949EF9F83522357F', 'lib._41');
-    // init('canvas0402', 'animation_container0402', 'dom_overlay_container0402', 'FB92E386857F4460949EF9F83522357F', 'lib._42');
-    // init('canvas0403', 'animation_container0403', 'dom_overlay_container0403', 'FB92E386857F4460949EF9F83522357F', 'lib._413fla');
-    // init('canvas0404', 'animation_container0404', 'dom_overlay_container0404', 'FB92E386857F4460949EF9F83522357F', 'lib._44');
+  // init (canvasId, containerId, compositionm, exportRootLib)
+  // init('canvas01', 'animation_container01', 'dom_overlay_container01', '1C31416FA5B44ADA9F9C45763ABE03E5', 'lib._1');
+  // init('canvas02', 'animation_container02', 'dom_overlay_container02', 'AD01967357B342E6BB491EB3C583AC2E', 'lib._2');
+  // init('canvas0401', 'animation_container0401', 'dom_overlay_container0401', 'FB92E386857F4460949EF9F835223571', 'lib._41');
+  // init('canvas0402', 'animation_container0402', 'dom_overlay_container0402', 'FB92E386857F4460949EF9F835223572', 'lib._42');
+  // init('canvas0403', 'animation_container0403', 'dom_overlay_container0403', 'FB92E386857F4460949EF9F835223573', 'lib._413fla');
+  // init('canvas0404', 'animation_container0404', 'dom_overlay_container0404', 'FB92E386857F4460949EF9F835223574', 'lib._44');
 
   function init(canvasId, containerId, overlayId, compositionm, newLib) {
     canvas = document.getElementById(canvasId);
@@ -484,7 +487,7 @@
     loader.loadManifest(lib.properties.manifest);
   }
   function handleFileLoad(evt, comp) {
-    var images=comp.getImages();	
+    var images=comp.getImages();
     if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
   }
   function handleComplete(evt,comp) {
@@ -496,7 +499,7 @@
     for(i=0; i<ssMetadata.length; i++) {
       ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
     }
-    exportRoot = new lib._1();
+    exportRoot = new lib._44();
     stage = new lib.Stage(canvas);	
     //Registers the "tick" event listener.
     fnStartAnimation = function() {
