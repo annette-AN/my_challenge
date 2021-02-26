@@ -459,13 +459,13 @@
   .event_visual .icons .icon_box:last-child .fr,
   .event_visual .icons .icon_box:last-child .fl {float: none; display: grid; grid-template-columns: repeat(2, 1fr);}
   .event_visual .icons {display: block;}
-  .event_visual .icons .icon {width: auto; height: auto; margin: 8px 0 0 8px;}
+  .event_visual .icons .icon {width: auto; height: auto; margin: 8px 0 0 8px; border-radius: 4px;}
   .event_visual .icons .icon > p {top: 6px; right: 6px; font-size: 4px;}
 
   .event_visual .texts {padding: 8px;}
-  .event_visual .texts .text_box {width: calc(50% - 4px); height: auto; background: none;}
+  .event_visual .texts .text_box {width: calc(50% - 4px); height: auto; border-width: 2px; background: none;}
   .event_visual .texts .text_box .text {margin: 0; padding: 8px 0; line-height: 24px; font-size: 14px;}
-  .event_visual .pr_text {height: auto;}
+  .event_visual .pr_text {height: auto; border-width: 2px;}
   .event_visual .pr_text {position: relative; top: auto; left: auto; width: calc(100% - 16px); margin: 0 8px;}
   .event_visual .pr_text .ribbon_tit {height: 30px; margin-top: 16px; padding-top: 7px; background-size: 300px; line-height: 1; font-size: 12px;}
   .event_visual .pr_text .logo {width: 228px; margin-top: 15px;}
