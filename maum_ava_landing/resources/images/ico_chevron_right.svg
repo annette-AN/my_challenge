@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="사각형_203" d="M0 0H24V24H0z" class="cls-1" transform="translate(1560 2241)"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#fff}
+        </style>
+    </defs>
+    <g id="ico-next-24px" clip-path="url(#clip-path)" transform="translate(-1560 -2241)">
+        <path id="ico-next" d="M147.684 11.229L136.851.32a1.078 1.078 0 0 0-1.532 0 1.1 1.1 0 0 0 0 1.543L145.386 12l-10.068 10.138a1.1 1.1 0 0 0 0 1.543 1.078 1.078 0 0 0 1.532 0l10.833-10.909a1.1 1.1 0 0 0 0-1.543z" class="cls-1" transform="translate(1432.999 2240.999)"/>
+    </g>
+</svg>

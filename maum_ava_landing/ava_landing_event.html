@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="resources/css/reset.css">
   <link rel="stylesheet" href="resources/css/swiper.min.css">
   <link rel="stylesheet" href="resources/css/ava_landing.css">
-  <title>Main || AVA</title>
+  <title>event || AVA</title>
 </head>
 <body>
 <!-- .page loading
@@ -37,8 +37,8 @@
 </div>
 <!-- //.page loading -->
 
-<div id="wrap">
-  <div id="container" class="event">
+<div id="wrap" class="event">
+  <div id="container">
     <div class="event_visual stn">
       <div class="content">
         <div class="icons">
@@ -163,22 +163,192 @@
             </p>
           </div>
           <div class="more">
-            <button type="button"><img src="resources/images/event/img_mouse.svg" alt="더 알아보기"></button>
+            <a href="#stn_advantages"><img src="resources/images/event/img_mouse.svg" alt="더 알아보기"></a>
             <span class="font_InkLipquid">에이바 더 알아보기!</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="stn">
+    <div id="stn_advantages" class="stn advantages">
       <div class="content">
-        
+        <img src="resources/images/event/img_bookgirl.svg" class="tit_img" alt="AVA 아바타 책 읽어주는 여자">
+        <div class="event_tit">
+          <div class="tit">
+            <span>세상에 없었던</span>
+            <span><em style="font-weight: 700; color: #5d1fff;">에</em>이<em style="font-weight: 700; color: #1db6cc;">바</em>의 4가지 장점!</span>
+          </div>
+          <div class="audio">
+            <!-- [D] .btn_audio 버튼을 클릭하면 audio태그(다음 형제) 상태가 시작, 일시정지로 반복되어야 합니다. -->
+            <button type="button" class="btn_audio" title="음성듣기"><img src="resources/images/ico_speaker.svg" alt="스피커"></button>
+            <audio controls>
+              <source src="resources/audio/event_advantages.wav" type="audio/wav">
+            </audio>
+            <span><em>*AVA</em> 음성 avatar <em>책 읽어주는 여자</em></span>
+          </div>
+        </div>
+
+        <div class="list_wrap">
+          <ul class="list">
+            <li>
+              <div class="box">
+                <div class="icon"><img src="resources/images/event/ico_voice.svg" alt="말하는 이미지"></div>
+                <div class="text">
+                  <span>수십가지</span>
+                  <em>다양한 보이스!</em>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="box">
+                <div class="icon"><img src="resources/images/event/ico_cost.svg" alt="동전"></div>
+                <div class="text">
+                  <span>이용에 부담없는</span>
+                  <em>합리적인 가격!</em>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="box">
+                <div class="icon"><img src="resources/images/event/ico_tech.svg" alt="음성 이퀄라이저"></div>
+                <div class="text">
+                  <span>차별화된 기술</span>
+                  <em>실시간 음성 합성!</em>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="box">
+                <div class="icon"><img src="resources/images/event/ico_medal.svg" alt="1등 메달"></div>
+                <div class="text">
+                  <span>실제 음성과 똑같은</span>
+                  <em>최고 수준의 고음질!</em>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="stn experience full_bg">
+      <div class="content">
+        <div class="tit_img_wrap">
+          <img src="resources/images/event/img_sh.svg" class="tit_img" alt="AVA 아바타 서현">
+        </div>
+        <div class="event_tit">
+          <div class="tit">
+            <span>이미 많은 사람들이</span>
+            <span>놀라운 체험을 하였습니다.</span>
+          </div>
+          <div class="audio">
+            <!-- [D] .btn_audio 버튼을 클릭하면 audio태그(다음 형제) 상태가 시작, 일시정지로 반복되어야 합니다. -->
+            <button type="button" class="btn_audio" title="음성듣기"><img src="resources/images/ico_speaker.svg" alt="스피커"></button>
+            <audio controls>
+              <source src="resources/audio/event_experience.wav" type="audio/wav">
+            </audio>
+            <span><em>*AVA</em> 음성 avatar <em>서현</em></span>
+          </div>
+        </div>
+
+        <div class="list_wrap">
+          <div id="swiper_experience" class="swiper-container">
+            <ol class="list swiper-wrapper">
+              <li class="swiper-slide">
+                <div class="box_wrap">
+                  <div class="media_box movie">
+                    <a href="#none" id="media_experience01">
+                      <img class="media" src="resources/images/event/experience/img_experience01.png" alt="놀라운 체험 백그라운드 이미지">
+                    </a>
+                  </div>
+                  <div class="text_box">
+                    <p class="review">&ldquo;캐릭터의 특성이 한눈에 알아보기 쉬웠어요. 에이바가 콘텐츠 제작의 부담을 덜어주었죠.&rdquo;</p>
+                    <p class="writer">꿀보이* · 유튜브 크리에이터</p>
+                  </div>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="box_wrap">
+                  <div class="media_box movie">
+                    <a href="#none" id="media_experience02">
+                      <img class="media" src="resources/images/event/experience/img_experience02.png" alt="놀라운 체험 백그라운드 이미지">
+                    </a>
+                  </div>
+                  <div class="text_box">
+                    <p class="review">&ldquo;여러 개의 보이스를 선택하기 쉽게 디자인 되어있어서 고르는 재미가 있었어요.&rdquo;</p>
+                    <p class="writer">나마* · 대학생(발표자료 제작)</p>
+                  </div>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="box_wrap">
+                  <div class="media_box">
+                    <img class="media" src="resources/images/event/experience/img_experience03.png" alt="놀라운 체험 백그라운드 이미지">
+                  </div>
+                  <div class="text_box">
+                    <p class="review">&ldquo;이번 오디오북 작업에 사용했는데 기계음에서는 없는  자연스러운 보이스여서 좋았어요.&rdquo;</p>
+                    <p class="writer">책읽어주는여* · 오디오북 제작자</p>
+                  </div>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="box_wrap">
+                  <div class="media_box">
+                    <img class="media" src="resources/images/event/experience/img_experience04.png" alt="놀라운 체험 백그라운드 이미지">
+                  </div>
+                  <div class="text_box">
+                    <p class="review">&ldquo;긴 문장도 빠르고 정확하게 텍스트로 생성되어서 활용하기 편리했어요.&rdquo;</p>
+                    <p class="writer">김상* · 고객 상담사</p>
+                  </div>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="box_wrap">
+                  <div class="media_box">
+                    <img class="media" src="resources/images/event/experience/img_experience05.png" alt="놀라운 체험 백그라운드 이미지">
+                  </div>
+                  <div class="text_box">
+                    <p class="review">&ldquo;아이콘과 기능이 일맥상통하고 알아보기 쉬워서 이해가 금방 되었어요.&rdquo;</p>
+                    <p class="writer">박안* · 안내/홍보 담당자</p>
+                  </div>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="box_wrap">
+                  <div class="media_box">
+                    <img class="media" src="resources/images/event/experience/img_experience06.png" alt="놀라운 체험 백그라운드 이미지">
+                  </div>
+                  <div class="text_box">
+                    <p class="review">&ldquo;버튼 하나로 보이스를 바꿔가며 들어볼 수 있어서 빠르게 작업이 가능했어요.&rdquo;</p>
+                    <p class="writer">최강* · 온라인 강사</p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stn membership">
+      <div class="content">
+        <span>이 모든걸 누리려면?</span>
+        <span class="font_misaeng">당장 회원가입하러 <em class="font_misaeng">GO, GO!</em></span>
+        <div>
+          <a href="https://ava.maum.ai/#/users/sign_in" class="btn_primary_bg large">
+            <span class="text">시작하기</span>
+            <img src="resources/images/ico_more_right.svg" class="icon_right" alt="화살표"></a>
+        </div>
+        <span class="info">* AVA에 탑재되어 있는 음성 avatar <em>멜리나</em>입니다.</span>
       </div>
     </div>
   </div>
   <div id="footer">
     <div class="content">
-      푸터
+      <span class="font_InkLipquid">마음까지 생각하는 AI</span>
+      <img src="resources/images/ico_maumai.svg" alt="마음ai 아이콘">
     </div>
   </div>
 </div>
@@ -196,14 +366,36 @@
     let windowWidth = $(window).outerWidth();
     if ( windowWidth > 768 ) calcEvtVisualGrid();
 
-    // var swiper = new Swiper('.swiper-container', {
-    //   slidesPerView: 1,
-    //   centeredSlides: true,
-    //   loop: true,
-    //   pagination: {
-    //     el: '.swiper-pagination',
-    //   },
-    // });
+    // event_visual 에 있는 a[href="#stn_advantages"] 클릭 시 scroll 효과
+    var $root = $('html, body');
+    $('.event_visual a[href="#stn_advantages"]').click(function() {
+      $root.animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+      return false;
+    });
+
+    var swiper = new Swiper('#swiper_experience', {
+      // initialSlide: 0,
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: 24,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+          slidesPerGroup: 1,
+          centeredSlides: false,
+        }
+      }
+    });
   });
 
   $(window).on('resize', function(){
@@ -260,6 +452,54 @@
       'height' : (iconWidth + iconSpace + textBoxHeight) + 'px'
     });
   }
+
+  // 놀라운 체험 섹션 꿀보이* 영상 버튼 클릭 시
+  $('#media_experience01').on('click', function () {
+    $('body').css('overflow', 'hidden');
+
+    $('body').append(
+      '<div class="lyr_bg_dim"></div>\
+        <div id="lyr_video_player" class="lyrPlayBox">\
+          <div class="lyr_ct">\
+            <video controls autoplay>\
+              <source src="resources/videos/event/experience01_720p.mp4" type="video/mp4">\
+            </video>\
+            </div>\
+          <button type="button" class="btn_lyr_close" title="닫기버튼">\
+            <em class="html_code">&#215;</em>\
+          </button>\
+        </div>');
+
+    $('.btn_lyr_close').on('click', function () {
+      $('body').css('overflow', '');
+      $('.lyr_bg_dim').remove();
+      $('#lyr_video_player').remove();
+    });
+  });
+
+  // 놀라운 체험 섹션 나마* 영상 버튼 클릭 시
+  $('#media_experience02').on('click', function () {
+    $('body').css('overflow', 'hidden');
+
+    $('body').append(
+      '<div class="lyr_bg_dim"></div>\
+        <div id="lyr_video_player" class="lyrPlayBox">\
+          <div class="lyr_ct">\
+            <video controls autoplay>\
+              <source src="resources/videos/event/experience02_720p.mp4" type="video/mp4">\
+            </video>\
+            </div>\
+          <button type="button" class="btn_lyr_close" title="닫기버튼">\
+            <em class="html_code">&#215;</em>\
+          </button>\
+        </div>');
+
+    $('.btn_lyr_close').on('click', function () {
+      $('body').css('overflow', '');
+      $('.lyr_bg_dim').remove();
+      $('#lyr_video_player').remove();
+    });
+  });
 </script>
 </body>
 </html>

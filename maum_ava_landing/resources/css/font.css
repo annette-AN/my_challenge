@@ -90,3 +90,11 @@
   src:url(../font/GmarketSansBold.woff) format('woff'),
   url(../font/GmarketSansBold.woff2) format('woff2');
 }
+
+/* sd미생체 */
+@font-face {
+  font-family:'SDMiSaeng';
+  font-style:normal;
+  font-weight:500;
+  src:url(../font/SDMiSaeng.otf) format('opentype');
+}
