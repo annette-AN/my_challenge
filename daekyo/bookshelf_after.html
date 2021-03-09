@@ -253,10 +253,6 @@
         <!-- audio_player -->
         <div class="audio_player">
           <div class="button-items">
-            <audio id="sound" preload="auto">
-              <source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3">
-            </audio>
-
             <div class="controls">
               <button type="button" id="play" style="display: block;">
               </button>
@@ -417,11 +413,16 @@ $(document).ready(function () {
 
   // AMR 200824 오디오 파일의 총시간/진행된시간 표시, 레이어 닫을 때 오디오 상태 변경 함수
   function handleAudio(){
-    var audioElement = document.getElementById('sound');
-    var audioDuration = audioElement.duration;
-    var audioRoundDuration = Math.ceil(audioDuration)
+    var audioEl = '<audio id="sound" preload="auto"><source src="resources/sample/audio/Dylan Rockoff-Awesome.mp3"></audio>'
+    $('.audio_player').prepend(audioEl);
 
-    $("#timer_endtime").text(createAudioTimeFormat(audioRoundDuration));//오디오의 총 시간표시
+    var audioElement = document.getElementById('sound');
+    
+    audioElement.addEventListener('canplay', function(){
+      var audioDuration = audioElement.duration;
+      var audioRoundDuration = Math.ceil(audioDuration)
+      $("#timer_endtime").text(createAudioTimeFormat(audioRoundDuration));//오디오의 총 시간표시
+    });
 
     audioElement.addEventListener("timeupdate", function () {//오디오의 진행된 시간표시
       var audioCurrentTime = audioElement.currentTime;
