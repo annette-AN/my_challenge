@@ -95,6 +95,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.apis .content_tit .desc {line-height: 24px;}
 .stn.apis .content_tit .btn_primary {margin-top: 20px; opacity: 0.9;}
 .stn.apis .swiper-wrapper {height: 540px;}
+.stn.apis .swiper-pagination {display: none;}
 .stn.apis .api {position: relative; width: 200px; height: 230px; margin-top: 30px; padding: 40px 15px 60px 20px; border-radius: 5px; box-sizing: border-box; background: rgba(255,255,255,0.85); box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);}
 .stn.apis .api .img_box {position: absolute; top: -30px; left: 70px; width: 60px; height: 60px; padding-top: 11px; border-radius: 50%; text-align: center; box-sizing: border-box;}
 .stn.apis .api .img_box img {height: 36px;}
@@ -116,9 +117,6 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.apis .swiper-slide:nth-child(5) .api .btn_primary {border: 1px solid #53a8ff; color: #53a8ff;}
 .stn.apis .swiper-slide:nth-child(6) .api .img_box {background: #1db6cc;} 
 .stn.apis .swiper-slide:nth-child(6) .api .btn_primary {border: 1px solid #1db6cc; color: #1db6cc;}
-#swiper-api .swiper-pagination .swiper-pagination-bullet {}
-
-/* swiper-pagination-bullet swiper-pagination-bullet-active */
 /* //section apis */
 /* section maumdata */
 .stn.maumdata {background: url(../images/new/bg_maumdata.jpg) no-repeat 0 0; background-size: cover;}
@@ -132,13 +130,14 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.maumdata .data_box .btn_primary:hover {background-color: rgba(105, 121, 248, 0.6); color: #fff;}
 #swiper_maumdata {margin-top: 40px;}
 #swiper_maumdata .swiper-slide:nth-child(2) .data_box {margin-top: 40px;}
+#swiper_maumdata .swiper-pagination {display: none;}
 /* //section maumdata */
 /* section success */
 .stn.success {padding: 60px 0 120px 0; background: #141e3d;}
 .stn.success .logo {position: relative; width: 222px; height: 97px; border-radius: 5px; background: #c9d6ff; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1)}
 .stn.success .logo img {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
 #swiper_success {margin: 40px 0 24px 0; padding-bottom: 62px;}
-#swiper_success .swiper-wrapper {overflow: hidden; height: 216px; /*height: 216px;*/}
+#swiper_success .swiper-wrapper {overflow: hidden; height: 216px; /*height: 573px;*/}
 #swiper_success .btn_box {position: absolute; left: 0; bottom: 0; width: 100%; text-align: center;}
 #swiper_success .swiper-pagination {display: none;}
 .stn.success .cards {overflow: hidden; position: relative; border-radius: 6px; background: #141e3d url(../images/new/bg_banner03.png) no-repeat 0 0; background-size: cover; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);}
@@ -212,13 +211,15 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
   .stn.apis .content_tit {float: none; width: auto; margin: 0; text-align: center;}
   .stn.apis .content_tit .desc {width: 220px;}
   .stn.apis .cont {float: none; width: auto;}
-   #swiper_api {margin-top: 20px;}
-   #swiper_api .swiper-wrapper {height: auto}
+  #swiper_api {margin-top: 20px;}
+  #swiper_api .swiper-wrapper {height: auto}
+  .stn.apis .swiper-pagination {display: block;}
   /* //section apis */
   /* section maumdata */
   .stn.maumdata .content .content_tit .desc {width: 265px;}
-  #swiper_maumdata .swiper-slide:nth-child(2) .data_box {margin: 0;}
   #swiper_maumdata {margin-top: 20px;}
+  #swiper_maumdata .swiper-slide:nth-child(2) .data_box {margin: 0;}
+  #swiper_maumdata .swiper-pagination {display: block;}
   .stn.success {padding: 30px;}
   .stn.success .logo {width: 123px; height: 54px;}
   .stn.success .logo img {width: 60%;}
