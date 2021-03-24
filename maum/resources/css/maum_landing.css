@@ -34,12 +34,14 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .maum_common .banner_inner .banner_close {display: block; float: right; margin-top: 7px;}
 .maum_common .banner_inner .banner_close span {margin-right: 4px; vertical-align: middle; font-size: 13px; font-weight: 100; color: #fff;}
 /* //top banner */
-/* swiper pagination */
+/* swiper common */
+.swiper-wrapper,
+.swiper-slide {height: auto;}
 .swiper-pagination.common_paging {position: static; left: auto; bottom: auto; margin-top: 30px;}
 .swiper-pagination.common_paging .swiper-pagination-bullet {display: inline-block; width: 26px; height: 7px; border-radius: 4px; background: #fff; opacity: 0.3;}
 .swiper-pagination.common_paging .swiper-pagination-bullet + .swiper-pagination-bullet {margin-left: 5px;}
 .swiper-pagination.common_paging .swiper-pagination-bullet.swiper-pagination-bullet-active {width: 40px; opacity: 1;}
-/* //swiper pagination */
+/* //swiper common */
 /* section 비주얼 */
 .stn.visual {background: radial-gradient(circle at 101%, rgba(28, 217, 255, 0.8), #0bd6ff, #2ddbff 6%, #8190ff 54%, #7f8aff 82%);}
 .stn.visual {position: relative; padding: 70px 0 0 0;}
@@ -74,7 +76,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.products .product_list a {display: block; padding: 9px 70px; border-radius: 20px; background: transparent; font-size: 15px; color: #fff; cursor: pointer;}
 .stn.products .product_list li.active a {background: rgba(255,255,255,0.9); box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.15); color: #5b6ae2;}
 #swiper-products {position: relative; padding-top: 30px; text-align: center;}
-#swiper-products .swiper-wrapper {height: auto; margin-top: 48px; text-align: left;}
+#swiper-products .swiper-wrapper {margin-top: 48px; text-align: left;}
 #swiper-products .swiper-pagination {display: none; position: static; bottom: auto; left: auto;  width: auto; border-radius: 20px; background: rgba(255,255,255,0.2); box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);}
 #swiper-products .product_title .swiper-pagination-bullet {display: inline-block; padding: 9px 70px; border-radius: 20px; background: transparent; font-size: 15px; color: #fff; cursor: pointer;}
 #swiper-products .product_title .swiper-pagination-bullet-active {background: rgba(255,255,255,0.9); box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.15); color: #5b6ae2;}
@@ -93,7 +95,6 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.apis .content_tit .desc {line-height: 24px;}
 .stn.apis .content_tit .btn_primary {margin-top: 20px; opacity: 0.9;}
 .stn.apis .swiper-wrapper {height: 540px;}
-.stn.apis .swiper-slide {height: auto;}
 .stn.apis .api {position: relative; width: 200px; height: 230px; margin-top: 30px; padding: 40px 15px 60px 20px; border-radius: 5px; box-sizing: border-box; background: rgba(255,255,255,0.85); box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);}
 .stn.apis .api .img_box {position: absolute; top: -30px; left: 70px; width: 60px; height: 60px; padding-top: 11px; border-radius: 50%; text-align: center; box-sizing: border-box;}
 .stn.apis .api .img_box img {height: 36px;}
@@ -130,7 +131,6 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.maumdata .data_box .btn_primary {margin-top: 10px; padding: 9px 44px; border: 1px solid #6979f8; background-color: rgba(105, 121, 248, 0.3); color: #fff; transition: background-color 0.2s;}
 .stn.maumdata .data_box .btn_primary:hover {background-color: rgba(105, 121, 248, 0.6); color: #fff;}
 #swiper_maumdata {margin-top: 40px;}
-#swiper_maumdata .swiper-wrapper {height: auto;}
 #swiper_maumdata .swiper-slide:nth-child(2) .data_box {margin-top: 40px;}
 /* //section maumdata */
 /* section success */
@@ -139,7 +139,6 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.success .logo img {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
 #swiper_success {margin: 40px 0 24px 0; padding-bottom: 62px;}
 #swiper_success .swiper-wrapper {overflow: hidden; height: 216px; /*height: 216px;*/}
-#swiper_success .swiper-slide {height: auto;}
 #swiper_success .btn_box {position: absolute; left: 0; bottom: 0; width: 100%; text-align: center;}
 #swiper_success .swiper-pagination {display: none;}
 .stn.success .cards {overflow: hidden; position: relative; border-radius: 6px; background: #141e3d url(../images/new/bg_banner03.png) no-repeat 0 0; background-size: cover; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);}
@@ -213,8 +212,8 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
   .stn.apis .content_tit {float: none; width: auto; margin: 0; text-align: center;}
   .stn.apis .content_tit .desc {width: 220px;}
   .stn.apis .cont {float: none; width: auto;}
-  .stn.apis .swiper-wrapper {height: auto;}
    #swiper_api {margin-top: 20px;}
+   #swiper_api .swiper-wrapper {height: auto}
   /* //section apis */
   /* section maumdata */
   .stn.maumdata .content .content_tit .desc {width: 265px;}
