@@ -242,6 +242,8 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .swiper-container {width: 100%;}
 .swiper-wrapper,
 .swiper-slide {height: auto;}
+.swiper-pagination-bullet:focus,
+.swiper-pagination-bullet:active {border: none;}
 .swiper-pagination.common_paging {position: static; left: auto; bottom: auto; margin-top: 30px;}
 .swiper-pagination.common_paging .swiper-pagination-bullet {display: inline-block; width: 26px; height: 7px; border-radius: 4px; background: #fff; opacity: 0.3;}
 .swiper-pagination.common_paging .swiper-pagination-bullet + .swiper-pagination-bullet {margin-left: 5px;}
@@ -257,7 +259,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 .stn.visual .content .visual_desc {position: absolute; top: 132px; right: -95px; text-align: left;}
 .stn.visual .content .visual_tit span {display: block; font-size: 34px; font-weight: 100; letter-spacing: -1.5px; color: #fff;}
 .stn.visual .content .visual_tit span:last-child {line-height: 1; font-size: 58px; font-weight: 700; text-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);}
-.stn.visual .content .visual_desc span {font-size: 35px; letter-spacing: -1px; color: #fff; text-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);}
+.stn.visual .content .visual_desc span {display: block; font-size: 35px; letter-spacing: -1px; color: #fff; text-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);}
 .stn.visual .content .btn_primary.large {position: absolute; left: calc(50% - 98px); bottom: 48px; background: #1db6cc; transition: box-shadow 0.2s;}
 .stn.visual .content .btn_primary.large:hover {box-shadow: 1px 2px 6px 0 rgb(0,0,0,0.3);}
 /* //section 비주얼 */
@@ -407,8 +409,8 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
   .stn.visual .content .visual_tit span {font-size: 1.325rem;}
   .stn.visual .content .visual_tit span:last-child {font-size: 2.25rem;}
   .stn.visual .content .visual_desc {position: absolute; top: 72px; left: 50%; width: 100%; transform: translate(-50%, 0);}
-  .stn.visual .content .visual_desc span {font-size: 1rem;}
-  .stn.visual .content img {width: 270px; margin: 25px 0 0 40px;}
+  .stn.visual .content .visual_desc span {display: inline-block; font-size: 1rem;}
+  .stn.visual .content img {width: 270px; margin-left: 40px;}
   .stn.visual .content .btn_primary.large {display: none;}
   /* //section 비주얼 */
   /* section products */
