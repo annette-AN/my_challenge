@@ -310,8 +310,8 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
   #swiper-products .swiper-slide .product {opacity: 1;}
   #swiper-products .swiper-slide.custom_active {display: block;}
   #swiper-products .swiper-slide.custom_active .product {animation: none;}
-  #swiper-products .swiper-pagination {display: inline-block;}
-  #swiper-products .product_title .swiper-pagination-bullet {width: 85px; padding: 7px 0; font-size: 0.75rem;}
+  #swiper-products .swiper-pagination {display: inline-block; width: 100%;}
+  #swiper-products .product_title .swiper-pagination-bullet {width: 33.3%; padding: 7px 0; font-size: 0.75rem;}
   /* //section products */
   .stn.edge .content .content_tit .desc {width: 240px;}
   /* section apis */
