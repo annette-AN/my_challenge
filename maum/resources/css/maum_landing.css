@@ -168,7 +168,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
   0% {opacity: 0;}
   100% {opacity: 1;}
 }
-#swiper-products .swiper-pagination {display: none; position: static; bottom: auto; left: auto;  width: auto; border-radius: 20px; background: rgba(255,255,255,0.2); box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);}
+#swiper-products .swiper-pagination {display: none; position: static; bottom: auto; left: auto;  width: auto; border-radius: 20px; background: rgba(255,255,255,0.2);}
 #swiper-products .product_title .swiper-pagination-bullet {display: inline-block; padding: 9px 70px; border-radius: 20px; background: transparent; font-size: 15px; color: #fff; cursor: pointer;}
 #swiper-products .product_title .swiper-pagination-bullet-active {background: rgba(255,255,255,0.9); box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.15); color: #5b6ae2;}
 
@@ -311,7 +311,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
   #swiper-products .swiper-slide.custom_active {display: block;}
   #swiper-products .swiper-slide.custom_active .product {animation: none;}
   #swiper-products .swiper-pagination {display: inline-block; width: 100%;}
-  #swiper-products .product_title .swiper-pagination-bullet {width: 33.3%; padding: 7px 0; font-size: 0.75rem;}
+  #swiper-products .product_title .swiper-pagination-bullet {width: 33.3%; padding: 10px 0; font-size: 0.75rem;}
   /* //section products */
   .stn.edge .content .content_tit .desc {width: 240px;}
   /* section apis */
