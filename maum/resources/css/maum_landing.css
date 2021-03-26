@@ -58,6 +58,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input,
 #aside_btns .page_top span {font-size: 11px;}
 /* -------------------- mobile -------------------- */
 @media screen and (max-width:768px) {
+  #aside_btns {bottom: 5%;}
   #aside_btns .page_top span {font-size: 0.7rem;}
 }
 /* 리뉴얼 aside 버튼 박스 */
