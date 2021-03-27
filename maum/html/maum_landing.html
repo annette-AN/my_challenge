@@ -35,9 +35,14 @@
     <title>maum.ai platform</title>
   </head>
   <body>
-    <!-- top_banner -->
-    <!-- 메인페이지는 #wrap.maumUI 에 .visual_header 클래스가 같이 적용되어야 합니다. -->
-    <div id="wrap" class="maumUI ">
+    <!-- AMR #wrap.maumUI 랜딩 '메인'페이지 헤더
+      랜딩 '메인'페이지에만 #wrap.maumUI 에 .visual_header 클래스가 같이 적용되어야 합니다. 
+    -->
+    <!-- AMR 최상단 배너
+      #wrap에 .top_banner class가 적용되면 최상단 배너가 보여집니다.
+    -->
+    <div id="wrap" class="maumUI top_banner visual_header">
+      <!-- 최상단 배너, .top_banner_area -->
       <div class="top_banner_area">
         <div class="banner_inner">
           <img src="../resources/images/new/img_maumbook.png" alt="마음 ai 책 표지">
@@ -46,14 +51,15 @@
             <em>마음AI 북 증정 이벤트!</em>
           </div>
           <a href="https://maum.ai/event/maumBook" class="join">참여하기</a>
+          <!-- .banner_close 적용되는 script : 999 line / 닫기 클릭 시 3일 동안 보이지 않는 기능은 적용해주셔야 합니다 -->
           <a href="#none" class="banner_close">
             <span>3일 동안 보기 않기</span>
             <img src="../resources/images/new/ico_x_wh.svg" alt="닫기">
           </a>
         </div>        
       </div>
-      <!-- //top_banner -->
-      <!-- aside_btns -->
+      <!-- //최상단 배너, .top_banner_area -->
+      <!-- 우측 하단 aside, #aside_btns , 적용되는 script : 982 line -->
       <div id="aside_btns">
         <a href="#none" style="padding-top: 8px;" title="문의하기">
           <div class="btn_effect">
@@ -65,6 +71,7 @@
             <img src="../resources/images/new/ico_chatbot_wh.svg" alt="챗봇 상담하기">
           </div>
         </a>
+        <!-- .page_top 적용되는 script : 1007 line  -->
         <a href="#none" style="padding-top: 10px;" class="page_top" title="위로가기">
           <div class="btn_effect">
             <i class="fas fa-chevron-up"></i>
@@ -73,22 +80,28 @@
 
         </a>
       </div>
-      <!-- //aside_btns -->
+      <!-- //우측 하단 aside, #aside_btns -->
 
-      <div class="aside" style="display:none;">
+      <!-- 기존 헤더 수정 -->
+      <!-- 모바일 메뉴, 로그인이 되면 .aside에 'logged_in' class가 추가되어야 합니다. / .aside 수정되는 script : 814 line -->
+      <div class="aside logged_in" style="display:none;">
         <!-- .aside_top -->
         <div class="aside_top">
           <!-- 로그인 X인 경우 -->
           <a class="btn_sign login_pop_m" href="#none">로그인</a>
+          <!-- 로그인 X인 경우 -->
+          <!-- 로그인 O인 경우 -->
+          <!-- <a class="btn_sign" href="#none"><i class="fas fa-user-circle"></i><span>user@email.com</span></a> -->
           <!-- 로그인 O인 경우 -->
         </div>
+
         <!-- //.aside_top -->
         <!-- .aside_mid -->
         <div class="aside_mid">
           <ul class="m_nav">
             <!-- 로그인 O인 경우 -->
             <li>
-              <h2><a href="#none" class="">마이페이지 <em class="fas fa-chevron-down"></em></a></h2>
+              <h2><a href="#none" class=""><i class="fas fa-user"></i>마이페이지 <em class="fas fa-chevron-down"></em></a></h2>
               <ul class="m_lst">
                 <li>
                   <h3><a href="${pageContext.request.contextPath}/user/profileMain" target="_blank" title="프로필"
@@ -103,7 +116,7 @@
             <!-- //로그인 O인 경우 -->
             <li>
               <h2>
-                <a href="#none" class="">서비스 바로가기 <em class="" data-fa-i2svg=""><svg
+                <a href="#none" class=""><i class="fas fa-clone"></i>서비스 바로가기 <em class="" data-fa-i2svg=""><svg
                     class="svg-inline--fa fa-chevron-down fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas"
                     data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                     data-fa-i2svg="">
@@ -132,16 +145,13 @@
               </ul>
             </li>
             <li>
-              <h2><a href="http://bit.ly/mindslab_recruit" target="_blank">채용공고</a></h2>
+              <h2><a href="http://bit.ly/mindslab_recruit" target="_blank"><i class="fas fa-street-view"></i>채용공고</a></h2>
             </li>
             <li>
-              <h2><a href="/home/pricingPage?lang=ko">가격정책</a></h2>
+              <h2><a href="/home/pricingPage?lang=ko"><i class="fas fa-credit-card"></i>가격정책</a></h2>
             </li>
             <li>
-              <h2><a href="http://maumacademy.maum.ai/">아카데미</a></h2>
-            </li>
-            <li>
-              <h2><a href="#none">로그아웃</a></h2>
+              <h2><a href="http://maumacademy.maum.ai/"><i class="fas fa-graduation-cap"></i>아카데미</a></h2>
             </li>
           </ul>
         </div>
@@ -153,6 +163,9 @@
             <li class=""><span>한국어</span></li>
             <li class=""><span><a href="/?lang=en">English</a></span></li>
           </ul>
+          <div class="maum_logout">
+            <a href="#none" onclick="document.getElementById('logout-form').submit();" title="로그아웃"><i class="fas fa-sign-out-alt"></i> <span>로그아웃</span></a>
+          </div>
         </div>
         <!-- //.aside_btm -->
       </div>
@@ -163,6 +176,9 @@
           <!-- .maum_gnb -->
           <div class="maum_gnb">
             <ul class="nav">
+              <li>
+                <a href="${pageContext.request.contextPath}/home/krEmployeesMain" class="go_employees" id="Button_Internal">직원용</a>
+              </li>
               <li>
                 <a href="#none" onclick="go(); return false;" class="">서비스</a>
               </li>
@@ -178,7 +194,6 @@
               <li>
                 <a href="/event/maumBook" target="_blank">이벤트</a>
               </li>
-              <!-- 로그인X -->
               <li>
             </ul>
           </div>
@@ -186,10 +201,30 @@
           <!-- .maum_etc -->
           <div class="maum_etc">
             <ul class="nav">
+              <!-- 로그인X -->
               <li>
                 <a class="btn_sign login_pop" href="#none">로그인</a>
               </li>
               <!-- 로그인O-->
+              <li>
+                <a class="btn_ico user" href="#none"><i class="fas fa-user-circle"></i><span>사용자</span></a>
+                <div class="lstBox">
+                  <ul class="lst">
+                    <li class="userInfo">
+                      <span class="thumb"><img src="${pageContext.request.contextPath}/aiaas/common/images/ico_user_g.svg"
+                          alt="사용자"></span>
+                      <span class="txt">
+                        <em class="userName">사용자</em>
+                        <em class="loginID">user@email.com</em>
+                      </span>
+                    </li>
+                    <li><a href="${pageContext.request.contextPath}/user/profileMain" target="_self" title="프로필">프로필</a></li>
+                    <li><a href="${pageContext.request.contextPath}/user/apiAccountMain" target="_self" title="API 정보">API 정보</a></li>
+                    <li><a href="${pageContext.request.contextPath}/user/paymentInfoMain" target="_self" title="결제정보">결제정보</a></li>
+                    <li><a href="#none" onclick="document.getElementById('logout-form').submit();" title="로그아웃">로그아웃</a></li>
+                  </ul>
+                </div>
+              </li>
               <!-- 브라우저의 IP 조회 -->
               <li>
                 <a class="btn_ico lang" href="#none"><i class="fas fa-globe"></i><span>언어</span></a>
@@ -293,6 +328,15 @@
         </div>
         <!-- //.svc_sta -->
       </div>
+      <script type="text/javascript">
+        // fixed된 header에 가로스크롤을 적용하기 위한 코드
+        $(window).scroll(function () {
+          $('.maumUI.transform .maum_sta').css('left', 0 - $(this).scrollLeft());
+        });
+      </script>
+      <!-- //기존 헤더 수정 -->
+
+      <!-- container -->
       <div id="container">
         <!-- visual -->
         <div class="stn visual">
@@ -318,6 +362,7 @@
               <p class="tit">AI Products</p>
             </div>
             <div id="swiper-products" class="swiper-container">
+              <!-- .product_list 적용되는 script : 1015 line -->
               <ul class="product_list">
                 <li class="active"><a href="#none">AVA</a></li>
                 <li><a href="#none">마음회의록</a></li>
@@ -444,6 +489,7 @@
                         음성을 텍스트로 변환하는 엔진으로, 다양한 학습모델을 활용할 수 있고 높은 인식률과 빠른 처리 속도를 제공합니다.
                       </p>
                       <div class="btn_box">
+                        <!-- .btn_api_play 적용되는 script : 1032 line -->
                         <a href="#none" class="btn_primary small btn_api_play" data-resource="tts">
                           <i class="fab fa-youtube"></i>
                           <span>소개영상</span>
@@ -548,7 +594,7 @@
                     <p class="tit">데이터 수집 및 가공</p>
                     <img src="../resources/images/new/img_data_info01.svg" alt="데이터 수집 및 가공">
                     <p class="sub_tit">
-                      데이터 가공 인력 및 작업도구 때문에 
+                      데이터 가공 인력 및 작업도구 때문에<br>
                       걱정이신가요?
                     </p>
                     <p class="desc">
@@ -693,6 +739,7 @@
               </ol>
               <div class="swiper-pagination common_paging"></div>
               <div class="btn_box">
+                <!-- .btn_success_more  적용되는 script : 1068 line -->
                 <button type="button" class="btn_primary blue btn_success_more">
                   더보기
                   <span><i class="fas fa-chevron-down"></i></span>
@@ -715,7 +762,9 @@
         </div>
         <!-- //success -->
       </div>
+      <!-- //container -->
 
+      <!-- footer -->
       <div id="footer">
         <div class="footer_inner">
           <div class="col">
@@ -755,9 +804,10 @@
           </div>
         </div>
       </div>
+      <!-- //footer -->
     </div>
     <script type="text/javascript" src="../resources/js/swiper.min.js"></script>
-    <!-- 기존에 있는 script -->
+    <!-- (수정) 기존 헤더.jsp에 적용되어 있는 script -->
     <script type="text/javascript">
       //aside menu
       var clicked = false;
@@ -820,10 +870,12 @@
           clicked=false;
       });
     </script>
-    <!-- 기존에 있는 script -->
+    <!-- //(수정) 기존 헤더.jsp에 적용되어 있는 script -->
+
+    <!-- AMR 메인페이지에 적용되는 script -->
     <script type="text/javascript">
       // AMR swiper
-      var swiperProductList = ['AVA', '마음회의록', 'FAST AI'];
+      var swiperProductList = ['AVA', '마음회의록', 'FAST AI']; //AMR 모바일에서 보여질 projects 영역 메뉴 (pc는 html 내 .product_list 에서 수정)
       var swiperProducts = new Swiper('#swiper-products', {
         pagination: {
           el: '.swiper-pagination',
@@ -961,21 +1013,6 @@
           }, 500);
         });
 
-        // AMR #header drop ui active 이벤트
-        $('#header .drop_ui > a').on('click', function(e){
-          var $dropUI = $(this).parent('.drop_ui');
-          e.stopPropagation();
-          if ($dropUI.hasClass('active')) {
-            $dropUI.removeClass('active');
-            return;
-          }
-
-          $dropUI.addClass('active');
-          $('body').on('click', function(){
-            $dropUI.removeClass('active');
-          });
-        });
-
         // AMR section ai products 메뉴 버튼 클릭 이벤트
         $('#swiper-products .product_list li').on('click', function(e){
           var $swiperProducts = $('#swiper-products');
@@ -989,20 +1026,6 @@
           $swiperProduct.removeClass('custom_active');
           $swiperProduct.eq(index).addClass('custom_active');
           swiperProducts.update(); //해당 스와이퍼 업데이트
-        });
-
-        // AMR section success 더보기 버튼 클릭 이벤트
-        $('#swiper_success .btn_success_more').on('click', function(){
-          var $btn_more = $(this);
-          var $wrapper = $btn_more.parents('.swiper-container');
-
-          if ($wrapper.hasClass('more')) {
-            $wrapper.removeClass('more');
-            $btn_more.html('더보기 <span><i class="fas fa-chevron-down"></i></span>')
-            return;
-          }
-          $wrapper.addClass('more');
-          $btn_more.html('접기 <span><i class="fas fa-chevron-up"></i></span>')
         });
 
         // AMR section apis 영상보기 버튼 클릭 이벤트
@@ -1039,6 +1062,20 @@
             $('.lyr_bg_dim').remove();
             $('#lyr_video_player').remove();
           });
+        });
+
+        // AMR section success 더보기 버튼 클릭 이벤트
+        $('#swiper_success .btn_success_more').on('click', function(){
+          var $btn_more = $(this);
+          var $wrapper = $btn_more.parents('.swiper-container');
+
+          if ($wrapper.hasClass('more')) {
+            $wrapper.removeClass('more');
+            $btn_more.html('더보기 <span><i class="fas fa-chevron-down"></i></span>')
+            return;
+          }
+          $wrapper.addClass('more');
+          $btn_more.html('접기 <span><i class="fas fa-chevron-up"></i></span>')
         });
         // //AMR UI
       });
