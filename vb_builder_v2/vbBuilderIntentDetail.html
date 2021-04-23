@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/vbBuilder.css">
+
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <title>의도 추가/설정</title>
+</head>
+<body>
+  <!-- 
+    의도 추가/설정 페이지는 모든 화면에서 접근이 가능합니다.
+    모든 화면 : 시나리오, 의도, TASK
+  -->
+  <!-- vb_wrap vb:voicebot -->
+  <div id="vb_wrap">
+    <!-- vb_container -->
+    <!-- [D] class "test_on" 이 추가되면 테스트 영역이 보여집니다 -->
+    <div id="vb_container" class="">
+      <!-- vb_cont_box -->
+      <div class="container_box">
+        <!-- vb_header -->
+        <div id="vb_header">
+          <div>
+            <span class="title">시나리오 목록</span>
+            <div class="fast_popper_select">
+              <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" value="마인즈랩 보이스봇(한국어)" readonly>
+              <div class="fast_popper_option">
+                <div class="ipt_box">
+                  <input type="text" class="ipt_txt search">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+                <ul id="vb_gnb" class="select_list scroll"></ul>
+              </div>
+            </div>
+            <button type="button" class="btn_icon_primary setting">설정</button>
+            <button type="button" class="btn_icon_primary plus">추가</button>
+          </div>
+
+          <div id="vb_lnb">
+            <ul>
+              <!-- [D] button 이 disabled 이면 click, hover 효과가 일어나지 않습니다 -->
+              <li><button type="button">시나리오</button></li>
+              <li><button type="button">의도</button></li>
+              <li><button type="button">TASK</button></li>
+            </ul>
+            <!-- [D] 이전페이지, 테스트에 active 가 있어야 보여집니다
+
+            이전페이지 버튼은 테스크 추가, 테스크 수정, 의도 추가, 의도 수정 페이지로 페이지 이동 될 때 보여집니다
+              
+            테스트 버튼은 시나리오를 선택하면 보여집니다
+            -->
+            <a href="#none" id="go_back" class="btn_secondary active">이전페이지</a>
+            <a href="#none" id="go_test" class="fr btn_primary">테스트</a>
+          </div>
+        </div>
+        <!-- //vb_header -->
+        <!-- vb_content -->
+        <div id="vb_content">
+          <div>
+            <span class="title">의도 추가 | 의도 상세</span>
+          </div>
+
+          <div id="intent_detail_container" class="dl_container">
+            <dl>
+              <dt>의도 명</dt>
+              <dd>
+                <div class="ipt_box">
+                  <input type="text" name="intent_name" class="ipt_txt">
+                </div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>TASK</dt>
+              <dd>
+                <input type="text" value="선택한 TASK 나열" readonly class="ipt_txt">
+                <div class="float_box">
+                  <input type="text" name="intent_task_search" class="ipt_txt search fr" placeholder="TASK 검색">
+                  <button type="button" class="btn_search">검색하기</button>
+                </div>
+                <ul id="list_intent_task" class="common_lst_tbltype">
+                  <li class="no_list">등록된 리스트가 없습니다</li>
+                  <li>
+                    <div class="li_col">
+                      <input type="checkbox" name="intent_task" class="checkbox" id="list01">
+                      <label for="list01"></label>
+                    </div>
+                    <div class="li_col">
+                      리스트
+                    </div>
+                  <li>
+                    <div class="li_col">
+                      <input type="checkbox" name="intent_task" class="checkbox" id="list02">
+                      <label for="list02"></label>
+                    </div>
+                    <div class="li_col">
+                      리스트
+                    </div>
+                  </li>
+                  <li>
+                    <div class="li_col">
+                      <input type="checkbox" name="intent_task" class="checkbox" id="list03">
+                      <label for="list03"></label>
+                    </div>
+                    <div class="li_col">
+                      리스트
+                    </div>
+                  </li>
+                  <li>
+                    <div class="li_col">
+                      <input type="checkbox" name="intent_task" class="checkbox" id="list04">
+                      <label for="list04"></label>
+                    </div>
+                    <div class="li_col">
+                      리스트
+                    </div>
+                  </li>
+                  <li>
+                    <div class="li_col">
+                      <input type="checkbox" name="intent_task" class="checkbox" id="list05">
+                      <label for="list05"></label>
+                    </div>
+                    <div class="li_col">
+                      리스트
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- pagination -->
+                <div class="pagination">
+                  <button type="button" class="first" onclick="goPage(409,1)">
+                    <span>«</span>
+                  </button>
+                  <button type="button" class="prev" onclick="goPage(409,1)">
+                    <span>‹</span>
+                  </button>
+                  <div class="pages">
+                    <button type="button" class="page active">1</button>
+                    <button type="button" class="page">2</button>
+                    <button type="button" class="page">3</button>
+                  </div>
+                  <button type="button" class="next" onclick="goPage(409,1)">
+                    <span>›</span>
+                  </button>
+                  <button type="button" class="last" onclick="goPage(409,1)">
+                    <span>»</span>
+                  </button>
+                </div>
+                <!-- //pagination -->
+              
+                <div class="float_box">
+                  <div class="btn_box fl">
+                    <button type="button" class="btn_secondary small">적용한 내용 초기화</button>
+                  </div>
+              
+                  <div class="btn_box fr">
+                    <button type="button" class="btn_secondary small">적용</button>
+                    <button type="button" class="btn_secondary small">취소</button>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt>정규식</dt>
+              <dd>
+                <div class="dd_col">
+                  <div class="float_box command_box">
+                    <button type="button" class="btn_line_secondary small fl">선택 삭제</button>
+                    <input type="text" name="intent_regex_search" class="ipt_txt search fr" placeholder="정규식 검색">
+                    <button type="button" class="btn_search">검색하기</button>
+                  </div>
+                  <ul id="list_intent_regex" class="common_lst_tbltype">
+                    <li class="no_list">등록된 리스트가 없습니다</li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list01">
+                        <label for="list01"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list02">
+                        <label for="list02"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list03">
+                        <label for="list03"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list04">
+                        <label for="list04"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list05">
+                        <label for="list05"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- pagination -->
+                  <div class="pagination">
+                    <button type="button" class="first" onclick="goPage(409,1)">
+                      <span>«</span>
+                    </button>
+                    <button type="button" class="prev" onclick="goPage(409,1)">
+                      <span>‹</span>
+                    </button>
+                    <div class="pages">
+                      <button type="button" class="page active">1</button>
+                      <button type="button" class="page">2</button>
+                      <button type="button" class="page">3</button>
+                    </div>
+                    <button type="button" class="next" onclick="goPage(409,1)">
+                      <span>›</span>
+                    </button>
+                    <button type="button" class="last" onclick="goPage(409,1)">
+                      <span>»</span>
+                    </button>
+                  </div>
+                  <!-- //pagination -->
+
+                  <div class="btn_box fl">
+                    <button type="button" class="btn_secondary small">적용한 내용 초기화</button>
+                  </div>
+                </div>
+
+                <div class="dd_col">dd_col</div>
+              </dd>
+            </dl>
+            
+            <dl>
+              <dt>학습문장</dt>
+              <dd>
+                <div class="dd_col">
+                  <div class="float_box command_box">
+                    <button type="button" class="btn_line_secondary small fl">선택 삭제</button>
+                    <button type="button" class="btn_line_secondary small fl">엑셀 업로드</button>
+                    <input type="text" name="intent_regex_search" class="ipt_txt search fr" placeholder="학습문장 검색">
+                    <button type="button" class="btn_search">검색하기</button>
+                  </div>
+                  <ul id="list_intent_nqa" class="common_lst_tbltype">
+                    <li class="no_list">등록된 리스트가 없습니다</li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list01">
+                        <label for="list01"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list02">
+                        <label for="list02"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list03">
+                        <label for="list03"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list04">
+                        <label for="list04"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list05">
+                        <label for="list05"></label>
+                      </div>
+                      <div class="li_col">
+                        리스트
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- pagination -->
+                  <div class="pagination">
+                    <button type="button" class="first" onclick="goPage(409,1)">
+                      <span>«</span>
+                    </button>
+                    <button type="button" class="prev" onclick="goPage(409,1)">
+                      <span>‹</span>
+                    </button>
+                    <div class="pages">
+                      <button type="button" class="page active">1</button>
+                      <button type="button" class="page">2</button>
+                      <button type="button" class="page">3</button>
+                    </div>
+                    <button type="button" class="next" onclick="goPage(409,1)">
+                      <span>›</span>
+                    </button>
+                    <button type="button" class="last" onclick="goPage(409,1)">
+                      <span>»</span>
+                    </button>
+                  </div>
+                  <!-- //pagination -->
+                </div>
+
+                <div class="dd_col">dd_col</div>
+              </dd>
+            </dl>
+          </div>
+
+          <button type="button" class="btn_primary">저장</button>
+          <button type="button" class="btn_primary">학습하기</button>
+        </div>
+        <!-- //vb_content -->
+      </div>
+      <!-- //vb_cont_box -->
+
+      <!-- vb_test -->
+      <div id="vb_test">
+        <div class="float_box">
+          <button type="button" class="btn_primary fr">닫기</button>
+        </div>
+        <div class="test_debug_view">
+          <div class="command">
+            <div class="fl">
+              <p>분석결과 <span id="nowDebugIndex"></span>&#47;<span id="nowDebugStack"></span></p>
+            </div>
+            <div class="fr">
+              <button type="button" class="btn_icon_line prev" onclick="renderDebugList(nowIndexDebug-1)">이전</button>
+              <button type="button" class="btn_icon_line next" onclick="renderDebugList(nowIndexDebug+1)" disabled>다음</button>
+              <button type="button" class="btn_icon_line refresh" onclick="resetSessionByBuilder()">새로고침</button>
+            </div>
+          </div>
+          <dl class="content scroll" id="test_result_id">
+            <dt>INPUT</dt>
+            <dd>
+              <p><span class="highlight">type</span><em>Intent</em></p>
+            </dd>
+            <dt>INTENT</dt>
+            <dd>
+              <p><span class="highlight">prob</span><em>1</em></p>
+            </dd>
+            <dt>TASK</dt>
+            <dd>
+              <p><span class="highlight">prev task</span><em> </em></p>
+              <p><span class="highlight">task rel</span><em> </em></p>
+              <p><span class="highlight">task</span><em>처음으로</em></p>
+            </dd>
+            <dt>ANSWER</dt>
+            <dd>
+              <p><span class="highlight">text</span><em>안녕하세요.<br>'<name>'을 찾아 주셔서 감사합니다. 무엇을 도와드릴까요?</name></em></p>
+            </dd>
+          </dl>
+        </div>
+        <div class="test_debug_data">
+          <div class="ipt_box">
+            <label for="prev_task">이전 태스크</label>
+            <select name="prev_task" id="prev_task" class="select">
+              <option value="op1">부대시설</option>
+              <option value="op2">부대시설</option>
+              <option value="op3">부대시설</option>
+            </select>
+          </div>
+          <div class="ipt_box">
+            <label for="test_data">태스트 문장</label>
+            <input type="text" name="test_data" id="test_data" class="ipt_txt">
+          </div>
+          <button type="button" id="btn_debug_test" class="btn_secondary">테스트 하기(ENTER)</button>
+        </div>
+      </div>
+      <!-- //vb_test -->
+    </div>
+    <!-- //vb_container -->
+  </div>
+  <!-- //vb_wrap -->
+</body>
+</html>

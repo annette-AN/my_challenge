@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/vbBuilder.css">
+
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <title>의도</title>
+</head>
+<body>
+  <!-- vb_wrap vb:voicebot -->
+  <div id="vb_wrap">
+    <!-- vb_container -->
+    <!-- [D] class "test_on" 이 추가되면 테스트 영역이 보여집니다 -->
+    <div id="vb_container" class="test_on">
+      <!-- vb_cont_box -->
+      <div class="container_box">
+        <!-- vb_header -->
+        <div id="vb_header">
+          <div>
+            <span class="title">시나리오 목록</span>
+            <div class="fast_popper_select">
+              <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" value="마인즈랩 보이스봇(한국어)" readonly>
+              <div class="fast_popper_option">
+                <div class="ipt_box">
+                  <input type="text" class="ipt_txt search">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+                <ul id="vb_gnb" class="select_list scroll"></ul>
+              </div>
+            </div>
+            <button type="button" class="btn_icon_primary setting">설정</button>
+            <button type="button" class="btn_icon_primary plus">추가</button>
+          </div>
+
+          <div id="vb_lnb">
+            <ul>
+              <!-- [D] button 이 disabled 이면 click, hover 효과가 일어나지 않습니다 -->
+              <li><button type="button">시나리오</button></li>
+              <li><button type="button" class="active">의도</button></li>
+              <li><button type="button">TASK</button></li>
+            </ul>
+            <!-- [D] 이전페이지, 테스트에 active 가 있어야 보여집니다
+
+            이전페이지 버튼은 테스크 추가, 테스크 수정, 의도 추가, 의도 수정 페이지로 페이지 이동 될 때 보여집니다
+              
+            테스트 버튼은 시나리오를 선택하면 보여집니다
+            -->
+            <a href="#none" id="go_back" class="btn_secondary">이전페이지</a>
+            <a href="#none" id="go_test" class="fr btn_primary">테스트</a>
+          </div>
+        </div>
+        <!-- //vb_header -->
+        <!-- vb_content -->
+        <!-- [D] 목록 선택 전 보여줄 화면 -->
+        <!-- <div id="vb_content">
+          <p class="text_bg">시나리오를 선택해주세요</p>
+        </div> -->
+        <!-- [D] 목록 선택 후 -->
+        <div id="vb_content">
+          <div class="content_btns">
+            <button type="button" title="의도와 TASK가 함께 업로드 됩니다." class="btn_secondary">엑셀 업로드</button>
+            <button type="button" class="btn_secondary">엑셀 파일 다운로드</button>
+            <a href="#none" class="btn_primary">의도 추가</a>
+            <div class="ipt_box fr">
+              <input type="text" class="ipt_txt search" placeholder="INTENT/정규표현식/학습문장 통합검색">
+              <button class="btn_search">검색하기</button>
+            </div>
+          </div>
+
+          <!-- table_wrap -->
+          <div id="table_intent" class="table_wrap">
+            <!-- table -->
+            <table class="tbl_box_lst">
+              <colgroup>
+                <col style="width: 80px;">
+                <col><col><col>
+                <col style="width: 90px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>공통 여부</th>
+                  <th>INTENT</th>
+                  <th>정규표현식</th>
+                  <th>학습문장</th>
+                  <th class="text_hide">삭제하기</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>O</td>
+                  <td><a href="#none">일이삼사오육칠팔구십일이삼사오육칠팔구십</a></td>
+                  <td><a href="#none">(네|예|좋아요), (----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----)</a></td>
+                  <td><a href="#none">좋습니다, 그러하다</a></td>
+                  <td class="btn_cell_box"><button type="button" class="btn_line_warning">삭제</button></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none">부정</a></td>
+                  <td><a href="#none">(아니|싫어) </a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"><button type="button" class="btn_line_warning">삭제</button></td>
+                </tr>
+                <tr>
+                  <td>X</td>
+                  <td><a href="#none">애매한 표현</a></td>
+                  <td><a href="#none">(같아|같다)</a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"><button type="button" class="btn_line_warning">삭제</button></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td><a href="#none"></a></td>
+                  <td class="btn_cell_box"></td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- //table -->
+
+            <!-- pagination -->
+            <div class="pagination">
+              <button type="button" class="first" onclick="goPage(409,1)">
+                <span>«</span>
+              </button>
+              <button type="button" class="prev" onclick="goPage(409,1)">
+                <span>‹</span>
+              </button>
+              <div class="pages">
+                <button type="button" class="page active">1</button>
+                <button type="button" class="page">2</button>
+                <button type="button" class="page">3</button>
+              </div>
+              <button type="button" class="next" onclick="goPage(409,1)">
+                <span>›</span>
+              </button>
+              <button type="button" class="last" onclick="goPage(409,1)">
+                <span>»</span>
+              </button>
+            </div>
+            <!-- //pagination -->
+          </div>
+          <!-- //table_wrap -->
+        </div>
+        <!-- //vb_content -->
+      </div>
+      <!-- //vb_cont_box -->
+
+      <!-- vb_test -->
+      <div id="vb_test">
+        <div class="float_box">
+          <button type="button" class="btn_primary fr">닫기</button>
+        </div>
+        <div class="test_debug_view">
+          <div class="command">
+            <div class="fl">
+              <p>분석결과 <span id="nowDebugIndex">1</span>&#47;<span id="nowDebugStack">5</span></p>
+            </div>
+            <div class="fr">
+              <button type="button" class="btn_icon_line prev" onclick="renderDebugList(nowIndexDebug-1)">이전</button>
+              <button type="button" class="btn_icon_line next" onclick="renderDebugList(nowIndexDebug+1)" disabled>다음</button>
+              <button type="button" class="btn_icon_line refresh" onclick="resetSessionByBuilder()">새로고침</button>
+            </div>
+          </div>
+          <dl class="content scroll" id="test_result_id">
+            <dt>INPUT</dt>
+            <dd>
+              <p><span class="highlight">type</span><em>Intent</em></p>
+            </dd>
+            <dt>INTENT</dt>
+            <dd>
+              <p><span class="highlight">prob</span><em>1</em></p>
+            </dd>
+            <dt>TASK</dt>
+            <dd>
+              <p><span class="highlight">prev task</span><em> </em></p>
+              <p><span class="highlight">task rel</span><em> </em></p>
+              <p><span class="highlight">task</span><em>처음으로</em></p>
+            </dd>
+            <dt>ANSWER</dt>
+            <dd>
+              <p><span class="highlight">text</span><em>안녕하세요.<br>'<name>'을 찾아 주셔서 감사합니다. 무엇을 도와드릴까요?</name></em></p>
+            </dd>
+          </dl>
+        </div>
+        <div class="test_debug_data">
+          <div class="ipt_box">
+            <label for="prev_task">이전 태스크</label>
+            <select name="prev_task" id="prev_task" class="select">
+              <option value="op1">부대시설</option>
+              <option value="op2">부대시설</option>
+              <option value="op3">부대시설</option>
+            </select>
+          </div>
+          <div class="ipt_box">
+            <label for="test_data">태스트 문장</label>
+            <input type="text" name="test_data" id="test_data" class="ipt_txt">
+          </div>
+          <button type="button" id="btn_debug_test" class="btn_secondary">테스트 하기(ENTER)</button>
+        </div>
+      </div>
+      <!-- //vb_test -->
+    </div>
+    <!-- //vb_container -->
+  </div>
+  <!-- //vb_wrap -->
+</body>
+</html>

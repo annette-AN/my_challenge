@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/vbBuilder.css">
+
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <title>메인화면 (목록 미선택)</title>
+</head>
+<body>
+  <!-- vb_wrap vb:voicebot -->
+  <div id="vb_wrap">
+    <!-- vb_container -->
+    <!-- [D] class "test_on" 이 추가되면 테스트 영역이 보여집니다 -->
+    <div id="vb_container"  class="">
+      <!-- vb_cont_box -->
+      <div class="container_box">
+        <!-- vb_header -->
+        <div id="vb_header">
+          <div>
+            <span class="title">시나리오 목록</span>
+            <div class="fast_popper_select">
+              <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" readonly>
+              <div class="fast_popper_option">
+                <div class="ipt_box">
+                  <input type="text" class="ipt_txt search">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+                <ul id="vb_gnb" class="select_list scroll"></ul>
+              </div>
+            </div>
+            <button type="button" class="btn_icon_primary setting" disabled>설정</button>
+            <button type="button" class="btn_icon_primary plus">추가</button>
+          </div>
+
+          <div id="vb_lnb">
+            <ul>
+              <!-- [D] button 이 disabled 이면 click, hover 효과가 일어나지 않습니다 -->
+              <li><button type="button" disabled>시나리오</button></li>
+              <li><button type="button" disabled>의도</button></li>
+              <li><button type="button" disabled>TASK</button></li>
+            </ul>
+            <!-- [D] 이전페이지, 테스트에 active 가 있어야 보여집니다
+
+            이전페이지 버튼은 테스크 추가, 테스크 수정, 의도 추가, 의도 수정 페이지로 페이지 이동 될 때 보여집니다
+              
+            테스트 버튼은 시나리오를 선택하면 보여집니다
+            -->
+            <a href="#none" id="go_back" class="btn_secondary">이전페이지</a>
+            <a href="#none" id="go_test" class="fr btn_primary">테스트</a>
+          </div>
+        </div>
+        <!-- //vb_header -->
+        <!-- vb_content -->
+        <!-- [D] 목록 선택 전 보여줄 화면 -->
+        <div id="vb_content">
+          <p class="text_bg">시나리오를 선택해주세요</p>
+        </div>
+      </div>
+      <!-- //vb_cont_box -->
+    </div>
+    <!-- //vb_container -->
+  </div>
+  <!-- //vb_wrap -->
+</body>
+</html>

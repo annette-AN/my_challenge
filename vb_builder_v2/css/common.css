@@ -1,0 +1,55 @@
+/* common */
+.hide {display:none!important;}
+.text_hide {line-height:0 !important; text-indent:-999px !important; font-size:0 !important;}
+.text_ellipsis {overflow: hidden; display: block; white-space: nowrap; text-overflow: ellipsis;}
+.float_box {overflow: hidden; position: relative;}
+.fl {float:left;}
+.fr {float:right;}
+
+/* help UI */
+.help {position: relative; display: inline-block; width: 16px; height: 16px; margin: 0 0 0 10px; border-radius: 50%; background: #97a1ab; cursor: pointer; line-height: 16px; font-size: 10px; color: #fff; text-align: center; opacity: 0.7;}
+.help:hover {opacity: 1;}
+.help .help_desc {display: none; position: absolute; top: -8px; left: calc(100% + 10px); width: 200px; padding: 8px; border-radius: 3px; background: #35394a; font-size: 12px; color: #fff; text-align: left; word-break: keep-all; z-index: 20;}
+.help .help_desc i {font-style: normal;}
+.help .help_desc .image {overflow: hidden; width: 100%; margin: 7px 0 0 0; border-radius: 10px;}
+.help .help_desc .image img {width: 100%;}
+.help .help_desc .float_box {overflow: hidden;}
+.help .help_desc .float_box .fl,
+.help .help_desc .float_box .fr {width: 49%;}
+.help:hover .help_desc {display: block; font-weight: 500; font-style: normal;}
+
+/* 가로스크롤 UI */
+.scroll {overflow:auto; border:none;}
+.scroll:hover::-webkit-scrollbar-thumb {background-color:rgba(0,0,0,0.5);}
+.scroll::-webkit-scrollbar{width:5px;}
+.scroll::-webkit-scrollbar-track {background-color:rgba(0,0,0,0.05);}
+.scroll::-webkit-scrollbar-thumb {background-color:rgba(0,0,0,0.2); border-radius:10px;}
+.scroll::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {width:0;height:0;background:none;}
+
+/* 세로스크롤 UI */
+.scroll_x {overflow:auto; white-space: nowrap; padding-bottom: 5px; border:none; box-sizing: border-box;}
+.scroll_x:hover::-webkit-scrollbar-thumb {background-color:rgba(0,0,0,0.2);}
+.scroll_x::-webkit-scrollbar{height:5px;}
+.scroll_x::-webkit-scrollbar-track {background-color:rgba(0,0,0,0);}
+.scroll_x::-webkit-scrollbar-thumb {background-color:rgba(0,0,0,0); border-radius:10px;}
+.scroll_x::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {width:0;height:0;background:none;}
+
+/* popper select UI */
+.fast_popper_select {position: relative;}
+.fast_popper_select .select {vertical-align: top; cursor: pointer;}
+.fast_popper_option {display: none; position: absolute; top: 100%; left: 0; width: 100%; margin: 5px 0 0 0; border: 1px solid rgba(11,42,74,0.3); background: #f3f4f8; box-shadow: 0 0 15px rgba(0,0,0,0.2); z-index: 1000; box-sizing: border-box;}
+.fast_popper_option.active {display: block;}
+.fast_popper_option .ipt_box {display: block; width: calc(100% - 20px); margin: 10px;}
+.fast_popper_option .select_list {overflow: auto; max-height: 150px; background: #f3f4f8;}
+.fast_popper_option .select_list p {padding: 0 0 10px 0; font-size: 12px; text-align: center;}
+.fast_popper_option .select_list .label {display: block; padding: 5px 10px; cursor: pointer;}
+.fast_popper_option .select_list .label:before {left: 10px;}
+.fast_popper_option .select_list .label:hover {background: #dde3ff;}
+.fast_popper_option .select_list .checkbox + .label {height: auto; min-height: 20px; padding: 5px 10px 5px 35px;}
+.fast_popper_option .select_list .checkbox:checked + .label {background-color: #dde3ff;}
+.fast_popper_option .select_list[radio] .label:before {border-radius: 50%; background: #fff;}
+.fast_popper_option .select_list[radio] .checkbox:checked + .label:before {border-color: #5e77ff;}
+.fast_popper_option .select_list[radio] .checkbox + .label:after {content: ''; display: none; position: absolute; top: calc(50% - 5px); left: 15px; width: 10px; height: 10px; border-radius: 50%; background: #5e77ff;}
+.fast_popper_option .select_list[radio] .checkbox:checked + .label:after {display: block;}
+.fast_popper_option .select_list .label.new {font-size: 11px;}
+.fast_popper_option .select_list .label.new em {font-size: 12px; font-weight: 700;}
