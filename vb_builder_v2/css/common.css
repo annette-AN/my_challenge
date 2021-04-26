@@ -33,23 +33,3 @@
 .scroll_x::-webkit-scrollbar-track {background-color:rgba(0,0,0,0);}
 .scroll_x::-webkit-scrollbar-thumb {background-color:rgba(0,0,0,0); border-radius:10px;}
 .scroll_x::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {width:0;height:0;background:none;}
-
-/* popper select UI */
-.fast_popper_select {position: relative;}
-.fast_popper_select .select {vertical-align: top; cursor: pointer;}
-.fast_popper_option {display: none; position: absolute; top: 100%; left: 0; width: 100%; margin: 5px 0 0 0; border: 1px solid rgba(11,42,74,0.3); background: #f3f4f8; box-shadow: 0 0 15px rgba(0,0,0,0.2); z-index: 1000; box-sizing: border-box;}
-.fast_popper_option.active {display: block;}
-.fast_popper_option .ipt_box {display: block; width: calc(100% - 20px); margin: 10px;}
-.fast_popper_option .select_list {overflow: auto; max-height: 150px; background: #f3f4f8;}
-.fast_popper_option .select_list p {padding: 0 0 10px 0; font-size: 12px; text-align: center;}
-.fast_popper_option .select_list .label {display: block; padding: 5px 10px; cursor: pointer;}
-.fast_popper_option .select_list .label:before {left: 10px;}
-.fast_popper_option .select_list .label:hover {background: #dde3ff;}
-.fast_popper_option .select_list .checkbox + .label {height: auto; min-height: 20px; padding: 5px 10px 5px 35px;}
-.fast_popper_option .select_list .checkbox:checked + .label {background-color: #dde3ff;}
-.fast_popper_option .select_list[radio] .label:before {border-radius: 50%; background: #fff;}
-.fast_popper_option .select_list[radio] .checkbox:checked + .label:before {border-color: #5e77ff;}
-.fast_popper_option .select_list[radio] .checkbox + .label:after {content: ''; display: none; position: absolute; top: calc(50% - 5px); left: 15px; width: 10px; height: 10px; border-radius: 50%; background: #5e77ff;}
-.fast_popper_option .select_list[radio] .checkbox:checked + .label:after {display: block;}
-.fast_popper_option .select_list .label.new {font-size: 11px;}
-.fast_popper_option .select_list .label.new em {font-size: 12px; font-weight: 700;}

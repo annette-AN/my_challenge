@@ -29,7 +29,7 @@
         <!-- vb_header -->
         <div id="vb_header">
           <div>
-            <span class="title">시나리오 목록</span>
+            <span class="content_title">시나리오 목록</span>
             <div class="fast_popper_select">
               <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" value="마인즈랩 보이스봇(한국어)" readonly>
               <div class="fast_popper_option">
@@ -58,14 +58,14 @@
             테스트 버튼은 시나리오를 선택하면 보여집니다
             -->
             <a href="#none" id="go_back" class="btn_secondary active">이전페이지</a>
-            <a href="#none" id="go_test" class="fr btn_primary">테스트</a>
+            <a href="#none" id="go_test" class="fr btn_primary active">테스트</a>
           </div>
         </div>
         <!-- //vb_header -->
         <!-- vb_content -->
         <div id="vb_content">
           <div>
-            <span class="title">의도 추가 | 의도 상세</span>
+            <span class="content_title">의도 추가 | 의도 상세</span>
           </div>
 
           <div id="intent_detail_container" class="dl_container">
@@ -77,10 +77,28 @@
                 </div>
               </dd>
             </dl>
-            <dl>
-              <dt>TASK</dt>
+            <!-- [D] "active" class가 추가되면 dd가 보여집니다 -->
+            <dl class="dl_dropdown active">
+              <dt>
+                TASK
+                <div class="btn_control">
+                  <div class="fold">
+                      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 1.63966L1.20363 0.0423927L8.39135 5.45873L7.18772 7.056L0 1.63966Z" fill="#97A1AB"></path>
+                          <path d="M13.2154 0L14.4191 1.59727L7.23133 7.01361L6.0277 5.41634L13.2154 0Z" fill="#97A1AB"></path>
+                      </svg>
+                  </div>
+                  <div class="unfold">
+                      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.4191 5.41634L13.2154 7.01361L6.02772 1.59727L7.23135 9.53674e-07L14.4191 5.41634Z" fill="#97A1AB"></path>
+                          <path d="M1.20364 7.056L1.33514e-05 5.45873L7.18773 0.0423937L8.39136 1.63966L1.20364 7.056Z" fill="#97A1AB"></path>
+                      </svg>
+                  </div>
+                </div>
+              </dt>
               <dd>
-                <input type="text" value="선택한 TASK 나열" readonly class="ipt_txt">
+                <p id="intent_seleted_task" class="ipt_txt">선택한 TASK 나열, 선택한 TASK 나열, 선택한 TASK 나열, 선택한 TASK 나열, 선택한 TASK 나열, 선택한 TASK 나열, 선택한 TASK 나열, 선택한 TASK 나열, 선택한 TASK 나열</p>
+                <input type="hidden" name="intent_seleted_task" value="선택한 TASK 나열" readonly>
                 <div class="float_box">
                   <input type="text" name="intent_task_search" class="ipt_txt search fr" placeholder="TASK 검색">
                   <button type="button" class="btn_search">검색하기</button>
@@ -93,15 +111,16 @@
                       <label for="list01"></label>
                     </div>
                     <div class="li_col">
-                      리스트
+                      <a href="#none">리스트</a>
                     </div>
+                  </li>
                   <li>
                     <div class="li_col">
                       <input type="checkbox" name="intent_task" class="checkbox" id="list02">
                       <label for="list02"></label>
                     </div>
                     <div class="li_col">
-                      리스트
+                      <a href="#none">리스트</a>
                     </div>
                   </li>
                   <li>
@@ -110,7 +129,7 @@
                       <label for="list03"></label>
                     </div>
                     <div class="li_col">
-                      리스트
+                      <a href="#none">리스트</a>
                     </div>
                   </li>
                   <li>
@@ -119,7 +138,7 @@
                       <label for="list04"></label>
                     </div>
                     <div class="li_col">
-                      리스트
+                      <a href="#none">리스트</a>
                     </div>
                   </li>
                   <li>
@@ -128,13 +147,13 @@
                       <label for="list05"></label>
                     </div>
                     <div class="li_col">
-                      리스트
+                      <a href="#none">리스트</a>
                     </div>
                   </li>
                 </ul>
 
                 <!-- pagination -->
-                <div class="pagination">
+                <div class="pagination" style="margin-bottom: 0;">
                   <button type="button" class="first" onclick="goPage(409,1)">
                     <span>«</span>
                   </button>
@@ -154,22 +173,34 @@
                   </button>
                 </div>
                 <!-- //pagination -->
-              
-                <div class="float_box">
-                  <div class="btn_box fl">
-                    <button type="button" class="btn_secondary small">적용한 내용 초기화</button>
-                  </div>
-              
+                <div class="float_box"> 
                   <div class="btn_box fr">
                     <button type="button" class="btn_secondary small">적용</button>
                     <button type="button" class="btn_secondary small">취소</button>
                   </div>
                 </div>
+                <button type="button" class="btn_secondary small btn_reset">적용한 내용 초기화</button>
               </dd>
             </dl>
 
-            <dl>
-              <dt>정규식</dt>
+            <dl class="dl_dropdown">
+              <dt>
+                정규식
+                <div class="btn_control">
+                  <div class="fold">
+                      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 1.63966L1.20363 0.0423927L8.39135 5.45873L7.18772 7.056L0 1.63966Z" fill="#97A1AB"></path>
+                          <path d="M13.2154 0L14.4191 1.59727L7.23133 7.01361L6.0277 5.41634L13.2154 0Z" fill="#97A1AB"></path>
+                      </svg>
+                  </div>
+                  <div class="unfold">
+                      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.4191 5.41634L13.2154 7.01361L6.02772 1.59727L7.23135 9.53674e-07L14.4191 5.41634Z" fill="#97A1AB"></path>
+                          <path d="M1.20364 7.056L1.33514e-05 5.45873L7.18773 0.0423937L8.39136 1.63966L1.20364 7.056Z" fill="#97A1AB"></path>
+                      </svg>
+                  </div>
+                </div>
+              </dt>
               <dd>
                 <div class="dd_col">
                   <div class="float_box command_box">
@@ -181,46 +212,46 @@
                     <li class="no_list">등록된 리스트가 없습니다</li>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list01">
-                        <label for="list01"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list001">
+                        <label for="list001"></label>
                       </div>
                       <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
                       </div>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list02">
-                        <label for="list02"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list002">
+                        <label for="list002"></label>
                       </div>
                       <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
                       </div>
                     </li>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list03">
-                        <label for="list03"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list003">
+                        <label for="list003"></label>
                       </div>
                       <div class="li_col">
-                        리스트
-                      </div>
-                    </li>
-                    <li>
-                      <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list04">
-                        <label for="list04"></label>
-                      </div>
-                      <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
                       </div>
                     </li>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list05">
-                        <label for="list05"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list004">
+                        <label for="list004"></label>
                       </div>
                       <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list005">
+                        <label for="list005"></label>
+                      </div>
+                      <div class="li_col">
+                        <a href="#none">리스트</a>
                       </div>
                     </li>
                   </ul>
@@ -246,17 +277,139 @@
                   </div>
                   <!-- //pagination -->
 
-                  <div class="btn_box fl">
-                    <button type="button" class="btn_secondary small">적용한 내용 초기화</button>
-                  </div>
+                  <button type="button" class="btn_secondary small btn_reset">적용한 내용 초기화</button>
                 </div>
 
-                <div class="dd_col">dd_col</div>
+                <div class="dd_col">
+                  <div class="float_box">
+                    <span class="col_title">정규식 추가</span>
+                    <button type="button" class="fr btn_secondary small">규칙 추가</button>
+                  </div>
+                  <ul id="regex_list" class="drag_lst common_lst scroll">
+                    <template id="tempRegexList">
+                      <li>
+                        <select name="regex_type" id="" class="select">
+                          <option value="start" selected="">시작 텍스트</option>
+                          <option value="match">텍스트가 정확하게 일치함</option>
+                          <option value="include">텍스트에 포함</option>
+                          <option value="exclude">텍스트에 포함하지 않음</option>
+                          <option value="end">종료 텍스트</option>
+                        </select>
+                        <input type="text" class="ipt_txt regex_type start" value="">
+                        <button class="btn_regex_delete"
+                          name="del_rule">삭제하기</button>
+                      </li>
+                    </template>
+                    <li>
+                      <select name="regex_type" id="" class="select">
+                        <option value="start" selected>시작 텍스트</option>
+                        <option value="match">텍스트가 정확하게 일치함</option>
+                        <option value="include">텍스트에 포함</option>
+                        <option value="exclude">텍스트에 포함하지 않음</option>
+                        <option value="end">종료 텍스트</option>
+                      </select>
+                      <input type="text" class="ipt_txt regex_type start">
+                      <button class="btn_regex_delete"
+                        name="del_rule">삭제하기</button>
+                    </li>
+                    <li>
+                      <select name="regex_type" id="" class="select">
+                        <option value="start">시작 텍스트</option>
+                        <option value="match" selected>텍스트가 정확하게 일치함</option>
+                        <option value="include">텍스트에 포함</option>
+                        <option value="exclude">텍스트에 포함하지 않음</option>
+                        <option value="end">종료 텍스트</option>
+                      </select>
+                      <input type="text" class="ipt_txt regex_type match">
+                      <button class="btn_regex_delete"
+                        name="del_rule">삭제하기</button>
+                    </li>
+                    <li>
+                      <select name="regex_type" id="" class="select">
+                        <option value="start">시작 텍스트</option>
+                        <option value="match">텍스트가 정확하게 일치함</option>
+                        <option value="include" selected>텍스트에 포함</option>
+                        <option value="exclude">텍스트에 포함하지 않음</option>
+                        <option value="end">종료 텍스트</option>
+                      </select>
+                      <input type="text" class="ipt_txt regex_type include">
+                      <button class="btn_regex_delete"
+                        name="del_rule">삭제하기</button>
+                    </li>
+                    <li>
+                      <select name="regex_type" id="" class="select">
+                        <option value="start">시작 텍스트</option>
+                        <option value="match">텍스트가 정확하게 일치함</option>
+                        <option value="include">텍스트에 포함</option>
+                        <option value="exclude" selected>텍스트에 포함하지 않음</option>
+                        <option value="end">종료 텍스트</option>
+                      </select>
+                      <input type="text" class="ipt_txt regex_type exclude">
+                      <button class="btn_regex_delete"
+                        name="del_rule">삭제하기</button>
+                    </li>
+                    <li>
+                      <select name="regex_type" id="" class="select">
+                        <option value="start">시작 텍스트</option>
+                        <option value="match">텍스트가 정확하게 일치함</option>
+                        <option value="include">텍스트에 포함</option>
+                        <option value="exclude">텍스트에 포함하지 않음</option>
+                        <option value="end" selected>종료 텍스트</option>
+                      </select>
+                      <input type="text" class="ipt_txt regex_type end">
+                      <button class="btn_regex_delete"
+                        name="del_rule">삭제하기</button>
+                    </li>
+                  </ul>
+                  <div class="regex_check float_box">
+                    <div class="ipt_box">
+                      <label for="regex_direct_input">정규식 직접입력</label>
+                      <input type="checkbox" name="regex_direct_input" id="regex_direct_input" class="checkbox">
+                      <label for="regex_direct_input"></label>
+                    </div>
+
+                    <div class="ipt_box">
+                      <label for="regex_rule">결과 정규식</label>
+                      <input type="text" id="regex_rule" class="ipt_txt" readonly>
+                    </div>
+
+                    <div class="ipt_box">
+                      <label for="regex_test">테스트 문장</label>
+                      <input type="text" id="regex_test" class="ipt_txt">
+                    </div>
+
+                    <button type="button" id="btn_regex_test" class="fr btn_line_secondary">테스트</button>
+                  </div>
+                  
+                  <div id="regex_test_result" class="matched">MATCHED</div>
+                  <!-- <div id="regex_test_result" class="unmatched">UNMATCHED</div> -->
+
+                  <div class="btn_box">
+                    <button type="button" class="btn_secondary small">적용</button>
+                    <button type="button" class="btn_secondary small">취소</button>
+                  </div>
+                </div>
               </dd>
             </dl>
             
-            <dl>
-              <dt>학습문장</dt>
+            <dl class="dl_dropdown">
+              <dt>
+                학습문장
+                <div class="btn_control">
+                  <div class="fold">
+                      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 1.63966L1.20363 0.0423927L8.39135 5.45873L7.18772 7.056L0 1.63966Z" fill="#97A1AB"></path>
+                          <path d="M13.2154 0L14.4191 1.59727L7.23133 7.01361L6.0277 5.41634L13.2154 0Z" fill="#97A1AB"></path>
+                      </svg>
+                  </div>
+                  <div class="unfold">
+                      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.4191 5.41634L13.2154 7.01361L6.02772 1.59727L7.23135 9.53674e-07L14.4191 5.41634Z" fill="#97A1AB"></path>
+                          <path d="M1.20364 7.056L1.33514e-05 5.45873L7.18773 0.0423937L8.39136 1.63966L1.20364 7.056Z" fill="#97A1AB"></path>
+                      </svg>
+                  </div>
+                </div>
+              </dt>
               <dd>
                 <div class="dd_col">
                   <div class="float_box command_box">
@@ -269,46 +422,46 @@
                     <li class="no_list">등록된 리스트가 없습니다</li>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list01">
-                        <label for="list01"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list0001">
+                        <label for="list0001"></label>
                       </div>
                       <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
                       </div>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list02">
-                        <label for="list02"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list0002">
+                        <label for="list0002"></label>
                       </div>
                       <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
                       </div>
                     </li>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list03">
-                        <label for="list03"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list0003">
+                        <label for="list0003"></label>
                       </div>
                       <div class="li_col">
-                        리스트
-                      </div>
-                    </li>
-                    <li>
-                      <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list04">
-                        <label for="list04"></label>
-                      </div>
-                      <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
                       </div>
                     </li>
                     <li>
                       <div class="li_col">
-                        <input type="checkbox" name="intent_task" class="checkbox" id="list05">
-                        <label for="list05"></label>
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list0004">
+                        <label for="list0004"></label>
                       </div>
                       <div class="li_col">
-                        리스트
+                        <a href="#none">리스트</a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="li_col">
+                        <input type="checkbox" name="intent_task" class="checkbox" id="list0005">
+                        <label for="list0005"></label>
+                      </div>
+                      <div class="li_col">
+                        <a href="#none">리스트</a>
                       </div>
                     </li>
                   </ul>
@@ -333,15 +486,58 @@
                     </button>
                   </div>
                   <!-- //pagination -->
+
+                  <button type="button" class="btn_secondary small btn_reset">적용한 내용 초기화</button>
                 </div>
 
-                <div class="dd_col">dd_col</div>
+                <div class="dd_col">
+                  <span class="col_title">학습정보</span>
+                  <!-- table_wrap -->
+                  <div class="table_wrap">
+                    <table id="tbl_nqa_learn" class="tbl_info">
+                      <colgroup>
+                        <col>
+                        <col>
+                        <col style="width: 70px;">
+                        <col style="width: 80px;">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>업데이트 시간</th>
+                          <th>학습한 시간</th>
+                          <th>의도 수</th>
+                          <th>문장 수</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2020-12-26 11:41:49</td>
+                          <td>2020-12-26 11:43:56</td>
+                          <td>30</td>
+                          <td>195</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- //table_wrap -->
+
+                  <span class="col_title">학습문장 추가</span>
+                  <label for="intent_npa">학습문장</label>
+                  <input type="text" name="intent_npa" id="intent_npa" class="ipt_txt">
+                
+                  <div class="btn_box">
+                    <button type="button" class="btn_secondary small">적용</button>
+                    <button type="button" class="btn_secondary small">취소</button>
+                  </div>
+                </div>
               </dd>
             </dl>
           </div>
 
-          <button type="button" class="btn_primary">저장</button>
-          <button type="button" class="btn_primary">학습하기</button>
+          <div class="btn_box">
+            <button type="button" class="btn_primary">저장</button>
+            <button type="button" class="btn_primary">학습하기</button>
+          </div>
         </div>
         <!-- //vb_content -->
       </div>
