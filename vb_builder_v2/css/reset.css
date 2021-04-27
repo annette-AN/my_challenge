@@ -4,8 +4,7 @@ html,body {height: 100%; margin: 0; padding: 0;}
 div,dl,dt,dd,ul,ol,li,form,fieldset,h1,h2,h3,h4,h5,h6,p {margin: 0; padding: 0;}
 em,i {font-style: normal;}
 img {border: none; vertical-align: top;}
-a {text-decoration: none; box-sizing: border-box;}
-a:-webkit-any-link {color: initial;}
+a {color: initial; text-decoration: none; box-sizing: border-box;}
 button {padding: 0; border: none; background: none; font: inherit; appearance: none; cursor: pointer;}
 button:disabled {color: initial; cursor: default;}
 table {width: 100%; table-layout: fixed; border-collapse: collapse;}
