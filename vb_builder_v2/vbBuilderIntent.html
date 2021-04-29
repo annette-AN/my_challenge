@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="css/vbBuilder.css">
 
   <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-  <script type="text/javascript" src="js/common.js"></script>
   <title>의도</title>
 </head>
 <body>
@@ -26,9 +25,9 @@
         <div id="vb_header">
           <div>
             <span class="title">시나리오 목록</span>
-            <div class="fast_popper_select">
+            <div class="fast_popper_select_v2">
               <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" value="마인즈랩 보이스봇(한국어)" readonly>
-              <div class="fast_popper_option active">
+              <div class="fast_popper_option">
                 <div class="ipt_box">
                   <input type="text" class="ipt_txt search">
                   <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
@@ -43,7 +42,7 @@
                 </ul>
               </div>
             </div>
-            <button type="button" class="btn_icon_primary setting">설정</button>
+            <button type="button" class="btn_icon_primary setting" disabled>설정</button>
             <button type="button" class="btn_icon_primary plus">추가</button>
           </div>
 
@@ -60,7 +59,7 @@
               
             테스트 버튼은 시나리오를 선택하면 보여집니다
             -->
-            <a href="#none" id="go_back" class="btn_secondary">이전페이지</a>
+            <a href="#none" id="go_back" class="btn_secondary active">이전페이지</a>
             <a href="#none" id="go_test" class="fr btn_primary">테스트</a>
           </div>
         </div>

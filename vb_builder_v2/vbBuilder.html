@@ -11,10 +11,38 @@
   <link rel="stylesheet" href="css/vbBuilder.css">
 
   <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/popper-2.5.4.min.js"></script>
+  <script type="text/javascript" src="js/vbIntention.js"></script>
   <title>메인화면 (목록 미선택)</title>
 </head>
 <body>
+  <!-- ie로 접속 시 뜨는 팝업 창 -->
+  <div class="pop_confirm">
+    <div class="pop_bg"></div>
+    <!-- .popWrap -->
+    <div class="popWrap" style="min-width:460px">
+      <button class="pop_close" type="button">닫기</button>
+      <!-- .pop_bd -->
+      <div class="pop_bd">
+        <!--아이콘 부분-->
+        <em class="fas fa-exclamation-triangle"></em>
+        <!--제목 부분-->
+        <p>권장 브라우저 안내</p>
+        <!--내용 부분-->
+        <span>음성봇빌더는 <strong>크롬(Chrome) 브라우저</strong>에 최적화 되어있습니다.
+          <span style="display:block;margin-top:4px;">크롬 브라우저에서 음성봇빌더를 만나보세요!</span>
+        </span>
+      </div>
+      <!-- //.pop_bd -->
+      <!--창닫기 버튼 -->
+      <div class="btn">
+        <button class="btn_close" >창닫기</button>
+      </div>
+      <!--창닫기 버튼 -->
+    </div>
+    <!-- //.popWrap -->
+  </div>
+  
   <!-- vb_wrap vb:voicebot -->
   <div id="vb_wrap">
     <!-- vb_container -->
@@ -26,14 +54,17 @@
         <div id="vb_header">
           <div>
             <span class="title">시나리오 목록</span>
-            <div class="fast_popper_select">
+            <div id="sceanario_list" class="fast_popper_select_v2">
               <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" readonly>
               <div class="fast_popper_option">
                 <div class="ipt_box">
                   <input type="text" class="ipt_txt search">
                   <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
                 </div>
-                <ul id="vb_gnb" class="select_list scroll"></ul>
+                <ul id="vb_gnb" class="select_list scroll">
+                  <li>리스트</li>
+                  <li>리스트</li>
+                </ul>
               </div>
             </div>
             <button type="button" class="btn_icon_primary setting" disabled>설정</button>
@@ -69,5 +100,9 @@
     <!-- //vb_container -->
   </div>
   <!-- //vb_wrap -->
+
+<script type="text/javascript">
+
+</script>
 </body>
 </html>
