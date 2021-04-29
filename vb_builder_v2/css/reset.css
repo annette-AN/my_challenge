@@ -2,6 +2,7 @@
 /* MINDsLab. AMR. 20210427 */
 html,body {height: 100%; margin: 0; padding: 0;}
 div,dl,dt,dd,ul,ol,li,form,fieldset,h1,h2,h3,h4,h5,h6,p {margin: 0; padding: 0;}
+h1,h2,h3,h4,h5,h6,p,em,span,pre,label,input,select,textarea,blockquote,li,dt,dd,th,td,legend,a,button {user-select: none;}
 em,i {font-style: normal;}
 img {border: none; vertical-align: top;}
 a {color: initial; text-decoration: none; box-sizing: border-box;}
@@ -20,5 +21,5 @@ input::-ms-clear {display: none;} /* x버튼 */
 select::-ms-expand {display: none;} /* 드롭다운 화살표 */
 pre {word-wrap: break-word;}
 template {display: none;}
-/* h1,h2,h3,h4,h5,h6,p,em,span,pre,input,select,textarea,blockquote,li,dt,dd,th,td,legend,a,button {} **font custom** */
+/* h1,h2,h3,h4,h5,h6,p,em,span,pre,label,input,select,textarea,blockquote,li,dt,dd,th,td,legend,a,button {} **font custom** */
 /* a:focus, input:focus, textarea:focus, button:focus, select:focus {outline-color: #717688;} **focus outline custom** */
