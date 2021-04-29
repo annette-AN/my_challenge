@@ -1,9 +1,9 @@
-var sceandata = [{'label' : 'a', 'value' : 1}];
+var sceandata = [{'label' : '시나리오 리스트1', 'value' : 1}, {'label' : '시나리오 리스트2', 'value' : 2}, {'label' : '시나리오 리스트3', 'value' : 3}];
 var sceanSelectedData = [];
 
 
 $(document).ready(function(){
-  createMultiSelect($('#sceanario_list'), sceandata, sceanSelectedData);
+  createMultiSelectV2($('#sceanario_list'), sceandata, sceanSelectedData);
   bodyClickCloseEvent($('#sceanario_list .fast_popper_option'));
 })
 
@@ -57,7 +57,6 @@ function createMultiSelectV2($el, data, selectedData) {
   });
 
   $select.on('change', function () {
-    getInfo($select);
     console.log($select, 'select value change')
   });
 

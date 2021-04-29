@@ -7,10 +7,11 @@
 
   <link rel="stylesheet" href="css/font.css">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/vbBuilder.css">
 
   <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/popper-2.5.4.min.js"></script>
+  <script type="text/javascript" src="js/vbIntention.js"></script>
   <title>의도</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
         <div id="vb_header">
           <div>
             <span class="title">시나리오 목록</span>
-            <div class="fast_popper_select_v2">
+            <div id="sceanario_list" class="fast_popper_select_v2">
               <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" value="마인즈랩 보이스봇(한국어)" readonly>
               <div class="fast_popper_option">
                 <div class="ipt_box">
@@ -33,11 +34,17 @@
                   <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
                 </div>
                 <ul id="vb_gnb" class="select_list scroll">
-                  <li>리스트</li>
-                  <li>리스트</li>
                   <li>
-                    <input type="checkbox" class="checkbox">
-                    <label for="">리스트</label>
+                    <input type="radio" name="vb_test" id="fs_1" class="radio">
+                    <label for="fs_1">시나리오 리스트1</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="vb_test" id="fs_2" class="radio">
+                    <label for="fs_2">시나리오 리스트2</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="vb_test" id="fs_3" class="radio">
+                    <label for="fs_3">시나리오 리스트3</label>
                   </li>
                 </ul>
               </div>
@@ -59,7 +66,7 @@
               
             테스트 버튼은 시나리오를 선택하면 보여집니다
             -->
-            <a href="#none" id="go_back" class="btn_secondary active">이전페이지</a>
+            <a href="#none" id="go_back" class="btn_secondary">이전페이지</a>
             <a href="#none" id="go_test" class="fr btn_primary active" onclick="openTest()">테스트</a>
           </div>
         </div>
