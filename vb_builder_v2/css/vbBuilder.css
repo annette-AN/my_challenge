@@ -100,7 +100,7 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .btn_icon_primary.plus {background-image: url(../images/ico_plus.svg);}
 
 .btn_icon_line {overflow: hidden; display: inline-block; width: 25px; height: 25px; border: 1px solid #8C94B1; border-radius: 2px; background-color: #fff; background-repeat: no-repeat; background-position: 50% 50%; font-size: 11px; color:#8C94B1; text-align: center; vertical-align: middle; text-indent: -999px;}
-.btn_icon_line:disabled {background-color: initial; border-color: initial; opacity: 0.5;}
+.btn_icon_line:disabled {background-color: #fff; border-color: #8C94B1; opacity: 0.5;}
 .btn_icon_line.prev {background-image: url(../images/ico_chevron_prev.svg);}
 .btn_icon_line.next {background-image: url(../images/ico_chevron_next.svg);}
 .btn_icon_line.refresh {background-image: url(../images/ico_refresh.svg);}
@@ -273,8 +273,8 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 #go_test {display: none; margin-top: 6px; border-radius: 3px;}
 #go_test.active {display: block;}
 
-#vb_container {padding: 20px; border-radius: 4px; background: #fff;}
-#vb_test {display: none; position: fixed; top: 40px; right: 40px; width: 320px; margin-left: 35px; background: #fff; vertical-align: top;}
+#vb_container {position: relative; padding: 20px; border-radius: 4px; background: #fff;}
+#vb_test {display: none; position: absolute; top: 40px; right: 40px; width: 320px; margin-left: 35px; background: #fff; vertical-align: top;}
 #vb_container.test_on .container_box {display: inline-block; width: calc(100% - 360px);}
 #vb_container.test_on #vb_test {display: inline-block;}
 #vb_container.test_on #intent_detail_container {width: 100%; max-width: 965px;}

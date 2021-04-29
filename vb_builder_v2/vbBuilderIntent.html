@@ -18,7 +18,7 @@
   <div id="vb_wrap">
     <!-- vb_container -->
     <!-- [D] class "test_on" 이 추가되면 테스트 영역이 보여집니다 -->
-    <div id="vb_container" class="test_on">
+    <div id="vb_container" class="">
       <!-- vb_cont_box -->
       <div class="container_box">
         <!-- vb_header -->
@@ -60,7 +60,7 @@
             테스트 버튼은 시나리오를 선택하면 보여집니다
             -->
             <a href="#none" id="go_back" class="btn_secondary active">이전페이지</a>
-            <a href="#none" id="go_test" class="fr btn_primary">테스트</a>
+            <a href="#none" id="go_test" class="fr btn_primary active" onclick="openTest()">테스트</a>
           </div>
         </div>
         <!-- //vb_header -->
@@ -205,7 +205,7 @@
       <!-- vb_test -->
       <div id="vb_test">
         <div class="float_box">
-          <button type="button" class="btn_primary fr">닫기</button>
+          <button type="button" class="btn_primary fr" onclick="closeTest()">닫기</button>
         </div>
         <div class="test_debug_view">
           <div class="command">
@@ -260,5 +260,17 @@
     <!-- //vb_container -->
   </div>
   <!-- //vb_wrap -->
+
+  <script type="text/javascript">
+    function openTest() {
+      $('#vb_container').addClass('test_on');
+      $('#go_test').removeClass('active');
+    }
+
+    function closeTest() {
+      $('#vb_container').removeClass('test_on');
+      $('#go_test').addClass('active');
+    }
+  </script>
 </body>
 </html>
