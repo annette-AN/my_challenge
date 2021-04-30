@@ -67,7 +67,7 @@
               </div>
             </div>
             <button type="button" class="btn_icon_primary setting" disabled>설정</button>
-            <button type="button" class="btn_icon_primary plus">추가</button>
+            <button type="button" class="btn_icon_primary plus" data-modal="add_sceanario_list" onclick="handleModal()">추가</button>
           </div>
 
           <div id="vb_lnb">
@@ -99,5 +99,51 @@
     <!-- //vb_container -->
   </div>
   <!-- //vb_wrap -->
+
+  <div class="vb_modal" id="add_sceanario_list">
+    <div class="vb_modal_dialog">
+      <div class="dlg_header">
+        <span class="title">시나리오 추가</span>
+        <button type="button" class="btn_modal_close">닫기</button>
+      </div>
+      <div class="dlg">
+        <div class="ipt_box">
+          <label for="add_sceanario">시나리오명</label>
+          <input type="text" id="add_sceanario" class="ipt_txt">
+        </div>
+        <div class="ipt_box">
+          <label for="add_sceanario_lang">언어</label>
+          <select name="add_sceanario_lang" id="add_sceanario_lang" class="select">
+            <option>언어를 선택해주세요</option>
+            <option value="lang01">언어1</option>
+            <option value="lang02">언어2</option>
+            <option value="lang03">언어3</option>
+          </select>
+        </div>
+      </div>
+      <div class="dlg_footer">
+        <button type="button" class="btn_primary btn_modal_close">확인</button>
+        <button type="button" class="btn_secondary btn_modal_close">취소</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function handleModal() {
+      var dataModal = '#' + $(event.target).attr('data-modal');
+      var $modal = $(dataModal);
+      var $dialog = $modal.children();
+      var $closeBtns = $modal.find('.btn_modal_close');
+      $('body').css('overflow', 'hidden');
+      $modal.show();
+      $dialog.addClass('active');
+
+      $closeBtns.on('click', function(){
+        $('body').css('overflow', 'visible');
+        $modal.hide();
+        $dialog.removeClass('active');
+      });
+    }
+  </script>
 </body>
 </html>

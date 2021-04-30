@@ -12,6 +12,11 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .fl {float:left;}
 .fr {float:right;}
 
+/* text */
+.info_box {margin-top: 5px;}
+.info_small {font-size: 12px;}
+.info_small.primary {color: #7d8acd;}
+
 /* components */
 /* help UI */
 .help {position: relative; display: inline-block; width: 16px; height: 16px; margin: 0 0 0 10px; border-radius: 50%; background: #97a1ab; cursor: pointer; line-height: 16px; font-size: 10px; color: #fff; text-align: center; opacity: 0.7;}
@@ -78,6 +83,13 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .ipt_box .ipt_txt{color:#35384d; border:1px solid #aeb1bf; border-radius:3px; box-sizing:border-box;}
 .ipt_box .ipt_txt:focus{border:1px solid #84879a; transition:all 0.3s ease-out;}
 .ipt_box .ipt_txt + span{display:inline-block; margin:0 2px;}
+
+.ipt_file_box {display: table; width: 100%;}
+.ipt_file_box .ipt_file {display: none;}
+.ipt_file_box .ipt_txt,
+.ipt_file_box .file_label {display: table-cell; width: 100px; box-sizing: border-box;}
+.ipt_file_box .ipt_txt {width: calc(100% - 10px);}
+.ipt_file_box label {display: block; padding: 2px 0; border: 1px solid #aeb1bf; background: #F2F2F2; text-align: center;}
 
 /* button UI */
 /* bg btn */
@@ -236,7 +248,7 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .vb_modal_dialog .dlg_header {position: relative; min-height: 48px; padding: 15px 65px 15px 20px; border-bottom: 1px solid #E4E6EF; box-sizing: border-box;}
 .vb_modal_dialog .dlg_header .title {font-weight: 700; color: #5e77ff;}
 .vb_modal_dialog .dlg_header .btn_modal_close {overflow: hidden; display: block; position: absolute; top: 4px; right: 4px; width: 40px; height: 40px; border: none; background: url(../images/ico_x_gr.svg) no-repeat 50% 50%; text-indent: -999px;}
-.vb_modal_dialog .dlg {padding: 25px 20px; background: #F8F8FB;}
+.vb_modal_dialog .dlg {padding: 25px 15px 30px 20px; background: #F8F8FB;}
 .vb_modal_dialog .dlg_footer {padding: 10px 0; border-top: 1px solid #E4E6EF; text-align: center;}
 .vb_modal_dialog .dlg_footer button + button {margin-left: 5px;}
 .vb_modal_dialog .dlg_footer .btn_primary {background: #506DF5;}
@@ -355,3 +367,16 @@ input[name="intent_seleted_task"] {margin-bottom: 10px;}
 #tbl_nqa_learn tbody tr td:nth-child(4) {text-align: center;}
 label[for="intent_npa"] {display: block;}
 input[name="intent_npa"] {height: 30px; margin-top: 10px;}
+
+/* modal */
+#add_sceanario_list label {width: 100px;}
+#add_sceanario_list .ipt_box .ipt_txt,
+#add_sceanario_list .ipt_box .select {width: 300px;}
+#add_sceanario_list .ipt_box + .ipt_box {margin-top: 10px;}
+
+#set_sceanario_list label {width: 100px;}
+#set_sceanario_list .ipt_box .ipt_txt {width: 300px;}
+#set_sceanario_list .ipt_box + .ipt_box {margin-top: 10px;}
+
+#upload_excel .ipt_file_box {width: auto;}
+#upload_excel .ipt_file_box .ipt_txt {width: 300px; margin-right: 10px;}
