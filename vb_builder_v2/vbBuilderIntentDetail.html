@@ -39,7 +39,7 @@
                 <ul id="vb_gnb" class="select_list scroll"></ul>
               </div>
             </div>
-            <button type="button" class="btn_icon_primary setting" data-modal="" onclick="handleModal()">설정</button>
+            <button type="button" class="btn_icon_primary setting" data-modal="set_sceanario_list" onclick="handleModal()">설정</button>
             <button type="button" class="btn_icon_primary plus" data-modal="add_sceanario_list" onclick="handleModal()">추가</button>
           </div>
 
@@ -76,8 +76,8 @@
                 </div>
               </dd>
             </dl>
-            <!-- [D] "active" class가 추가되면 dd가 보여집니다 -->
-            <dl class="dl_dropdown active">
+            <!-- [D] dl_dropdown에 "active" class가 추가되면 dd가 보여집니다 -->
+            <dl class="dl_dropdown">
               <dt>
                 TASK
                 <div class="btn_control">
@@ -679,6 +679,8 @@
   </div>
 
   <script type="text/javascript">
+    handleDlDropdown();
+
     function openTest() {
       $('#vb_container').addClass('test_on');
       $('#go_test').removeClass('active');
@@ -702,6 +704,13 @@
         $modal.hide();
         $dialog.removeClass('active');
         $dialog.find('input, select').val('');
+      });
+    }
+
+    function handleDlDropdown() {
+      $('.dl_dropdown dt').on('click', function(){
+        var $dl = $(this).parent();
+        $dl.toggleClass('active');
       });
     }
   </script>
