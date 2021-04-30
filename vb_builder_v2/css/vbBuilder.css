@@ -330,8 +330,8 @@ input[name="intent_seleted_task"] {margin-bottom: 10px;}
 #intent_seleted_task {min-height: 36px; height: auto; margin-bottom: 10px; padding: 5px 10px; line-height: 24px; user-select: none;}
 #intent_detail_container .btn_box button + button {margin-left: 5px;}
 #intent_detail_container .btn_reset {position: absolute; left: 20px; bottom: 20px;}
-#intent_detail_container .dl_dropdown dt {width: 120px;}
-#intent_detail_container .dl_dropdown .btn_control {position: absolute; top: 10px; left: 100px;}
+#intent_detail_container .dl_dropdown dt {width: 400px;}
+#intent_detail_container .dl_dropdown .btn_control {position: absolute; top: 10px; right: 0;}
 
 #list_intent_task li .li_col:nth-child(1) {width: 20px;}
 #list_intent_regex .li_col:nth-child(1) {width: 20px;}
