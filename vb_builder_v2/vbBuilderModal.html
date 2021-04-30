@@ -125,18 +125,20 @@
   </div>
   <!-- //vb_wrap -->
 
-  <div id="modal">
-    <div class="modal_dialog">
+  <!-- [D] .vb_modal defualt 스타일은 display: none 입니다 -->
+  <div class="vb_modal" style="display: block;">
+    <!-- [D] .vb_modal_dialog 에 "active" class가 추가되면 모달 애니메이션이 붙습니다  -->
+    <div class="vb_modal_dialog active">
       <div class="dlg_header">
         <span class="title">타이틀</span>
-        <button type="button" class="modal_close">닫기</button>
+        <button type="button" class="btn_modal_close">닫기</button>
       </div>
       <div class="dlg">
         내용
       </div>
       <div class="dlg_footer">
-        <button type="button" class="btn_primary">수정 | 확인</button>
-        <button type="button" class="btn_secondary">삭제 | 취소</button>
+        <button type="button" class="btn_primary btn_modal_close">수정 | 확인</button>
+        <button type="button" class="btn_secondary btn_modal_close">삭제 | 취소</button>
       </div>
     </div>
   </div>

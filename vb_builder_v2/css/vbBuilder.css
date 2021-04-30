@@ -226,17 +226,21 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .fast_popper_option .select_list li .radio:checked + label {background: #dde3ff;}
 
 /* modal */
-#modal {position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,0.7);}
-#modal .modal_dialog {overflow: hidden; display: block; min-width: 500px; border-radius: 3px;}
-.modal_dialog {display: none; position: absolute; top: 50px; left: 50%; transform: translate(-50%, 0); background: #fff;}
-.modal_dialog .dlg_header {position: relative; min-height: 48px; padding: 15px 65px 15px 20px; border-bottom: 1px solid #E4E6EF; box-sizing: border-box;}
-.modal_dialog .dlg_header .title {font-weight: 700; color: #5e77ff;}
-.modal_dialog .dlg_header .modal_close {overflow: hidden; display: block; position: absolute; top: 4px; right: 4px; width: 40px; height: 40px; border: none; background: url(../images/ico_x_gr.svg) no-repeat 50% 50%; text-indent: -999px;}
-.modal_dialog .dlg {padding: 25px 20px; background: #F8F8FB;}
-.modal_dialog .dlg_footer {padding: 10px 0; border-top: 1px solid #E4E6EF; text-align: center;}
-.modal_dialog .dlg_footer button + button {margin-left: 5px;}
-.modal_dialog .dlg_footer .btn_primary {background: #506DF5;}
-.modal_dialog .dlg_footer .btn_secondary {background: #5F6680;}
+.vb_modal {display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,0.7); text-align: center;}
+.vb_modal_dialog {overflow: hidden; display: inline-block; transform: translate(0, 20px); min-width: 500px; border-radius: 3px; background: #fff; text-align: left;}
+.vb_modal_dialog.active {animation: .2s ease-out forwards dialogActive;}
+@keyframes dialogActive {
+  from {transform: translate(0, 20px);}
+  to {transform: translate(0, 50px);}
+}
+.vb_modal_dialog .dlg_header {position: relative; min-height: 48px; padding: 15px 65px 15px 20px; border-bottom: 1px solid #E4E6EF; box-sizing: border-box;}
+.vb_modal_dialog .dlg_header .title {font-weight: 700; color: #5e77ff;}
+.vb_modal_dialog .dlg_header .btn_modal_close {overflow: hidden; display: block; position: absolute; top: 4px; right: 4px; width: 40px; height: 40px; border: none; background: url(../images/ico_x_gr.svg) no-repeat 50% 50%; text-indent: -999px;}
+.vb_modal_dialog .dlg {padding: 25px 20px; background: #F8F8FB;}
+.vb_modal_dialog .dlg_footer {padding: 10px 0; border-top: 1px solid #E4E6EF; text-align: center;}
+.vb_modal_dialog .dlg_footer button + button {margin-left: 5px;}
+.vb_modal_dialog .dlg_footer .btn_primary {background: #506DF5;}
+.vb_modal_dialog .dlg_footer .btn_secondary {background: #5F6680;}
 
 /* pop_confirm */
 .pop_bg {position:absolute; top:0; left:0; width:100%; height:100%; background: #101113; opacity: 0.4; z-index: -10;}
@@ -274,7 +278,7 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 #go_test.active {display: block;}
 
 #vb_container {position: relative; padding: 20px; border-radius: 4px; background: #fff;}
-#vb_test {display: none; position: absolute; top: 40px; right: 40px; width: 320px; margin-left: 35px; background: #fff; vertical-align: top;}
+#vb_test {display: none; position: absolute; top: 40px; right: 20px; width: 320px; margin-left: 35px; background: #fff; vertical-align: top;}
 #vb_container.test_on .container_box {display: inline-block; width: calc(100% - 360px);}
 #vb_container.test_on #vb_test {display: inline-block;}
 #vb_container.test_on #intent_detail_container {width: 100%; max-width: 965px;}
