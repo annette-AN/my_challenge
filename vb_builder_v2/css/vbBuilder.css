@@ -87,7 +87,7 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .ipt_file_box {display: table; width: 100%;}
 .ipt_file_box .ipt_file {display: none;}
 .ipt_file_box .ipt_txt,
-.ipt_file_box .file_label {display: table-cell; width: 100px; box-sizing: border-box;}
+.ipt_file_box .file_label {display: table-cell; width: 100px; vertical-align: middle; box-sizing: border-box;}
 .ipt_file_box .ipt_txt {width: calc(100% - 10px);}
 .ipt_file_box label {display: block; padding: 2px 0; border: 1px solid #aeb1bf; background: #F2F2F2; text-align: center;}
 
