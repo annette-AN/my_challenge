@@ -251,8 +251,8 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .vb_modal_dialog .dlg {padding: 25px 15px 30px 20px; background: #F8F8FB;}
 .vb_modal_dialog .dlg_footer {padding: 10px 0; border-top: 1px solid #E4E6EF; text-align: center;}
 .vb_modal_dialog .dlg_footer button + button {margin-left: 5px;}
-.vb_modal_dialog .dlg_footer .btn_primary {background: #506DF5;}
-.vb_modal_dialog .dlg_footer .btn_secondary {background: #5F6680;}
+.vb_modal_dialog .btn_primary {background: #506DF5;}
+.vb_modal_dialog .btn_secondary {background: #5F6680;}
 
 /* pop_confirm */
 .pop_bg {position:absolute; top:0; left:0; width:100%; height:100%; background: #101113; opacity: 0.4; z-index: -10;}
@@ -368,6 +368,13 @@ input[name="intent_seleted_task"] {margin-bottom: 10px;}
 label[for="intent_npa"] {display: block;}
 input[name="intent_npa"] {height: 30px; margin-top: 10px;}
 
+#table_task thead tr th:nth-child(1),
+#table_task tbody tr td:nth-child(1) {text-align: left;}
+#table_task tbody tr td {vertical-align: top;}
+#table_task tbody:hover .task_group,
+#table_task tbody:hover .task_name {border-bottom: 1px solid #c3c4c9; background: #fff;}
+#table_task .btn_line_warning {float: right;}
+
 /* modal */
 #add_sceanario_list label {width: 100px;}
 #add_sceanario_list .ipt_box .ipt_txt,
@@ -380,3 +387,10 @@ input[name="intent_npa"] {height: 30px; margin-top: 10px;}
 
 #upload_excel .ipt_file_box {width: auto;}
 #upload_excel .ipt_file_box .ipt_txt {width: 300px; margin-right: 10px;}
+
+#set_task_group .left_side {display: inline-block; width: 100px;}
+#set_task_group .right_side {display: inline-block; width: calc(100% - 115px); margin-left: 10px;}
+#set_task_group .dl_container dd > div {margin-top: 10px;}
+#set_task_group .dl_container dt:first-child {padding-top: 0;}
+#set_task_group .inline_box {text-align: right;}
+#set_task_group .inline_box button + button {margin-left: 5px;}
