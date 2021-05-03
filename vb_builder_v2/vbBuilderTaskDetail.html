@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/vbBuilder.css">
+
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/popper-2.5.4.min.js"></script>
+  <script type="text/javascript" src="js/vbIntention.js"></script>
+  <title>TASK 추가/설정</title>
+</head>
+<body>
+  <!-- vb_wrap vb:voicebot -->
+  <div id="vb_wrap">
+    <!-- vb_container -->
+    <!-- [D] class "test_on" 이 추가되면 테스트 영역이 보여집니다 -->
+    <div id="vb_container" class="">
+      <!-- vb_cont_box -->
+      <div class="container_box">
+        <!-- vb_header -->
+        <div id="vb_header">
+          <div>
+            <span class="title">시나리오 목록</span>
+            <div id="sceanario_list" class="fast_popper_select_v2">
+              <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" value="마인즈랩 보이스봇(한국어)" readonly>
+              <div class="fast_popper_option">
+                <div class="ipt_box">
+                  <input type="text" class="ipt_txt search">
+                  <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                </div>
+                <ul id="vb_gnb" class="select_list scroll">
+                  <li>
+                    <input type="radio" name="vb_test" id="fs_1" class="radio">
+                    <label for="fs_1">시나리오 리스트1</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="vb_test" id="fs_2" class="radio">
+                    <label for="fs_2">시나리오 리스트2</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="vb_test" id="fs_3" class="radio">
+                    <label for="fs_3">시나리오 리스트3</label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button type="button" class="btn_icon_primary setting" data-modal="set_sceanario_list" onclick="handleModal()">설정</button>
+            <button type="button" class="btn_icon_primary plus" data-modal="add_sceanario_list" onclick="handleModal()">추가</button>
+          </div>
+
+          <div id="vb_lnb">
+            <ul>
+              <!-- [D] button 이 disabled 이면 click, hover 효과가 일어나지 않습니다 -->
+              <li><button type="button">시나리오</button></li>
+              <li><button type="button">의도</button></li>
+              <li><button type="button" class="active">TASK</button></li>
+            </ul>
+            <!-- [D] 이전페이지, 테스트에 active 가 있어야 보여집니다
+
+            이전페이지 버튼은 테스크 추가, 테스크 수정, 의도 추가, 의도 수정 페이지로 페이지 이동 될 때 보여집니다
+              
+            테스트 버튼은 시나리오를 선택하면 보여집니다
+            -->
+            <a href="#none" id="go_back" class="btn_secondary active">이전페이지</a>
+            <a href="#none" id="go_test" class="fr btn_primary" onclick="openTest()">테스트</a>
+          </div>
+        </div>
+        <!-- //vb_header -->
+        <!-- vb_content -->
+        <div id="vb_content">
+          <div>
+            <span class="content_title">TASK 추가 | TASK 상세</span>
+          </div>
+
+          <!-- task_detail_container -->
+          <div id="task_detail_container" class="dl_container">
+            <dl>
+              <dt>태스크 명</dt>
+              <dd>
+                <input type="text" class="ipt_txt">
+              </dd>
+            </dl>
+            <dl>
+              <dt>태스크 그룹 <a href="#none" class="btn_secondary small" data-modal="set_task_group" onclick="handleModal()">TASK 그룹 관리</a></dt>
+              <dd>
+                <select name="" id="" class="select">
+                  <option value="default">선택안함</option>
+                  <option value="default">select01</option>
+                  <option value="default">select02</option>
+                  <option value="default">select03</option>
+                </select>
+                <select name="" id="" class="select">
+                  <option value="default">선택안함</option>
+                  <option value="default">select01</option>
+                  <option value="default">select02</option>
+                  <option value="default">select03</option>
+                </select>
+                <select name="" id="" class="select">
+                  <option value="default">선택안함</option>
+                  <option value="default">select01</option>
+                  <option value="default">select02</option>
+                  <option value="default">select03</option>
+                </select>
+              </dd>
+            </dl>
+            <dl>
+              <dt>답변</dt>
+              <dd>
+                <textarea name="task_answer" id="" class="ipt_txt" cols="30" rows="2"></textarea>
+              </dd>
+            </dl>
+            <dl>
+              <dt>이전 TASK</dt>
+              <dd>
+                <div class="table_wrap">
+                  <div class="float_box">
+                    <button type="button" class="btn_line_secondary">선택 삭제</button>
+                    <button type="button" class="btn_secondary fr">TASK 관계 추가</button>
+                  </div>
+
+                  <div id="table_task_relationship">
+                    <div class="table_frozen_head">
+                      <table class="tbl_common">
+                        <colgroup>
+                          <col style="width: 40px;">
+                          <col style="width: 200px;">
+                          <col style="width: 200px;">
+                          <col style="width: 140px;">
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th class="text_hide">체크박스</th>
+                            <th>이전 태스크</th>
+                            <th>의도</th>
+                            <th>정보/비고</th>
+                            <th>태스크 이동 시 답변</th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                    <div class="table_body scroll">
+                      <table class="tbl_common">
+                        <colgroup>
+                          <col style="width: 40px;">
+                          <col style="width: 200px;">
+                          <col style="width: 200px;">
+                          <col style="width: 140px;">
+                          <col>
+                        </colgroup>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox01" class="checkbox">
+                              <label for="checkbox01"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="청약서부본전달" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="긍정" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox02" class="checkbox">
+                              <label for="checkbox02"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="청약서부본전달" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="부정" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox03" class="checkbox">
+                              <label for="checkbox03"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="약관전달" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="UNKNOWN" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox04" class="checkbox">
+                              <label for="checkbox04"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="약관전달" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="다시" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox05" class="checkbox">
+                              <label for="checkbox05"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox06" class="checkbox">
+                              <label for="checkbox06"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox07" class="checkbox">
+                              <label for="checkbox07"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="checkbox" id="checkbox08" class="checkbox">
+                              <label for="checkbox08"></label>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="fast_popper_select_v2">
+                                <input type="text" class="select text_ellipsis" placeholder="선택안함" value="" readonly>
+                                <div class="fast_popper_option">
+                                  <div class="ipt_box">
+                                    <input type="text" class="ipt_txt search">
+                                    <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                                  </div>
+                                  <ul id="vb_gnb" class="select_list scroll"></ul>
+                                </div>
+                              </div>
+                            </td>
+                            <td><input type="text" class="ipt_txt"></td>
+                            <td><input type="text" class="ipt_txt"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </div>
+          <!-- //task_detail_container -->
+
+          <div class="btn_box">
+            <button type="button" class="btn_primary">저장</button>
+          </div>
+        </div>
+        <!-- //vb_content -->
+      </div>
+      <!-- //vb_cont_box -->
+
+      <!-- vb_test -->
+      <div id="vb_test">
+        <div class="float_box">
+          <button type="button" class="btn_primary fr" onclick="closeTest()">닫기</button>
+        </div>
+        <div class="test_debug_view">
+          <div class="command">
+            <div class="fl">
+              <p>분석결과 <span id="nowDebugIndex">1</span>&#47;<span id="nowDebugStack">5</span></p>
+            </div>
+            <div class="fr">
+              <button type="button" class="btn_icon_line prev" onclick="renderDebugList(nowIndexDebug-1)">이전</button>
+              <button type="button" class="btn_icon_line next" onclick="renderDebugList(nowIndexDebug+1)" disabled>다음</button>
+              <button type="button" class="btn_icon_line refresh" onclick="resetSessionByBuilder()">새로고침</button>
+            </div>
+          </div>
+          <dl class="content scroll" id="test_result_id">
+            <dt>INPUT</dt>
+            <dd>
+              <p><span class="highlight">type</span><em>Intent</em></p>
+            </dd>
+            <dt>INTENT</dt>
+            <dd>
+              <p><span class="highlight">prob</span><em>1</em></p>
+            </dd>
+            <dt>TASK</dt>
+            <dd>
+              <p><span class="highlight">prev task</span><em> </em></p>
+              <p><span class="highlight">task rel</span><em> </em></p>
+              <p><span class="highlight">task</span><em>처음으로</em></p>
+            </dd>
+            <dt>ANSWER</dt>
+            <dd>
+              <p><span class="highlight">text</span><em>안녕하세요.<br>'<name>'을 찾아 주셔서 감사합니다. 무엇을 도와드릴까요?</name></em></p>
+            </dd>
+          </dl>
+        </div>
+        <div class="test_debug_data">
+          <div class="ipt_box">
+            <label for="prev_task">이전 태스크</label>
+            <select name="prev_task" id="prev_task" class="select">
+              <option value="op1">부대시설</option>
+              <option value="op2">부대시설</option>
+              <option value="op3">부대시설</option>
+            </select>
+          </div>
+          <div class="ipt_box">
+            <label for="test_data">태스트 문장</label>
+            <input type="text" name="test_data" id="test_data" class="ipt_txt">
+          </div>
+          <button type="button" id="btn_debug_test" class="btn_secondary">테스트 하기(ENTER)</button>
+        </div>
+      </div>
+      <!-- //vb_test -->
+    </div>
+    <!-- //vb_container -->
+  </div>
+  <!-- //vb_wrap -->
+
+  <div class="vb_modal" id="add_sceanario_list">
+    <div class="vb_modal_dialog">
+      <div class="dlg_header">
+        <span class="title">시나리오 추가</span>
+        <button type="button" class="btn_modal_close">닫기</button>
+      </div>
+      <div class="dlg">
+        <div class="ipt_box">
+          <label for="add_sceanario">시나리오명</label>
+          <input type="text" id="add_sceanario" class="ipt_txt">
+        </div>
+        <div class="ipt_box">
+          <label for="add_sceanario_lang">언어</label>
+          <select name="add_sceanario_lang" id="add_sceanario_lang" class="select">
+            <option>언어를 선택해주세요</option>
+            <option value="lang01">언어1</option>
+            <option value="lang02">언어2</option>
+            <option value="lang03">언어3</option>
+          </select>
+        </div>
+      </div>
+      <div class="dlg_footer">
+        <button type="button" class="btn_primary btn_modal_close">확인</button>
+        <button type="button" class="btn_secondary btn_modal_close">취소</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="vb_modal" id="set_sceanario_list">
+    <div class="vb_modal_dialog">
+      <div class="dlg_header">
+        <span class="title">시나리오 관리</span>
+        <button type="button" class="btn_modal_close">닫기</button>
+      </div>
+      <div class="dlg">
+        <div class="ipt_box">
+          <label for="set_sceanario">시나리오</label>
+          <input type="text" id="set_sceanario" class="ipt_txt" disabled>
+        </div>
+        <div class="ipt_box">
+          <label for="mdfy_sceanario_lang">수정할 이름</label>
+          <input type="text" id="mdfy_sceanario_lang" class="ipt_txt">
+        </div>
+      </div>
+      <div class="dlg_footer">
+        <button type="button" class="btn_primary btn_modal_close">수정</button>
+        <button type="button" class="btn_secondary btn_modal_close">삭제</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="vb_modal" id="set_task_group">
+    <div class="vb_modal_dialog">
+      <div class="dlg_header">
+        <span class="title">TASK 그룹 추가/설정</span>
+        <button type="button" class="btn_modal_close">닫기</button>
+      </div>
+      <div class="dlg">
+        <div class="dl_container">
+          <dl>
+            <dt>그룹 추가</dt>
+            <dd>
+              <select name="" id="" class="select left_side">
+                <option value="default">선택안함</option>
+                <option value="">1depth</option>
+                <option value="">2depth</option>
+                <option value="">3depth</option>
+              </select>
+              <input type="text" class="ipt_txt right_side">
+              <div class="inline_box">
+                <button type="button" class="btn_primary small">추가</button>
+              </div>
+            </dd>
+            <dt>그룹 관리</dt>
+            <dd>
+              <select name="" id="" class="select left_side">
+                <option value="default">선택안함</option>
+                <option value="1depth">1depth</option>
+                <option value="2depth">2depth</option>
+                <option value="3depth">3depth</option>
+              </select>
+              <select name="" id="" class="select right_side" disabled>
+                <option value="default">depth를 선택해주세요</option>
+                <option value="group01">group01</option>
+                <option value="group02">group02</option>
+                <option value="group03">group03</option>
+              </select>
+              <div>
+                <label for="" class="left_side">수정할 이름</label>
+                <input type="text" class="ipt_txt right_side">
+              </div>
+              <div class="inline_box">
+                <button type="button" class="btn_primary small">수정</button>
+                <button type="button" class="btn_secondary small">삭제</button>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function openTest() {
+      $('#vb_container').addClass('test_on');
+      $('#go_test').removeClass('active');
+    }
+
+    function closeTest() {
+      $('#vb_container').removeClass('test_on');
+      $('#go_test').addClass('active');
+    }
+    function handleModal() {
+      var dataModal = '#' + $(event.target).attr('data-modal');
+      var $modal = $(dataModal);
+      var $dialog = $modal.children();
+      var $closeBtns = $modal.find('.btn_modal_close');
+      $('body').css('overflow', 'hidden');
+      $modal.show();
+      $dialog.addClass('active');
+
+      $closeBtns.on('click', function(){
+        $('body').css('overflow', 'visible');
+        $modal.hide();
+        $dialog.removeClass('active');
+        $dialog.find('input, select').val('');
+      });
+    }
+  </script>
+</body>
+</html>

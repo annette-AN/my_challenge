@@ -1,6 +1,7 @@
 h1,h2,h3,h4,h5,h6,p,em,span,pre,label,input,select,textarea,blockquote,li,dt,dd,th,td,legend,a,button {font-family: "Noto Sans KR", sans-serif; font-size: 14px; color: #35384d; letter-spacing: -0.5px;}
 a:focus, input:focus, textarea:focus, button:focus, select:focus {outline-color: #717688;}
 input:focus,
+textarea:focus,
 select:focus{outline: none;}
 button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 
@@ -65,7 +66,7 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .checkbox {display: none;}
 .checkbox + label, .checkbox + .label {display: block; position: relative; height: 20px; padding: 0 0 0 25px; cursor: pointer;}
 .checkbox + label:before, .checkbox + .label:before {content: ''; display: block; position: absolute; top: calc(50% - 10px); left: 0; width: 20px; height: 20px; border: 1px solid #aeb1bf; border-radius: 3px; background: #fff; color: #fff; text-align: center; box-sizing: border-box;}
-.checkbox:checked + label:before, .checkbox:checked + .label:before {content: '\2713'; background: #5e77ff;}
+.checkbox:checked + label:before, .checkbox:checked + .label:before {content: '\2713'; background: #5e77ff; font-size: 12px;}
 
 /* radio */
 .radio {display: none;}
@@ -195,8 +196,10 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 .dl_container {margin: 0 0 10px 0;}
 .dl_container dl + dl {margin: 5px 0 0 0;}
 .dl_container dt {display: block; position: relative; padding: 10px 0;}
+.dl_container dt a,
+.dl_container dt button {vertical-align: middle;}
 .dl_container .ipt_txt {box-sizing: border-box;}
-.dl_container .select {width: 100%; padding: 0 25px 0 5px; box-sizing: border-box;}
+.dl_container .select {width: 100%; padding: 0 25px 0 10px; box-sizing: border-box;}
 .dl_container .iptBox .ipt_txt,
 .dl_container .iptBox label,
 .dl_container .iptBox .label {display: table-cell;}
@@ -300,15 +303,12 @@ button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
 #vb_container .text_bg {padding: 30px 0; text-align: center; background: #F3F4F8; font-size: 18px; font-weight: 700;}
 
 #vb_content {margin-top: 10px; padding: 10px; border: 1px solid #c3c4c9;}
-#vb_content .content_title {display: inline-block; margin: 10px 0; font-size: 16px;}
+#vb_content .content_title {display: inline-block; font-size: 16px;}
 #vb_content .content_btns .ipt_box {display: inline-block; width: 300px;}
 #vb_content .content_btns + .table_wrap {margin-top: 20px;}
 #vb_content .table_wrap .pagination s{margin-top: 20px;}
 #vb_content .tbl_common a {border-bottom: 1px solid #35384d;}
 #vb_content > .btn_box {margin-top: 30px;}
-
-#table_intent tbody tr td:nth-child(3) a,
-#table_intent tbody tr td:nth-child(4) a {overflow: hidden; display: inline-block; width: auto; max-width: 100%; text-overflow: ellipsis; white-space: nowrap;}
 
 #intent_detail_container {width: 965px; margin-top: 10px;}
 input[name="intent_name"] {width: 400px;}
@@ -360,6 +360,19 @@ input[name="intent_seleted_task"] {margin-bottom: 10px;}
 #regex_test_result.matched {display: block; background: #0A840A;}
 #regex_test_result.unmatched {display: block; background: #BB2828}
 
+#task_detail_container dl {margin-top: 10px;}
+#task_detail_container input.ipt_txt,
+#task_detail_container .select {width: 300px;}
+#task_detail_container .select + .select {margin-left: 5px;}
+#task_detail_container textarea[name="task_answer"] {padding: 7px 10px;}
+#task_detail_container dt a {margin-left: 15px;}
+#task_detail_container .table_wrap .btn_line_secondary,
+#task_detail_container .table_wrap .btn_secondary {min-height: unset; height: auto; padding: 3px 10px; font-size: 12px;}
+
+/* table */
+#table_intent tbody tr td:nth-child(3) a,
+#table_intent tbody tr td:nth-child(4) a {overflow: hidden; display: inline-block; width: auto; max-width: 100%; text-overflow: ellipsis; white-space: nowrap;}
+
 #tbl_nqa_learn {margin-bottom: 30px;}
 #tbl_nqa_learn thead tr th:nth-child(3),
 #tbl_nqa_learn thead tr th:nth-child(4),
@@ -374,6 +387,15 @@ input[name="intent_npa"] {height: 30px; margin-top: 10px;}
 #table_task tbody:hover .task_group,
 #table_task tbody:hover .task_name {border-bottom: 1px solid #c3c4c9; background: #fff;}
 #table_task .btn_line_warning {float: right;}
+
+#table_task_relationship {margin-top: 10px;}
+#table_task_relationship .table_body {overflow: auto; max-height: 234px;}
+#table_task_relationship .tbl_common thead th {padding: 6px 10px; font-size: 13px;}
+#table_task_relationship .tbl_common tbody td {padding: 5px 10px;}
+#table_task_relationship .select,
+#table_task_relationship input.ipt_txt {width: 100%; height: 28px;}
+#table_task_relationship .select {padding-left: 5px;}
+#table_task_relationship input.ipt_txt {padding: 0 5px;}
 
 /* modal */
 #add_sceanario_list label {width: 100px;}
