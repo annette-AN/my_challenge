@@ -3,7 +3,7 @@ a:focus, input:focus, textarea:focus, button:focus, select:focus {outline-color:
 input:focus,
 textarea:focus,
 select:focus{outline: none;}
-button:disabled {background-color:#E6E7E9; border-color: #E6E7E9;}
+button:disabled {background-color:#E6E7E9; border-color: #E6E7E9; color: #a9a9a9;}
 
 /* common */
 .hide {display:none!important;}
@@ -386,7 +386,7 @@ input[name="intent_npa"] {height: 30px; margin-top: 10px;}
 #table_task tbody tr td {vertical-align: top;}
 #table_task tbody:hover .task_group,
 #table_task tbody:hover .task_name {border-bottom: 1px solid #c3c4c9; background: #fff;}
-#table_task .btn_line_warning {float: right;}
+#table_task .btn_line_warning {float: right; margin-left: 10px;}
 
 #table_task_relationship {margin-top: 10px;}
 #table_task_relationship .table_body {overflow: auto; max-height: 234px;}
