@@ -3,16 +3,16 @@ var sceanSelectedData = [];
 
 
 $(document).ready(function(){
-  createMultiSelectV2($('#sceanario_list'), sceandata, sceanSelectedData);
-  bodyClickCloseEvent($('#sceanario_list .fast_popper_option'));
+  createFastSearchSelect($('#sceanario_list'), sceandata, sceanSelectedData);
+  bodyClickCloseEvent($('#sceanario_list .fast_search_option'));
 })
 
 // AMR 검색기능이 포함된 셀렉트 이벤트
-function createMultiSelectV2($el, data, selectedData) {
+function createFastSearchSelect($el, data, selectedData) {
   var isMultiple = $el.attr('multiple') ? 'checkbox' : 'radio';
   var $select = $el.find('.select'); // 셀렉트버튼
   var $inputSearch = $el.find('.search') // 검색 input
-  var $dropdown = $el.find('.fast_popper_option'); // 셀렉트 드롭다운
+  var $dropdown = $el.find('.fast_search_option'); // 셀렉트 드롭다운
   var $dropdownList = $el.find('.select_list'); // 드롭다운 내 리스트
 
   var dropdownController = Popper.createPopper($select[0], $dropdown[0], {
@@ -41,7 +41,7 @@ function createMultiSelectV2($el, data, selectedData) {
       return;
     }
 
-    $('.fast_popper_option').removeClass('active');
+    $('.fast_search_option').removeClass('active');
     $dropdown.addClass('active');
     $inputSearch.focus();
 
