@@ -682,17 +682,6 @@
 
   <script type="text/javascript">
     handleDlDropdown();
-
-    function openTest() {
-      $('#vb_container').addClass('test_on');
-      $('#go_test').removeClass('active');
-    }
-
-    function closeTest() {
-      $('#vb_container').removeClass('test_on');
-      $('#go_test').addClass('active');
-    }
-
     function handleDlDropdown() {
       $('.dl_dropdown dt').on('click', function(){
         var $dl = $(this).parent();

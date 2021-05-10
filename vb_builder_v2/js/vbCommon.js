@@ -29,6 +29,18 @@ function handleModal() {
   });
 }
 
+// 테스트 버튼 열기
+function openTest() {
+  $('#vb_container').addClass('test_on');
+  $('#go_test').removeClass('active');
+}
+
+// 테스트 버튼 닫기
+function closeTest() {
+  $('#vb_container').removeClass('test_on');
+  $('#go_test').addClass('active');
+}
+
 // 검색기능이 포함된 셀렉트 이벤트
 function createFastSearchSelect($el, data, selectedData) {
   var isMultiple = $el.attr('multiple') ? 'checkbox' : 'radio';
