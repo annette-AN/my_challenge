@@ -289,7 +289,7 @@ p.ipt_txt {height: auto; padding: 7px 10px;}
 .vb_tab_cont.active {display: block;}
 
 /* modal */
-.vb_modal {display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,0.7); text-align: center;}
+.vb_modal {display: none; position: fixed; z-index: 100; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,0.7); text-align: center;}
 .vb_modal_dialog {overflow: hidden; display: inline-block; transform: translate(0, 20px); min-width: 500px; border-radius: 3px; background: #fff; text-align: left;}
 .vb_modal_dialog.active {animation: .2s ease-out forwards dialogActive;}
 @keyframes dialogActive {

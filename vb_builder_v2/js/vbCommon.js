@@ -10,9 +10,26 @@ $(document).ready(function(){
 $(document).ready(function(){
   createFastSearchSelect($('#sceanario_list'), sceandata, sceanSelectedData);
   bodyClickCloseEvent($('#sceanario_list .fast_search_option'));
-})
+});
 
-// AMR 검색기능이 포함된 셀렉트 이벤트
+// 모달 열기 닫기
+function handleModal() {
+  var dataModal = '#' + $(event.target).attr('data-modal');
+  var $modal = $(dataModal);
+  var $dialog = $modal.children();
+  var $closeBtns = $modal.find('.btn_modal_close');
+  $('body').css('overflow', 'hidden');
+  $modal.show();
+  $dialog.addClass('active');
+
+  $closeBtns.on('click', function(){
+    $('body').css('overflow', 'visible');
+    $modal.hide();
+    $dialog.removeClass('active');
+  });
+}
+
+// 검색기능이 포함된 셀렉트 이벤트
 function createFastSearchSelect($el, data, selectedData) {
   var isMultiple = $el.attr('multiple') ? 'checkbox' : 'radio';
   var $select = $el.find('.select'); // 셀렉트버튼

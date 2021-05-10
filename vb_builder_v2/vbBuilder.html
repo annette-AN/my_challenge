@@ -101,23 +101,5 @@
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
-    function handleModal() {
-      var dataModal = '#' + $(event.target).attr('data-modal');
-      var $modal = $(dataModal);
-      var $dialog = $modal.children();
-      var $closeBtns = $modal.find('.btn_modal_close');
-      $('body').css('overflow', 'hidden');
-      $modal.show();
-      $dialog.addClass('active');
-
-      $closeBtns.on('click', function(){
-        $('body').css('overflow', 'visible');
-        $modal.hide();
-        $dialog.removeClass('active');
-      });
-    }
-  </script>
 </body>
 </html>

@@ -709,6 +709,32 @@
     </div>
   </div>
 
+  <div class="vb_modal" id="upload_excel">
+    <div class="vb_modal_dialog">
+      <div class="dlg_header">
+        <span class="title">엑셀 업로드</span>
+        <button type="button" class="btn_modal_close">닫기</button>
+      </div>
+      <div class="dlg">
+        <div class="ipt_file_box">
+          <input type="text" name="upload_excel_file" class="ipt_txt" placeholder="선택된 파일 없음" disabled>
+          <input type="file" id="upload_excel_file" class="ipt_file">
+          <span class="file_label">
+            <label for="upload_excel_file">찾아보기..</label>
+          </span>
+        </div>
+        <div class="info_box">
+          <p class="info_small primary">* 파일 업로드 시 기존 데이터가 덮어쓰기 됩니다.</p>
+          <p class="info_small primary">* 업로드 전 기존 데이터를 다운로드 받으시길 권장합니다.</p>
+        </div>
+      </div>
+      <div class="dlg_footer">
+        <button type="button" class="btn_primary btn_modal_close">확인</button>
+        <button type="button" class="btn_secondary btn_modal_close">취소</button>
+      </div>
+    </div>
+  </div>
+
   <script type="text/javascript">
     function openTest() {
       $('#vb_container').addClass('test_on');
@@ -718,22 +744,6 @@
     function closeTest() {
       $('#vb_container').removeClass('test_on');
       $('#go_test').addClass('active');
-    }
-
-    function handleModal() {
-      var dataModal = '#' + $(event.target).attr('data-modal');
-      var $modal = $(dataModal);
-      var $dialog = $modal.children();
-      var $closeBtns = $modal.find('.btn_modal_close');
-      $('body').css('overflow', 'hidden');
-      $modal.show();
-      $dialog.addClass('active');
-
-      $closeBtns.on('click', function(){
-        $('body').css('overflow', 'visible');
-        $modal.hide();
-        $dialog.removeClass('active');
-      });
     }
 
     handleTabMenu()

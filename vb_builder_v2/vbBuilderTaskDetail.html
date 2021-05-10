@@ -652,22 +652,6 @@
       $('#vb_container').removeClass('test_on');
       $('#go_test').addClass('active');
     }
-    function handleModal() {
-      var dataModal = '#' + $(event.target).attr('data-modal');
-      var $modal = $(dataModal);
-      var $dialog = $modal.children();
-      var $closeBtns = $modal.find('.btn_modal_close');
-      $('body').css('overflow', 'hidden');
-      $modal.show();
-      $dialog.addClass('active');
-
-      $closeBtns.on('click', function(){
-        $('body').css('overflow', 'visible');
-        $modal.hide();
-        $dialog.removeClass('active');
-        $dialog.find('input, select').val('');
-      });
-    }
   </script>
 </body>
 </html>
