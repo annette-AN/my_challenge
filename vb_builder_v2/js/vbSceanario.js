@@ -1,26 +1,33 @@
-var sceandata = [{'label' : '시나리오 리스트1', 'value' : 1}, {'label' : '시나리오 리스트2', 'value' : 2}, {'label' : '시나리오 리스트3', 'value' : 3}];
-var sceanSelectedData = [];
-var countData = [{'label' : '1', 'value' : 1}, {'label' : '2', 'value' : 2}, {'label' : '3', 'value' : 3}, {'label' : '4', 'value' : 4}, {'label' : '5', 'value' : 5}, {'label' : '6', 'value' : 6}, {'label' : '7', 'value' : 7}, {'label' : '8', 'value' : 8}, {'label' : '9', 'value' : 9}, {'label' : '10', 'value' : 10}];
-var selectedCountData = [{'value' : 2}];
-
+var testData = [{'label' : 'test 1', 'value' : 21}, {'label' : 'test 2', 'value' : 22}, {'label' : 'test 3', 'value' : 23}];
+var testSelectedData = [];
+var testCountData = [{'label' : '1', 'value' : 11}, {'label' : '2', 'value' : 12}, {'label' : '3', 'value' : 13}, {'label' : '4', 'value' : 14}, {'label' : '5', 'value' : 15}, {'label' : '6', 'value' : 16}, {'label' : '7', 'value' : 17}, {'label' : '8', 'value' : 18}, {'label' : '9', 'value' : 19}, {'label' : '10', 'value' : 20}];
+var testSelectedCountData = [{'value' : 12}];
 
 $(document).ready(function(){
-  createFastSearchSelect($('#sceanario_list'), sceandata, sceanSelectedData);
-  bodyClickCloseEvent($('#sceanario_list .fast_search_option'));
+  createFastSearchSelect($('#task_group_depth1'), testData, testSelectedData);
+  bodyClickCloseEvent($('#task_group_depth1 .fast_search_option'));
 
-  createFastSearchSelect($('#sceanario_next_task'), sceandata, sceanSelectedData);
+  createFastSearchSelect($('#sceanario_next_task'), testData, testSelectedData);
   bodyClickCloseEvent($('#sceanario_next_task .fast_search_option'));
 
-  createFastSearchSelect($('#sceanario_over_task'), sceandata, sceanSelectedData);
+  createFastSearchSelect($('#sceanario_over_task'), testData, testSelectedData);
   bodyClickCloseEvent($('#sceanario_over_task .fast_search_option'));
 
-  createFastSelect($('#set_answer_count'), countData, selectedCountData)
+  createFastSelect($('#set_answer_count'), testCountData, testSelectedCountData)
   bodyClickCloseEvent($('#set_answer_count .fast_option'));
 
-  createFastSelect($('#set_dial_count'), countData, selectedCountData)
+  createFastSelect($('#set_dial_count'), testCountData, testSelectedCountData)
   bodyClickCloseEvent($('#set_dial_count .fast_option'));
-  
-})
+});
+
+$(window).scroll(function(){
+  var scrollTop = $(window).scrollTop();
+  var topLocation = scrollTop;
+
+  $('#vb_test').css({
+    'transform': 'translateY(' + topLocation + 'px)',
+  });
+});
 
 // AMR 검색기능이 포함된 셀렉트 이벤트 (multiple 가능)
 function createFastSearchSelect($el, data, selectedData) {

@@ -4,6 +4,7 @@ a:active, input:active, textarea:active, button:active, select:active {outline-c
 input:focus, textarea:focus, select:focus{outline: none;}
 button:disabled {background-color:#E6E7E9; border-color: #E6E7E9; color: #a9a9a9;}
 div {user-select: none;}
+body {min-height: 800px;}
 
 /* common */
 .hide {display:none!important;}
@@ -53,7 +54,7 @@ div {user-select: none;}
 .ipt_txt[readonly]:focus{border:1px solid #aeb1bf;}
 .ipt_txt:disabled{opacity:0.6;}
 .ipt_txt[readonly]{opacity:0.6;}
-.ipt_txt[placeholder] {font-size: 12px;}
+.ipt_txt::placeholder {font-size: 12px;}
 
 textarea.ipt_txt {height: auto; padding: 7px 10px;}
 p.ipt_txt {height: auto; padding: 7px 10px;}
@@ -190,7 +191,7 @@ p.ipt_txt {height: auto; padding: 7px 10px;}
 .pagination > button:hover {color: #5e77ff; background: #dde3ff;}
 
 /* test debug */
-.test_debug_view {margin-top: 20px;}
+.test_debug_view {margin-top: 10px;}
 .test_debug_view .command {overflow: hidden; margin: 0 0 10px 0;}
 .test_debug_view .command p {font-weight: 500;}
 .test_debug_view .command .fl {margin: 7px 0 0 0;}
@@ -207,7 +208,7 @@ p.ipt_txt {height: auto; padding: 7px 10px;}
 
 /* test user data */
 .test_user_data .ipt_txt {height: 30px;}
-.test_user_data .common_lst_tbltype {max-height: 150px; margin-top: 10px;}
+.test_user_data .common_lst_tbltype {margin-top: 10px;}
 .test_user_data .common_lst_tbltype .ipt_txt {padding: 0 5px;}
 .test_user_data .common_lst_tbltype li .li_col {padding: 5px;}
 .test_user_data .common_lst_tbltype li .li_col:nth-child(1) {width: 20px; vertical-align: middle;}
@@ -338,13 +339,12 @@ p.ipt_txt {height: auto; padding: 7px 10px;}
 #go_test {display: none; margin-top: 6px; border-radius: 3px;}
 #go_test.active {display: block;}
 
-#vb_container {position: relative; padding: 20px; border-radius: 4px; background: #fff;}
+#vb_container {position: relative; min-height: 760px; padding: 20px 20px 40px 20px; border-radius: 4px; background: #fff; box-sizing: border-box;}
 #vb_container.test_on .container_box {display: inline-block; width: calc(100% - 360px);}
 #vb_container.test_on #vb_test {display: inline-block;}
 #vb_container.test_on #intent_detail_container {width: 100%; max-width: 965px;}
 #vb_container.test_on #intent_detail_container > dl > dd .dd_col {width: 375px;}
 #vb_container.test_on #intent_detail_container > dl > dd .dd_col + .dd_col {margin-left: 20px;}
-
 #vb_container .text_bg {padding: 30px 0; text-align: center; background: #F3F4F8; font-size: 18px; font-weight: 700;}
 
 #vb_content {margin-top: 10px; padding: 10px; border: 1px solid #c3c4c9;}
@@ -356,12 +356,11 @@ p.ipt_txt {height: auto; padding: 7px 10px;}
 #vb_content .tbl_common a {border-bottom: 1px solid #35384d;}
 #vb_content > .btn_box {margin-top: 30px;}
 
-#vb_test {display: none; position: absolute; top: 20px; right: 20px; width: 320px; max-height: calc(100vh - 80px); margin-left: 35px; background: #fff; vertical-align: top;}
+#vb_test {display: none; overflow: auto; position: absolute; top: 20px; right: 20px; width: 320px; margin-left: 35px; background: #fff; vertical-align: top; transition: transform .1s ease-out;}
 #vb_test > .float_box {margin-bottom: 20px;}
 #vb_test .vb_tab_menu {display: block;}
 #vb_test .vb_tab_menu button {width: 50%;}
 #vb_test .vb_tab_cont {margin: 10px 0;}
-#vb_test .vb_tab_cont .test_debug_view .content {max-height: 200px;}
 
 /* content */
 .specific_tasks {margin-top: 20px;}
@@ -378,15 +377,15 @@ p.ipt_txt {height: auto; padding: 7px 10px;}
 .sceanario_set .tab_cont_tit {min-height: 30px; margin: 30px 0 10px 0;}
 .sceanario_set .tab_cont_tit p {display: inline-block; font-size: 15px; font-weight: 500; vertical-align: middle;}
 .sceanario_set .tab_cont_tit .add_answer {float: right;}
-.sceanario_set .vb_answer .mapping_info {margin-top: 5px;}
-.sceanario_set .vb_answer textarea.ipt_txt,
-.sceanario_set .vb_answer p.ipt_txt {min-height: 60px; margin-top: 5px; font-size: 15px; user-select: text;}
-.sceanario_set .vb_answer input.ipt_txt {display: inline-block; padding: 0 5px;}
 .sceanario_set .fast_search_select {display: inline-block; width: 200px;}
 .sceanario_set .fast_search_select .select {padding-left: 5px; font-size: 13px; vertical-align: baseline;}
 .sceanario_set input.ipt_txt,
 .sceanario_set .select {height: 30px;}
-.sceanario_set .vb_answer input.ipt_txt {width: 180px; padding-left: 5px; font-size: 13px;}
+.sceanario_set .vb_answer.no_list {padding: 10px 0; text-align: center;}
+.sceanario_set .vb_answer .mapping_info {margin-top: 5px;}
+.sceanario_set .vb_answer textarea.ipt_txt,
+.sceanario_set .vb_answer p.ipt_txt {min-height: 60px; margin-top: 5px; font-size: 15px; user-select: text;}
+.sceanario_set .vb_answer input.ipt_txt {display: inline-block; width: 180px; padding: 0 5px; font-size: 13px;}
 .sceanario_set .vb_answer .fast_search_select input.ipt_txt {width: 100%;}
 .sceanario_set .vb_answer .fast_search_select .btn_search {width: 25px; background-size: 13px;}
 .sceanario_set .vb_answer .fast_search_option .select_list li label {padding-left: 35px;}
@@ -400,9 +399,26 @@ p.ipt_txt {height: auto; padding: 7px 10px;}
 .sceanario_set .vb_answer_set .tit {margin-top: 5px;}
 .sceanario_set .vb_answer_set .tit.inline {display: inline-block;}
 .sceanario_set .vb_answer_set .tit.inline + .tit.inline {margin-left: 30px;}
-.vb_answer_set .select {margin-left: 10px;}
-.vb_answer_set .fast_select {margin-left: 10px;}
-.vb_answer_set .fast_select .select {margin-left: 0;}
+.sceanario_set .vb_answer_set .select {margin-left: 10px;}
+.sceanario_set .vb_answer_set .fast_select {margin-left: 10px;}
+.sceanario_set .vb_answer_set .fast_select .select {margin-left: 0;}
+
+#vb_test.sceanario_test {height: calc(100vh - 80px);}
+#vb_test.sceanario_test .vb_tab {height: 260px;}
+#vb_test.sceanario_test .vb_tab:last-child {height: 500px;}
+#vb_test.sceanario_test .vb_tab .vb_tab_cont {height: calc(100% - 56px);}
+#vb_test.sceanario_test .vb_tab_cont .test_user_data,
+#vb_test.sceanario_test .vb_tab_cont .test_debug_view {height: 100%;}
+#vb_test.sceanario_test .vb_tab_cont .test_user_data .common_lst_tbltype,
+#vb_test.sceanario_test .vb_tab_cont .test_debug_view .content {height: calc(100% - 36px);}
+#vb_test.sceanario_test .vb_tab_cont .chat_talk,
+#vb_test.sceanario_test .vb_tab_cont .voice_talk {overflow: auto; position: relative; height: 100%; margin-top: 10px;}
+#vb_test.sceanario_test .vb_tab_cont .voice_talk {height: calc(100% - 46px);}
+#vb_test.sceanario_test .vb_tab_cont .blind {position: absolute; z-index: 1; top: 0; left: 0; width: 100%; height: 100%; padding-top: 100px; background: #F5F7F9; box-sizing: border-box; text-align: center;}
+#vb_test.sceanario_test .vb_tab_cont .chat_talk .blind {padding-top: 146px; border: 1px solid #ececfa; border-radius: 10px;}
+#vb_test.sceanario_test .vb_tab_cont .blind .btn_primary {margin-top: 10px;}
+#vb_test .voice_talk_info input {display: inline-block; width: calc(100% - 80px);}
+#vb_test .voice_talk_info button {display: inline-block; width: 70px; margin-left: 5px; vertical-align: baseline;}
 
 #intent_detail_container {width: 965px; margin-top: 10px;}
 input[name="intent_name"] {width: 400px;}
@@ -458,28 +474,29 @@ input[name="intent_seleted_task"] {margin-bottom: 10px;}
 
 #task_detail_container dl {margin-top: 10px;}
 #task_detail_container input.ipt_txt,
+#task_detail_container .fast_search_select {display: inline-block;}
 #task_detail_container .select {width: 300px;}
-#task_detail_container .select + .select {margin-left: 5px;}
+#task_detail_container .fast_search_select + .fast_search_select {margin-left: 5px;}
 #task_detail_container dt a {margin-left: 15px;}
 
-#update_date {color: #686a73; vertical-align: bottom;}
+#update_date {display: inline-block; margin-left: 5px; color: #686a73; vertical-align: bottom;}
 
 #set_answer_count,
 #set_dial_count {display: inline-block; width: 200px;}
 #set_answer_count .select,
 #set_dial_count .select {vertical-align: baseline;}
 
-.voice_talk * {font-family: "Spoqa Han Sans", sans-serif;}
+.voice_talk {padding: 5px 0; border: 1px solid #ececfa; border-radius: 10px; background: #f7f8fa;}
+.voice_talk li {font-family: "Spoqa Han Sans", sans-serif;}
 .voice_talk .system_entry {position:relative; text-align:center; font-size:12px;}
 .voice_talk .system_entry:before {content:''; display:block; position:absolute; top:50%; left:0; width:100%; height:1px; background-color:#ececfa;}
-.voice_talk .system_entry span {font-weight: 700;}
-.voice_talk .system_entry em {display:inline-block; position:relative; padding:0 10px; background-color:#fff; color:#403738;}
-.voice_talk li .message {position:relative; display:inline-block; max-width:300px; margin:0; padding:7px 10px; color:#403738; font-size: 14px; font-style:normal; text-align:left; word-break:break-all; line-height:22px; border:1px solid #ebeaef; border-radius:7px 7px 7px 0; background:#fff;}
-.voice_talk div.time {display:block; color:#a3a5b3; font-size:11px;}
-.voice_talk div.time .time {display:inline-block; color:#a3a5b3; font-size:11px; font-weight:normal;}
+.voice_talk .system_entry em {display:inline-block; position:relative; padding:0 10px; background-color:#f7f8fa; font-size: 12px; color:#403738;}
+.voice_talk .system_entry em span {font-weight: 700;}
+.voice_talk li .message {position:relative; display:inline-block; max-width:300px; margin:0; padding:7px 10px; color:#403738; font-style:normal; text-align:left; word-break:break-all; line-height:22px; border:1px solid #ebeaef; border-radius:7px 7px 7px 0; background:#fff; user-select: text;}
+.voice_talk div.time {display:block; color:#a3a5b3; font-size:11px; user-select: text;}
 .voice_talk li.user div.time {text-align: right;}
-.voice_talk li.bot {overflow:hidden; position:relative; min-height:34px; padding:3px 65px 3px 55px; text-align:left;}
-.voice_talk li.bot:before {content:''; display:block; position:absolute; top:0; left:5px; width:25px; height:25px; border-radius:50%; border:1px solid #e3e5ea; background:#fff url("../images/ico_testbot.png") 50% 50% no-repeat; background-size:cover;}
+.voice_talk li.bot {overflow:hidden; position:relative; min-height:34px; padding:3px 65px 3px 40px; text-align:left;}
+.voice_talk li.bot:before {content:''; display:block; position:absolute; top:10px; left:5px; width:25px; height:25px; border-radius:50%; border:1px solid #e3e5ea; background:#fff url("../images/ico_testbot.png") 50% 50% no-repeat; background-size:cover;}
 .voice_talk li.user {overflow:hidden; padding:2px 10px 2px 80px; text-align:right;}
 
 /* table */

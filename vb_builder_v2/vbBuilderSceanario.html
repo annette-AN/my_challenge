@@ -11,37 +11,12 @@
 
   <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="js/popper-2.5.4.min.js"></script>
+  <script src="https://static.maum.ai/common/resources/js/mui_alert.js"></script>
+  <script type="text/javascript" src="js/vbCommon.js"></script>
   <script type="text/javascript" src="js/vbSceanario.js"></script>
   <title>시나리오</title>
 </head>
 <body>
-  <!-- ie로 접속 시 뜨는 팝업 창 -->
-  <div class="pop_confirm">
-    <div class="pop_bg"></div>
-    <!-- .popWrap -->
-    <div class="popWrap" style="min-width:460px">
-      <button class="pop_close" type="button">닫기</button>
-      <!-- .pop_bd -->
-      <div class="pop_bd">
-        <!--아이콘 부분-->
-        <em class="fas fa-exclamation-triangle"></em>
-        <!--제목 부분-->
-        <p>권장 브라우저 안내</p>
-        <!--내용 부분-->
-        <span>음성봇빌더는 <strong>크롬(Chrome) 브라우저</strong>에 최적화 되어있습니다.
-          <span style="display:block;margin-top:4px;">크롬 브라우저에서 음성봇빌더를 만나보세요!</span>
-        </span>
-      </div>
-      <!-- //.pop_bd -->
-      <!--창닫기 버튼 -->
-      <div class="btn">
-        <button class="btn_close" >창닫기</button>
-      </div>
-      <!--창닫기 버튼 -->
-    </div>
-    <!-- //.popWrap -->
-  </div>
-  
   <!-- vb_wrap vb:voicebot -->
   <div id="vb_wrap">
     <!-- vb_container -->
@@ -62,15 +37,15 @@
                 </div>
                 <ul id="vb_gnb" class="select_list scroll">
                   <li>
-                    <input type="radio" name="vb_test" id="fs_1" class="radio">
+                    <input type="radio" name="vbbb" id="fs_1" class="radio">
                     <label for="fs_1">시나리오 리스트1</label>
                   </li>
                   <li>
-                    <input type="radio" name="vb_test" id="fs_2" class="radio">
+                    <input type="radio" name="vbbb" id="fs_2" class="radio">
                     <label for="fs_2">시나리오 리스트2</label>
                   </li>
                   <li>
-                    <input type="radio" name="vb_test" id="fs_3" class="radio">
+                    <input type="radio" name="vbbb" id="fs_3" class="radio">
                     <label for="fs_3">시나리오 리스트3</label>
                   </li>
                 </ul>
@@ -106,7 +81,9 @@
             <button type="button" title="의도와 TASK가 함께 업로드 됩니다." class="btn_secondary" data-modal="upload_excel" onclick="handleModal()">엑셀 업로드</button>
             <button type="button" class="btn_secondary">엑셀 다운로드</button>
             <button type="button" class="btn_primary">저장(챗봇에 반영)</button>
+            <!-- [D] 저장을 한 번도 하지 않은 경우 -->
             <span id="update_date">Never updated</span>
+            <!-- [D] 저장을 한 경우 -->
             <span id="update_date">Dec 9, 2020 11:28:23 AM Updated</span>
           </div>
           <!-- //content_btns -->
@@ -117,7 +94,7 @@
             <!-- [D] defualt : 첫번째 셀렉트만 보여짐
               셀렉트를 선택하면 그 다음 depth 셀렉트가 보여져야 합니다 
             -->
-            <div class="fast_search_select">
+            <div class="fast_search_select" id="task_group_depth1">
               <input type="text" class="select text_ellipsis" placeholder="선택안함" readonly>
               <div class="fast_search_option">
                 <div class="ipt_box">
@@ -211,6 +188,10 @@
                     <!-- //cont_tit -->
                     <!-- cont -->
                     <div class="cont scroll">
+                      <div class="vb_answer no_list">
+                        등록된 조건답변이 없습니다.
+                      </div>
+                      
                       <div class="vb_answer">
                         <div class="mapping_info">
                           <a href="#none" title="의도 자세히 보기">YES</a> &#187; <a href="#none" title="다음 태스크 자세히 보기">다음 태스크</a>
@@ -392,15 +373,15 @@
                         </div>
                         <ul id="vb_gnb" class="select_list scroll">
                           <li>
-                            <input type="radio" name="vb_test" id="fs_1" class="radio">
+                            <input type="radio" name="vbb" id="fs_1" class="radio">
                             <label for="fs_1">시나리오 리스트1</label>
                           </li>
                           <li>
-                            <input type="radio" name="vb_test" id="fs_2" class="radio">
+                            <input type="radio" name="vbb" id="fs_2" class="radio">
                             <label for="fs_2">시나리오 리스트2</label>
                           </li>
                           <li>
-                            <input type="radio" name="vb_test" id="fs_3" class="radio">
+                            <input type="radio" name="vbb" id="fs_3" class="radio">
                             <label for="fs_3">시나리오 리스트3</label>
                           </li>
                         </ul>
@@ -501,7 +482,7 @@
       <!-- //vb_cont_box -->
 
       <!-- vb_test -->
-      <div id="vb_test">
+      <div id="vb_test" class="sceanario_test scroll">
         <div class="float_box">
           <button type="button" class="btn_primary fr" onclick="closeTest()">닫기</button>
         </div>
@@ -560,6 +541,18 @@
                     <input type="text" class="ipt_txt" placeholder="네모보험">
                   </div>
                 </li>
+                <li>
+                  <div class="li_col">
+                    <input type="checkbox" name="intent_task" class="checkbox" id="list04">
+                    <label for="list04"></label>
+                  </div>
+                  <div class="li_col">
+                    <input type="text" class="ipt_txt" placeholder="">
+                  </div>
+                  <div class="li_col">
+                    <input type="text" class="ipt_txt" placeholder="">
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -613,30 +606,46 @@
           <!-- //vb_tab_menu -->
           <!-- vb_tab_cont 챗봇 -->
           <div class="vb_tab_cont">
-            <div class="blind">
-              <p>START를 눌러 대화를</p>
-              <p>시작해주세요.</p>
-              <button type="button" class="btn_primary small btn_delete_blind">START</button>
-            </div>
             <div class="chat_talk">
+              <div class="blind">
+                <p>START를 눌러 대화를</p>
+                <p>시작해주세요.</p>
+                <button type="button" class="btn_primary small btn_delete_blind" disabled>START</button>
+              </div>
+
               챗봇 영역
             </div>
           </div>
           <!-- //vb_tab_cont -->
           <!-- vb_tab_cont 음성봇 -->
           <div class="vb_tab_cont">
-            <div>
+            <div class="voice_talk_info">
               <input type="number" class="ipt_txt" placeholder="전화번호 입력">
-              <button type="button" class="btn_primary small btn_delete_blind">전화걸기</button>
+              <button type="button" class="btn_primary small btn_delete_blind" disabled>전화걸기</button>
             </div>
-            <div class="voice_talk">
-              <div class="blind">
+            <ul class="voice_talk scroll">
+              <li class="blind">
                 <p>상단 입력창에서</p>
                 <p>정보를 입력하신 후</p>
                 <p>전화 걸기를 눌러주세요.</p>
-              </div>
-              음성봇 영역
-            </div>
+              </li>
+
+              <li class="system_entry">
+                <em>전화가 연결되었습니다.</em>
+              </li>
+              <li class="bot">
+                <div class="message">
+                  message
+                </div>
+                <div class="time">time</div>
+              </li>
+              <li class="user">
+                <div class="message">
+                  message
+                </div>
+                <div class="time">time</div>
+              </li>
+            </ul>
           </div>
           <!-- //vb_tab_cont -->
         </div>
