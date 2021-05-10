@@ -1,8 +1,7 @@
 div,h1,h2,h3,h4,h5,h6,p,em,span,pre,label,input,select,textarea,blockquote,li,dt,dd,th,td,legend,a,button {font-family: "Noto Sans KR", sans-serif; font-size: 14px; color: #35384d; letter-spacing: -0.5px;}
-a:focus, input:focus, textarea:focus, button:focus, select:focus {outline-color: #717688;}
-input:focus,
-textarea:focus,
-select:focus{outline: none;}
+a:focus, input:focus, textarea:focus, button:focus, select:focus,
+a:active, input:active, textarea:active, button:active, select:active {outline-color: #717688;}
+input:focus, textarea:focus, select:focus{outline: none;}
 button:disabled {background-color:#E6E7E9; border-color: #E6E7E9; color: #a9a9a9;}
 div {user-select: none;}
 
