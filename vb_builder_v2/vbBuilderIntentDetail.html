@@ -7,10 +7,12 @@
 
   <link rel="stylesheet" href="css/font.css">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/vbBuilder.css">
 
   <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/popper-2.5.4.min.js"></script>
+  <script src="https://static.maum.ai/common/resources/js/mui_alert.js"></script>
+  <script type="text/javascript" src="js/vbCommon.js"></script>
   <title>의도 추가/설정</title>
 </head>
 <body>
@@ -29,7 +31,7 @@
         <div id="vb_header">
           <div>
             <span class="content_title">시나리오 목록</span>
-            <div class="fast_search_select">
+            <div id="sceanario_list" class="fast_search_select">
               <input type="text" class="select text_ellipsis" placeholder="시나리오를 선택해주세요" value="마인즈랩 보이스봇(한국어)" readonly>
               <div class="fast_search_option">
                 <div class="ipt_box">

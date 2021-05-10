@@ -11,7 +11,9 @@
 
   <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="js/popper-2.5.4.min.js"></script>
-  <script type="text/javascript" src="js/vbIntention.js"></script>
+  <script src="https://static.maum.ai/common/resources/js/mui_alert.js"></script>
+  <script type="text/javascript" src="js/vbCommon.js"></script>
+  <script type="text/javascript" src="js/vbTaskDetail.js"></script>
   <title>TASK 추가/설정</title>
 </head>
 <body>
@@ -88,24 +90,75 @@
             <dl>
               <dt>태스크 그룹 <a href="#none" class="btn_secondary small" data-modal="set_task_group" onclick="handleModal()">TASK 그룹 관리</a></dt>
               <dd>
-                <select name="" id="" class="select">
-                  <option value="default">선택안함</option>
-                  <option value="default">select01</option>
-                  <option value="default">select02</option>
-                  <option value="default">select03</option>
-                </select>
-                <select name="" id="" class="select">
-                  <option value="default">선택안함</option>
-                  <option value="default">select01</option>
-                  <option value="default">select02</option>
-                  <option value="default">select03</option>
-                </select>
-                <select name="" id="" class="select">
-                  <option value="default">선택안함</option>
-                  <option value="default">select01</option>
-                  <option value="default">select02</option>
-                  <option value="default">select03</option>
-                </select>
+                <div id="task_group_depth1" class="fast_search_select">
+                  <input type="text" class="select text_ellipsis" placeholder="태스크 그룹을 선택해주세요" readonly>
+                  <div class="fast_search_option">
+                    <div class="ipt_box">
+                      <input type="text" class="ipt_txt search">
+                      <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                    </div>
+                    <ul id="vb_gnb" class="select_list scroll">
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_1" class="radio">
+                        <label for="fs_1">시나리오 리스트1</label>
+                      </li>
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_2" class="radio">
+                        <label for="fs_2">시나리오 리스트2</label>
+                      </li>
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_3" class="radio">
+                        <label for="fs_3">시나리오 리스트3</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="fast_search_select">
+                  <input type="text" class="select text_ellipsis" placeholder="태스크 그룹을 선택해주세요" readonly>
+                  <div class="fast_search_option">
+                    <div class="ipt_box">
+                      <input type="text" class="ipt_txt search">
+                      <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                    </div>
+                    <ul id="vb_gnb" class="select_list scroll">
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_1" class="radio">
+                        <label for="fs_1">시나리오 리스트1</label>
+                      </li>
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_2" class="radio">
+                        <label for="fs_2">시나리오 리스트2</label>
+                      </li>
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_3" class="radio">
+                        <label for="fs_3">시나리오 리스트3</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="fast_search_select">
+                  <input type="text" class="select text_ellipsis" placeholder="태스크 그룹을 선택해주세요" readonly>
+                  <div class="fast_search_option">
+                    <div class="ipt_box">
+                      <input type="text" class="ipt_txt search">
+                      <button type="button" class="btn_search"><span class="text_hide">검색하기</span></button>
+                    </div>
+                    <ul id="vb_gnb" class="select_list scroll">
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_1" class="radio">
+                        <label for="fs_1">시나리오 리스트1</label>
+                      </li>
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_2" class="radio">
+                        <label for="fs_2">시나리오 리스트2</label>
+                      </li>
+                      <li>
+                        <input type="radio" name="vb_test" id="fs_3" class="radio">
+                        <label for="fs_3">시나리오 리스트3</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </dd>
             </dl>
             <dl>
