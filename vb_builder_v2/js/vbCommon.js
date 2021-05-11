@@ -8,6 +8,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+  handleTabMenu();
   createFastSearchSelect($('#sceanario_list'), sceandata, sceanSelectedData);
   bodyClickCloseEvent($('#sceanario_list .fast_search_option'));
 });
@@ -39,6 +40,35 @@ function openTest() {
 function closeTest() {
   $('#vb_container').removeClass('test_on');
   $('#go_test').addClass('active');
+}
+
+// 탭메뉴 열기 닫기
+function handleTabMenu() {
+  var tabGroup = '';
+  var tabIndex = 0;
+
+  $('.vb_tab').each(function(){
+    tabGroup = $(this);
+    openTab(tabIndex);
+  });
+
+  $('.vb_tab_menu button').on('click', function(){
+    tabGroup = $(this).parents('.vb_tab');
+    tabIndex = tabGroup.find('.vb_tab_menu button').index($(this));
+
+    closeTab();
+    openTab(tabIndex);
+  });
+
+  function openTab(index){
+    tabGroup.find('.vb_tab_menu button').eq(index).addClass('active');
+    tabGroup.find('.vb_tab_cont').eq(index).addClass('active');
+  }
+
+  function closeTab() {
+    tabGroup.find('.vb_tab_menu button').removeClass('active');
+    tabGroup.find('.vb_tab_cont').removeClass('active');
+  }
 }
 
 // 검색기능이 포함된 셀렉트 이벤트
